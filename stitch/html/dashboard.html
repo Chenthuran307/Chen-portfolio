@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Manager Dashboard</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --card-bg: rgba(22, 22, 26, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #5e5ce6;
+      --accent-hover: #4a48b8;
+      --text: #f5f5f7;
+      --text-muted: #8e8e93;
+      --success: #30d158;
+      --error: #ff453a;
+      --warning: #ff9f0a;
+      --input-bg: #1c1c1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(94, 92, 230, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(48, 209, 88, 0.05) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0;
+      display: grid;
+      grid-template-cols: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 900px) {
+      .container {
+        grid-template-columns: 1.2fr 0.8fr;
+        margin: 0 auto;
+      }
+      .header-full {
+        grid-column: span 2;
+      }
+    }
+
+    header {
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 32px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-size: 15px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      background-color: var(--input-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(94, 92, 230, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 600px) {
+      .row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    button {
+      flex: 1;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      background-color: #2c2c2e;
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background-color: #3a3a3c;
+    }
+
+    .btn-deploy {
+      background-color: var(--success);
+      color: #000;
+      width: 100%;
+    }
+
+    .btn-deploy:hover {
+      background-color: #28b84e;
+    }
+
+    .btn-deploy:disabled {
+      background-color: #1e3a24;
+      color: rgba(255, 255, 255, 0.3);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Console Styling */
+    .console-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 400px;
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: -10px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background-color: #1c1c1e;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+    }
+
+    .status-badge.running {
+      color: var(--warning);
+      border-color: rgba(255, 159, 10, 0.3);
+      background-color: rgba(255, 159, 10, 0.05);
+    }
+
+    .status-badge.success {
+      color: var(--success);
+      border-color: rgba(48, 209, 88, 0.3);
+      background-color: rgba(48, 209, 88, 0.05);
+    }
+
+    .status-badge.error {
+      color: var(--error);
+      border-color: rgba(255, 69, 58, 0.3);
+      background-color: rgba(255, 69, 58, 0.05);
+    }
+
+    .console {
+      background-color: #000;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 13px;
+      color: #30d158;
+      overflow-y: auto;
+      flex: 1;
+      min-height: 300px;
+      max-height: 500px;
+      box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Custom scrollbar for console */
+    .console::-webkit-scrollbar {
+      width: 8px;
+    }
+    .console::-webkit-scrollbar-track {
+      background: #050505;
+      border-radius: 0 12px 12px 0;
+    }
+    .console::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    .console::-webkit-scrollbar-thumb:hover {
+      background: #444;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #1c1c1e;
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      color: var(--success);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header class="header-full">
+      <h1>Portfolio Local Manager</h1>
+      <p>Modify your homepage content and tune your AI assistant prompt. Everything updates locally and deploys globally with one click.</p>
+    </header>
+
+    <!-- Editor Column -->
+    <main class="card">
+      <h2>Edit Portfolio Content</h2>
+      
+      <!-- Section 1: Hero Block -->
+      <section style="display: flex; flex-direction: column; gap: 16px;">
+        <h3 style="font-size: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">1. Hero Header Section</h3>
+        
+        <div class="form-group">
+          <label for="hero-title">Greeting (Hero Title)</label>
+          <input type="text" id="hero-title" placeholder="Hey, I'm (Chen)thuran.">
+        </div>
+        
+        <div class="form-group">
+          <label for="hero-subtitle">Tagline (Hero Subtitle - Italicized)</label>
+          <input type="text" id="hero-subtitle" placeholder="A Problem finder, Observer and a system thinker.">
+        </div>
+        
+        <div class="form-group">
+          <label for="hero-about">Intro About Paragraph</label>
+          <textarea id="hero-about" rows="4" placeholder="Brief description of your role, years of experience, and philosophy..."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 2: AI Prompt Settings -->
+      <section style="display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--card-border); padding-top: 24px;">
+        <h3 style="font-size: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">2. AI Assistant Configuration</h3>
+        
+        <div class="row">
+          <div class="form-group">
+            <label for="ai-name">Display Name</label>
+            <input type="text" id="ai-name" placeholder="Chenthuran">
+          </div>
+          <div class="form-group">
+            <label for="ai-title">Role Title</label>
+            <input type="text" id="ai-title" placeholder="Designer, Observer & System Thinker">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="ai-about">Short Bio Summary</label>
+          <input type="text" id="ai-about" placeholder="Senior UX/Product Designer with 10+ years of experience.">
+        </div>
+        
+        <div class="form-group">
+          <label for="ai-expertise">Expertise Points (one per line)</label>
+          <textarea id="ai-expertise" rows="6" placeholder="1. Enterprise UX - Description...&#10;2. Design Systems - Description..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="ai-highlights">Career Highlights (one per line)</label>
+          <textarea id="ai-highlights" rows="4" placeholder="- 30+ Projects Completed&#10;- 10+ Years of Experience"></textarea>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn-secondary" onclick="loadContent()">Reset Forms</button>
+        <button class="btn-primary" onclick="saveContent()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Changes
+        </button>
+      </div>
+    </main>
+
+    <!-- Deploy Status Column -->
+    <aside class="card console-wrapper">
+      <div class="console-header">
+        <h2>Deployment Console</h2>
+        <div id="status-badge" class="status-badge">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--text-muted); display: inline-block;"></span>
+          <span id="status-text">Idle</span>
+        </div>
+      </div>
+      
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: -10px;">Deploying will trigger a Git push and Vercel production build automatically.</p>
+      
+      <div id="console-log" class="console">Console output will appear here after clicking Deploy...</div>
+      
+      <button id="deploy-btn" class="btn-deploy" onclick="startDeployment()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Deploy to Website
+      </button>
+    </aside>
+
+  </div>
+
+  <!-- Toast Element -->
+  <div id="toast" class="toast">
+    <span class="toast-icon">✓</span>
+    <span id="toast-message">Changes saved successfully!</span>
+  </div>
+
+  <script>
+    let isDeploying = false;
+    let logInterval = null;
+
+    // Load initial content on page load
+    window.addEventListener('DOMContentLoaded', loadContent);
+
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = toast.querySelector('.toast-icon');
+      
+      toastMsg.innerText = message;
+      if (isError) {
+        toast.style.borderColor = 'var(--error)';
+        toastIcon.innerText = '✗';
+        toastIcon.style.color = 'var(--error)';
+      } else {
+        toast.style.borderColor = 'var(--accent)';
+        toastIcon.innerText = '✓';
+        toastIcon.style.color = 'var(--success)';
+      }
+      
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/dashboard/load');
+        if (!response.ok) throw new Error('Failed to load portfolio content.');
+        const data = await response.json();
+        
+        // Populate Hero fields
+        document.getElementById('hero-title').value = data.hero_title || '';
+        document.getElementById('hero-subtitle').value = data.hero_subtitle || '';
+        document.getElementById('hero-about').value = data.hero_about || '';
+        
+        // Populate AI Prompt fields
+        document.getElementById('ai-name').value = data.name || '';
+        document.getElementById('ai-title').value = data.title || '';
+        document.getElementById('ai-about').value = data.about || '';
+        
+        document.getElementById('ai-expertise').value = (data.expertise || []).join('\n');
+        document.getElementById('ai-highlights').value = (data.highlights || []).join('\n');
+        
+        showToast('Portfolio loaded successfully!');
+        
+        // Check if deployment is already running in background
+        checkDeploymentStatus();
+      } catch (err) {
+        console.error(err);
+        showToast(err.message, true);
+      }
+    }
+
+    async function saveContent() {
+      const payload = {
+        hero_title: document.getElementById('hero-title').value,
+        hero_subtitle: document.getElementById('hero-subtitle').value,
+        hero_about: document.getElementById('hero-about').value,
+        name: document.getElementById('ai-name').value,
+        title: document.getElementById('ai-title').value,
+        about: document.getElementById('ai-about').value,
+        expertise: document.getElementById('ai-expertise').value.split('\n').filter(l => l.trim() !== ''),
+        highlights: document.getElementById('ai-highlights').value.split('\n').filter(l => l.trim() !== '')
+      };
+
+      try {
+        const response = await fetch('/api/dashboard/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error('Failed to save changes.');
+        const res = await response.json();
+        if (res.status === 'success') {
+          showToast('Changes saved locally! Ready to deploy.');
+        } else {
+          throw new Error(res.message || 'Unknown save error');
+        }
+      } catch (err) {
+        console.error(err);
+        showToast(err.message, true);
+      }
+    }
+
+    async function startDeployment() {
+      if (isDeploying) return;
+      
+      const deployBtn = document.getElementById('deploy-btn');
+      deployBtn.disabled = true;
+      document.getElementById('console-log').textContent = "Initializing deployment background thread...\n";
+      
+      try {
+        const response = await fetch('/api/dashboard/deploy', { method: 'POST' });
+        if (!response.ok) throw new Error('Could not launch deployment pipeline.');
+        
+        showToast('Deployment pipeline started!');
+        pollLogs();
+      } catch (err) {
+        console.error(err);
+        showToast(err.message, true);
+        deployBtn.disabled = false;
+      }
+    }
+
+    function pollLogs() {
+      if (logInterval) clearInterval(logInterval);
+      
+      updateStatusBadge('running', 'Deploying');
+      
+      logInterval = setInterval(async () => {
+        try {
+          const response = await fetch('/api/dashboard/deploy-log');
+          if (!response.ok) return;
+          const data = await response.json();
+          
+          const consoleLog = document.getElementById('console-log');
+          consoleLog.textContent = data.log;
+          consoleLog.scrollTop = consoleLog.scrollHeight; // Auto scroll
+          
+          if (!data.running) {
+            clearInterval(logInterval);
+            document.getElementById('deploy-btn').disabled = false;
+            
+            // Check if log contains Success indicator
+            if (data.log.includes('Successfully!')) {
+              updateStatusBadge('success', 'Live');
+              showToast('Website updated successfully! 🎉');
+            } else if (data.log.includes('[Error]')) {
+              updateStatusBadge('error', 'Failed');
+              showToast('Deployment failed. See logs.', true);
+            } else {
+              updateStatusBadge('idle', 'Idle');
+            }
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }, 1500);
+    }
+
+    async function checkDeploymentStatus() {
+      try {
+        const response = await fetch('/api/dashboard/deploy-log');
+        if (!response.ok) return;
+        const data = await response.json();
+        
+        if (data.running) {
+          document.getElementById('deploy-btn').disabled = true;
+          document.getElementById('console-log').textContent = data.log;
+          pollLogs();
+        } else {
+          if (data.log && data.log.includes('Successfully!')) {
+            updateStatusBadge('success', 'Live');
+          } else if (data.log && data.log.includes('[Error]')) {
+            updateStatusBadge('error', 'Failed');
+          } else {
+            updateStatusBadge('idle', 'Idle');
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function updateStatusBadge(type, text) {
+      const badge = document.getElementById('status-badge');
+      const textEl = document.getElementById('status-text');
+      const dot = badge.querySelector('span');
+      
+      badge.className = 'status-badge ' + type;
+      textEl.innerText = text;
+      
+      if (type === 'running') {
+        dot.style.backgroundColor = 'var(--warning)';
+      } else if (type === 'success') {
+        dot.style.backgroundColor = 'var(--success)';
+      } else if (type === 'error') {
+        dot.style.backgroundColor = 'var(--error)';
+      } else {
+        dot.style.backgroundColor = 'var(--text-muted)';
+      }
+    }
+  </script>
+</body>
+</html>

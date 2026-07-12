@@ -1,0 +1,9 @@
+# Exclude local management dashboard from production build
+stitch/html/dashboard.html
+
+# Exclude local log files
+*.log
+deploy.log
+.system_generated/
+.gemini/
+.agents/

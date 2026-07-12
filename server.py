@@ -5,63 +5,87 @@ import json
 import urllib.request
 import urllib.error
 import threading
+import subprocess
+import re
 
 PORT = 3000
 NVIDIA_API_KEY = "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"
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 MODEL = "meta/llama-3.1-8b-instruct"  # Faster smaller model
 
-SYSTEM_PROMPT = """You are Chen's personal AI assistant on his portfolio website, answering recruiters' questions about him.
-Speak confidently on his behalf. Be professional yet warm.
+from api.prompt_loader import get_system_prompt
 
-FORMATTING RULES (strictly follow these):
-- ALWAYS respond using bullet points (use • as the bullet character), never write a wall of text or a single paragraph.
-- Start with a one-line intro sentence, then list key points as bullets.
-- Each bullet should be short and scannable (max 1-2 lines).
-- Use a blank line between the intro and the bullets.
-- If sharing a page link, place it as its own bullet at the end labeled "→ View:" followed by the URL.
-- Maximum 5 bullets per response. Keep it tight.
+# Deployment global state
+deploy_running = False
+deploy_log_path = "deploy.log"
 
-When relevant, mention specific page links like:
-- Portfolio home: https://chenthuran.in
-- Selected Work: https://chenthuran.in/work
-- Idea Godown: https://chenthuran.in/03_idea_godown_research_ledger
-- Contact: https://chenthuran.in/contact
-- Transforming a Design System case study: https://chenthuran.in/transforming-a-design-system
-- Horizon Bank Developer Central: https://chenthuran.in/horizon-bank-developer-central
-- DOSB Financing Ecosystem: https://chenthuran.in/dosb-financing-ecosystem
+def extract_element_by_id(html_content, element_id):
+    pattern = rf'<([a-zA-Z0-9]+)[^>]*id="{element_id}"[^>]*>(.*?)</\1>'
+    match = re.search(pattern, html_content, flags=re.DOTALL)
+    if match:
+        return match.group(2).strip()
+    return ""
 
-=== ABOUT CHEN ===
-Name: Chenthuran, goes by Chen. Senior UX/Product Designer with 10+ years of experience.
-Title: Designer, Observer & System Thinker.
+def update_element_by_id(html_content, element_id, new_text):
+    pattern = rf'(<([a-zA-Z0-9]+)[^>]*id="{element_id}"[^>]*>)(.*?)(</\2>)'
+    # Replace content, maintaining a nice clean indented output style
+    return re.sub(pattern, lambda m: m.group(1) + "\n          " + new_text + "\n        " + m.group(4), html_content, flags=re.DOTALL)
 
-=== EXPERTISE ===
-1. Enterprise & Developer UX — Simplifies internal developer tools and SaaS interfaces. Converts high-touch setup steps into self-service workspaces engineers confidently manage.
-2. Design Systems & Process Strategy — Builds tokenized components and process strategy to bridge design and engineering. Reduced handoff friction by 90% through process improvements.
-3. Fintech & DLT Architectures — Designs multi-party payment flows using Distributed Ledger Technology. Translates DeFi protocols into trust-centered visual metaphors.
-4. Systems Thinking & Architecture — Maps complex enterprise ecosystems into cohesive digital architectures balancing business rules with intuitive UX.
-5. Product Strategy & Innovation — Transforms ambiguous requests into clear strategic directions, prototyping hypotheses before committing resources.
-6. AI & Agentic Design — Designs explainable, trust-centered agentic workspaces focused on transparency and inspectable AI outputs.
-
-=== CAREER HIGHLIGHTS ===
-- 30+ Projects Completed
-- 10+ Industries: Fintech, DeFi/DLT, Enterprise SaaS, Developer Tools, Banking, Healthcare, Government, Gaming
-- 90% Handoff Friction Reduced through design systems and process strategy
-- 10+ Years of Experience
-
-=== KEY PROJECTS ===
-1. Transforming a Design System — Redesigned legacy banking design system, implemented tokenization and accessibility standards.
-2. Horizon Bank Developer Central — Developer-facing documentation and API playground portal. Focus: developer experience, self-service tooling.
-3. DOSB Financing Ecosystem — UX for a DeFi financing platform bridging funding gaps for diverse-owned small businesses.
-4. Idea Godown — A brutalist research repository where Chen stores raw product hypotheses and pressure-tests concepts before production.
-
-=== PHILOSOPHY ===
-Collects observations, challenges assumptions, explores ideas worth solving. Believes design is about systems, not just polished interfaces.
-
-=== CONTACT ===
-Recruiters can reach Chen via the Contact page: https://chenthuran.in/contact
-
-If asked something not in the above, say you don't have that detail and suggest visiting the Contact page."""
+def run_deployment():
+    global deploy_running
+    deploy_running = True
+    
+    with open(deploy_log_path, "w", encoding="utf-8") as log_file:
+        log_file.write("=== Starting One-Click Portfolio Deployment ===\n")
+        log_file.write(f"Working Directory: {os.getcwd()}\n\n")
+        log_file.flush()
+        
+        # Deployment steps
+        commands = [
+            ["git", "status"],
+            ["git", "add", "."],
+            ["git", "commit", "-m", "Update portfolio content via dashboard"],
+            ["git", "push", "origin", "main"],
+            ["npx", "vercel", "--prod", "--yes"]
+        ]
+        
+        for cmd in commands:
+            log_file.write(f"\n> Running: {' '.join(cmd)}\n")
+            log_file.flush()
+            try:
+                # Use shell=True for Windows environments to resolve command prompts
+                process = subprocess.Popen(
+                    cmd, 
+                    stdout=subprocess.PIPE, 
+                    stderr=subprocess.STDOUT, 
+                    text=True, 
+                    shell=True
+                )
+                
+                # Read output in real-time
+                for line in process.stdout:
+                    log_file.write(line)
+                    log_file.flush()
+                
+                process.wait()
+                if process.returncode != 0 and cmd[0] != "git":  # Git status can fail or commit can have exit code 1 if nothing changed
+                    # If nothing to commit, commit exit code is 1, so let's check if it was just "nothing to commit"
+                    if cmd[0] == "git" and cmd[1] == "commit":
+                        log_file.write("No local changes to commit. Proceeding...\n")
+                        log_file.flush()
+                        continue
+                    log_file.write(f"\n[Error] Command failed with exit code: {process.returncode}\n")
+                    log_file.flush()
+                    break
+            except Exception as e:
+                log_file.write(f"[Error] Command execution error: {e}\n")
+                log_file.flush()
+                break
+        else:
+            log_file.write("\n=== Deployment Completed Successfully! 🎉 ===\n")
+            log_file.flush()
+            
+    deploy_running = False
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -78,12 +102,32 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
-    def do_POST(self):
-        if self.path != "/api/chat":
-            self.send_response(404)
-            self.end_headers()
+    def do_GET(self):
+        # Premium route mapping: /dashboard -> /stitch/html/dashboard.html
+        if self.path == "/dashboard" or self.path == "/dashboard.html":
+            self.path = "/stitch/html/dashboard.html"
+            super().do_GET()
             return
 
+        if self.path == "/api/dashboard/load":
+            self._handle_load()
+        elif self.path == "/api/dashboard/deploy-log":
+            self._handle_deploy_log()
+        else:
+            super().do_GET()
+
+    def do_POST(self):
+        if self.path == "/api/chat":
+            self._handle_chat()
+        elif self.path == "/api/dashboard/save":
+            self._handle_save()
+        elif self.path == "/api/dashboard/deploy":
+            self._handle_deploy()
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+    def _handle_chat(self):
         content_length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_length)
 
@@ -96,7 +140,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             payload = json.dumps({
                 "model": MODEL,
                 "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "system", "content": get_system_prompt()},
                     {"role": "user", "content": user_message}
                 ],
                 "temperature": 0.5,
@@ -145,6 +189,113 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         except Exception as e:
             print(f"Server error: {e}")
             self._send_json(500, {"reply": "Something went wrong. Please try again."})
+
+    def _handle_load(self):
+        # 1. Read Hero Content from index.html (or fallback to 01_home.html)
+        html_path = os.path.join("stitch", "html", "index.html")
+        if not os.path.exists(html_path):
+            html_path = os.path.join("stitch", "html", "01_home.html")
+            
+        hero_title = ""
+        hero_subtitle = ""
+        hero_about = ""
+        
+        if os.path.exists(html_path):
+            try:
+                with open(html_path, "r", encoding="utf-8") as f:
+                    html_content = f.read()
+                hero_title = extract_element_by_id(html_content, "hero-title")
+                hero_subtitle = extract_element_by_id(html_content, "hero-subtitle")
+                hero_about = extract_element_by_id(html_content, "hero-about")
+            except Exception as e:
+                print(f"Error reading HTML: {e}")
+
+        # 2. Read Prompt JSON configuration
+        json_path = os.path.join("api", "prompt.json")
+        json_data = {}
+        if os.path.exists(json_path):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    json_data = json.load(f)
+            except Exception as e:
+                print(f"Error reading prompt.json: {e}")
+
+        response_data = {
+            "hero_title": hero_title,
+            "hero_subtitle": hero_subtitle,
+            "hero_about": hero_about,
+            "name": json_data.get("name", "Chenthuran"),
+            "title": json_data.get("title", ""),
+            "about": json_data.get("about", ""),
+            "expertise": json_data.get("expertise", []),
+            "highlights": json_data.get("highlights", [])
+        }
+        self._send_json(200, response_data)
+
+    def _handle_save(self):
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_length)
+        
+        try:
+            data = json.loads(body)
+            hero_title = data.get("hero_title", "").strip()
+            hero_subtitle = data.get("hero_subtitle", "").strip()
+            hero_about = data.get("hero_about", "").strip()
+            
+            # Save Hero Content to HTML files
+            pages = ["index.html", "01_home.html"]
+            for page in pages:
+                path = os.path.join("stitch", "html", page)
+                if os.path.exists(path):
+                    with open(path, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    
+                    content = update_element_by_id(content, "hero-title", hero_title)
+                    content = update_element_by_id(content, "hero-subtitle", hero_subtitle)
+                    content = update_element_by_id(content, "hero-about", hero_about)
+                    
+                    with open(path, "w", encoding="utf-8") as f:
+                        f.write(content)
+                        
+            # Save Dynamic Prompt Settings
+            json_path = os.path.join("api", "prompt.json")
+            json_data = {
+                "name": data.get("name", "Chenthuran").strip(),
+                "title": data.get("title", "").strip(),
+                "about": data.get("about", "").strip(),
+                "expertise": [item.strip() for item in data.get("expertise", []) if item.strip()],
+                "highlights": [item.strip() for item in data.get("highlights", []) if item.strip()]
+            }
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(json_data, f, indent=2)
+                
+            self._send_json(200, {"status": "success"})
+        except Exception as e:
+            print(f"Error saving: {e}")
+            self._send_json(500, {"status": "error", "message": str(e)})
+
+    def _handle_deploy(self):
+        global deploy_running
+        if deploy_running:
+            self._send_json(400, {"status": "error", "message": "Deployment is already running."})
+            return
+            
+        t = threading.Thread(target=run_deployment)
+        t.start()
+        self._send_json(200, {"status": "success", "message": "Deployment started."})
+
+    def _handle_deploy_log(self):
+        if not os.path.exists(deploy_log_path):
+            self._send_json(200, {"log": "No deployment log found. Click deploy to start.", "running": False})
+            return
+            
+        try:
+            with open(deploy_log_path, "r", encoding="utf-8") as f:
+                log_content = f.read()
+        except Exception as e:
+            log_content = f"Error reading log file: {e}"
+            
+        self._send_json(200, {"log": log_content, "running": deploy_running})
 
     def _send_json(self, code, data):
         body = json.dumps(data).encode("utf-8")
