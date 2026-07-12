@@ -11,8 +11,8 @@
   
   <style>
     :root {
-      --bg: #0d0d0f;
-      --card-bg: rgba(22, 22, 26, 0.7);
+      --bg: #0b0b0d;
+      --card-bg: rgba(20, 20, 24, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
       --accent: #5e5ce6;
       --accent-hover: #4a48b8;
@@ -21,7 +21,8 @@
       --success: #30d158;
       --error: #ff453a;
       --warning: #ff9f0a;
-      --input-bg: #1c1c1e;
+      --input-bg: #18181a;
+      --tab-active: rgba(255, 255, 255, 0.1);
     }
 
     * {
@@ -43,17 +44,16 @@
     }
 
     .container {
-      max-width: 1200px;
-      margin: 0;
+      max-width: 1300px;
+      margin: 0 auto;
       display: grid;
-      grid-template-cols: 1fr;
+      grid-template-columns: 1fr;
       gap: 30px;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .container {
-        grid-template-columns: 1.2fr 0.8fr;
-        margin: 0 auto;
+        grid-template-columns: 1.3fr 0.7fr;
       }
       .header-full {
         grid-column: span 2;
@@ -83,6 +83,50 @@
       font-size: 15px;
     }
 
+    /* Tabs Header */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background-color: var(--accent);
+    }
+
+    .tab-panel {
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tab-panel.active {
+      display: flex;
+    }
+
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(20px);
@@ -92,14 +136,13 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
-      gap: 24px;
     }
 
     .card h2 {
       font-size: 20px;
       border-bottom: 1px solid var(--card-border);
       padding-bottom: 12px;
-      margin-bottom: 4px;
+      margin-bottom: 20px;
       color: #fff;
     }
 
@@ -110,7 +153,7 @@
     }
 
     label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -152,14 +195,26 @@
       }
     }
 
+    .section-divider {
+      font-size: 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 8px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
     .actions {
       display: flex;
       gap: 16px;
-      margin-top: 10px;
+      margin-top: 30px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 20px;
     }
 
     button {
-      flex: 1;
       font-family: inherit;
       font-weight: 600;
       font-size: 14px;
@@ -214,19 +269,19 @@
       transform: none;
     }
 
-    /* Console Styling */
+    /* Console Column */
     .console-wrapper {
       display: flex;
       flex-direction: column;
       height: 100%;
-      min-height: 400px;
+      min-height: 500px;
     }
 
     .console-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: -10px;
+      margin-bottom: 15px;
     }
 
     .status-badge {
@@ -270,14 +325,14 @@
       color: #30d158;
       overflow-y: auto;
       flex: 1;
-      min-height: 300px;
-      max-height: 500px;
+      min-height: 350px;
+      max-height: 600px;
       box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
       white-space: pre-wrap;
       word-break: break-all;
+      margin-bottom: 20px;
     }
 
-    /* Custom scrollbar for console */
     .console::-webkit-scrollbar {
       width: 8px;
     }
@@ -289,17 +344,14 @@
       background: #333;
       border-radius: 4px;
     }
-    .console::-webkit-scrollbar-thumb:hover {
-      background: #444;
-    }
 
-    /* Toast Notification */
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background-color: #1c1c1e;
+      background-color: #1a1a1c;
       border: 1px solid var(--accent);
       color: #fff;
       padding: 14px 28px;
@@ -330,38 +382,39 @@
   <div class="container">
     
     <header class="header-full">
-      <h1>Portfolio Local Manager</h1>
-      <p>Modify your homepage content and tune your AI assistant prompt. Everything updates locally and deploys globally with one click.</p>
+      <h1>Portfolio Site Manager</h1>
+      <p>Configure Hero headings, AI prompt logic, selected case studies, and the Idea Godown. One-click deploy to global production.</p>
     </header>
 
     <!-- Editor Column -->
     <main class="card">
-      <h2>Edit Portfolio Content</h2>
       
-      <!-- Section 1: Hero Block -->
-      <section style="display: flex; flex-direction: column; gap: 16px;">
-        <h3 style="font-size: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">1. Hero Header Section</h3>
+      <!-- Tab Controls -->
+      <nav class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab(event, 'tab-general')">General & AI Assistant</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-projects')">Selected Projects</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-godown')">Idea Godown Ledger</button>
+      </nav>
+
+      <!-- TAB 1: GENERAL & AI -->
+      <div id="tab-general" class="tab-panel active">
+        <h2>General & AI Assistant Config</h2>
         
+        <h3 class="section-divider">1. Hero Header Section</h3>
         <div class="form-group">
           <label for="hero-title">Greeting (Hero Title)</label>
           <input type="text" id="hero-title" placeholder="Hey, I'm (Chen)thuran.">
         </div>
-        
         <div class="form-group">
-          <label for="hero-subtitle">Tagline (Hero Subtitle - Italicized)</label>
+          <label for="hero-subtitle">Tagline (Hero Subtitle)</label>
           <input type="text" id="hero-subtitle" placeholder="A Problem finder, Observer and a system thinker.">
         </div>
-        
         <div class="form-group">
           <label for="hero-about">Intro About Paragraph</label>
-          <textarea id="hero-about" rows="4" placeholder="Brief description of your role, years of experience, and philosophy..."></textarea>
+          <textarea id="hero-about" rows="4" placeholder="Description of your years of experience, design methodologies..."></textarea>
         </div>
-      </section>
-
-      <!-- Section 2: AI Prompt Settings -->
-      <section style="display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--card-border); padding-top: 24px;">
-        <h3 style="font-size: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;">2. AI Assistant Configuration</h3>
         
+        <h3 class="section-divider" style="margin-top: 20px;">2. AI Assistant System Prompt</h3>
         <div class="row">
           <div class="form-group">
             <label for="ai-name">Display Name</label>
@@ -372,22 +425,159 @@
             <input type="text" id="ai-title" placeholder="Designer, Observer & System Thinker">
           </div>
         </div>
-        
         <div class="form-group">
           <label for="ai-about">Short Bio Summary</label>
           <input type="text" id="ai-about" placeholder="Senior UX/Product Designer with 10+ years of experience.">
         </div>
-        
         <div class="form-group">
           <label for="ai-expertise">Expertise Points (one per line)</label>
           <textarea id="ai-expertise" rows="6" placeholder="1. Enterprise UX - Description...&#10;2. Design Systems - Description..."></textarea>
         </div>
-
         <div class="form-group">
           <label for="ai-highlights">Career Highlights (one per line)</label>
           <textarea id="ai-highlights" rows="4" placeholder="- 30+ Projects Completed&#10;- 10+ Years of Experience"></textarea>
         </div>
-      </section>
+      </div>
+
+      <!-- TAB 2: PROJECTS -->
+      <div id="tab-projects" class="tab-panel">
+        <h2>Selected Projects</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-top: -15px; margin-bottom: 10px;">Update preview texts of the 3 case studies across the home and work archive pages.</p>
+        
+        <!-- Project 1 -->
+        <h3 class="section-divider">Project 1: Design Systems</h3>
+        <div class="row">
+          <div class="form-group">
+            <label for="p1-tag">Category / Tag</label>
+            <input type="text" id="p1-tag" placeholder="Design Systems">
+          </div>
+          <div class="form-group">
+            <label for="p1-title">Project Title</label>
+            <input type="text" id="p1-title" placeholder="Transforming a Design System">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="p1-desc">Short Tagline Description</label>
+          <input type="text" id="p1-desc" placeholder="From component library to productivity platform.">
+        </div>
+
+        <!-- Project 2 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Project 2: Enterprise UX</h3>
+        <div class="row">
+          <div class="form-group">
+            <label for="p2-tag">Category / Tag</label>
+            <input type="text" id="p2-tag" placeholder="Enterprise UX">
+          </div>
+          <div class="form-group">
+            <label for="p2-title">Project Title</label>
+            <input type="text" id="p2-title" placeholder="Horizon Bank Developer Central">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="p2-desc">Short Tagline Description</label>
+          <input type="text" id="p2-desc" placeholder="Accelerating the developer lifecycle through modular architecture.">
+        </div>
+
+        <!-- Project 3 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Project 3: Fintech</h3>
+        <div class="row">
+          <div class="form-group">
+            <label for="p3-tag">Category / Tag</label>
+            <input type="text" id="p3-tag" placeholder="Fintech / DeFi">
+          </div>
+          <div class="form-group">
+            <label for="p3-title">Project Title</label>
+            <input type="text" id="p3-title" placeholder="DOSB Financing Ecosystem">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="p3-desc">Short Tagline Description</label>
+          <input type="text" id="p3-desc" placeholder="Bridging the financing gap for diverse-owned small businesses.">
+        </div>
+      </div>
+
+      <!-- TAB 3: IDEA GODOWN -->
+      <div id="tab-godown" class="tab-panel">
+        <h2>Idea Godown Ledger</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-top: -15px; margin-bottom: 10px;">Edit titles and core hypotheses of the 7 research projects stored in the Idea Godown.</p>
+        
+        <!-- Idea 1 -->
+        <h3 class="section-divider">Idea 1: Home Inventory</h3>
+        <div class="form-group">
+          <label for="idea1-title">Title</label>
+          <input type="text" id="idea1-title" placeholder="Home Inventory Intelligence">
+        </div>
+        <div class="form-group">
+          <label for="idea1-idea">Core Idea</label>
+          <textarea id="idea1-idea" rows="2" placeholder="Receipt-parsing AI and weight-sensitive shelving..."></textarea>
+        </div>
+
+        <!-- Idea 2 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 2: Adaptive Gaming</h3>
+        <div class="form-group">
+          <label for="idea2-title">Title</label>
+          <input type="text" id="idea2-title" placeholder="Pulse Adaptive Gaming">
+        </div>
+        <div class="form-group">
+          <label for="idea2-idea">Core Idea</label>
+          <textarea id="idea2-idea" rows="2" placeholder="Biometric game loop modulation using wearable API data..."></textarea>
+        </div>
+
+        <!-- Idea 3 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 3: Fitness Creator Tool</h3>
+        <div class="form-group">
+          <label for="idea3-title">Title</label>
+          <input type="text" id="idea3-title" placeholder="Creative Fitness Intelligence">
+        </div>
+        <div class="form-group">
+          <label for="idea3-idea">Core Idea</label>
+          <textarea id="idea3-idea" rows="2" placeholder="Drop raw video footage, AI recognizes actions and formats reel hooks..."></textarea>
+        </div>
+
+        <!-- Idea 4 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 4: AirPods Jewelry</h3>
+        <div class="form-group">
+          <label for="idea4-title">Title</label>
+          <input type="text" id="idea4-title" placeholder="AirPods Earrings">
+        </div>
+        <div class="form-group">
+          <label for="idea4-idea">Core Idea</label>
+          <textarea id="idea4-idea" rows="2" placeholder="Fashion-forward magnetic clips that lock wireless earbuds in place..."></textarea>
+        </div>
+
+        <!-- Idea 5 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 5: Story Architect</h3>
+        <div class="form-group">
+          <label for="idea5-title">Title</label>
+          <input type="text" id="idea5-title" placeholder="Intelligent Story Companion">
+        </div>
+        <div class="form-group">
+          <label for="idea5-idea">Core Idea</label>
+          <textarea id="idea5-idea" rows="2" placeholder="Writers' environment diagnosing manuscript pacing and character agency..."></textarea>
+        </div>
+
+        <!-- Idea 6 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 6: Meeting Intelligence</h3>
+        <div class="form-group">
+          <label for="idea6-title">Title</label>
+          <input type="text" id="idea6-title" placeholder="AI Meeting Intelligence">
+        </div>
+        <div class="form-group">
+          <label for="idea6-idea">Core Idea</label>
+          <textarea id="idea6-idea" rows="2" placeholder="Creating organizational knowledge graphs to link cross-meeting decisions..."></textarea>
+        </div>
+
+        <!-- Idea 7 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Idea 7: Design Knowledge Agent</h3>
+        <div class="form-group">
+          <label for="idea7-title">Title</label>
+          <input type="text" id="idea7-title" placeholder="Design Knowledge Agent">
+        </div>
+        <div class="form-group">
+          <label for="idea7-idea">Core Idea</label>
+          <textarea id="idea7-idea" rows="2" placeholder="LLM trained on past Figma layouts and research decks to automate specs..."></textarea>
+        </div>
+      </div>
 
       <div class="actions">
         <button class="btn-secondary" onclick="loadContent()">Reset Forms</button>
@@ -408,7 +598,7 @@
         </div>
       </div>
       
-      <p style="color: var(--text-muted); font-size: 14px; margin-top: -10px;">Deploying will trigger a Git push and Vercel production build automatically.</p>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: -10px;">Clicking deploy pushes updates to GitHub and invokes Vercel builds.</p>
       
       <div id="console-log" class="console">Console output will appear here after clicking Deploy...</div>
       
@@ -420,7 +610,7 @@
 
   </div>
 
-  <!-- Toast Element -->
+  <!-- Toast -->
   <div id="toast" class="toast">
     <span class="toast-icon">✓</span>
     <span id="toast-message">Changes saved successfully!</span>
@@ -432,6 +622,24 @@
 
     // Load initial content on page load
     window.addEventListener('DOMContentLoaded', loadContent);
+
+    function switchTab(evt, tabId) {
+      // Get all elements with class="tab-panel" and hide them
+      const panels = document.getElementsByClassName("tab-panel");
+      for (let i = 0; i < panels.length; i++) {
+        panels[i].classList.remove("active");
+      }
+
+      // Get all elements with class="tab-btn" and remove the class "active"
+      const btns = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove("active");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
 
     function showToast(message, isError = false) {
       const toast = document.getElementById('toast');
@@ -461,22 +669,33 @@
         if (!response.ok) throw new Error('Failed to load portfolio content.');
         const data = await response.json();
         
-        // Populate Hero fields
+        // 1. Populate General fields
         document.getElementById('hero-title').value = data.hero_title || '';
         document.getElementById('hero-subtitle').value = data.hero_subtitle || '';
         document.getElementById('hero-about').value = data.hero_about || '';
         
-        // Populate AI Prompt fields
         document.getElementById('ai-name').value = data.name || '';
         document.getElementById('ai-title').value = data.title || '';
         document.getElementById('ai-about').value = data.about || '';
-        
         document.getElementById('ai-expertise').value = (data.expertise || []).join('\n');
         document.getElementById('ai-highlights').value = (data.highlights || []).join('\n');
         
+        // 2. Populate Project fields
+        const proj = data.projects || {};
+        for(let i = 1; i <= 3; i++) {
+          document.getElementById(`p${i}-tag`).value = proj[`project${i}_tag`] || '';
+          document.getElementById(`p${i}-title`).value = proj[`project${i}_title`] || '';
+          document.getElementById(`p${i}-desc`).value = proj[`project${i}_desc`] || '';
+        }
+
+        // 3. Populate Idea Godown fields
+        const ideas = data.ideas || {};
+        for(let i = 1; i <= 7; i++) {
+          document.getElementById(`idea${i}-title`).value = ideas[`idea${i}_title`] || '';
+          document.getElementById(`idea${i}-idea`).value = ideas[`idea${i}_idea`] || '';
+        }
+
         showToast('Portfolio loaded successfully!');
-        
-        // Check if deployment is already running in background
         checkDeploymentStatus();
       } catch (err) {
         console.error(err);
@@ -485,6 +704,21 @@
     }
 
     async function saveContent() {
+      // Construct Projects object
+      const projects = {};
+      for(let i = 1; i <= 3; i++) {
+        projects[`project${i}_tag`] = document.getElementById(`p${i}-tag`).value;
+        projects[`project${i}_title`] = document.getElementById(`p${i}-title`).value;
+        projects[`project${i}_desc`] = document.getElementById(`p${i}-desc`).value;
+      }
+
+      // Construct Ideas object
+      const ideas = {};
+      for(let i = 1; i <= 7; i++) {
+        ideas[`idea${i}_title`] = document.getElementById(`idea${i}-title`).value;
+        ideas[`idea${i}_idea`] = document.getElementById(`idea${i}-idea`).value;
+      }
+
       const payload = {
         hero_title: document.getElementById('hero-title').value,
         hero_subtitle: document.getElementById('hero-subtitle').value,
@@ -493,7 +727,9 @@
         title: document.getElementById('ai-title').value,
         about: document.getElementById('ai-about').value,
         expertise: document.getElementById('ai-expertise').value.split('\n').filter(l => l.trim() !== ''),
-        highlights: document.getElementById('ai-highlights').value.split('\n').filter(l => l.trim() !== '')
+        highlights: document.getElementById('ai-highlights').value.split('\n').filter(l => l.trim() !== ''),
+        projects: projects,
+        ideas: ideas
       };
 
       try {
@@ -551,13 +787,12 @@
           
           const consoleLog = document.getElementById('console-log');
           consoleLog.textContent = data.log;
-          consoleLog.scrollTop = consoleLog.scrollHeight; // Auto scroll
+          consoleLog.scrollTop = consoleLog.scrollHeight;
           
           if (!data.running) {
             clearInterval(logInterval);
             document.getElementById('deploy-btn').disabled = false;
             
-            // Check if log contains Success indicator
             if (data.log.includes('Successfully!')) {
               updateStatusBadge('success', 'Live');
               showToast('Website updated successfully! 🎉');

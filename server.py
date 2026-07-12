@@ -28,8 +28,17 @@ def extract_element_by_id(html_content, element_id):
 
 def update_element_by_id(html_content, element_id, new_text):
     pattern = rf'(<([a-zA-Z0-9]+)[^>]*id="{element_id}"[^>]*>)(.*?)(</\2>)'
-    # Replace content, maintaining a nice clean indented output style
-    return re.sub(pattern, lambda m: m.group(1) + "\n          " + new_text + "\n        " + m.group(4), html_content, flags=re.DOTALL)
+    
+    def repl(m):
+        tag_name = m.group(2).lower()
+        if tag_name in ['span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+            # Keep inline to prevent breaking CSS layouts with whitespace wrapping
+            return m.group(1) + new_text + m.group(4)
+        else:
+            # Multi-line/block tags get standard indentation
+            return m.group(1) + "\n          " + new_text + "\n        " + m.group(4)
+            
+    return re.sub(pattern, repl, html_content, flags=re.DOTALL)
 
 def run_deployment():
     global deploy_running
@@ -40,20 +49,19 @@ def run_deployment():
         log_file.write(f"Working Directory: {os.getcwd()}\n\n")
         log_file.flush()
         
-        # Deployment steps
+        # Windows-safe commands as single strings (protects double quotes)
         commands = [
-            ["git", "status"],
-            ["git", "add", "."],
-            ["git", "commit", "-m", "Update portfolio content via dashboard"],
-            ["git", "push", "origin", "main"],
-            ["npx", "vercel", "--prod", "--yes"]
+            "git status",
+            "git add .",
+            'git commit -m "Update portfolio content via dashboard"',
+            "git push origin main",
+            "npx vercel --prod --yes"
         ]
         
         for cmd in commands:
-            log_file.write(f"\n> Running: {' '.join(cmd)}\n")
+            log_file.write(f"\n> Running: {cmd}\n")
             log_file.flush()
             try:
-                # Use shell=True for Windows environments to resolve command prompts
                 process = subprocess.Popen(
                     cmd, 
                     stdout=subprocess.PIPE, 
@@ -68,9 +76,9 @@ def run_deployment():
                     log_file.flush()
                 
                 process.wait()
-                if process.returncode != 0 and cmd[0] != "git":  # Git status can fail or commit can have exit code 1 if nothing changed
-                    # If nothing to commit, commit exit code is 1, so let's check if it was just "nothing to commit"
-                    if cmd[0] == "git" and cmd[1] == "commit":
+                if process.returncode != 0:
+                    # Ignore git commit error if working tree is clean
+                    if "git commit" in cmd and process.returncode == 1:
                         log_file.write("No local changes to commit. Proceeding...\n")
                         log_file.flush()
                         continue
@@ -103,7 +111,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        # Premium route mapping: /dashboard -> /stitch/html/dashboard.html
+        # /dashboard mapping
         if self.path == "/dashboard" or self.path == "/dashboard.html":
             self.path = "/stitch/html/dashboard.html"
             super().do_GET()
@@ -191,7 +199,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._send_json(500, {"reply": "Something went wrong. Please try again."})
 
     def _handle_load(self):
-        # 1. Read Hero Content from index.html (or fallback to 01_home.html)
+        # 1. Read Hero Content and Projects from index.html (or fallback to 01_home.html)
         html_path = os.path.join("stitch", "html", "index.html")
         if not os.path.exists(html_path):
             html_path = os.path.join("stitch", "html", "01_home.html")
@@ -200,6 +208,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         hero_subtitle = ""
         hero_about = ""
         
+        projects = {}
+        
         if os.path.exists(html_path):
             try:
                 with open(html_path, "r", encoding="utf-8") as f:
@@ -207,10 +217,29 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 hero_title = extract_element_by_id(html_content, "hero-title")
                 hero_subtitle = extract_element_by_id(html_content, "hero-subtitle")
                 hero_about = extract_element_by_id(html_content, "hero-about")
+                
+                # Load Projects 1-3
+                for i in range(1, 4):
+                    projects[f"project{i}_tag"] = extract_element_by_id(html_content, f"project{i}-tag")
+                    projects[f"project{i}_title"] = extract_element_by_id(html_content, f"project{i}-title")
+                    projects[f"project{i}_desc"] = extract_element_by_id(html_content, f"project{i}-desc")
             except Exception as e:
                 print(f"Error reading HTML: {e}")
 
-        # 2. Read Prompt JSON configuration
+        # 2. Read Idea Godown items from 03_idea_godown_research_ledger.html
+        ledger_path = os.path.join("stitch", "html", "03_idea_godown_research_ledger.html")
+        ideas = {}
+        if os.path.exists(ledger_path):
+            try:
+                with open(ledger_path, "r", encoding="utf-8") as f:
+                    ledger_content = f.read()
+                for i in range(1, 8):
+                    ideas[f"idea{i}_title"] = extract_element_by_id(ledger_content, f"idea{i}-title")
+                    ideas[f"idea{i}_idea"] = extract_element_by_id(ledger_content, f"idea{i}-idea")
+            except Exception as e:
+                print(f"Error reading ledger HTML: {e}")
+
+        # 3. Read Prompt JSON configuration
         json_path = os.path.join("api", "prompt.json")
         json_data = {}
         if os.path.exists(json_path):
@@ -228,7 +257,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             "title": json_data.get("title", ""),
             "about": json_data.get("about", ""),
             "expertise": json_data.get("expertise", []),
-            "highlights": json_data.get("highlights", [])
+            "highlights": json_data.get("highlights", []),
+            "projects": projects,
+            "ideas": ideas
         }
         self._send_json(200, response_data)
 
@@ -238,11 +269,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         
         try:
             data = json.loads(body)
+            
+            # 1. Save Hero Content and Projects to index.html and 01_home.html
             hero_title = data.get("hero_title", "").strip()
             hero_subtitle = data.get("hero_subtitle", "").strip()
             hero_about = data.get("hero_about", "").strip()
+            projects = data.get("projects", {})
             
-            # Save Hero Content to HTML files
             pages = ["index.html", "01_home.html"]
             for page in pages:
                 path = os.path.join("stitch", "html", page)
@@ -254,10 +287,56 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     content = update_element_by_id(content, "hero-subtitle", hero_subtitle)
                     content = update_element_by_id(content, "hero-about", hero_about)
                     
+                    # Update Projects 1-3
+                    for i in range(1, 4):
+                        p_tag = projects.get(f"project{i}_tag", "").strip()
+                        p_title = projects.get(f"project{i}_title", "").strip()
+                        p_desc = projects.get(f"project{i}_desc", "").strip()
+                        
+                        if p_tag: content = update_element_by_id(content, f"project{i}-tag", p_tag)
+                        if p_title: content = update_element_by_id(content, f"project{i}-title", p_title)
+                        if p_desc: content = update_element_by_id(content, f"project{i}-desc", p_desc)
+                    
                     with open(path, "w", encoding="utf-8") as f:
                         f.write(content)
+            
+            # 2. Save Projects to work.html
+            work_path = os.path.join("stitch", "html", "work.html")
+            if os.path.exists(work_path):
+                with open(work_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                
+                # Update Projects 1-3
+                for i in range(1, 4):
+                    p_tag = projects.get(f"project{i}_tag", "").strip()
+                    p_title = projects.get(f"project{i}_title", "").strip()
+                    p_desc = projects.get(f"project{i}_desc", "").strip()
+                    
+                    if p_tag: content = update_element_by_id(content, f"project{i}-tag", p_tag)
+                    if p_title: content = update_element_by_id(content, f"project{i}-title", p_title)
+                    if p_desc: content = update_element_by_id(content, f"project{i}-desc", p_desc)
+                
+                with open(work_path, "w", encoding="utf-8") as f:
+                    f.write(content)
+                    
+            # 3. Save Idea Godown items to 03_idea_godown_research_ledger.html
+            ideas = data.get("ideas", {})
+            ledger_path = os.path.join("stitch", "html", "03_idea_godown_research_ledger.html")
+            if os.path.exists(ledger_path):
+                with open(ledger_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                
+                for i in range(1, 8):
+                    idea_title = ideas.get(f"idea{i}_title", "").strip()
+                    idea_desc = ideas.get(f"idea{i}_idea", "").strip()
+                    
+                    if idea_title: content = update_element_by_id(content, f"idea{i}-title", idea_title)
+                    if idea_desc: content = update_element_by_id(content, f"idea{i}-idea", idea_desc)
+                    
+                with open(ledger_path, "w", encoding="utf-8") as f:
+                    f.write(content)
                         
-            # Save Dynamic Prompt Settings
+            # 4. Save Dynamic Prompt Settings
             json_path = os.path.join("api", "prompt.json")
             json_data = {
                 "name": data.get("name", "Chenthuran").strip(),
