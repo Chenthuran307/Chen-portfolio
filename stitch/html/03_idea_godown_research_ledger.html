@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Idea Godown - UX Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"primary-fixed": "#e5e2e1", "secondary-fixed": "#f5f3f3", "surface-variant": "#e4e2e2", "surface-container": "#efeded", "inverse-surface": "#303030", "on-error": "#ffffff", "tertiary-container": "#001551", secondary: "#000000", "inverse-primary": "#c8c6c5", "surface-bright": "#fbf9f8", "on-tertiary-container": "#537aff", "on-background": "#1b1c1c", "primary-fixed-dim": "#c8c6c5", background: "#fbf9f8", "on-secondary-fixed": "#1b1c1c", "on-surface-variant": "#444748", "on-primary-fixed": "#1c1b1b", "on-primary-fixed-variant": "#474746", "on-tertiary": "#ffffff", "surface-container-highest": "#e4e2e2", "secondary-fixed-dim": "#eae8e7", tertiary: "#000000", surface: "#fbf9f8", "surface-container-high": "#eae8e7", "secondary-container": "#1b1c1c", "surface-dim": "#dbd9d9", "on-tertiary-fixed-variant": "#0039b3", "on-primary": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", primary: "#000000", "tertiary-fixed": "#dce1ff", "tertiary-fixed-dim": "#b6c4ff", "surface-container-low": "#f5f3f3", "on-secondary-fixed-variant": "#444748", "on-tertiary-fixed": "#001551", "outline-variant": "#c4c7c7", error: "#ba1a1a", "on-surface": "#1b1c1c", "on-primary-container": "#858383", "surface-tint": "#5f5e5e", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#1c1b1b", outline: "#747878", "inverse-on-surface": "#f2f0f0", "on-secondary-container": "#1b1c1c"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"element-gap": "32px", "container-max": "1200px", "section-gap": "96px", "margin-standard": "24px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"body-xl-quote": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], "display-lg-mobile": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .journal-entry {
+            border-top: 1px solid theme('colors.outline-variant');
+            padding-top: 48px;
+            margin-bottom: theme('spacing.section-gap');
+        }
+
+        .journal-entry:first-of-type {
+            border-top: 2px solid theme('colors.primary');
+            padding-top: 48px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-active .status-dot { background-color: theme('colors.secondary'); }
+        .status-archived .status-dot { background-color: theme('colors.outline'); }
+        .status-validated .status-dot { background-color: #3b82f6; }
+
+        .metadata-sidebar {
+            border-right: 1px solid theme('colors.outline-variant');
+        }
+        
+        @media (max-width: 768px) {
+            .metadata-sidebar {
+                border-right: none;
+                border-bottom: 1px solid theme('colors.outline-variant');
+                padding-bottom: 24px;
+                margin-bottom: 24px;
+            }
+        }
+        /* Navigation additions */
+        body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+        .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+        .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+        #mobile-menu.open { display: flex; }
+        #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+        #mobile-menu a:hover { background: #f5f3f3; }
+        #mobile-menu a.active { border-right: 3px solid #000; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 backdrop-blur-md w-full top-0 sticky z-50 border-b border-surface-variant/30"><div class="flex justify-between items-center max-w-[1200px] mx-auto py-6 px-margin-standard relative">
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<div class="hidden md:flex gap-element-gap items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="03_idea_godown_research_ledger">Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
+</div>
+<button id="menu-toggle" class="md:hidden text-on-surface" aria-label="Toggle menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div id="mobile-menu">
+  <a href="01_home" data-nav>Home</a>
+  <a href="work" data-nav>Work</a>
+  <a class="active" href="03_idea_godown_research_ledger">Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+  <a href="contact">Contact</a>
+</div>
+</div></nav>
+<!-- Main Content -->
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-margin-standard pt-24 pb-section-gap">
+<!-- Header -->
+<header class="mb-24">
+<div class="flex items-center gap-4 mb-4"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Updated June 2026</span></div>
+<h1 class="font-display-lg text-6xl md:text-display-lg text-primary mb-8 tracking-tight">Idea Godown</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+  A brutalist repository where raw product observations and early hypotheses are stored, sorted, and pressure-tested. This is where complex architectures and developer ecosystems get untangled before they ever reach production (if at all). With the help of AI, visualizing and prototyping is done in minutes.
+</p>
+</header>
+<!-- Filters & Stats -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 pb-8">
+<div class="flex gap-8 overflow-x-auto" id="filter-buttons">
+<button class="filter-btn active font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 shrink-0" data-filter="all">All Ideas (7)</button>
+<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors shrink-0" data-filter="high-conviction">High Conviction (6)</button>
+<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors shrink-0" data-filter="archived">Archived (1)</button>
+</div>
+
+</div>
+<!-- Notebook Entries -->
+<div class="space-y-0">
+<!-- Entry 01 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Metadata Sidebar -->
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 01</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">94<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Active Pursuit
+                            </div>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">Home Inventory Intelligence</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">The average modern household manages more SKUs than a small 1950s convenience store, yet uses zero inventory management systems beyond 'looking in the pantry'.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Interviewed 12 households; 100% reported 'double-buying' or 'running out' of staples monthly. Cognitive load of 'remembering what we have' is a primary stressor in meal planning.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"How might we apply industrial supply-chain thinking to the domestic sphere to eliminate the 'pantry-check' cognitive loop?"</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">A headless tracking system using receipt-parsing AI and weight-sensitive shelving. Not a 'smart fridge', but a 'smart infrastructure'.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">Low-fi dashboard focusing on 'burn rates' rather than list items. Dashboard looks like an ERP system but for milk, eggs, and detergent.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"The domestic space is the final frontier for optimization. We've optimized our work and our fitness, but our actual survival logistics remain archaic and manual."</p>
+</div><div class="mt-8"><a href="03_idea_godown_01_home_inventory" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 02 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 02</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">82<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Active Research
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">Pulse Adaptive Gaming</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Difficulty settings are static, yet player stress and flow states are dynamic. A 'Hard' mode when you're tired is different from 'Hard' when you're peaking.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Wearable HR data is readily available via APIs but rarely piped into the game loop for difficulty adjustment.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"Can we maintain a perfect 'Flow' state by adjusting game intensity based on real-time biometric feedback?"</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">A middleware plugin for Unity/Unreal that modulates NPC aggression and puzzle complexity based on Heart Rate Variability (HRV).</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">A horror game demo where the monster only spawns when your heart rate drops below a certain 'calm' threshold.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"Biometric adaptation closes the loop between the software and the biological hardware of the user. It's the ultimate UX personalization."</p>
+</div><div class="mt-8"><a href="03_idea_godown_02_adaptive_gaming" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 03 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 03</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">76<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Experimenting
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">AI-Powered Creative Intelligence Platform for Fitness Creators</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Fitness creators spend more time researching trends, styles, and audio than actually filming their workouts.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Existing tools focus on editing mechanics or generic viral trends, but fail to answer: "What format works for *my* specific video?"</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"There is no intelligent system that can analyze raw workout footage and recommend personalized, niche-specific creative templates."</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">An AI Creative Director that analyzes uploaded footage, identifies the exercise, matches it with fitness trends, and outputs editable reel templates.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">A streamlined dashboard where you upload a raw squat video and instantly receive 3 high-converting storytelling frameworks (e.g. Anime Power-Up, Rep Counter).</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"We don't need another generic AI video editor. We need a specialized Intelligence Engine that understands domain-specific content patterns."</p>
+</div><div class="mt-8"><a href="03_idea_godown_03_ai_storytelling" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 04 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 04</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">74<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Concept Stage
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">AirPods Earrings</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Hearables are transitioning from 'gadgets' to 'body-worn essentials'. Current designs are still stuck in a 'tech-first' industrial aesthetic.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Growing market for jewelry that 'wraps' or 'holds' existing AirPods to prevent loss and add style.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"Why can't the hearable itself be the jewelry, rather than an accessory to it?"</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">Modular ear-worn devices where the 'tech core' snaps into high-fashion earring chassis.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">Renders exploring the intersection of silver-work and driver housing. 'Fashion-tech convergence'.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"Tech that succeeds long-term eventually becomes invisible or decorative. We are entering the 'decorative' era of wearables."</p>
+</div><div class="mt-8"><a href="03_idea_godown_04_airpods_earrings" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 06 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 06</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">88<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Exploration
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">Intelligent Story Companion</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Creators know what they want to say but struggle with how to make people feel it. Existing AI writes for them, but doesn't explain why a story works.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">There is no unified platform that combines storytelling theory, psychology, and emotional analysis into a single intelligent assistant.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"Story creators don't need another AI that writes for them—they need an AI that understands stories and diagnoses structural weaknesses."</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">An AI-powered story architect that analyzes, understands, and improves stories instead of simply generating them.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">A dashboard where users ask "Why doesn't this scene work?" and receive diagnostics on pacing, emotional payoff, and character arcs.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"The real opportunity is not AI-powered writing but AI-powered narrative reasoning built on a structured Story Knowledge Graph."</p>
+</div><div class="mt-8"><a href="03_idea_godown_06_story_doctor" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 07 -->
+<article class="journal-entry" data-category="high-conviction">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 07</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary">96<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-active flex items-center text-primary">
+<span class="status-dot"></span> Active Pursuit
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight">AI Meeting Intelligence</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Every meeting generates valuable knowledge, yet once the meeting ends, that intelligence is lost or scattered. The gap is not in capturing meetings, but in learning from them.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Most solutions focus on recording and notes, leaving a major gap in explaining decision rationale, cross-meeting connections, and team collaboration dynamics.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-surface-variant pl-8 py-4 bg-surface-container-low/30">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Problem Statement</h3>
+<p class="font-body-lg italic">"Organizations don't need another meeting recorder—they need a system that understands conversations, preserves context, and tracks decision rationale."</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">A platform that transforms every meeting into a living organizational knowledge graph, linking decisions, projects, and people over time.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Prototype Vibe</h3>
+<p class="font-body-md text-on-surface-variant">An interactive dashboard showing project decision timelines, participation stats, question quality scores, and personal communication coaching.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"The value is in shifting from simple transcription to long-term organizational reasoning. We build memory, not documentation."</p>
+</div><div class="mt-8"><a href="03_idea_godown_07_meeting_intelligence" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+<!-- Entry 05 (Archived) -->
+<article class="journal-entry" data-category="archived">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-3 metadata-sidebar pr-8">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">ID</span>
+<span class="font-headline-md text-xl font-bold">Idea 05</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-1">Confidence Score</span>
+<span class="font-headline-md text-4xl font-bold text-primary opacity-50">68<span class="text-lg text-outline-variant font-normal">/100</span></span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Status</span>
+<div class="font-label-caps text-label-caps status-archived flex items-center text-on-surface-variant">
+<span class="status-dot"></span> Archived / Validated
+                            </div>
+</div>
+</div>
+</div>
+<div class="md:col-span-9">
+<h2 class="font-headline-md text-4xl mb-12 tracking-tight opacity-60">Design Knowledge Agent</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 opacity-80">
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Observation</h3>
+<p class="font-body-md text-on-surface">Designers waste hours searching for company-specific UI guidelines and previous research findings.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Research</h3>
+<p class="font-body-md text-on-surface-variant">Internal audits show 30% rework due to 'siloed knowledge'.</p>
+</section>
+<section class="md:col-span-2 border-l-4 border-outline-variant pl-8 py-4 bg-surface-container">
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Why I Still Include It</h3>
+<p class="font-body-lg italic">"While this has been largely 'solved' by new enterprise tools (and thus archived as a unique product idea), the core problem of 'Organizational Amnesia' remains a fascination of mine."</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">The Idea</h3>
+<p class="font-body-md text-on-surface">An LLM trained exclusively on a company's past Figma files, Jira tickets, and research decks.</p>
+</section>
+<section>
+<h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Market Status</h3>
+<p class="font-body-md text-on-surface-variant">Market Validated. Several startups now offering this. Idea archived to focus on more blue-ocean hypotheses.</p>
+</section>
+</div>
+<div class="mt-12 pt-8 border-t border-dashed border-outline-variant">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase mb-4">System Designer Take</h3>
+<p class="font-body-md text-primary italic">"Systems aren't just components; they are memories. If a system doesn't know its own history, it's doomed to repeat its failures."</p>
+</div><div class="mt-8"><a href="03_idea_godown_05_design_agent" data-nav class="inline-block bg-primary text-surface font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:bg-secondary transition-colors">Know More</a></div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-primary text-surface mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center gap-element-gap max-w-[1200px] mx-auto py-24 px-margin-standard">
+<div>
+<p class="font-label-caps text-label-caps uppercase tracking-widest opacity-60 mb-2">© 2024</p>
+<p class="font-headline-md text-xl">The Godown Archive</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="#">Email</a>
+<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="#">LinkedIn</a>
+<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="#">Substack</a>
+</div>
+</div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('#filter-buttons .filter-btn');
+  const journalEntries = document.querySelectorAll('.journal-entry');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Set active button styles
+      filterButtons.forEach(b => {
+        b.classList.remove('active', 'text-primary', 'border-b-2', 'border-primary', 'pb-1');
+        b.classList.add('text-on-surface-variant', 'hover:text-primary', 'transition-colors');
+      });
+      this.classList.remove('text-on-surface-variant', 'hover:text-primary', 'transition-colors');
+      this.classList.add('active', 'text-primary', 'border-b-2', 'border-primary', 'pb-1');
+
+      const filterValue = this.getAttribute('data-filter');
+
+      // Filter entries
+      journalEntries.forEach(entry => {
+        if (filterValue === 'all') {
+          entry.style.display = 'block';
+        } else {
+          const category = entry.getAttribute('data-category');
+          if (category === filterValue) {
+            entry.style.display = 'block';
+          } else {
+            entry.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+
+</script>
+
+<!-- Lightbox Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('global-lightbox')) return; // Already exists
+
+    const lightbox = document.createElement('div');
+    lightbox.id = 'global-lightbox';
+    lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
+    
+    const imgElement = document.createElement('img');
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    
+    lightbox.appendChild(imgElement);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    });
+
+    const images = document.querySelectorAll('img:not(.no-lightbox)');
+    images.forEach(img => {
+        // Exclude small UI icons or avatars if they exist, but generally all content images are fine
+        if (img.width < 100 && img.height < 100) return; 
+        
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imgElement.src = img.src;
+            lightbox.style.display = 'flex';
+            // reflow
+            void lightbox.offsetWidth;
+            lightbox.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body> on every page
+     ============================================================ -->
+
+<!-- Chat FAB Button -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Ask Chen's AI Assistant"
+  style="position:fixed; bottom:28px; right:28px; z-index:1000; width:56px; height:56px; border-radius:50%; background:#1a1a1a; color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(0,0,0,0.18); transition:transform 0.2s ease, box-shadow 0.2s ease;"
+  onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.28)'"
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.18)'">
+  <svg id="chat-fab-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window"
+  style="position:fixed; bottom:96px; right:28px; z-index:999; width:380px; max-width:calc(100vw - 40px); background:#fff; border:1px solid #e5e5e5; border-radius:4px; box-shadow:0 16px 48px rgba(0,0,0,0.14); display:none; flex-direction:column; overflow:hidden; font-family:'Inter', sans-serif; max-height:560px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a; color:#fff; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:11px; opacity:0.55; margin-top:2px; letter-spacing:0.04em;">AI-powered · Powered by NVIDIA NIM</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:#4ade80; display:inline-block;"></span>
+      <span style="font-size:11px; opacity:0.7;">Online</span>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages"
+    style="flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:12px; min-height:200px; max-height:320px; background:#fafafa;">
+    <!-- Initial greeting -->
+    <div class="msg-ai" style="display:flex; gap:10px; align-items:flex-start;">
+      <div style="width:28px; height:28px; border-radius:50%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff; border:1px solid #e8e8e8; padding:10px 14px; border-radius:0 8px 8px 8px; font-size:13.5px; line-height:1.6; color:#333; max-width:88%;">
+        Hi! I'm Chen's AI assistant. I can answer questions about his experience, projects, skills, and design philosophy. What would you like to know?
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggested Questions -->
+  <div id="suggestions" style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff;">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:#999; margin-bottom:8px;">Suggested Questions</div>
+    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What's Chen's design process?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Tell me about his key projects</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What industries has Chen worked in?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">How does Chen approach system thinking?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What makes Chen unique as a designer?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Is Chen open to new opportunities?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff; display:flex; gap:8px; align-items:center;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1; padding:9px 12px; border:1px solid #e0e0e0; border-radius:2px; font-size:13px; outline:none; font-family:inherit; color:#1a1a1a; background:#fafafa; transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a'; this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0'; this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter') sendChat();" />
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:36px; height:36px; background:#1a1a1a; color:#fff; border:none; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const icon = document.getElementById('chat-fab-icon');
+    if (chatOpen) {
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      fab.style.background = '#444';
+      icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      icon.innerHTML = '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>';
+    }
+  }
+
+  function askSuggestion(btn) {
+    const text = btn.textContent.trim();
+    document.getElementById('chat-input').value = text;
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    input.value = '';
+    appendMessage(msg, 'user');
+
+    // Hide suggestions after first interaction
+    document.getElementById('suggestions').style.display = 'none';
+
+    const typingId = appendTyping();
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch (e) {
+      removeTyping(typingId);
+      appendMessage("Sorry, I'm having trouble connecting. Please try again.", 'ai');
+    }
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex; gap:10px; align-items:flex-start; ${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:28px; height:28px; border-radius:50%; background:${isAi ? '#1a1a1a' : '#e8e8e8'}; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 14px; font-size:13.5px; line-height:1.6; max-width:88%; border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'}; ${isAi ? 'background:#fff; border:1px solid #e8e8e8; color:#333;' : 'background:#1a1a1a; color:#fff;'}`;
+    bubble.textContent = text;
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex; gap:10px; align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:28px;height:28px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e8e8;padding:12px 16px;border-radius:0 8px 8px 8px;display:flex;gap:4px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+<style>
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+</style>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body></html>
+
+
+
+

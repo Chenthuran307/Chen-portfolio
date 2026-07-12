@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Case Study: Bridging the Financing Gap for DOSBs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-tertiary-container": "#537aff", "surface-container-highest": "#e4e2e2", "tertiary-fixed": "#dce1ff", "surface-container-lowest": "#ffffff", "on-tertiary-fixed": "#001551", "tertiary-fixed-dim": "#b6c4ff", "error-container": "#ffdad6", "surface-container": "#efeded", "inverse-on-surface": "#f2f0f0", "inverse-primary": "#c8c6c5", "surface-container-low": "#f5f3f3", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#0039b3", surface: "#fbf9f8", "on-tertiary": "#ffffff", "on-primary-fixed": "#1c1b1b", "on-secondary-fixed-variant": "#444748", "inverse-surface": "#303030", "tertiary-container": "#001551", "on-surface-variant": "#444748", tertiary: "#000000", "surface-bright": "#fbf9f8", primary: "#000000", "surface-container-high": "#eae8e7", "surface-variant": "#e4e2e2", "primary-fixed-dim": "#c8c6c5", "on-primary": "#ffffff", background: "#fbf9f8", "secondary-fixed": "#f5f3f3", "on-secondary-container": "#1b1c1c", "primary-fixed": "#e5e2e1", "on-error": "#ffffff", "outline-variant": "#c4c7c7", "on-surface": "#1b1c1c", "on-primary-fixed-variant": "#474746", error: "#ba1a1a", "on-error-container": "#93000a", "secondary-container": "#1b1c1c", "on-background": "#1b1c1c", "surface-dim": "#dbd9d9", "surface-tint": "#5f5e5e", "on-secondary-fixed": "#1b1c1c", "primary-container": "#1c1b1b", outline: "#747878", "on-primary-container": "#858383", "secondary-fixed-dim": "#eae8e7", secondary: "#000000"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"section-gap": "96px", "margin-standard": "24px", "element-gap": "32px", "container-max": "1200px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"headline-md": ["Inter"], "label-caps": ["Inter"], "display-lg-mobile": ["Inter"], "display-lg": ["Inter"], "body-xl-quote": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        p a {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            transition: all 0.2s ease;
+        }
+        
+        p a:hover {
+            background-color: theme('colors.secondary-fixed');
+            text-decoration-color: theme('colors.secondary');
+        }
+
+        .editorial-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .editorial-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: inherit;
+            opacity: 0.5;
+        }
+
+    .tonal-block {
+            background-color: theme('colors.surface-container');
+        }
+        
+        .dark-section .tonal-block {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .img-stroke {
+            outline: 1px solid rgba(0,0,0,0.05);
+            outline-offset: -1px;
+        }
+        .dark-section .img-stroke {
+            outline: 1px solid rgba(255,255,255,0.1);
+        }
+        /* Navigation additions */
+        body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+        .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+        .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+        #mobile-menu.open { display: flex; }
+        #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+        #mobile-menu a:hover { background: #f5f3f3; }
+        #mobile-menu a.active { border-right: 3px solid #000; }
+        
+        /* Card styles */
+        .case-card {
+          text-decoration: none;
+          display: block;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: 1px solid #c4c7c7;
+        }
+        .case-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+          border-color: #000;
+        }
+        .case-card .thumb {
+          overflow: hidden;
+          background: #efeded;
+        }
+        .case-card .thumb img {
+          transition: transform 0.5s ease, filter 0.5s ease;
+          filter: grayscale(20%);
+        }
+        .case-card:hover .thumb img {
+          transform: scale(1.03);
+          filter: grayscale(0%);
+        }
+        .tag {
+          display: inline-block;
+          padding: 3px 10px;
+          border: 1px solid #c4c7c7;
+          font-size: 10px;
+          font-family: Inter, sans-serif;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #444748;
+          border-radius: 0;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-surface-variant/40">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-element-gap">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
+</div>
+<button id="menu-toggle" class="md:hidden text-primary" aria-label="Toggle menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div id="mobile-menu">
+  <a href="01_home" data-nav>Home</a>
+  <a class="active" href="work" data-nav>Work</a>
+  <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+  <a href="contact">Contact</a>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero & Intro -->
+<div class="pt-32 pb-16 px-margin-standard max-w-container-max mx-auto w-full">
+<!-- Back breadcrumb -->
+<div class="mb-8 flex items-center gap-2">
+  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">
+    <span class="material-symbols-outlined text-base" style="font-size:16px;">arrow_back</span> All Work
+  </a>
+</div>
+<header class="mb-section-gap pt-16">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Bridging the Financing Gap for Diverse-Owned Small Businesses (DOSBs)</h1>
+<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant">Fair and equitable capital access leveraging Distributed Ledger Technology to dismantle systemic barriers.</p>
+</header>
+<!-- Overview Section -->
+<section class="mb-section-gap">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">The Challenge</h2>
+<div class="font-body-lg text-body-lg text-on-surface space-y-6">
+<p class="">Systemic disparities in traditional finance continue to stifle growth for diverse entrepreneurs. I set out to architect a decentralized liquidity bridge that simplifies the complexities of DeFi while ensuring high-trust interactions for DOSB borrowers and institutional investors.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-l-2 border-secondary pl-8 py-4 mt-8">
+<div>
+<div class="text-[48px] font-bold text-primary mb-1 tracking-tighter">86%</div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant">Unmet funding for black-owned firms</p>
+</div>
+<div>
+<div class="text-[48px] font-bold text-primary mb-1 tracking-tighter">+7.8%</div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant">Higher interest rates for diverse owners</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Role Section -->
+<section class="mb-section-gap grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">My Role</h2>
+</div>
+<div class="md:col-span-3 font-body-md text-body-md text-on-surface space-y-4">
+<p class="">As the Product Designer and UX System Architect, I led the strategic vision for the liquidity bridge. I conducted comprehensive ecosystem audits, facilitated cross-functional alignment workshops with fintech leaders, and personally architected the core complex component patterns for institutional liquidity management.</p>
+<p class="">My mandate was to translate complex DeFi protocols into human-centric interfaces, establishing strong defaults that remove manual gatekeeping and foster financial equity.</p>
+</div>
+</section>
+<!-- User Research & DLT Mapping -->
+<section class="mb-section-gap">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Research & Empathy</h2>
+<h3 class="font-headline-md text-headline-md text-primary mb-8">Understanding the Core Users</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I conducted extensive user research to ground our highly technical definition of Distributed Ledger Technology (DLT) into human-centered needs. I interviewed key stakeholders across the ecosystem: <strong>Larissa</strong> (Healthcare DOSB Owner), <strong>Phil</strong> (Loan Originator Manager), <strong>Anna</strong> (Loan Service Specialist), <strong>Amy</strong> (Asset Manager), and <strong>William</strong> (Institutional Investor).</p>
+
+<h4 class="font-headline-lg text-[24px] font-bold text-primary mb-4 mt-16">The Core Technology: Distributed Ledger Technology (DLT)</h4>
+<p class="font-body-md text-body-md text-on-surface mb-12">As defined in our strategic baseline, DLT is the foundational infrastructure from which blockchains are created. Its primary functions are allowing users to view any changes (and who made them), reducing the need to audit data, ensuring data reliability, and restricting access only to those who need it. Here is how I mapped these specific DLT capabilities into core user needs:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- DOSB Owner -->
+  <div class="bg-surface-container-low p-8 rounded-xl border-t-4 border-secondary">
+    <h5 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">The DOSB Owner</h5>
+    <h6 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Larissa</h6>
+    <div class="mb-6">
+      <span class="font-label-caps text-label-caps text-secondary block mb-1">The DLT Advantage</span>
+      <p class="font-body-md text-body-md text-on-surface">Only provides access to those that need it.</p>
+    </div>
+    <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <p class="font-body-md text-body-md text-primary font-medium">"I need a secure platform where I can safely share my sensitive business identity and financial credentials to get funding, knowing my data is strictly controlled."</p>
+    </div>
+  </div>
+
+  <!-- Institutional Investor -->
+  <div class="bg-surface-container-low p-8 rounded-xl border-t-4 border-secondary">
+    <h5 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">The Institutional Investor</h5>
+    <h6 class="font-headline-md text-[20px] font-semibold text-primary mb-4">William & Amy</h6>
+    <div class="mb-6">
+      <span class="font-label-caps text-label-caps text-secondary block mb-1">The DLT Advantage</span>
+      <p class="font-body-md text-body-md text-on-surface">Reduces the need to audit data and ensures data is reliable.</p>
+    </div>
+    <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <p class="font-body-md text-body-md text-primary font-medium">"I need a transparent, tamper-proof system where I can confidently invest capital without spending excessive time and money auditing the underlying business data."</p>
+    </div>
+  </div>
+
+  <!-- Loan Servicer -->
+  <div class="bg-surface-container-low p-8 rounded-xl border-t-4 border-secondary">
+    <h5 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">The Loan Servicer & Originator</h5>
+    <h6 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Anna & Phil</h6>
+    <div class="mb-6">
+      <span class="font-label-caps text-label-caps text-secondary block mb-1">The DLT Advantage</span>
+      <p class="font-body-md text-body-md text-on-surface">The infrastructure allows users to view any changes and exactly who made them.</p>
+    </div>
+    <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <p class="font-body-md text-body-md text-primary font-medium">"I need an immutable, traceable ledger to efficiently track loan terms, repayments, and stakeholder approvals without ever disputing the history of the transaction."</p>
+    </div>
+  </div>
+
+  <!-- Compliance -->
+  <div class="bg-surface-container-low p-8 rounded-xl border-t-4 border-secondary">
+    <h5 class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase tracking-widest">The Compliance & Security Officer</h5>
+    <h6 class="font-headline-md text-[20px] font-semibold text-primary mb-4">System Governance</h6>
+    <div class="mb-6">
+      <span class="font-label-caps text-label-caps text-secondary block mb-1">The DLT Advantage</span>
+      <p class="font-body-md text-body-md text-on-surface">Reduces the need to audit data and provides highly restricted access.</p>
+    </div>
+    <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <p class="font-body-md text-body-md text-primary font-medium">"I need an automated infrastructure where security and trust are built natively into the system, drastically minimizing the friction of manual data verification."</p>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+<!-- Dark Mode Phase: Ecosystem Architecture -->
+<div class="bg-black text-white py-section-gap w-full dark-section">
+<div class="px-margin-standard max-w-container-max mx-auto w-full">
+<section class="mb-section-gap">
+<h2 class="font-label-caps text-label-caps text-white/60 mb-4 uppercase tracking-widest">01. Technical Architecture</h2>
+<h3 class="font-headline-md text-headline-md text-white mb-8">Understanding the Ecosystem</h3>
+<p class="font-body-md text-body-md text-white/70 mb-12">The flow of capital in a decentralized environment requires absolute transparency between stakeholders. I mapped the architecture to ensure that every participant understands their position within the DLT bridge.</p>
+<div class="mb-16">
+<img alt="Architecture diagram showing DeFi liquidity flow" class="w-full h-auto img-stroke rounded-xl shadow-2xl" src="images/defi_liquidity_ecosystem.png"/>
+<div class="mt-8 flex items-start gap-4 text-white/70">
+<span class="material-symbols-outlined text-secondary">account_tree</span>
+<p class="font-body-md">The DeFi Liquidity Bridge acts as the central conduit, tokenizing debt and automating smart contract interactions to remove manual gatekeeping.</p>
+</div>
+</div>
+</section>
+<!-- Key Insights / Principles -->
+<section class="mb-section-gap tonal-block p-8 md:p-12 rounded-xl">
+<h2 class="font-headline-md text-headline-md text-white mb-6">Strategic Principles</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mt-12">
+<div>
+<span class="font-label-caps text-label-caps text-white/40 block mb-2">01</span>
+<h3 class="font-body-lg text-body-lg text-white mb-3">Radical Transparency</h3>
+<p class="font-body-md text-body-md text-white/70">Every on-chain event must be surfaced with clear provenance to build institutional confidence.</p>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-white/40 block mb-2">02</span>
+<h3 class="font-body-lg text-body-lg text-white mb-3">Minimized Latency</h3>
+<p class="font-body-md text-body-md text-white/70">Automated triggers replace manual loan servicing, reducing the funding gap from weeks to seconds.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Light Mode Phase: Trust & Identity -->
+<div class="py-section-gap px-margin-standard max-w-container-max mx-auto w-full">
+<section class="mb-section-gap">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">02. User Experience</h2>
+<h3 class="font-headline-md text-headline-md text-primary mb-8">Designing for Trust</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Problem Statement: How do we make blockchain credentials feel as familiar and secure as a physical black card? The solution was the "Global Pass"—a visual anchor for the ecosystem's identity system.</p>
+<div class="mb-16">
+<img alt="Global Pass identity card system" class="w-full h-auto img-stroke rounded-xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC99JwOcLSpbJ2iFbn06oVN0bTQGye-nZ9HTBhSB_olh1CHQpUc3G4fcEWFkU6nG20LCdvlBvLXUDvmLFaYBBYUbkGocnUvdyi7JY9b6zW9V65Unf5-Zg5OSg4mxEWh4pZ8ZhQ2qZ9bBkRP9TahdLGm3gS_Gwt31eNzzCACNh2bt-qdIBdU10rcwaVNvQ10rLh2UxURvMk_TuVCXT82GAhx1Z9hfsM_A5nzxg7kUtnb9_XEnA6qSuIxTuJQunXSAOsfOA2-M9iqnJM"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
+<div class="space-y-6">
+<h4 class="font-label-caps text-label-caps uppercase text-secondary">Tiered Identity</h4>
+<p class="">I defined four distinct tiers of access: Personal, Business, Verified+, and Corporate. Each carries its own set of smart contract permissions, allowing for progressive disclosure of complex financial tools.</p>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-caps text-label-caps uppercase text-secondary">Visual Strategy</h4>
+<p class="">By using sophisticated textures and high-end typographic treatments, we established a sense of stability and prestige—moving away from the "crypto-aesthetic" toward institutional maturity.</p>
+</div>
+</div>
+
+
+
+<!-- Wells Pass Creation & Usage -->
+<div class="mt-24 pt-16 border-t border-outline-variant space-y-16">
+  
+  <!-- Section 1 -->
+  <div>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">How Wells Pass is Created</h3>
+    <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-8">Small Business Owner</h4>
+
+    <div class="space-y-8">
+      <!-- Flow 1 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Wells pass</div>
+        <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Login</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <div class="flex flex-col items-center">
+            <span class="text-blue-600 font-medium text-[10px] mb-1">Get a Wells Pass</span>
+            <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
+              <div class="flex justify-between items-center text-[5px] font-bold">
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
+              </div>
+              <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
+              <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
+                <div>Effective<br>23 Mar 2020</div>
+                <div class="mt-1">Issued<br>23 Mar 2020</div>
+                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+              </div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="flex items-center gap-1 text-green-600 font-medium"><span class="material-symbols-outlined text-base">check_circle</span> Ready to use</span>
+        </div>
+      </div>
+      
+      <!-- Flow 2 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Apply for a loan</div>
+        <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Apply Loan</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Select Pool</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Set Details</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <div class="flex flex-col items-center">
+            <span class="text-blue-600 font-medium text-[10px] mb-1">Consent to use Pass</span>
+            <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
+              <div class="flex justify-between items-center text-[5px] font-bold">
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
+              </div>
+              <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
+              <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
+                <div>Effective<br>23 Mar 2020</div>
+                <div class="mt-1">Issued<br>23 Mar 2020</div>
+                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+              </div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <div class="flex items-center gap-3 whitespace-nowrap shrink-0">
+            <span class="font-medium bg-surface-container px-3 py-1 rounded">Review</span>
+            <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+            <span class="flex items-center gap-1 text-green-600 font-medium"><span class="material-symbols-outlined text-base">check_circle</span> Applied</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">Where Wells Pass is Used</h3>
+    <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-8">Investor</h4>
+
+    <div class="space-y-8">
+      <!-- Flow 3 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Wells pass</div>
+        <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Login</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Choose Pool</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <div class="flex flex-col items-center">
+            <span class="text-blue-600 font-medium text-[10px] mb-1">Get Pass to Invest</span>
+            <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
+              <div class="flex justify-between items-center text-[5px] font-bold">
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
+              </div>
+              <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
+              <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
+                <div>Effective<br>23 Mar 2020</div>
+                <div class="mt-1">Issued<br>23 Mar 2020</div>
+                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+              </div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="flex items-center gap-1 text-green-600 font-medium"><span class="material-symbols-outlined text-base">check_circle</span> Ready to Invest</span>
+        </div>
+      </div>
+      
+      <!-- Flow 4 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Invest Fund Flow</div>
+        <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Choose Pool</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">Check Returns</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <span class="font-medium bg-surface-container px-3 py-1 rounded">E-sign Docs</span>
+          <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+          <div class="flex flex-col items-center">
+            <span class="text-blue-600 font-medium text-[10px] mb-1">Confirm with Pass</span>
+            <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
+              <div class="flex justify-between items-center text-[5px] font-bold">
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
+              </div>
+              <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
+              <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
+                <div>Effective<br>23 Mar 2020</div>
+                <div class="mt-1">Issued<br>23 Mar 2020</div>
+                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 whitespace-nowrap shrink-0">
+            <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
+            <span class="flex items-center gap-1 text-green-600 font-medium"><span class="material-symbols-outlined text-base">check_circle</span> Executed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<blockquote class="text-center pt-24 pb-12">
+<p class="font-body-xl-quote text-body-xl-quote text-primary italic leading-relaxed">
+                        "Trust is not built by hiding complexity, but by anchoring it in metaphors the user already respects."
+                    </p>
+</blockquote>
+</section>
+</div>
+<!-- Dark Mode Phase: Governance & Collaboration -->
+<div class="bg-black text-white py-section-gap w-full dark-section">
+<div class="px-margin-standard max-w-container-max mx-auto w-full">
+<section class="mb-section-gap">
+<h2 class="font-label-caps text-label-caps text-white/60 mb-4 uppercase tracking-widest">03. Governance Systems</h2>
+<h3 class="font-headline-md text-headline-md text-white mb-8">Asynchronous Collaboration</h3>
+<p class="font-body-md text-body-md text-white/70 mb-16">Institutional participation in DOSB funds requires constant consensus. I designed a "Dual-Level Proxy Voting System" that integrates governance directly into the financial dashboard.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="tonal-block p-8 rounded-xl border border-white/10 space-y-4">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-white/40">Voting Module v1.2</span>
+<span class="material-symbols-outlined text-secondary">how_to_vote</span>
+</div>
+<h5 class="font-headline-md text-[24px] text-white">Yield Strategy: SBIC-04</h5>
+<p class="text-white/60 text-sm">Should the fund increase allocation to Series A diverse-led tech firms?</p>
+<div class="pt-4 space-y-2">
+<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[72%]"></div>
+</div>
+<div class="flex justify-between font-label-caps text-[10px] text-white/40 uppercase tracking-tighter">
+<span class="">Approve (72%)</span>
+<span class="">Reject (28%)</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<p class="font-body-md text-white/70">I placed voting modules directly alongside real-time Net Asset Value (NAV) and yield charts. This ensures that every decision is backed by current on-chain data, reducing friction for time-constrained fund managers.</p>
+<ul class="editorial-list font-body-md text-white/70">
+<li class="">Automated smart contract triggers upon vote resolution.</li>
+<li class="">Zero-knowledge proof identity verification for voters via Global Pass.</li>
+<li class="">Real-time sentiment tracking for upcoming liquidity events.</li>
+</ul>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+
+<!-- High-Fidelity Redesign (Light Mode) -->
+<div class="py-section-gap px-margin-standard max-w-container-max mx-auto w-full">
+  <section class="mb-section-gap">
+    <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">04. Final Designs</h2>
+    <h3 class="font-headline-md text-headline-md text-primary mb-8">High-Fidelity Interfaces</h3>
+    
+    <div class="space-y-16">
+      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">01. Portfolio Overview</h4>
+        <img src="images/screen1%20(2).png" alt="Portfolio Overview Dashboard" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+        <p class="font-body-md text-on-surface-variant">A modern AlphaAsset dashboard providing real-time valuation, net liquidity metrics, and a detailed breakdown of active accounts.</p>
+      </div>
+
+      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">02. Notifications Center</h4>
+        <img src="images/screen1%20(3).png" alt="Notifications Center" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+        <p class="font-body-md text-on-surface-variant">A centralized hub for security alerts, market updates, and compliance requirements to ensure investors stay informed.</p>
+      </div>
+
+      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">03. My Wells Pass Management</h4>
+        <img src="images/screen1%20(5).png" alt="My Wells Pass Dashboard" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+        <p class="font-body-md text-on-surface-variant">Active pass management showing the user's institutional identity clusters, hardware key authentication, and active proxy levels.</p>
+      </div>
+      
+      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">04. Ecosystem Details</h4>
+        <img src="images/screen1%20(6).png" alt="Additional Ecosystem View" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+        <p class="font-body-md text-on-surface-variant">Further deep-dive analytics for high-value on-chain transactions and institutional data.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Conclusion -->
+<div class="py-section-gap px-margin-standard max-w-container-max mx-auto w-full">
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-primary mb-8">Retrospective &amp; Impact</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
+<div class="space-y-4">
+<p class="">By grounding the backend complexity of Distributed Ledger Technology in familiar visual metaphors like the "Global Pass," we successfully established a bridge for capital that previously felt inaccessible. I focused on making the "systemic architecture" invisible, allowing users to focus on what matters: capital and growth.</p>
+<p class="">The result was a decrease in onboarding friction and an increase in institutional trust. This project proved that for senior UX practitioners, our job isn't just to make things usable—it's to make them equitable.</p>
+</div>
+<div class="tonal-block p-8 flex flex-col justify-start rounded-xl">
+<h3 class="font-body-lg text-body-lg text-primary mb-4">Architecture as Equity.</h3>
+<p class="text-on-surface-variant">Systems design is the ultimate lever for social change. By restructuring the protocol, we didn't just change the interface; we changed the outcome for thousands of entrepreneurs.</p>
+</div>
+</div>
+</section>
+<!-- Next Case Study -->
+<div class="mt-24 pt-16 border-t border-outline-variant max-w-container-max mx-auto px-margin-standard mb-16">
+  <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest block mb-6">Next Case Study</span>
+  <a href="transforming-a-design-system" class="case-card block" data-nav>
+    <div class="thumb h-64 md:h-80">
+      <img src="images/02_case_study_sectional_contrast.png" alt="Transforming a Design System" class="w-full h-full object-cover"/>
+    </div>
+    <div class="p-8 bg-surface">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="tag">Design Systems</span>
+        <span class="tag">Enterprise</span>
+        <span class="tag">Research</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Transforming a Design System</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">From a component library into a productivity platform. How strategic opinionation reduced designer decision fatigue and cut handoff friction by 90%.</p>
+      <div class="flex items-center justify-between">
+        <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant">
+          <span>Senior UX Lead</span>
+          <span class="text-outline-variant">·</span>
+          <span>Enterprise Tooling</span>
+        </div>
+        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+      </div>
+    </div>
+  </a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface border-t border-outline-variant py-16">
+<div class="flex flex-col md:flex-row justify-between items-center gap-element-gap px-margin-standard max-w-container-max mx-auto w-full">
+<div class="text-left">
+<div class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-1">A. Morgan</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest opacity-60">© 2024 Systems Designer Retrospective</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Index</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Curriculum Vitae</a>
+</div>
+</div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+</script>
+
+<!-- Lightbox Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('global-lightbox')) return; // Already exists
+
+    const lightbox = document.createElement('div');
+    lightbox.id = 'global-lightbox';
+    lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
+    
+    const imgElement = document.createElement('img');
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    
+    lightbox.appendChild(imgElement);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    });
+
+    const images = document.querySelectorAll('img:not(.no-lightbox)');
+    images.forEach(img => {
+        // Exclude small UI icons or avatars if they exist, but generally all content images are fine
+        if (img.width < 100 && img.height < 100) return; 
+        
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imgElement.src = img.src;
+            lightbox.style.display = 'flex';
+            // reflow
+            void lightbox.offsetWidth;
+            lightbox.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body> on every page
+     ============================================================ -->
+
+<!-- Chat FAB Button -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Ask Chen's AI Assistant"
+  style="position:fixed; bottom:28px; right:28px; z-index:1000; width:56px; height:56px; border-radius:50%; background:#1a1a1a; color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(0,0,0,0.18); transition:transform 0.2s ease, box-shadow 0.2s ease;"
+  onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.28)'"
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.18)'">
+  <svg id="chat-fab-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window"
+  style="position:fixed; bottom:96px; right:28px; z-index:999; width:380px; max-width:calc(100vw - 40px); background:#fff; border:1px solid #e5e5e5; border-radius:4px; box-shadow:0 16px 48px rgba(0,0,0,0.14); display:none; flex-direction:column; overflow:hidden; font-family:'Inter', sans-serif; max-height:560px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a; color:#fff; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:11px; opacity:0.55; margin-top:2px; letter-spacing:0.04em;">AI-powered · Powered by NVIDIA NIM</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:#4ade80; display:inline-block;"></span>
+      <span style="font-size:11px; opacity:0.7;">Online</span>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages"
+    style="flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:12px; min-height:200px; max-height:320px; background:#fafafa;">
+    <!-- Initial greeting -->
+    <div class="msg-ai" style="display:flex; gap:10px; align-items:flex-start;">
+      <div style="width:28px; height:28px; border-radius:50%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff; border:1px solid #e8e8e8; padding:10px 14px; border-radius:0 8px 8px 8px; font-size:13.5px; line-height:1.6; color:#333; max-width:88%;">
+        Hi! I'm Chen's AI assistant. I can answer questions about his experience, projects, skills, and design philosophy. What would you like to know?
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggested Questions -->
+  <div id="suggestions" style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff;">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:#999; margin-bottom:8px;">Suggested Questions</div>
+    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What's Chen's design process?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Tell me about his key projects</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What industries has Chen worked in?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">How does Chen approach system thinking?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What makes Chen unique as a designer?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Is Chen open to new opportunities?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff; display:flex; gap:8px; align-items:center;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1; padding:9px 12px; border:1px solid #e0e0e0; border-radius:2px; font-size:13px; outline:none; font-family:inherit; color:#1a1a1a; background:#fafafa; transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a'; this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0'; this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter') sendChat();" />
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:36px; height:36px; background:#1a1a1a; color:#fff; border:none; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const icon = document.getElementById('chat-fab-icon');
+    if (chatOpen) {
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      fab.style.background = '#444';
+      icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      icon.innerHTML = '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>';
+    }
+  }
+
+  function askSuggestion(btn) {
+    const text = btn.textContent.trim();
+    document.getElementById('chat-input').value = text;
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    input.value = '';
+    appendMessage(msg, 'user');
+
+    // Hide suggestions after first interaction
+    document.getElementById('suggestions').style.display = 'none';
+
+    const typingId = appendTyping();
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch (e) {
+      removeTyping(typingId);
+      appendMessage("Sorry, I'm having trouble connecting. Please try again.", 'ai');
+    }
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex; gap:10px; align-items:flex-start; ${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:28px; height:28px; border-radius:50%; background:${isAi ? '#1a1a1a' : '#e8e8e8'}; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 14px; font-size:13.5px; line-height:1.6; max-width:88%; border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'}; ${isAi ? 'background:#fff; border:1px solid #e8e8e8; color:#333;' : 'background:#1a1a1a; color:#fff;'}`;
+    bubble.textContent = text;
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex; gap:10px; align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:28px;height:28px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e8e8;padding:12px 16px;border-radius:0 8px 8px 8px;display:flex;gap:4px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+<style>
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+</style>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body></html>
+
+
+
+

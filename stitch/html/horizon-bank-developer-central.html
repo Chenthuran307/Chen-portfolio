@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Designing Horizon Bank Developer Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#000000", "on-background": "#1b1c1c", error: "#ba1a1a", tertiary: "#000000", "on-error-container": "#93000a", "surface-bright": "#fbf9f8", "inverse-primary": "#c8c6c5", "on-primary": "#ffffff", "on-error": "#ffffff", "inverse-on-surface": "#f2f0f0", "primary-fixed": "#e5e2e1", "outline-variant": "#c4c7c7", "surface-container": "#efeded", "secondary-fixed": "#f5f3f3", secondary: "#000000", "secondary-fixed-dim": "#eae8e7", "surface-dim": "#dbd9d9", "on-secondary-fixed-variant": "#444748", "on-secondary": "#ffffff", "error-container": "#ffdad6", surface: "#fbf9f8", outline: "#747878", "inverse-surface": "#303030", background: "#fbf9f8", "surface-tint": "#5f5e5e", "tertiary-container": "#001551", "tertiary-fixed-dim": "#b6c4ff", "on-primary-fixed": "#1c1b1b", "surface-container-low": "#f5f3f3", "primary-fixed-dim": "#c8c6c5", "on-secondary-fixed": "#1b1c1c", "secondary-container": "#1b1c1c", "surface-container-high": "#eae8e7", "surface-container-lowest": "#ffffff", "primary-container": "#1c1b1b", "on-tertiary-fixed-variant": "#0039b3", "on-surface-variant": "#444748", "on-surface": "#1b1c1c", "surface-container-highest": "#e4e2e2", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#001551", "on-secondary-container": "#1b1c1c", "surface-variant": "#e4e2e2", "on-primary-fixed-variant": "#474746", "tertiary-fixed": "#dce1ff", "on-tertiary-container": "#537aff", "on-primary-container": "#858383"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"container-max": "1200px", "element-gap": "32px", "section-gap": "96px", "margin-standard": "24px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"display-lg": ["Inter"], "label-caps": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "body-xl-quote": ["Inter"], "display-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+
+    body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); opacity: 0; animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+    .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+    .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+    #mobile-menu a:hover { background: #f5f3f3; }
+    #mobile-menu a.active { border-right: 3px solid #000; }
+    
+    /* Card styles */
+    .case-card {
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #c4c7c7;
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+      border-color: #000;
+    }
+    .case-card .thumb {
+      overflow: hidden;
+      background: #efeded;
+    }
+    .case-card .thumb img {
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: grayscale(20%);
+    }
+    .case-card:hover .thumb img {
+      transform: scale(1.03);
+      filter: grayscale(0%);
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid #c4c7c7;
+      font-size: 10px;
+      font-family: Inter, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #444748;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body class="antialiased font-body-lg text-body-lg text-on-surface bg-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="w-full fixed top-0 bg-surface/90 backdrop-blur-md z-50 border-b border-surface-variant/40">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
+</nav>
+<button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div id="mobile-menu">
+  <a href="01_home" data-nav>Home</a>
+  <a class="active" href="work" data-nav>Work</a>
+  <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+  <a href="contact">Contact</a>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 max-w-[1200px] mx-auto w-full px-margin-standard mt-32 mb-section-gap">
+<!-- Back breadcrumb -->
+<div class="mb-8 flex items-center gap-2">
+  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">
+    <span class="material-symbols-outlined text-base" style="font-size:16px;">arrow_back</span> All Work
+  </a>
+</div>
+<!-- 1. Hero -->
+<header class="mb-section-gap">
+<h1 class="font-display-lg text-display-lg mobile:font-display-lg-mobile mobile:text-display-lg-mobile text-primary mb-8">Designing Horizon Bank Developer Central</h1>
+<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-12">Accelerating the developer lifecycle through modular architecture and self-service utility.</p>
+<div class="flex flex-col md:flex-row gap-8 border-t border-surface-variant pt-8">
+<div>
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-2">ROLE</span>
+<span class="font-body-md text-body-md text-primary">Senior Product Designer</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-2">TIMELINE</span>
+<span class="font-body-md text-body-md text-primary">4 Months</span>
+</div>
+</div>
+</header>
+<!-- 2. Overview & Objectives -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Horizon Bank Developer Central platform was reimagined to support a high-performance ecosystem, moving away from fragmented tools toward a unified, self-service developer experience. The legacy system suffered from institutional bloat, causing significant friction in the onboarding process and daily operational tasks for thousands of internal engineers.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li class=""><strong>Unify the Toolchain:</strong> Consolidate disparate internal sites into a single source of truth for APIs, documentation, and infrastructure management.</li><li class=""><strong>Enable Self-Service:</strong> Reduce the dependency on central support teams by providing intuitive, automated utility tools for scaffolding and deploying code.</li><li class=""><strong>Architectural Shift:</strong> Facilitate the transition from monolithic legacy systems to a modern, modular Micro-Front-End (MFE) architecture through clear governance and discoverable components.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I employed a user-centered design process adapted for enterprise technical constraints. My methodology was structured around five core phases: Empathise, Define, Ideate, Design, and Test. This ensured that every architectural decision was grounded in actual developer workflows and validated through empirical usability metrics rather than organizational assumptions.</p></section>
+<!-- 3. Process Timeline -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b border-surface-variant py-8 gap-4">
+<div class="flex items-center gap-2 text-primary font-medium"><span class="material-symbols-outlined text-[20px]">psychology</span> 1. Empathise</div>
+<div class="hidden md:block w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">design_services</span> 2. Define</div>
+<div class="hidden md:block w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">lightbulb</span> 3. Ideate</div>
+<div class="hidden md:block w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">brush</span> 4. Design</div>
+<div class="hidden md:block w-8 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">science</span> 5. Test</div>
+</div>
+</section>
+</main>
+<!-- 4. Phase 1: Empathise -->
+<section class="w-full bg-black py-24 mb-section-gap text-white">
+<div class="max-w-[1200px] mx-auto px-margin-standard">
+<div class="max-w-none"><h2 class="font-headline-md text-headline-md text-white mb-2">The Strategic Pivot: Learning &amp; Unlearning</h2><p class="font-body-lg text-body-lg text-gray-300 mb-12 font-medium">Senior-level execution requires the humility to discard legacy assumptions in favor of architectural truth.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-12"><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Learning (The Growth)</h3><p class="font-body-md text-body-md text-gray-400">Mastered the orchestration of Micro Frontends (MFE) within a regulated banking environment. Deepened understanding of C4 model analytics for component health tracking. Learned to design for a technical audience that prioritizes utility over decoration.</p></div><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Unlearning (The Evolution)</h3><p class="font-body-md text-body-md text-gray-400">Unlearned the 'monolithic mindset'—shifted from building pages to building interoperable nodes. Let go of pixel-perfect aesthetic bias in favor of system-level logic. Discarded the assumption that internal tools require less UX rigor than customer-facing ones.</p></div></div></div>
+</div>
+</section>
+<main class="flex-1 max-w-[1200px] mx-auto w-full px-margin-standard mb-section-gap">
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">1. Empathise: Understanding the Developer Context</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">To uncover the root causes of developer friction, I bypassed management assumptions and went straight to the source. I conducted deep-dive contextual inquiry sessions with 10 developers across varying seniority levels, observing their workflows in real-time as they attempted standard platform tasks.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Specific Interview Inquiries</h3><ul class="list-decimal pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8"><li class="">"Walk me through your exact process when discovering and integrating a new internal API."</li><li class="">"Where do you go when the official documentation fails to resolve your implementation blocker?"</li><li class="">"Describe the biggest bottleneck you face when attempting to spin up a new local environment using the current reference app."</li><li class="">"How do you currently track versioning changes for dependencies across the monolithic repository?"</li></ul><div class="bg-surface-container-low p-8 rounded-lg mb-12 mt-8"><h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Survey Data Highlights (N=150)</h3><table class="w-full text-left font-body-md border-collapse"><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Upgrade Readiness Awareness</td><td class="py-4 text-primary text-right font-medium">100%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Primary Communication for Support</td><td class="py-4 text-primary text-right font-medium">Outlook / Teams</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Technical Adoption Rate (Reference App)</td><td class="py-4 text-primary text-right font-medium">80%</td></tr><tr><td class="py-4 text-on-surface font-medium w-2/3">Interest in Internal Community Forums</td><td class="py-4 text-primary text-right font-medium">71%</td></tr></tbody></table></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Key Pain Points Identified</h3><ul class="space-y-6 font-body-lg text-body-lg text-on-surface-variant"><li class=""><strong class="text-on-surface block font-medium">Steep Learning Curve for MFE</strong>The transition to modular architecture lacked structured onboarding. Developers were forced to reverse-engineer documentation intended for senior architects, leading to high error rates in initial setup.</li><li class=""><strong class="text-on-surface block font-medium">Fragmented Connectivity</strong>Tools, security compliance forms, and API documentation were scattered across disparate, inconsistently branded internal SharePoint sites. Context switching was a primary source of cognitive load.</li><li class=""><strong class="text-on-surface block font-medium">Outdated Documentation</strong>Written guides often lagged behind actual platform capabilities. Developers reported a lack of trust in official resources, preferring informal knowledge sharing networks.</li><li class=""><strong class="text-on-surface block font-medium">Support Gaps &amp; Synchronous Dependency</strong>Over-reliance on synchronous help via Teams due to poor self-serve options created bottlenecks for lead engineers who spent significant time acting as ad-hoc support agents.</li></ul>
+
+<div class="my-16">
+  <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">Developer's Work-Life Ecosystem</h4>
+  <img src="images/developer_work_life.jpg" alt="Developer Work-Life breakdown: Team Structure, Regular Task, Best Part of the Day, Recent Learning, Learning Resources" class="w-full h-auto border border-outline-variant rounded-lg shadow-sm" />
+</div>
+</section>
+<!-- 5. Phase 2: Define -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">2. Define: Establishing Target Profiles and Journeys</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Synthesizing my research, I defined clear user archetypes to anchor my architectural decisions. I needed to design a system that catered to both those learning the platform and those pushing its boundaries.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramya</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Intermediate Developer</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramya needs clear, step-by-step guidance to set up her local environment and fundamentally understand the new MFE architecture paradigms. She values high discoverability, robust "Getting Started" documentation, and clear error messaging. Her primary goal is decreasing her "Time to First Hello World."</p></div><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramesh</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Senior Architect</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramesh focuses on system scalability, enterprise governance, and advanced tooling. He requires fast, unencumbered access to raw API specs, seamless version control switching, and deep performance analytics. His primary goal is maintaining system integrity while increasing team velocity.</p></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">The Developer Journey</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I mapped the current vs. future state user journey, focusing on the critical path from "Project Assignment" to "First Successful Deployment." The legacy journey involved an average of 14 distinct touchpoints across 5 different systems, fraught with manual approval gates. The redefined journey collapsed this into a unified portal experience, automating provisioning where possible and surfacing necessary documentation contextually alongside the tools themselves.</p>
+
+<!-- Journey Flowchart -->
+<div class="mt-12 bg-surface-container rounded-xl p-8 border border-outline-variant/50">
+  <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-8 border-b border-outline-variant pb-4">Current-State User Journey: The Developer Experience</h4>
+  
+  <!-- Macro Phase 1 -->
+  <div class="mb-12">
+    <div class="inline-block bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest px-4 py-2 rounded mb-6">Macro-Phase 1: Set up & start building</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+      <!-- Step 1 -->
+      <div class="bg-surface rounded-lg p-6 border-t-4 border-error relative z-10 shadow-sm">
+        <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Step 1</span>
+        <h5 class="font-headline-md text-[18px] text-primary mb-3">Discovering COSMOS</h5>
+        <div class="mb-4">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider block mb-1">Actions</span>
+          <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Rely on word-of-mouth or stumble upon the COSMOS Design system Home page.</p>
+        </div>
+        <div class="bg-error-container text-on-error-container p-3 rounded text-[14px] leading-relaxed">
+          <strong>Friction:</strong> Major gap in initial discoverability. Only found if already in use.
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="bg-surface rounded-lg p-6 border-t-4 border-error relative z-10 shadow-sm">
+        <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Step 2</span>
+        <h5 class="font-headline-md text-[18px] text-primary mb-3">Onboarding</h5>
+        <div class="mb-4">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider block mb-1">Actions</span>
+          <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Meet Product team, get access, training, read FAQs and architecture docs.</p>
+        </div>
+        <div class="bg-error-container text-on-error-container p-3 rounded text-[14px] leading-relaxed">
+          <strong>Friction:</strong> Raising access requests from multiple sources is highly time-consuming.
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="bg-surface rounded-lg p-6 border-t-4 border-error relative z-10 shadow-sm">
+        <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Step 3</span>
+        <h5 class="font-headline-md text-[18px] text-primary mb-3">Getting Started</h5>
+        <div class="mb-4">
+          <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider block mb-1">Actions</span>
+          <p class="font-body-md text-[14px] text-on-surface-variant leading-relaxed">Interact with Cosmos, API docs, set up Dev env, MFE Generator, Open hours.</p>
+        </div>
+        <div class="bg-error-container text-on-error-container p-3 rounded text-[14px] leading-relaxed">
+          <strong>Friction:</strong> Steep learning curve; reliant on "Open hours" support.
+        </div>
+      </div>
+      <!-- Connecting line for desktop -->
+      <div class="hidden md:block absolute top-[40%] left-0 w-full h-[2px] bg-outline-variant/50 z-0"></div>
+    </div>
+  </div>
+
+  <!-- Macro Phase 2 -->
+  <div class="mb-12">
+    <div class="inline-block bg-secondary text-on-secondary font-label-caps text-label-caps uppercase tracking-widest px-4 py-2 rounded mb-6">Macro-Phase 2: Building products</div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+      <!-- Step 4 -->
+      <div class="bg-surface rounded-lg p-5 border-t-4 border-error relative z-10 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Step 4</span>
+          <h5 class="font-headline-md text-[16px] text-primary mb-3 leading-tight">Development</h5>
+          <div class="mb-3">
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Navigate resources (JS/React guides), manage upgrades & security.</p>
+          </div>
+        </div>
+        <div class="bg-error-container text-on-error-container p-2 rounded text-[13px] leading-snug mt-4">
+          <strong>Friction:</strong> No ready-made codes, low discoverability of reference app.
+        </div>
+      </div>
+      <!-- Step 5 -->
+      <div class="bg-surface rounded-lg p-5 border-t-4 border-error relative z-10 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Step 5</span>
+          <h5 class="font-headline-md text-[16px] text-primary mb-3 leading-tight">Testing</h5>
+          <div class="mb-3">
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Conduct Unit Testing and raise defects to Library team.</p>
+          </div>
+        </div>
+        <div class="bg-error-container text-on-error-container p-2 rounded text-[13px] leading-snug mt-4">
+          <strong>Friction:</strong> Raising defects is unstructured, increasing resolution times.
+        </div>
+      </div>
+      <!-- Step 6 -->
+      <div class="bg-surface rounded-lg p-5 border-t-4 border-outline-variant relative z-10 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Step 6</span>
+          <h5 class="font-headline-md text-[16px] text-primary mb-3 leading-tight">Production</h5>
+          <div class="mb-3">
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Pass code through FED Scorecard 3.x for production standards.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Step 7 -->
+      <div class="bg-surface rounded-lg p-5 border-t-4 border-outline-variant relative z-10 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Step 7</span>
+          <h5 class="font-headline-md text-[16px] text-primary mb-3 leading-tight">Maintenance</h5>
+          <div class="mb-3">
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Version upgrades, public release updates, community contribution.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Connecting line for desktop -->
+      <div class="hidden md:block absolute top-[40%] left-0 w-full h-[2px] bg-outline-variant/50 z-0"></div>
+    </div>
+  </div>
+
+  <!-- Systemic Blockers -->
+  <div class="bg-error-container/30 rounded-lg p-6 border border-error-container/50">
+    <h5 class="font-headline-md text-[18px] text-error mb-4 flex items-center gap-2">
+      <span class="material-symbols-outlined">warning</span>
+      Systemic Journey Blockers
+    </h5>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 font-body-md text-[14px] text-on-surface-variant">
+      <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-error mt-0.5">cancel</span> <strong>Fragmented Information:</strong> Repetitive content across various URLs.</li>
+      <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-error mt-0.5">cancel</span> <strong>Lack of Sequencing:</strong> Difficult to understand correct steps to follow.</li>
+      <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-error mt-0.5">cancel</span> <strong>Zero Self-Service:</strong> Dependent on "Open hours" support.</li>
+      <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-error mt-0.5">cancel</span> <strong>Poor Cross-Discoverability:</strong> Siloed information.</li>
+      <li class="flex items-start gap-2 md:col-span-2"><span class="material-symbols-outlined text-[18px] text-error mt-0.5">cancel</span> <strong>Missing MFE Support:</strong> Little to no MFE-specific material available.</li>
+    </ul>
+  </div>
+</div>
+
+</section>
+<!-- 6. Phase 3: Ideate -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">3. Ideate: Structuring the Solution Architecture</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">With clear definitions in place, I moved into ideation, brainstorming solutions that directly addressed the pain points of cognitive overload and fragmented workflows. I prioritized features based on technical feasibility and impact on developer velocity.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">The 'Big Ideas' Matrix</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12"><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Automated Code Scaffolding</strong><span class="font-body-md text-on-surface-variant block">Implementing a CLI-backed UI tool allowing developers to generate boilerplate React components instantly, pre-configured with enterprise security standards and design tokens.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Integrated Sandbox Editors</strong><span class="font-body-md text-on-surface-variant block">Embedding an in-browser IDE for quick API testing and component playground manipulation directly within the documentation, eliminating the need to spin up local environments for initial evaluation.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">C4 Architectural Analytics</strong><span class="font-body-md text-on-surface-variant block">Visualizing system architecture contextually using dynamic C4 model diagrams, helping developers understand upstream and downstream dependencies before making commits.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Seamless Version Switching</strong><span class="font-body-md text-on-surface-variant block">A persistent, global toggle mechanism allowing architects to fluidly switch context between API versions and documentation states without losing their place in the portal.</span></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Information Architecture &amp; Flows</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I drastically simplified the IA. I shifted from an organizational-chart-based taxonomy to a task-based taxonomy. The primary navigation was reduced to core verbs: Discover (APIs &amp; Components), Build (Tools &amp; Scaffolding), Learn (Documentation &amp; Patterns), and Manage (Infrastructure &amp; Access). This intuitive mental model was validated through early tree-testing exercises with senior engineering leads.</p></section>
+<!-- 7. Phase 4: Design -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">4. Design: From Wireframes to High-Fidelity Execution</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The design phase required balancing high data density with cognitive clarity. I needed an interface that felt sophisticated and powerful, not overly simplified.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Wireframing Core Utilities</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Initial low-fidelity wireframes focused strictly on layout structure and module hierarchy. I established a strict, modular grid system to handle complex data tables, extensive code snippet blocks, and multi-pane navigation elements. The primary goal during wireframing was defining the 'Time to First Hello World' flow—ensuring that a new user could navigate from the landing page to a successful boilerplate download in under three clicks. Iterative reviews with engineering stakeholders ensured that the proposed UI structures could be realistically supported by the underlying backend services.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Visual Design &amp; System Integration</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The final visual execution adhered to a strict, modern editorial aesthetic. I utilized a highly refined, predominantly monochromatic scheme with subtle brand accents applied only for interactive states or critical status indicators. Typography was paramount; I employed a robust scale using 'Inter' for highly legible, data-dense UI components and 'Inter' to provide a precise, geometric authority for long-form documentation content.</p><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">A comprehensive set of design system components was documented, detailing specific interactive behaviors for modal windows, complex nested dropdowns, and terminal-style code blocks. Spacing guidelines and structural annotations were rigorously defined to ensure pixel-perfect implementation by the development team, maintaining a clinical, precise, and professional environment suitable for enterprise software engineering.</p>
+
+<div class="my-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+    <div>
+      <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">Unified Docs</h4>
+      <img src="images/dev_central_docs.png" alt="Developer Technical Documentation" class="w-full h-auto border border-outline-variant rounded-lg shadow-sm hover:shadow-md transition-shadow" />
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">Component Gallery</h4>
+      <img src="images/dev_central_gallery.png" alt="Component Library Gallery" class="w-full h-auto border border-outline-variant rounded-lg shadow-sm hover:shadow-md transition-shadow" />
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-widest">Playground</h4>
+      <img src="images/dev_central_playground.png" alt="Component Playground" class="w-full h-auto border border-outline-variant rounded-lg shadow-sm hover:shadow-md transition-shadow" />
+    </div>
+  </div>
+</div>
+
+</section>
+<!-- 8. Phase 5: Test & Results -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">5. Test &amp; Results: Project Impact</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Post-launch validation was conducted through a mix of quantitative analytics tracking and qualitative feedback loops integrated directly into the new portal. The newly designed Developer Central significantly shifted critical internal performance indicators.</p><div class="overflow-x-auto mb-12 mt-8"><table class="w-full text-left font-body-md border-collapse"><thead><tr class="border-b-2 border-primary"><th class="py-4 font-medium text-primary w-1/3">Metric Area</th><th class="py-4 font-medium text-on-surface-variant w-1/3">Legacy System (Before)</th><th class="py-4 font-medium text-secondary w-1/3">Design (After)</th></tr></thead><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Search &amp; Discovery</td><td class="py-4 text-on-surface-variant">Fragmented across 3 platforms</td><td class="py-4 text-secondary font-medium">Unified Central Hub</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Onboarding Time</td><td class="py-4 text-on-surface-variant">Manual, mentor-dependent (Weeks)</td><td class="py-4 text-secondary font-medium">Self-service guided paths (Days)</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Technical Utility</td><td class="py-4 text-on-surface-variant">Static, disconnected documentation</td><td class="py-4 text-secondary font-medium">Interactive code gen &amp; integrated editors</td></tr></tbody></table></div><div class="bg-surface-container-low p-8 rounded-lg border-l-4 border-secondary mt-12"><p class="font-body-lg text-body-lg text-on-surface-variant m-0">The design of Developer Central significantly improved the FED Scorecard metrics, establishing a robust, scalable foundation for the organization's modular MFE future. By treating internal developers as primary, highly-valued users and applying rigorous UX methodologies, I transformed a disjointed utility into a critical, beloved enablement platform.</p></div></section>
+<!-- Phase 2: AI Evolution -->
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none">
+  <h2 class="font-headline-md text-headline-md text-primary mb-6">Phase 2 — Evolving Developer Central with AI</h2>
+  <p class="font-body-lg text-body-lg text-secondary mb-12 font-medium">Moving beyond documentation into intelligent developer workflows</p>
+  
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+    The design of Developer Central successfully centralized documentation, tools, and onboarding resources into a single platform. However, our research uncovered a deeper problem: developers weren't struggling because information didn't exist—they were struggling because finding the right information, and turning it into working code, required significant effort.
+  </p>
+  
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+    Our next opportunity was clear: instead of simply helping developers navigate documentation, Developer Central should actively help them build software. This led us to explore how AI could become part of the developer workflow rather than another standalone tool.
+  </p>
+
+  <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Research Insights</h3>
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Our generative research revealed two recurring pain points across beginner and experienced developers.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    <div class="bg-surface-container p-8 rounded-lg border-t-2 border-secondary">
+      <span class="font-label-caps text-label-caps text-secondary block mb-2">Insight 01</span>
+      <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">"I need ready-made code to start faster."</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant">New developers spent considerable time configuring environments, understanding COSMOS dependencies, and manually creating boilerplate code before writing actual business logic.</p>
+    </div>
+    <div class="bg-surface-container p-8 rounded-lg border-t-2 border-secondary">
+      <span class="font-label-caps text-label-caps text-secondary block mb-2">Insight 02</span>
+      <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">"I know the documentation exists. I just can't find it."</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant">Resources were distributed across COSMOS, API documentation, GitHub repositories, migration guides, and internal learning platforms. Developers spent more time searching than building.</p>
+    </div>
+  </div>
+
+  <h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Design Opportunity</h3>
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+    We identified an opportunity to evolve Developer Central from a documentation portal into an intelligent development assistant. Rather than introducing separate AI products, we embedded AI directly into workflows developers were already using.
+  </p>
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+    The two highest-impact opportunities were:
+  </p>
+  <ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12">
+    <li><strong>AI-Assisted MFE Code Generation:</strong> Eliminating the "Getting Started" bottleneck.</li>
+    <li><strong>Semantic Search & Intelligent Discoverability:</strong> Finding answers instead of documents.</li>
+  </ul>
+
+  <!-- Solution 01 -->
+  <div class="border-t border-surface-variant/40 pt-12 mt-12">
+    <span class="font-label-caps text-label-caps text-secondary block mb-2">Solution 01</span>
+    <h3 class="font-headline-md text-[28px] font-bold text-primary mb-4">AI-Assisted MFE Code Generation</h3>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">One of the most painful moments occurred during project setup. New developers had to configure dependencies, understand COSMOS architecture, interpret complex component documentation, and manually scaffold Micro Frontends. Many relied on support sessions before writing their first line of code.</p>
+    
+    <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Our Design Approach</h4>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Instead of creating another AI application, we enhanced the existing MFE Generator already available inside Developer Central. This allowed AI capabilities to fit naturally into existing workflows.</p>
+
+    <!-- Visual Canvas / Workflow -->
+    <div class="bg-surface-container p-8 rounded-lg mb-12">
+      <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-6 text-center">New MFE Generation Workflow</h4>
+      <div class="flex flex-col items-center space-y-4 text-on-surface">
+        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
+          <strong class="block font-body-md font-bold text-primary mb-1">Step 1</strong>
+          <span class="text-sm text-on-surface-variant">Developers open the MFE Generator directly from the Developer Tools section.</span>
+        </div>
+        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
+        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
+          <strong class="block font-body-md font-bold text-primary mb-1">Step 2</strong>
+          <span class="text-sm text-on-surface-variant">A visual canvas allows developers to drag UI components directly from the COSMOS design system.</span>
+        </div>
+        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
+        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
+          <strong class="block font-body-md font-bold text-primary mb-1">Step 3</strong>
+          <span class="text-sm text-on-surface-variant">AI understands the selected layout and automatically generates production-ready COSMOS 4.x React/TypeScript code.</span>
+        </div>
+        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
+        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
+          <strong class="block font-body-md font-bold text-primary mb-1">Step 4</strong>
+          <span class="text-sm text-on-surface-variant">Complex inherited properties, child configurations, imports, and dependencies are automatically configured.</span>
+        </div>
+        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
+        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
+          <strong class="block font-body-md font-bold text-primary mb-1">Step 5</strong>
+          <span class="text-sm text-on-surface-variant">The generated Micro Frontend can immediately be validated using the existing FED Scorecard.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-surface-container-low p-8 rounded-lg border-l-4 border-secondary mb-12">
+      <strong class="block font-body-lg font-medium text-on-surface mb-2">Design Principle</strong>
+      <p class="font-body-lg text-body-lg text-on-surface-variant m-0">Rather than replacing developers, AI removes repetitive setup work while keeping developers in control of implementation. Developers spend time solving business problems—not writing boilerplate.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+      <div class="bg-surface-container p-6 rounded-lg text-center">
+        <span class="block text-4xl font-bold text-secondary mb-2">80%</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in project setup time</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg text-center">
+        <span class="block text-4xl font-bold text-secondary mb-2">65%</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in Level-1 support requests</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg text-center flex flex-col justify-center">
+        <span class="block text-lg font-bold text-primary mb-1">Faster MFE Adoption</span>
+        <span class="text-xs text-on-surface-variant">Lowering the curve encourages migration from monoliths.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solution 02 -->
+  <div class="border-t border-surface-variant/40 pt-12 mt-12">
+    <span class="font-label-caps text-label-caps text-secondary block mb-2">Solution 02</span>
+    <h3 class="font-headline-md text-[28px] font-bold text-primary mb-4">Semantic Search & Intelligent Discoverability</h3>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Research consistently showed that developers already knew the documentation existed. The real challenge was knowing where to look. Traditional keyword search required developers to understand document names, repositories, and platform structure before they could search.</p>
+    
+    <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Our Design Approach</h4>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Rather than designing search, we replaced the underlying search experience with semantic understanding. The existing global search bar became an AI-powered knowledge assistant.</p>
+
+    <div class="bg-surface-container p-8 rounded-lg mb-12 border border-outline-variant">
+      <div class="flex items-center gap-3 border-b border-outline-variant pb-4 mb-4">
+        <span class="material-symbols-outlined text-secondary">search</span>
+        <span class="font-body-md text-on-surface-variant italic">"How do I change a button to Standard Skin in React?"</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant mb-4">Instead of returning dozens of matching files, Developer Central now provides a synthesized answer with the relevant React code snippet, links to the exact COSMOS component, and related migration guides.</p>
+      <div class="border-t border-outline-variant/60 pt-4">
+        <span class="block font-label-caps text-xs text-on-surface-variant mb-2">Retrieves knowledge from:</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">COSMOS Component Library</span>
+          <span class="tag">API Registry</span>
+          <span class="tag">Migration Documentation</span>
+          <span class="tag">Release Notes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+      <div class="bg-surface-container p-6 rounded-lg text-center">
+        <span class="block text-4xl font-bold text-secondary mb-2">65%</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in search time</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg text-center flex flex-col justify-center">
+        <span class="block text-base font-bold text-primary mb-1">Self-Service</span>
+        <span class="text-xs text-on-surface-variant">Resolve implementation questions independently</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg text-center flex flex-col justify-center">
+        <span class="block text-base font-bold text-primary mb-1">Unified Knowledge</span>
+        <span class="text-xs text-on-surface-variant">One source for all framework knowledge</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Tip: Before vs After -->
+  <div class="border-t border-surface-variant/40 pt-12 mt-12 bg-surface-container p-8 rounded-lg">
+    <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6 text-center">Workflow Comparison</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="font-label-caps text-label-caps text-secondary mb-4 text-center">Before</h4>
+        <div class="space-y-2 text-center text-on-surface">
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Search Docs</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Open Multiple Platforms</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Read Documentation</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Ask Support</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Write Boilerplate</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-secondary p-2 bg-secondary/5 font-semibold rounded text-sm">Start Development</div>
+          <p class="text-xs text-secondary mt-3 font-semibold">≈ Several hours to days</p>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-label-caps text-label-caps text-primary mb-4 text-center">After</h4>
+        <div class="space-y-2 text-center text-on-surface">
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Open Developer Central</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Ask AI / Generate MFE</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Receive Working Code</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Validate with FED Scorecard</div>
+          <div class="text-xs text-on-surface-variant">↓</div>
+          <div class="border border-primary p-2 bg-primary/5 font-semibold rounded text-sm">Start Development</div>
+          <p class="text-xs text-primary mt-3 font-semibold">≈ Minutes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Measuring Success & Feedback -->
+  <div class="border-t border-surface-variant/40 pt-12 mt-12">
+    <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Measuring Success</h3>
+    <table class="w-full text-left font-body-md border-collapse mb-12">
+      <thead>
+        <tr class="border-b-2 border-primary">
+          <th class="py-4 font-medium text-primary">Metric</th>
+          <th class="py-4 font-medium text-secondary text-right">Expected Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-surface-variant">
+          <td class="py-4 text-on-surface font-medium">Initial MFE setup time</td>
+          <td class="py-4 text-secondary text-right font-medium">↓ 80%</td>
+        </tr>
+        <tr class="border-b border-surface-variant">
+          <td class="py-4 text-on-surface font-medium">Level-1 support tickets</td>
+          <td class="py-4 text-secondary text-right font-medium">↓ 65%</td>
+        </tr>
+        <tr class="border-b border-surface-variant">
+          <td class="py-4 text-on-surface font-medium">Documentation search time</td>
+          <td class="py-4 text-secondary text-right font-medium">↓ 65%</td>
+        </tr>
+        <tr class="border-b border-surface-variant">
+          <td class="py-4 text-on-surface font-medium">MFE adoption</td>
+          <td class="py-4 text-secondary text-right font-medium">↑ 40% within one quarter</td>
+        </tr>
+        <tr>
+          <td class="py-4 text-on-surface font-medium">Developer self-service</td>
+          <td class="py-4 text-secondary text-right font-medium">Significant increase</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">User Feedback</h3>
+    <div class="space-y-6 mb-12">
+      <div class="bg-surface-container p-6 rounded-lg">
+        <p class="italic text-on-surface mb-2 font-body-md">"Earlier I had to wait for someone to help me set up COSMOS. Now I simply drag the components I need, and the generator creates everything for me. I can start building immediately."</p>
+        <span class="text-xs font-label-caps text-on-surface-variant">— Beginner Developer</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg">
+        <p class="italic text-on-surface mb-2 font-body-md">"Instead of searching across multiple platforms, I ask a question and immediately receive the exact implementation with links to the correct documentation. It finally feels like one developer platform."</p>
+        <span class="text-xs font-label-caps text-on-surface-variant">— Senior Developer</span>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg">
+        <p class="italic text-on-surface mb-2 font-body-md">"Routine onboarding questions have reduced significantly. Instead of answering repetitive setup issues, we can now focus on improving the platform itself."</p>
+        <span class="text-xs font-label-caps text-on-surface-variant">— Platform Support Team</span>
+      </div>
+    </div>
+
+    <h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Reflection</h3>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">This phase fundamentally changed the role of Developer Central. The platform evolved from being a knowledge repository into an AI-powered development companion.</p>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">By embedding AI into existing workflows—instead of introducing separate tools—we reduced onboarding friction, improved discoverability, and enabled developers to spend more time building products and less time searching for information.</p>
+  </div>
+</section>
+
+<!-- Next Case Study -->
+<div class="mt-24 pt-16 border-t border-outline-variant max-w-container-max mx-auto px-margin-standard mb-16">
+  <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest block mb-6">Next Case Study</span>
+  <a href="dosb-financing-ecosystem" class="case-card block" data-nav>
+    <div class="thumb h-64 md:h-80">
+      <img src="images/05_case_study_dosb_financing.png" alt="DOSB Financing Ecosystem" class="w-full h-full object-cover"/>
+    </div>
+    <div class="p-8 bg-surface">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="tag">Fintech</span>
+        <span class="tag">DeFi / DLT</span>
+        <span class="tag">Equity Design</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Bridging the Financing Gap for DOSBs</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Fair and equitable capital access through Distributed Ledger Technology. Dismantling systemic barriers for diverse-owned small businesses.</p>
+      <div class="flex items-center justify-between">
+        <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant">
+          <span>Product Designer & UX Architect</span>
+        </div>
+        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-surface-container-low dark:bg-tertiary-container flat no shadows">
+<div class="max-w-[1200px] mx-auto py-margin-standard px-margin-standard flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="font-label-caps text-label-caps text-primary">© 2024 Senior Portfolio. Built for intellectual depth.</div>
+<ul class="flex flex-wrap gap-6">
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer">LinkedIn</li>
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Read.cv</li>
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Email</li>
+<li class="font-body-md text-body-md text-primary dark:text-primary-fixed underline hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Archive</li>
+</ul>
+</div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+</script>
+
+<!-- Lightbox Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('global-lightbox')) return; // Already exists
+
+    const lightbox = document.createElement('div');
+    lightbox.id = 'global-lightbox';
+    lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
+    
+    const imgElement = document.createElement('img');
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    
+    lightbox.appendChild(imgElement);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    });
+
+    const images = document.querySelectorAll('img:not(.no-lightbox)');
+    images.forEach(img => {
+        // Exclude small UI icons or avatars if they exist, but generally all content images are fine
+        if (img.width < 100 && img.height < 100) return; 
+        
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imgElement.src = img.src;
+            lightbox.style.display = 'flex';
+            // reflow
+            void lightbox.offsetWidth;
+            lightbox.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body> on every page
+     ============================================================ -->
+
+<!-- Chat FAB Button -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Ask Chen's AI Assistant"
+  style="position:fixed; bottom:28px; right:28px; z-index:1000; width:56px; height:56px; border-radius:50%; background:#1a1a1a; color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(0,0,0,0.18); transition:transform 0.2s ease, box-shadow 0.2s ease;"
+  onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.28)'"
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.18)'">
+  <svg id="chat-fab-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window"
+  style="position:fixed; bottom:96px; right:28px; z-index:999; width:380px; max-width:calc(100vw - 40px); background:#fff; border:1px solid #e5e5e5; border-radius:4px; box-shadow:0 16px 48px rgba(0,0,0,0.14); display:none; flex-direction:column; overflow:hidden; font-family:'Inter', sans-serif; max-height:560px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a; color:#fff; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:11px; opacity:0.55; margin-top:2px; letter-spacing:0.04em;">AI-powered · Powered by NVIDIA NIM</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:#4ade80; display:inline-block;"></span>
+      <span style="font-size:11px; opacity:0.7;">Online</span>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages"
+    style="flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:12px; min-height:200px; max-height:320px; background:#fafafa;">
+    <!-- Initial greeting -->
+    <div class="msg-ai" style="display:flex; gap:10px; align-items:flex-start;">
+      <div style="width:28px; height:28px; border-radius:50%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff; border:1px solid #e8e8e8; padding:10px 14px; border-radius:0 8px 8px 8px; font-size:13.5px; line-height:1.6; color:#333; max-width:88%;">
+        Hi! I'm Chen's AI assistant. I can answer questions about his experience, projects, skills, and design philosophy. What would you like to know?
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggested Questions -->
+  <div id="suggestions" style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff;">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:#999; margin-bottom:8px;">Suggested Questions</div>
+    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What's Chen's design process?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Tell me about his key projects</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What industries has Chen worked in?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">How does Chen approach system thinking?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">What makes Chen unique as a designer?</button>
+      <button onclick="askSuggestion(this)" style="font-size:11.5px; padding:5px 10px; border:1px solid #ddd; background:#f8f8f8; color:#444; cursor:pointer; border-radius:2px; transition:all 0.15s;" onmouseover="this.style.background='#1a1a1a'; this.style.color='#fff'; this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8'; this.style.color='#444'; this.style.borderColor='#ddd';">Is Chen open to new opportunities?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:12px 16px; border-top:1px solid #f0f0f0; background:#fff; display:flex; gap:8px; align-items:center;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1; padding:9px 12px; border:1px solid #e0e0e0; border-radius:2px; font-size:13px; outline:none; font-family:inherit; color:#1a1a1a; background:#fafafa; transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a'; this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0'; this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter') sendChat();" />
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:36px; height:36px; background:#1a1a1a; color:#fff; border:none; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const icon = document.getElementById('chat-fab-icon');
+    if (chatOpen) {
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      fab.style.background = '#444';
+      icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      icon.innerHTML = '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>';
+    }
+  }
+
+  function askSuggestion(btn) {
+    const text = btn.textContent.trim();
+    document.getElementById('chat-input').value = text;
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    input.value = '';
+    appendMessage(msg, 'user');
+
+    // Hide suggestions after first interaction
+    document.getElementById('suggestions').style.display = 'none';
+
+    const typingId = appendTyping();
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch (e) {
+      removeTyping(typingId);
+      appendMessage("Sorry, I'm having trouble connecting. Please try again.", 'ai');
+    }
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex; gap:10px; align-items:flex-start; ${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:28px; height:28px; border-radius:50%; background:${isAi ? '#1a1a1a' : '#e8e8e8'}; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 14px; font-size:13.5px; line-height:1.6; max-width:88%; border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'}; ${isAi ? 'background:#fff; border:1px solid #e8e8e8; color:#333;' : 'background:#1a1a1a; color:#fff;'}`;
+    bubble.textContent = text;
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex; gap:10px; align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:28px;height:28px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e8e8;padding:12px 16px;border-radius:0 8px 8px 8px;display:flex;gap:4px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#bbb;animation:bounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+<style>
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+</style>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+        <path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/>
+        <path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/><path d="M19 1L19.9 4.1L23 5L19.9 5.9L19 9L18.1 5.9L15 5L18.1 4.1L19 1Z"/><path d="M5 15L5.7 17.3L8 18L5.7 18.7L5 21L4.3 18.7L2 18L4.3 17.3L5 15Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function formatAIResponse(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+</body></html>
+
+
+
+

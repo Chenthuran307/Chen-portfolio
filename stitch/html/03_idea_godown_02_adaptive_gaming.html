@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulse Adaptive Gaming — Chen UX Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#000000",
+        secondary: "#000000",
+        "secondary-container": "#1b1c1c",
+        "secondary-fixed": "#f5f3f3",
+        "secondary-fixed-dim": "#eae8e7",
+        background: "#fbf9f8",
+        surface: "#fbf9f8",
+        "surface-variant": "#e4e2e2",
+        "surface-container": "#efeded",
+        "surface-container-low": "#f5f3f3",
+        "on-surface": "#1b1c1c",
+        "on-surface-variant": "#444748",
+        "outline-variant": "#c4c7c7"
+      },
+      spacing: {
+        "margin-standard": "24px",
+        "section-gap": "96px",
+        "element-gap": "32px",
+        "container-max": "1200px"
+      },
+      fontFamily: {
+        body: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};
+</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+
+  body { opacity: 0; animation: fadeIn 0.4s ease forwards; font-family: 'Inter', sans-serif; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+  .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #000; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+  .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+  #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a { padding: 14px 24px; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+  #mobile-menu a:hover { background: #f5f3f3; }
+  #mobile-menu a.active { border-right: 3px solid #000; }
+  .tag { display: inline-block; padding: 3px 10px; border: 1px solid #c4c7c7; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #444748; }
+</style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 backdrop-blur-md w-full top-0 sticky z-50 border-b border-surface-variant/30"><div class="flex justify-between items-center max-w-[1200px] mx-auto py-6 px-margin-standard relative">
+<a class="font-headline-md text-xl font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-primary border-b-2 border-primary pb-1" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
+</div>
+<button id="menu-toggle" class="md:hidden text-on-surface" aria-label="Toggle menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div id="mobile-menu">
+  <a href="01_home" data-nav>Home</a>
+  <a href="work" data-nav>Work</a>
+  <a class="active" href="03_idea_godown_research_ledger">Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+  <a href="contact">Contact</a>
+</div>
+</div></nav>
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-margin-standard pt-12 pb-section-gap">
+
+<!-- Breadcrumb -->
+<div class="mb-8 flex items-center gap-2">
+  <a href="03_idea_godown_research_ledger" data-nav class="inline-flex items-center gap-1 font-label-caps text-xs tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase">
+    <span class="material-symbols-outlined text-base">arrow_back</span> Back to Ledger
+  </a>
+</div>
+
+<!-- Title Block -->
+<header class="mb-12 border-b border-surface-variant/40 pb-8">
+  <div class="flex flex-wrap items-center gap-4 mb-4">
+    <span class="tag">Active Research</span>
+    <span class="font-label-caps text-xs text-on-surface-variant uppercase">Idea 02</span>
+  </div>
+  <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Pulse Adaptive Gaming</h1>
+  <p class="text-xl text-on-surface-variant max-w-3xl leading-snug">A middleware game engine plugin that reads wearable biometrics to modulate NPC aggressiveness and ambient flow states in real-time.</p>
+</header>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+  <!-- Content Details -->
+  <div class="lg:col-span-8 space-y-10">
+    <section>
+      <h3 class="font-label-caps text-xs text-outline uppercase tracking-wider mb-3 text-secondary font-bold">Observation & Context</h3>
+      <p class="text-on-surface text-base leading-relaxed">
+        Difficulty settings in modern video games are static (Easy, Normal, Hard), yet the player's physical stress, fatigue, and flow states are highly dynamic. A difficulty level selected when alert can feel frustrating when tired, breaking player immersion.
+      </p>
+    </section>
+
+    <section>
+      <h3 class="font-label-caps text-xs text-outline uppercase tracking-wider mb-3 text-secondary font-bold">Generative Research</h3>
+      <p class="text-on-surface-variant text-base leading-relaxed">
+        While smartwatches and fitness bands track live Heart Rate (HR) and Heart Rate Variability (HRV), these bio-metrics are siloed inside fitness apps. Payouts and triggers inside game loops remain disconnected from the player's actual autonomic nervous state.
+      </p>
+    </section>
+
+    <section class="border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
+      <h3 class="font-label-caps text-xs uppercase tracking-wider text-primary font-bold mb-2">The Concept</h3>
+      <p class="text-on-surface italic text-lg leading-relaxed">
+        We propose a plugin that pipes raw smartwatch HR data directly into Unreal/Unity. If the player's heart rate spikes past a baseline, the system dials back enemy spawning or visual stress cues to maintain flow. Conversely, if a player is bored (low heart rate), it ramps up complexity.
+      </p>
+    </section>
+
+    <section>
+      <h3 class="font-label-caps text-xs text-outline uppercase tracking-wider mb-3 text-secondary font-bold">Viability Scorecard</h3>
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-primary">
+            <th class="py-2 font-medium">Dimension</th>
+            <th class="py-2 font-medium text-right">Evaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-surface-variant/40">
+            <td class="py-3">Confidence Score</td>
+            <td class="py-3 text-right font-bold">82/100</td>
+          </tr>
+          <tr class="border-b border-surface-variant/40">
+            <td class="py-3">Technical Feasibility</td>
+            <td class="py-3 text-right">High (Local Bluetooth socket connection)</td>
+          </tr>
+          <tr class="border-b border-surface-variant/40">
+            <td class="py-3">Market Potential</td>
+            <td class="py-3 text-right">High (Indie developers looking for design hooks)</td>
+          </tr>
+        </tbody>
+      </table>
+    <section class="space-y-6 pt-6 border-t border-surface-variant/40">
+      <h3 class="font-label-caps text-xs text-outline uppercase tracking-wider mb-3 text-secondary font-bold">Hardware Concept Renders</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <div class="rounded-lg overflow-hidden border border-outline-variant/30">
+            <img src="images/Gaming_controller_with_heart_sensor_202607062026.jpeg" alt="Gaming controller prototype connected to heart rate sensor wristband" class="w-full h-auto object-cover" />
+          </div>
+          <p class="text-xs text-on-surface-variant italic">Desktop prototype showing the custom controller wired to the biometric tracking wristband.</p>
+        </div>
+        <div class="space-y-2">
+          <div class="rounded-lg overflow-hidden border border-outline-variant/30">
+            <img src="images/Game_controller_wristband_playtest.jpeg" alt="Playtesting using the controller and bio-tracking wristband" class="w-full h-auto object-cover" />
+          </div>
+          <p class="text-xs text-on-surface-variant italic">Playtesting session demonstrating live heart rate feedback integration via the carbon-weave biometric band.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Interactive Sandbox -->
+  <div class="lg:col-span-4 bg-surface-container p-8 rounded-lg border border-outline-variant h-fit">
+    <h3 class="font-label-caps text-xs uppercase text-primary font-bold mb-6 text-center tracking-widest">Biometric Flow Simulator</h3>
+    
+    <div class="space-y-6" id="gaming-simulator">
+      <div>
+        <label class="block text-xs font-bold text-on-surface mb-2">Player Heart Rate (BPM)</label>
+        <input type="range" min="60" max="150" value="75" id="bpm-slider" oninput="adjustBPM(this.value)" class="w-full accent-primary bg-outline-variant/40 rounded-lg appearance-none h-1.5">
+        <div class="flex justify-between text-xs mt-1 text-on-surface-variant">
+          <span>60 BPM (Calm)</span>
+          <span class="font-bold text-primary" id="bpm-display">75 BPM</span>
+          <span>150 BPM (High Stress)</span>
+        </div>
+      </div>
+
+      <div class="bg-white border border-outline-variant/60 p-4 rounded text-center">
+        <span class="block font-label-caps text-[10px] text-on-surface-variant mb-1">Game Intensity Mode</span>
+        <span class="text-xl font-bold text-primary" id="intensity-mode">Moderate Difficulty</span>
+        <p class="text-xs text-on-surface-variant mt-2" id="intensity-desc">Balanced gameplay. Standard spawn rates active.</p>
+      </div>
+
+      <div class="bg-white border border-outline-variant/60 p-4 rounded">
+        <span class="block font-label-caps text-[10px] text-on-surface-variant mb-1">Visual Atmosphere</span>
+        <div class="h-8 rounded w-full transition-colors duration-500" id="visual-mood" style="background-color: #efeded;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function adjustBPM(val) {
+    document.getElementById('bpm-display').textContent = val + ' BPM';
+    const intensity = document.getElementById('intensity-mode');
+    const desc = document.getElementById('intensity-desc');
+    const mood = document.getElementById('visual-mood');
+
+    if (val < 70) {
+      intensity.textContent = "Aggressive Ramping";
+      desc.textContent = "Boredom detected. Escalating spawn rates, initiating boss challenge.";
+      mood.style.backgroundColor = "#ffcccc"; // light warning pink/red
+    } else if (val >= 70 && val < 110) {
+      intensity.textContent = "Flow Steady State";
+      desc.textContent = "Autonomic flow achieved. Balanced encounter rates.";
+      mood.style.backgroundColor = "#efeded"; // neutral
+    } else {
+      intensity.textContent = "System Cool-Down";
+      desc.textContent = "Excessive stress detected. Minimizing visual noise, easing obstacle density.";
+      mood.style.backgroundColor = "#d0f0c0"; // soft green calming
+    }
+  }
+</script>
+</main>
+<footer class="w-full bg-primary text-white mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-[1200px] mx-auto py-12 px-margin-standard">
+<div>
+<p class="font-label-caps text-xs uppercase tracking-widest opacity-60 mb-2">© 2026</p>
+<p class="font-headline-md text-lg">The Godown Archive</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">Email</a>
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">LinkedIn</a>
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">Substack</a>
+</div>
+</div>
+</footer>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+</script>
+
+<!-- Lightbox Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('global-lightbox')) return; // Already exists
+
+    const lightbox = document.createElement('div');
+    lightbox.id = 'global-lightbox';
+    lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
+    
+    const imgElement = document.createElement('img');
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    
+    lightbox.appendChild(imgElement);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    });
+
+    const images = document.querySelectorAll('img:not(.no-lightbox)');
+    images.forEach(img => {
+        // Exclude small UI icons or avatars if they exist, but generally all content images are fine
+        if (img.width < 100 && img.height < 100) return; 
+        
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imgElement.src = img.src;
+            lightbox.style.display = 'flex';
+            // reflow
+            void lightbox.offsetWidth;
+            lightbox.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
+</body></html>
+

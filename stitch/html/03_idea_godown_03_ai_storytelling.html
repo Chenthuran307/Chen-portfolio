@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Storytelling Assistant — Chen UX Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#000000",
+        secondary: "#000000",
+        "secondary-container": "#1b1c1c",
+        "secondary-fixed": "#f5f3f3",
+        "secondary-fixed-dim": "#eae8e7",
+        background: "#fbf9f8",
+        surface: "#fbf9f8",
+        "surface-variant": "#e4e2e2",
+        "surface-container": "#efeded",
+        "surface-container-low": "#f5f3f3",
+        "on-surface": "#1b1c1c",
+        "on-surface-variant": "#444748",
+        "outline-variant": "#c4c7c7"
+      },
+      spacing: {
+        "margin-standard": "24px",
+        "section-gap": "96px",
+        "element-gap": "32px",
+        "container-max": "1200px"
+      },
+      fontFamily: {
+        body: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};
+</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+
+  body { opacity: 0; animation: fadeIn 0.4s ease forwards; font-family: 'Inter', sans-serif; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+  .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #000; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+  .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+  #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a { padding: 14px 24px; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+  #mobile-menu a:hover { background: #f5f3f3; }
+  #mobile-menu a.active { border-right: 3px solid #000; }
+  .tag { display: inline-block; padding: 3px 10px; border: 1px solid #c4c7c7; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #444748; }
+</style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 backdrop-blur-md w-full top-0 sticky z-50 border-b border-surface-variant/30"><div class="flex justify-between items-center max-w-[1200px] mx-auto py-6 px-margin-standard relative">
+<a class="font-headline-md text-xl font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-primary border-b-2 border-primary pb-1" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+<a class="font-label-caps text-xs font-semibold tracking-wider text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
+</div>
+<button id="menu-toggle" class="md:hidden text-on-surface" aria-label="Toggle menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div id="mobile-menu">
+  <a href="01_home" data-nav>Home</a>
+  <a href="work" data-nav>Work</a>
+  <a class="active" href="03_idea_godown_research_ledger">Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+  <a href="contact">Contact</a>
+</div>
+</div></nav>
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-margin-standard pt-12 pb-section-gap">
+
+<!-- Breadcrumb -->
+<div class="mb-8 flex items-center gap-2">
+  <a href="03_idea_godown_research_ledger" data-nav class="inline-flex items-center gap-1 font-label-caps text-xs tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase">
+    <span class="material-symbols-outlined text-base">arrow_back</span> Back to Ledger
+  </a>
+</div>
+
+<!-- Title Block -->
+<header class="mb-12 border-b border-surface-variant/40 pb-8">
+  <div class="flex flex-wrap items-center gap-4 mb-4">
+    <span class="tag">Exploration</span>
+    <span class="font-label-caps text-xs text-on-surface-variant uppercase">Idea 03</span>
+  </div>
+  <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">AI-Powered Creative Intelligence Platform for Fitness Creators</h1>
+  <p class="text-xl text-on-surface-variant max-w-3xl leading-snug">Shifting from editing tools to an intelligent system that recommends personalized content formats.</p>
+</header>
+
+<div class="max-w-4xl space-y-12 pb-16">
+  
+  <section class="space-y-6">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">1. Observation</h2>
+    <p class="text-on-surface text-base leading-relaxed">
+      The creator economy has exploded over the past few years, but creating consistently engaging short-form content is still difficult.
+    </p>
+    <p class="text-on-surface text-base leading-relaxed">
+      While observing fitness creators on platforms like Instagram Reels, YouTube Shorts, and TikTok, I noticed that creators spend a significant amount of time on activities beyond filming their workouts.
+    </p>
+    <div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/30">
+      <p class="font-bold mb-3 text-sm uppercase tracking-wider text-on-surface-variant">Instead of focusing only on fitness, they constantly have to:</p>
+      <ul class="list-disc pl-5 space-y-2 text-base text-on-surface">
+        <li>Research trending content.</li>
+        <li>Find suitable editing styles.</li>
+        <li>Search for viral templates.</li>
+        <li>Decide which audio to use.</li>
+        <li>Understand what works for their audience.</li>
+        <li>Analyze competitors manually.</li>
+      </ul>
+    </div>
+    <blockquote class="border-l-4 border-primary pl-6 py-4 italic text-lg text-on-surface bg-surface-container-low/50">
+      "I've recorded my workout. Now how do I turn this into an engaging reel?"
+    </blockquote>
+    <p class="text-on-surface font-medium text-base">The creative process has become more time-consuming than the workout itself.</p>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">2. Research</h2>
+    
+    <h3 class="text-xl font-bold text-primary">Existing Solutions</h3>
+    <p class="text-on-surface text-base">Current tools solve only parts of the workflow.</p>
+    
+    <div class="overflow-x-auto border border-outline-variant/30 rounded-lg">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead class="bg-surface-container-low">
+          <tr>
+            <th class="py-3 px-4 font-bold border-b border-outline-variant/30 text-primary">Category</th>
+            <th class="py-3 px-4 font-bold border-b border-outline-variant/30 text-primary">What they do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-outline-variant/20">
+            <td class="py-3 px-4 font-medium">Video Editors</td>
+            <td class="py-3 px-4 text-on-surface-variant">Help edit videos faster.</td>
+          </tr>
+          <tr class="border-b border-outline-variant/20">
+            <td class="py-3 px-4 font-medium">AI Caption Generators</td>
+            <td class="py-3 px-4 text-on-surface-variant">Generate captions and hashtags.</td>
+          </tr>
+          <tr class="border-b border-outline-variant/20">
+            <td class="py-3 px-4 font-medium">Analytics Platforms</td>
+            <td class="py-3 px-4 text-on-surface-variant">Show post-performance after publishing.</td>
+          </tr>
+          <tr class="border-b border-outline-variant/20">
+            <td class="py-3 px-4 font-medium">Trend Discovery Tools</td>
+            <td class="py-3 px-4 text-on-surface-variant">Display trending sounds and hashtags.</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-4 font-medium">Template Libraries</td>
+            <td class="py-3 px-4 text-on-surface-variant">Offer reusable editing templates.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-on-surface text-base mt-4">Although these tools are useful, they don't answer a creator's biggest question:</p>
+    <blockquote class="border-l-4 border-primary pl-6 py-4 italic text-lg text-on-surface font-bold bg-surface-container-low/50">
+      "What creative format should I use for *my* video?"
+    </blockquote>
+
+    <h3 class="text-xl font-bold text-primary mt-8">Key Gaps Identified</h3>
+    <p class="text-on-surface text-base">Most existing products:</p>
+    <ul class="list-disc pl-5 space-y-2 text-base text-on-surface">
+      <li>Focus on editing rather than ideation.</li>
+      <li>Recommend generic trends.</li>
+      <li>Don't understand the actual video.</li>
+      <li>Lack personalization.</li>
+      <li>Don't adapt trends to different creator niches.</li>
+      <li>Provide analytics only after publishing instead of before creation.</li>
+    </ul>
+  </section>
+
+  <section class="space-y-6 bg-surface-container-low border border-outline-variant/30 p-8 rounded-xl">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">3. Problem Statement</h2>
+    <p class="text-lg leading-relaxed text-on-surface">
+      Fitness creators spend hours researching trends and editing styles after recording their workouts.
+    </p>
+    <p class="text-lg text-on-surface">There is currently no intelligent system that can:</p>
+    <ul class="list-disc pl-5 space-y-2 text-base text-on-surface-variant">
+      <li>Understand the uploaded workout footage.</li>
+      <li>Identify what exercise is being performed.</li>
+      <li>Analyze current content trends.</li>
+      <li>Recommend niche-specific creative formats.</li>
+      <li>Suggest editable reel templates tailored to the creator's style.</li>
+    </ul>
+    <p class="text-lg font-bold text-primary mt-4 pt-4 border-t border-surface-variant/40">
+      As a result, creators rely heavily on manual research and trial-and-error to produce engaging content.
+    </p>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">4. The Idea</h2>
+    
+    <h3 class="text-xl font-bold text-primary">Creative Intelligence Platform for Fitness Creators</h3>
+    <p class="text-on-surface text-base leading-relaxed">
+      Rather than building another AI video editor, the vision is to create an <strong>AI Creative Director</strong> specifically designed for fitness creators.
+    </p>
+    <p class="text-on-surface text-base leading-relaxed">
+      The platform analyzes a creator's uploaded workout footage and recommends personalized content ideas before editing begins.
+    </p>
+
+    <h3 class="text-xl font-bold text-primary mt-8">Example Workflow</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+      <div class="p-6 border border-outline-variant/30 rounded-lg bg-surface">
+        <span class="font-label-caps text-xs text-secondary tracking-widest uppercase mb-2 block">Step 1</span>
+        <h4 class="font-bold mb-2">Upload</h4>
+        <p class="text-sm text-on-surface-variant mb-3">Creator uploads a workout video.</p>
+        <p class="text-xs text-on-surface-variant italic">Example: Pull-ups, Deadlifts, Squats, Push-ups</p>
+      </div>
+      
+      <div class="p-6 border border-outline-variant/30 rounded-lg bg-surface">
+        <span class="font-label-caps text-xs text-secondary tracking-widest uppercase mb-2 block">Step 2</span>
+        <h4 class="font-bold mb-2">Analysis</h4>
+        <p class="text-sm text-on-surface-variant mb-3">The AI identifies core elements:</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Exercise Type</span> <span class="tag">Camera Angle</span> <span class="tag">Pace</span>
+        </div>
+      </div>
+      
+      <div class="p-6 border border-outline-variant/30 rounded-lg bg-surface">
+        <span class="font-label-caps text-xs text-secondary tracking-widest uppercase mb-2 block">Step 3</span>
+        <h4 class="font-bold mb-2">Trend Matching</h4>
+        <p class="text-sm text-on-surface-variant mb-3">Instead of generic viral videos, it finds:</p>
+        <ul class="text-sm text-on-surface-variant list-disc pl-4 space-y-1">
+          <li>Relevant fitness trends</li>
+          <li>Emerging editing styles</li>
+          <li>Popular storytelling patterns</li>
+        </ul>
+      </div>
+      
+      <div class="p-6 border border-outline-variant/30 rounded-lg bg-surface border-primary">
+        <span class="font-label-caps text-xs text-primary tracking-widest uppercase mb-2 block font-bold">Step 4</span>
+        <h4 class="font-bold mb-2 text-primary">Recommendation</h4>
+        <p class="text-sm text-on-surface-variant mb-3">For a pull-up video, suggestions could include:</p>
+        <ul class="text-sm text-on-surface-variant list-disc pl-4 space-y-1 font-medium">
+          <li>Rep Counter Challenge</li>
+          <li>Anime Power-Up Style</li>
+          <li>Dark Cinematic Edit</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold text-primary mt-8">Long-Term Vision</h3>
+    <p class="text-on-surface text-base leading-relaxed">
+      The platform evolves into a <strong>Creative Intelligence Engine</strong> that understands creator identity, audience behavior, fitness patterns, and engagement psychology.
+    </p>
+    <p class="text-on-surface text-base leading-relaxed">
+      Instead of generating random ideas, it recommends content formats that are most likely to resonate with a creator's specific audience.
+    </p>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">5. Why Start with Fitness?</h2>
+    <p class="text-on-surface text-base">Fitness content is an ideal starting point because it has:</p>
+    <ul class="list-disc pl-5 space-y-2 text-base text-on-surface">
+      <li>Repetitive movement patterns.</li>
+      <li>Clearly defined exercise categories.</li>
+      <li>Strong creator communities.</li>
+      <li>Large amounts of publicly available short-form content.</li>
+      <li>Consistent editing styles.</li>
+      <li>High demand for engaging reels.</li>
+    </ul>
+    <p class="text-on-surface text-base font-medium mt-4">
+      These characteristics make it easier to train AI models and validate recommendations before expanding into other creator categories.
+    </p>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-headline-md text-2xl font-bold text-primary border-b border-surface-variant/40 pb-2">6. Where Am I So Far?</h2>
+    <p class="text-on-surface text-base italic text-on-surface-variant">
+      This project is currently in the <strong>problem discovery and solution exploration</strong> stage.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+      <div>
+        <h3 class="font-bold text-lg text-primary mb-3">Completed</h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface">
+          <li>Identified gaps in existing creator tools.</li>
+          <li>Defined the target audience (fitness creators).</li>
+          <li>Researched competitor categories.</li>
+          <li>Drafted the core product vision.</li>
+          <li>Outlined an AI-assisted workflow.</li>
+          <li>Explored technical feasibility of multimodal AI over generic LLMs.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg text-primary mb-3">Current Thinking</h3>
+        <p class="text-sm text-on-surface mb-3">
+          Rather than training a general-purpose LLM, the product requires a specialized pipeline:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface">
+          <li><strong>Computer Vision:</strong> To understand footage.</li>
+          <li><strong>Trend Analysis:</strong> To identify emerging formats.</li>
+          <li><strong>Recommendation Systems:</strong> To match videos with patterns.</li>
+          <li><strong>LLMs:</strong> For explanation, reasoning, and interaction.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold text-primary mt-8 border-t border-surface-variant/40 pt-8">Next Steps</h3>
+    
+    <div class="space-y-6">
+      <div>
+        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">Research</h4>
+        <p class="text-sm text-on-surface-variant">Interview creators to understand workflows, identify pain points, and validate willingness to use AI creative suggestions.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">Data</h4>
+        <p class="text-sm text-on-surface-variant">Build a structured dataset of reels and define a taxonomy for exercises, editing styles, hooks, and storytelling patterns.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">AI</h4>
+        <p class="text-sm text-on-surface-variant">Develop an initial video analysis pipeline to detect workout types and recommend relevant reel formats.</p>
+      </div>
+      <div class="bg-surface-container p-6 rounded-lg border border-outline-variant/50">
+        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-2">MVP Goal</h4>
+        <p class="text-base text-on-surface font-medium italic">Build a focused product that answers one question exceptionally well: "I've recorded my workout. What's the best way to turn this into an engaging reel today?"</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 pt-12 border-t-2 border-primary">
+    <h3 class="font-label-caps text-xs uppercase tracking-widest text-on-surface-variant mb-4">Current Product Vision</h3>
+    <p class="text-2xl font-bold text-primary leading-tight">
+      An AI-powered Creative Intelligence Platform that understands workout videos, learns from evolving fitness content trends, and recommends personalized reel ideas, editing patterns, and creative templates—helping creators spend less time researching and more time creating.
+    </p>
+  </section>
+
+</div>
+</main>
+<footer class="w-full bg-primary text-white mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-[1200px] mx-auto py-12 px-margin-standard">
+<div>
+<p class="font-label-caps text-xs uppercase tracking-widest opacity-60 mb-2">© 2026</p>
+<p class="font-headline-md text-lg">The Godown Archive</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">Email</a>
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">LinkedIn</a>
+<a class="font-label-caps text-xs uppercase hover:text-secondary-fixed transition-colors" href="#">Substack</a>
+</div>
+</div>
+</footer>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+</script>
+
+<!-- Lightbox Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('global-lightbox')) return; // Already exists
+
+    const lightbox = document.createElement('div');
+    lightbox.id = 'global-lightbox';
+    lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
+    
+    const imgElement = document.createElement('img');
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    
+    lightbox.appendChild(imgElement);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.opacity = '0';
+        imgElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    });
+
+    const images = document.querySelectorAll('img:not(.no-lightbox)');
+    images.forEach(img => {
+        // Exclude small UI icons or avatars if they exist, but generally all content images are fine
+        if (img.width < 100 && img.height < 100) return; 
+        
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imgElement.src = img.src;
+            lightbox.style.display = 'flex';
+            // reflow
+            void lightbox.offsetWidth;
+            lightbox.style.opacity = '1';
+            imgElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+
+</body></html>
+
