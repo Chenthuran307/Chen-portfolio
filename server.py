@@ -31,7 +31,7 @@ def update_element_by_id(html_content, element_id, new_text):
     
     def repl(m):
         tag_name = m.group(2).lower()
-        if tag_name in ['span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+        if tag_name in ['span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div']:
             # Keep inline to prevent breaking CSS layouts with whitespace wrapping
             return m.group(1) + new_text + m.group(4)
         else:
@@ -199,7 +199,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._send_json(500, {"reply": "Something went wrong. Please try again."})
 
     def _handle_load(self):
-        # 1. Read Hero Content and Projects from index.html (or fallback to 01_home.html)
+        # 1. Read Hero Content, Projects, and Testimonials from index.html (or fallback to 01_home.html)
         html_path = os.path.join("stitch", "html", "index.html")
         if not os.path.exists(html_path):
             html_path = os.path.join("stitch", "html", "01_home.html")
@@ -209,6 +209,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         hero_about = ""
         
         projects = {}
+        testimonials = {}
         
         if os.path.exists(html_path):
             try:
@@ -223,6 +224,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     projects[f"project{i}_tag"] = extract_element_by_id(html_content, f"project{i}-tag")
                     projects[f"project{i}_title"] = extract_element_by_id(html_content, f"project{i}-title")
                     projects[f"project{i}_desc"] = extract_element_by_id(html_content, f"project{i}-desc")
+                    
+                # Load Testimonials 1-3
+                for i in range(1, 4):
+                    testimonials[f"testimonial{i}_text"] = extract_element_by_id(html_content, f"testimonial{i}-text")
+                    testimonials[f"testimonial{i}_author"] = extract_element_by_id(html_content, f"testimonial{i}-author")
+                    testimonials[f"testimonial{i}_title"] = extract_element_by_id(html_content, f"testimonial{i}-title")
             except Exception as e:
                 print(f"Error reading HTML: {e}")
 
@@ -259,7 +266,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             "expertise": json_data.get("expertise", []),
             "highlights": json_data.get("highlights", []),
             "projects": projects,
-            "ideas": ideas
+            "ideas": ideas,
+            "testimonials": testimonials
         }
         self._send_json(200, response_data)
 
@@ -270,11 +278,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         try:
             data = json.loads(body)
             
-            # 1. Save Hero Content and Projects to index.html and 01_home.html
+            # 1. Save Hero Content, Projects, and Testimonials to index.html and 01_home.html
             hero_title = data.get("hero_title", "").strip()
             hero_subtitle = data.get("hero_subtitle", "").strip()
             hero_about = data.get("hero_about", "").strip()
             projects = data.get("projects", {})
+            testimonials = data.get("testimonials", {})
             
             pages = ["index.html", "01_home.html"]
             for page in pages:
@@ -296,6 +305,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         if p_tag: content = update_element_by_id(content, f"project{i}-tag", p_tag)
                         if p_title: content = update_element_by_id(content, f"project{i}-title", p_title)
                         if p_desc: content = update_element_by_id(content, f"project{i}-desc", p_desc)
+                        
+                    # Update Testimonials 1-3
+                    for i in range(1, 4):
+                        t_text = testimonials.get(f"testimonial{i}_text", "").strip()
+                        t_author = testimonials.get(f"testimonial{i}_author", "").strip()
+                        t_title = testimonials.get(f"testimonial{i}_title", "").strip()
+                        
+                        if t_text: content = update_element_by_id(content, f"testimonial{i}-text", t_text)
+                        if t_author: content = update_element_by_id(content, f"testimonial{i}-author", t_author)
+                        if t_title: content = update_element_by_id(content, f"testimonial{i}-title", t_title)
                     
                     with open(path, "w", encoding="utf-8") as f:
                         f.write(content)

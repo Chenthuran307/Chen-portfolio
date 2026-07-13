@@ -291,6 +291,81 @@
 
     </div>
   </section>
+
+  <!-- Testimonials Section -->
+  <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
+    <div>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Testimonials</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Collaborator <span class="italic font-normal">Perspectives</span></h2>
+      
+      <!-- Flanked Carousel Layout -->
+      <div class="flex items-center gap-4 md:gap-12 relative">
+        <!-- Left Control -->
+        <button id="testimonial-prev" class="w-12 h-12 border border-outline-variant hover:border-primary transition-colors flex items-center justify-center text-primary flex-shrink-0" aria-label="Previous testimonial">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        
+        <!-- Slider Container (Transparent, no grey box) -->
+        <div class="flex-grow relative overflow-hidden min-h-[360px] md:min-h-[260px] flex flex-col justify-between">
+          <!-- Slides Container -->
+          <div class="relative w-full flex-grow flex items-center">
+            
+            <!-- Slide 1 -->
+            <div class="testimonial-slide w-full transition-all duration-500 flex flex-col justify-between" data-index="0">
+              <div>
+                <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
+                <p id="testimonial1-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">The creative person to work with and have rational knowledge of what he is doing. Very few will be like that and I had a chance to work with him. He is ideally a great team player and will be a great asset added to any team.</p>
+              </div>
+              <div>
+                <div id="testimonial1-author" class="font-label-caps text-label-caps text-primary font-bold">Divagar R</div>
+                <div id="testimonial1-title" class="text-xs text-on-surface-variant mt-1">Ex-Senior Product Designer at Rapido, Ex-Porter</div>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="testimonial-slide w-full transition-all duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="1">
+              <div>
+                <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
+                <p id="testimonial2-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen is one of the finest designers who gives attention to minute details. Be it graphic design, UI, UX he will mesmerize with his design thinking skills. An out of the box thinker. He helped and motivated me at early stages of my designing career. "Engineer by education, Designer by passion" is an apt sentence for him. Anyone can enjoy working with him.</p>
+              </div>
+              <div>
+                <div id="testimonial2-author" class="font-label-caps text-label-caps text-primary font-bold">Harsha Vardhan</div>
+                <div id="testimonial2-title" class="text-xs text-on-surface-variant mt-1">Lead Product Designer | Enterprise SaaS | TCS | Ex-Lollypop</div>
+              </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="testimonial-slide w-full transition-all duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="2">
+              <div>
+                <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
+                <p id="testimonial3-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen has been an integral part of the Terralogic design team. He worked with me for over a year as a visual designer. He is really good with understanding client requirements and makes sure to deliver the output on time. He also learns new things very quickly and always keeps himself updated with the latest trends. He is hard working and self motivated as well. He earns my highest recommendation and I wish him all the best.</p>
+              </div>
+              <div>
+                <div id="testimonial3-author" class="font-label-caps text-label-caps text-primary font-bold">Richa Sharma</div>
+                <div id="testimonial3-title" class="text-xs text-on-surface-variant mt-1">Experience Design Leader</div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Slide Indicators / Dots (Bottom) -->
+          <div class="flex gap-2 mt-8">
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-primary transition-all duration-300" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant hover:bg-primary/50 transition-all duration-300" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant hover:bg-primary/50 transition-all duration-300" data-slide="2" aria-label="Go to slide 3"></button>
+          </div>
+          
+        </div>
+        
+        <!-- Right Control -->
+        <button id="testimonial-next" class="w-12 h-12 border border-outline-variant hover:border-primary transition-colors flex items-center justify-center text-primary flex-shrink-0" aria-label="Next testimonial">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </section>
 </main>
 
 
@@ -301,7 +376,7 @@
     <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">UX Portfolio — Chen</div>
     <div class="flex gap-6">
       <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chen@example.com">Email</a>
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">Read.cv</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">Instagram</a>
     </div>
@@ -329,6 +404,64 @@
       setTimeout(() => { window.location.href = href; }, 250);
     });
   });
+
+  // Testimonials Carousel
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  const prevBtn = document.getElementById('testimonial-prev');
+  const nextBtn = document.getElementById('testimonial-next');
+
+  if (slides.length > 0) {
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          slide.classList.remove('opacity-100');
+        }
+      });
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-outline-variant');
+          dot.classList.add('bg-primary');
+          dot.style.transform = 'scale(1.2)';
+        } else {
+          dot.classList.add('bg-outline-variant');
+          dot.classList.remove('bg-primary');
+          dot.style.transform = 'none';
+        }
+      });
+      currentSlide = index;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      let next = currentSlide - 1;
+      if (next < 0) next = slides.length - 1;
+      showSlide(next);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      let next = currentSlide + 1;
+      if (next >= slides.length) next = 0;
+      showSlide(next);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showSlide(i);
+      });
+    });
+
+    // Auto-advance every 8 seconds
+    setInterval(() => {
+      let next = currentSlide + 1;
+      if (next >= slides.length) next = 0;
+      showSlide(next);
+    }, 8000);
+  }
 </script>
 
 <!-- Lightbox Script -->

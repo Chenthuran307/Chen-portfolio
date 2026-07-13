@@ -383,7 +383,7 @@
     
     <header class="header-full">
       <h1>Portfolio Site Manager</h1>
-      <p>Configure Hero headings, AI prompt logic, selected case studies, and the Idea Godown. One-click deploy to global production.</p>
+      <p>Configure Hero headings, AI prompt logic, selected case studies, the Idea Godown, and testimonials. One-click deploy to global production.</p>
     </header>
 
     <!-- Editor Column -->
@@ -394,6 +394,7 @@
         <button class="tab-btn active" onclick="switchTab(event, 'tab-general')">General & AI Assistant</button>
         <button class="tab-btn" onclick="switchTab(event, 'tab-projects')">Selected Projects</button>
         <button class="tab-btn" onclick="switchTab(event, 'tab-godown')">Idea Godown Ledger</button>
+        <button class="tab-btn" onclick="switchTab(event, 'tab-testimonials')">Testimonials</button>
       </nav>
 
       <!-- TAB 1: GENERAL & AI -->
@@ -579,6 +580,63 @@
         </div>
       </div>
 
+      <!-- TAB 4: TESTIMONIALS -->
+      <div id="tab-testimonials" class="tab-panel">
+        <h2>Testimonials Section</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-top: -15px; margin-bottom: 10px;">Paste actual recommendations and reviewer names from your LinkedIn profile to showcase on the homepage.</p>
+        
+        <!-- Testimonial 1 -->
+        <h3 class="section-divider">Testimonial 1</h3>
+        <div class="form-group">
+          <label for="t1-text">Recommendation Text</label>
+          <textarea id="t1-text" rows="3" placeholder="Praising your skill sets, systems mapping, leadership, etc..."></textarea>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="t1-author">Author Name</label>
+            <input type="text" id="t1-author" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="t1-title">Author Designation & Company</label>
+            <input type="text" id="t1-title" placeholder="Product Lead, Horizon Bank">
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Testimonial 2</h3>
+        <div class="form-group">
+          <label for="t2-text">Recommendation Text</label>
+          <textarea id="t2-text" rows="3" placeholder="Praising systems engineering bridge, design tokens, etc..."></textarea>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="t2-author">Author Name</label>
+            <input type="text" id="t2-author" placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label for="t2-title">Author Designation & Company</label>
+            <input type="text" id="t2-title" placeholder="Engineering Manager, Enterprise Tooling">
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <h3 class="section-divider" style="margin-top: 20px;">Testimonial 3</h3>
+        <div class="form-group">
+          <label for="t3-text">Recommendation Text</label>
+          <textarea id="t3-text" rows="3" placeholder="Praising fintech complexity, design methodology, etc..."></textarea>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="t3-author">Author Name</label>
+            <input type="text" id="t3-author" placeholder="Sarah Lee">
+          </div>
+          <div class="form-group">
+            <label for="t3-title">Author Designation & Company</label>
+            <input type="text" id="t3-title" placeholder="Co-founder, DOSB Ecosystem">
+          </div>
+        </div>
+      </div>
+
       <div class="actions">
         <button class="btn-secondary" onclick="loadContent()">Reset Forms</button>
         <button class="btn-primary" onclick="saveContent()">
@@ -695,6 +753,14 @@
           document.getElementById(`idea${i}-idea`).value = ideas[`idea${i}_idea`] || '';
         }
 
+        // 4. Populate Testimonial fields
+        const test = data.testimonials || {};
+        for(let i = 1; i <= 3; i++) {
+          document.getElementById(`t${i}-text`).value = test[`testimonial${i}_text`] || '';
+          document.getElementById(`t${i}-author`).value = test[`testimonial${i}_author`] || '';
+          document.getElementById(`t${i}-title`).value = test[`testimonial${i}_title`] || '';
+        }
+
         showToast('Portfolio loaded successfully!');
         checkDeploymentStatus();
       } catch (err) {
@@ -719,6 +785,14 @@
         ideas[`idea${i}_idea`] = document.getElementById(`idea${i}-idea`).value;
       }
 
+      // Construct Testimonials object
+      const testimonials = {};
+      for(let i = 1; i <= 3; i++) {
+        testimonials[`testimonial${i}_text`] = document.getElementById(`t${i}-text`).value;
+        testimonials[`testimonial${i}_author`] = document.getElementById(`t${i}-author`).value;
+        testimonials[`testimonial${i}_title`] = document.getElementById(`t${i}-title`).value;
+      }
+
       const payload = {
         hero_title: document.getElementById('hero-title').value,
         hero_subtitle: document.getElementById('hero-subtitle').value,
@@ -729,7 +803,8 @@
         expertise: document.getElementById('ai-expertise').value.split('\n').filter(l => l.trim() !== ''),
         highlights: document.getElementById('ai-highlights').value.split('\n').filter(l => l.trim() !== ''),
         projects: projects,
-        ideas: ideas
+        ideas: ideas,
+        testimonials: testimonials
       };
 
       try {
