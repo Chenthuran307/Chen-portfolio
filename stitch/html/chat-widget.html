@@ -109,6 +109,21 @@
     font-size: 14px !important;
     padding: 10px 14px !important;
   }
+
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    #chat-window {
+      right: 16px !important;
+      bottom: 92px !important;
+      width: calc(100vw - 32px) !important;
+      max-width: none !important;
+      max-height: calc(100vh - 120px) !important;
+    }
+    #chat-fab-wrapper {
+      bottom: 20px !important;
+      right: 20px !important;
+    }
+  }
 </style>
 
 <script>
