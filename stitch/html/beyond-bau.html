@@ -198,6 +198,36 @@
         </div>
       </div>
 
+      <!-- Card 5: Design System Assistant Agent -->
+      <div onclick="openDrawer('system-assistant')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">AI Agent</span>
+            <span class="tag">Design Systems</span>
+            <span class="tag">Accessibility</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Design System Assistant Agent</h3>
+          
+          <div class="space-y-4 mb-8">
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
+              <p class="font-body-md text-on-surface-variant">Designers and developers waste time cross-referencing design tokens, content rules, and accessibility docs, leading to handoff issues.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
+              <p class="font-body-md text-on-surface-variant">An AI copilot equipped with component, content, and accessibility specs. Supports screen uploads to detect design issues, handles general design doubts, and answers developer queries on pattern specs.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
+              <p class="font-body-md text-primary font-medium">Accelerated spec-compliance check times and unified component guidance across design and engineering.</p>
+            </div>
+          </div>
+        </div>
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+          View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </main>
@@ -303,6 +333,13 @@
       problem: 'Rapid scaling of the design organization led to communication friction, misunderstood design critiques, and alignment gaps during cross-functional design sprints.',
       built: 'Designed, coordinated, and facilitated an interactive personality traits workshop for 20 team members based on the framework in the book <strong>Surrounded by Idiots</strong>. Conducted pre-workshop assessments to map individuals into Red (Dominance), Yellow (Influence), Green (Steadiness), and Blue (Compliance) communication styles, and generated a team-wide behavioral profile.',
       outcome: 'Shared the workshop insights and reports with leadership and senior management. Guided teams to implement color-coded communication guidelines, resulting in faster alignment and reduced friction during critiques.'
+    },
+    'system-assistant': {
+      title: 'Design System Assistant Agent',
+      tag: 'AI Agent • Design Systems • Accessibility',
+      problem: 'Designers and developers spend valuable hours manually cross-referencing design tokens, content guidelines, and accessibility documentation, leading to compliance errors.',
+      built: 'Built an intelligent design system copilot pre-loaded with component specs, content guidelines, and accessibility rules. Empowered users to upload screenshots to diagnose design system compliance, resolve design system/content/accessibility questions, and answer developer questions on component and pattern implementation.',
+      outcome: 'Enabled instant visual compliance checks and accelerated development cycles with automated pattern guidance.'
     }
   };
 
