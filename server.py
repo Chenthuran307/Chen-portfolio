@@ -98,6 +98,17 @@ def run_deployment():
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
+        # Clean URL rewriting to match Vercel routing rules:
+        # Route clean URL page requests (not starting with /stitch or /api) to /stitch/html/
+        parts = path.lstrip("/").split("/")
+        first_part = parts[0] if parts else ""
+        
+        if first_part not in ["stitch", "api", "dashboard", "dashboard.html"] and not path.startswith("/api/"):
+            if path == "/":
+                path = "/stitch/html/index.html"
+            else:
+                path = "/stitch/html" + path
+                
         local_path = super().translate_path(path)
         if not os.path.exists(local_path) and os.path.exists(local_path + ".html"):
             return local_path + ".html"
@@ -188,7 +199,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 reply = result["choices"][0]["message"]["content"].strip()
             elif error_msg:
                 print(f"API Error: {error_msg}")
-                reply = "I'm having trouble reaching the AI right now. Please try again in a moment, or visit the Contact page directly."
+                reply = "I'm having trouble reaching the AI right now. Please try again in a moment, or reach out to Chen directly at chencse@gmail.com."
             else:
                 reply = "The request timed out. Please try a shorter question or check back shortly."
 

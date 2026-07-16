@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beyond BAU — Chen UX Portfolio</title>
+<meta name="description" content="Productivity, research, and leadership initiatives that drive impact beyond daily design deliverables."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"primary-fixed": "#e5e2e1", "secondary-fixed": "#f5f3f3", "surface-variant": "#e4e2e2", "surface-container": "#efeded", secondary: "#000000", "surface-bright": "#fbf9f8", "on-background": "#1b1c1c", "primary-fixed-dim": "#c8c6c5", background: "#fbf9f8", "on-secondary-fixed": "#1b1c1c", "on-surface-variant": "#444748", "on-primary-fixed": "#1c1b1b", "on-tertiary": "#ffffff", "surface-container-highest": "#e4e2e2", tertiary: "#000000", surface: "#fbf9f8", "surface-container-high": "#eae8e7", "secondary-container": "#1b1c1c", "surface-dim": "#dbd9d9", "on-primary": "#ffffff", primary: "#000000", "tertiary-fixed": "#dce1ff", "tertiary-fixed-dim": "#b6c4ff", "surface-container-low": "#f5f3f3", "outline-variant": "#c4c7c7", error: "#ba1a1a", "on-surface": "#1b1c1c", "on-primary-container": "#858383", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#1c1b1b", outline: "#747878", "inverse-on-surface": "#f2f0f0", "on-secondary-container": "#1b1c1c"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"element-gap": "32px", "container-max": "1200px", "section-gap": "96px", "margin-standard": "24px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"body-xl-quote": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], "display-lg-mobile": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};
+</script>
+<style>
+  ::selection { background-color: #dce1ff; color: #000; }
+  body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
+  .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
+  .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+  #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
+  #mobile-menu.open { display: flex; }
+  #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+  #mobile-menu a:hover { background: #f5f3f3; }
+  #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
+  .initiative-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .initiative-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #c4c7c7;
+    font-size: 10px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #444748;
+    border-radius: 0;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+
+<!-- TopNavBar -->
+<header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
+  <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+      <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="beyond-bau" data-nav>Beyond BAU</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="mobile-menu">
+      <a href="01_home" data-nav>Home</a>
+      <a href="work" data-nav>Work</a>
+      <a class="active" href="beyond-bau" data-nav>Beyond BAU</a>
+      <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="blog" data-nav>Blogs</a>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow w-full">
+  <!-- Page Header -->
+  <div class="max-w-[1200px] mx-auto px-margin-standard pt-24 pb-16">
+    <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-4">Initiatives</span>
+    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Beyond BAU</h1>
+    <p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant max-w-3xl">
+      Productivity tools, knowledge management systems, research sprints, and team-building frameworks developed to automate workflows and optimize collaboration.
+    </p>
+    <div class="mt-12 border-t border-primary"></div>
+  </div>
+
+  <!-- Initiatives Grid -->
+  <div class="max-w-[1200px] mx-auto px-margin-standard pb-section-gap">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Card 1: Comment Analyzer -->
+      <div onclick="openDrawer('comment-analyzer')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Productivity</span>
+            <span class="tag">AI</span>
+            <span class="tag">Figma Plugin</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Comment Analyzer Plugin</h3>
+          
+          <div class="space-y-4 mb-8">
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
+              <p class="font-body-md text-on-surface-variant">Figma comment threads lack organization and sentiment categorization, creating a manual triage bottleneck during team reviews.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
+              <p class="font-body-md text-on-surface-variant">An LLM-powered Figma plugin that automatically aggregates and tags comments by category (e.g. UX bug, copy suggestion) and priority.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
+              <p class="font-body-md text-primary font-medium">Reduced critique triage and action-item review times by 40%.</p>
+            </div>
+          </div>
+        </div>
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+          View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Design Decision Log -->
+      <div onclick="openDrawer('decision-log')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Knowledge Management</span>
+            <span class="tag">Productivity</span>
+            <span class="tag">Figma Plugin</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Design Decision Log</h3>
+          
+          <div class="space-y-4 mb-8">
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
+              <p class="font-body-md text-on-surface-variant">The reasoning behind design pivots is frequently lost in Slack chats or old Figma versions, causing alignment issues months down the line.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
+              <p class="font-body-md text-on-surface-variant">A Figma canvas annotation plugin synced directly with centralized documentation workspaces (Notion/GitHub) via webhooks.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
+              <p class="font-body-md text-primary font-medium">Improved documentation standards and reduced onboarding overhead for new designers and developers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+          View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Design System Research -->
+      <div onclick="openDrawer('system-research')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">UX Research</span>
+            <span class="tag">Design Systems</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Design System Research</h3>
+          
+          <div class="space-y-4 mb-8">
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
+              <p class="font-body-md text-on-surface-variant">Low adoption rates of system components across platform teams resulted in visual drift and redundant custom components.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was done</h4>
+              <p class="font-body-md text-on-surface-variant">Researched with 12 designers across India and US with a different set of tasks on using complex components such as Tables and charts and analyzed the time taken for building a customized component for their requirement.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
+              <p class="font-body-md text-primary font-medium">Increased design system adoption by 40% more from teams.</p>
+            </div>
+          </div>
+        </div>
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+          View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Team Workshop -->
+      <div onclick="openDrawer('team-workshop')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+        <div>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag">Facilitation</span>
+            <span class="tag">Team Personality Analysis</span>
+            <span class="tag">Leadership</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Team Personality Workshop</h3>
+          
+          <div class="space-y-4 mb-8">
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
+              <p class="font-body-md text-on-surface-variant">Growing team sizes and mismatched communication preferences created friction and alignment gaps during co-design sessions.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was done</h4>
+              <p class="font-body-md text-on-surface-variant">Facilitated an interactive workshop based on the book <strong>Surrounded by Idiots</strong>. Administered surveys to map communication trait colors and strengths.</p>
+            </div>
+            <div>
+              <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
+              <p class="font-body-md text-primary font-medium">Delivered trait reports to leadership; insights were shared with senior management to form tailored collaboration structures.</p>
+            </div>
+          </div>
+        </div>
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+          View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-surface-container-low pb-20 md:pb-0" id="contact">
+  <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80 hover:opacity-100 transition-opacity">
+    <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">UX Portfolio — Chen</div>
+    <div class="flex gap-6">
+      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">Read.cv</a>
+    </div>
+    <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2024 Chen — Senior UX Portfolio. All rights reserved.</div>
+    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
+  </div>
+</footer>
+
+<!-- Drawer Backdrop -->
+<div id="drawer-backdrop" onclick="closeDrawer()" class="fixed inset-0 bg-black/40 z-[2000] hidden opacity-0 transition-opacity duration-300"></div>
+
+<!-- Right Side Drawer -->
+<div id="detail-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-[600px] bg-surface z-[2001] translate-x-full transition-transform duration-300 ease-out border-l border-outline-variant flex flex-col shadow-2xl">
+  <!-- Drawer Header -->
+  <div class="p-6 border-b border-outline-variant/40 flex justify-between items-center bg-surface-container-low">
+    <div>
+      <span id="drawer-tag" class="font-label-caps text-xs tracking-widest text-on-surface-variant uppercase"></span>
+      <h2 id="drawer-title" class="font-headline-md text-xl font-bold text-primary mt-1"></h2>
+    </div>
+    <button onclick="closeDrawer()" class="p-2 hover:bg-surface-container-high transition-colors rounded-full text-on-surface cursor-pointer flex items-center justify-center" aria-label="Close drawer">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  
+  <!-- Drawer Content -->
+  <div class="p-6 md:p-8 overflow-y-auto flex-grow space-y-6 text-on-surface">
+    <div>
+      <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1 font-semibold">The Problem</h4>
+      <p id="drawer-problem" class="font-body-md text-base leading-relaxed text-on-surface-variant"></p>
+    </div>
+    
+    <div>
+      <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1 font-semibold">What Was Done</h4>
+      <p id="drawer-built" class="font-body-md text-base leading-relaxed text-on-surface-variant"></p>
+    </div>
+
+    <div>
+      <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1 font-semibold">Key Outcomes</h4>
+      <p id="drawer-outcome" class="font-body-md text-base leading-relaxed text-primary font-medium"></p>
+    </div>
+    
+    <!-- Detailed Walkthrough section removed -->
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    const icon = this.querySelector('.material-symbols-outlined');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+  });
+
+  // Smooth page transitions
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.25s ease';
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+
+  // Detail Drawer Logic
+  const detailsData = {
+    'comment-analyzer': {
+      title: 'Comment Analyzer Plugin',
+      tag: 'Productivity • AI • Figma Plugin',
+      problem: 'During intensive critiques, Figma design files often end up cluttered with hundreds of raw, unstructured feedback threads. Design leads and product managers spend hours sorting through, prioritizing, and assigning these comments to actionable review columns.',
+      built: 'Developed a custom Figma plugin leveraging the Figma Plugin API and OpenAI\'s completion endpoint. The plugin parses all comments inside specified frames or pages, analyzes their semantic intent and sentiment, and auto-categorizes them into groups: UI bugs, UX friction points, copy edits, and questions.',
+      outcome: 'Successfully deployed across the organization, reducing review triage overhead by 40% and ensuring developer blockers are resolved much faster.'
+    },
+    'decision-log': {
+      title: 'Design Decision Log',
+      tag: 'Knowledge Management • Productivity • Figma Plugin',
+      problem: 'Design choices (the "why" behind screen changes) are constantly made in ad-hoc Slack syncs or verbal calls. New developers and onboarding designers face friction understanding the historical context behind components, leading to design system drift.',
+      built: 'Built an annotation utility plugin inside Figma that allows designers to capture key decision rationales directly on the canvas. When saved, the plugin generates a visual decision tag on the canvas and simultaneously pushes the entry to a database in Notion and logs a markdown file to a GitHub repository.',
+      outcome: 'Drastically improved knowledge retention across teams, resulting in self-documenting features and a 50% reduction in alignment check-in meetings.'
+    },
+    'system-research': {
+      title: 'Design System Research',
+      tag: 'UX Research • Design Systems',
+      problem: 'Product velocity stagnated despite a complete Figma component library. Overly flexible atomic components forced designers to make endless micro-decisions, leading to severe Figma-to-code parity drift and handoff bottlenecks.',
+      built: 'Conducted user research with 12 designers across India and the US. Assigned different tasks focused on assembling complex components (such as Tables and Charts) and analyzed the time taken to build customized components for their requirements.',
+      outcome: 'Redesigned components with prescriptive defaults and 1:1 code parity, reducing average assembly time from 45 minutes to under 5 minutes, and boosting design system adoption by 40% across product teams.'
+    },
+    'team-workshop': {
+      title: 'Team Personality Workshop',
+      tag: 'Facilitation • Personality Analysis • Alignment',
+      problem: 'Rapid scaling of the design organization led to communication friction, misunderstood design critiques, and alignment gaps during cross-functional design sprints.',
+      built: 'Designed, coordinated, and facilitated an interactive personality traits workshop for 20 team members based on the framework in the book <strong>Surrounded by Idiots</strong>. Conducted pre-workshop assessments to map individuals into Red (Dominance), Yellow (Influence), Green (Steadiness), and Blue (Compliance) communication styles, and generated a team-wide behavioral profile.',
+      outcome: 'Shared the workshop insights and reports with leadership and senior management. Guided teams to implement color-coded communication guidelines, resulting in faster alignment and reduced friction during critiques.'
+    }
+  };
+
+  const backdrop = document.getElementById('drawer-backdrop');
+  const drawer = document.getElementById('detail-drawer');
+
+  function openDrawer(key) {
+    const data = detailsData[key];
+    if (!data) return;
+
+    document.getElementById('drawer-tag').textContent = data.tag;
+    document.getElementById('drawer-title').textContent = data.title;
+    document.getElementById('drawer-problem').textContent = data.problem;
+    document.getElementById('drawer-built').textContent = data.built;
+    document.getElementById('drawer-outcome').textContent = data.outcome;
+
+    // Show backdrop & slide in drawer
+    backdrop.classList.remove('hidden');
+    setTimeout(() => { backdrop.classList.add('opacity-100'); }, 10);
+    drawer.classList.remove('translate-x-full');
+  }
+
+  function closeDrawer() {
+    backdrop.classList.remove('opacity-100');
+    drawer.classList.add('translate-x-full');
+    setTimeout(() => { backdrop.classList.add('hidden'); }, 300);
+  }
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+</script>
+
+</body>
+</html>

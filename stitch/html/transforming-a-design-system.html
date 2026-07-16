@@ -96,9 +96,9 @@
   <nav class="hidden md:flex gap-8">
     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
     <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
     <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
   </nav>
   <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
     <span class="material-symbols-outlined">menu</span>
@@ -106,9 +106,9 @@
   <div id="mobile-menu">
     <a href="01_home" data-nav>Home</a>
     <a class="active" href="work" data-nav>Work</a>
+    <a href="beyond-bau" data-nav>Beyond BAU</a>
     <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a href="blog" data-nav>Blogs</a>
-    <a href="contact">Contact</a>
   </div>
 </div>
 </nav>
@@ -139,6 +139,49 @@
   </div>
 </div>
 </header>
+
+<!-- Problem, Solution, Impact Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
+  <!-- Problem Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-error">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Product velocity stagnated despite a complete Figma library. Highly flexible components forced designers to make endless micro-decisions, leading to severe Figma-to-code parity drift and handoff bottlenecks.
+      </p>
+    </div>
+  </div>
+
+  <!-- Solution Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Evolved the library into a prescriptive platform with strict defaults. Built production-ready composite molecules and organisms, and integrated context-aware design guidelines directly inside Figma workspace tools.
+      </p>
+    </div>
+  </div>
+
+  <!-- Impact Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Average component assembly time dropped from 45 minutes to under 5 minutes. Streamlined engineering handoff with 1:1 React code parity, and eliminated onboarding/checkout user drop-off across products.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- Overview -->
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Overview</h2>
@@ -330,9 +373,6 @@
 <div class="mt-24 pt-16 border-t border-outline-variant mb-16 max-w-container-max mx-auto px-margin-standard">
   <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest block mb-6">Next Case Study</span>
   <a href="horizon-bank-developer-central" class="case-card block" data-nav>
-    <div class="thumb h-64 md:h-80">
-      <img src="images/04_case_study_high_contrast.png" alt="Horizon Bank Developer Central" class="w-full h-full object-cover"/>
-    </div>
     <div class="p-8 bg-surface">
       <div class="flex flex-wrap gap-2 mb-4">
         <span class="tag">Enterprise UX</span>
@@ -358,6 +398,7 @@
 <footer class="w-full bg-surface border-t border-outline-variant py-margin-standard">
 <div class="flex flex-col md:flex-row justify-between items-center gap-element-gap px-margin-standard max-w-container-max mx-auto w-full">
 <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2024 Senior UX Portfolio — Thoughtful Design Retrospective</p>
+    <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
 <div class="flex gap-6">
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Read.cv</a>

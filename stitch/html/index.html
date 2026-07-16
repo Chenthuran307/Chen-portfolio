@@ -103,9 +103,9 @@
     <nav class="hidden md:flex gap-8">
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="01_home" data-nav>Home</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact" data-nav>Contact</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
@@ -114,9 +114,9 @@
     <div id="mobile-menu">
       <a class="active" href="01_home" data-nav>Home</a>
       <a href="work" data-nav>Work</a>
+      <a href="beyond-bau" data-nav>Beyond BAU</a>
       <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a href="blog" data-nav>Blogs</a>
-      <a href="contact" data-nav>Contact</a>
     </div>
   </div>
 </header>
@@ -292,6 +292,54 @@
     </div>
   </section>
 
+  <!-- Beyond BAU Section -->
+  <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
+    <div>
+      <div class="flex items-center gap-4 mb-8">
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Initiatives</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Beyond BAU</h2>
+          <p class="font-body-md text-on-surface-variant max-w-2xl">
+            Proactive productivity tools, knowledge management systems, and team-building frameworks developed to automate workflows and optimize collaboration.
+          </p>
+        </div>
+        <a href="beyond-bau" data-nav class="btn-editorial font-label-caps text-label-caps text-primary whitespace-nowrap">View All Initiatives →</a>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Initiative 1 -->
+        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Productivity • Figma Plugin</span>
+              <h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors mt-2">Comment Analyzer Plugin</h3>
+              <p class="font-body-md text-on-surface-variant mt-2">
+                An LLM-powered Figma plugin that automatically categorizes design review comments, reducing triage times by 40%.
+              </p>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+          </div>
+        </a>
+        
+        <!-- Initiative 2 -->
+        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+          <div class="flex justify-between items-start gap-4">
+            <div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Facilitation • Leadership</span>
+              <h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors mt-2">Team Personality Workshop</h3>
+              <p class="font-body-md text-on-surface-variant mt-2">
+                Facilitating team-building workshops based on the book <strong>Surrounded by Idiots</strong> to align communication traits.
+              </p>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials Section -->
   <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
     <div>
@@ -303,8 +351,8 @@
       <!-- Flanked Carousel Layout -->
       <div class="flex items-center gap-4 md:gap-12 relative">
         <!-- Left Control -->
-        <button id="testimonial-prev" class="w-12 h-12 border border-outline-variant hover:border-primary transition-colors flex items-center justify-center text-primary flex-shrink-0" aria-label="Previous testimonial">
-          <span class="material-symbols-outlined">arrow_back</span>
+        <button id="testimonial-prev" class="hover:text-primary transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Previous testimonial">
+          <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_left</span>
         </button>
         
         <!-- Slider Container (Transparent, no grey box) -->
@@ -360,8 +408,8 @@
         </div>
         
         <!-- Right Control -->
-        <button id="testimonial-next" class="w-12 h-12 border border-outline-variant hover:border-primary transition-colors flex items-center justify-center text-primary flex-shrink-0" aria-label="Next testimonial">
-          <span class="material-symbols-outlined">arrow_forward</span>
+        <button id="testimonial-next" class="hover:text-primary transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Next testimonial">
+          <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_right</span>
         </button>
       </div>
     </div>
@@ -375,12 +423,12 @@
   <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80 hover:opacity-100 transition-opacity">
     <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">UX Portfolio — Chen</div>
     <div class="flex gap-6">
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chen@example.com">Email</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chencse@gmail.com">Email</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">Read.cv</a>
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="#">Instagram</a>
     </div>
     <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2024 Chen — Senior UX Portfolio. All rights reserved.</div>
+    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
   </div>
 </footer>
 
@@ -809,6 +857,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 </script>
 
+<script>
+  // Loop reverse profile video
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('video');
+    if (video) {
+      video.loop = false;
+      let reversing = false;
+      let lastTime = 0;
+      let rafId = null;
+
+      function step(now) {
+        if (!reversing) return;
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+
+        let newTime = video.currentTime - dt;
+        if (newTime <= 0) {
+          newTime = 0;
+          reversing = false;
+          video.currentTime = 0;
+          video.play().catch(e => console.log('Forward play start error:', e));
+        } else {
+          video.currentTime = newTime;
+          rafId = requestAnimationFrame(step);
+        }
+      }
+
+      video.addEventListener('ended', () => {
+        reversing = true;
+        lastTime = performance.now();
+        rafId = requestAnimationFrame(step);
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

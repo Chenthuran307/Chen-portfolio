@@ -115,9 +115,9 @@
 <div class="hidden md:flex items-center gap-element-gap">
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
 </div>
 <button id="menu-toggle" class="md:hidden text-primary" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
@@ -125,9 +125,9 @@
 <div id="mobile-menu">
   <a href="01_home" data-nav>Home</a>
   <a class="active" href="work" data-nav>Work</a>
+  <a href="beyond-bau" data-nav>Beyond BAU</a>
   <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a href="blog" data-nav>Blogs</a>
-  <a href="contact">Contact</a>
 </div>
 </div>
 </nav>
@@ -144,6 +144,49 @@
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Bridging the Financing Gap for Diverse-Owned Small Businesses (DOSBs)</h1>
 <p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant">Fair and equitable capital access leveraging Distributed Ledger Technology to dismantle systemic barriers.</p>
 </header>
+
+<!-- Problem, Solution, Impact Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
+  <!-- Problem Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-error">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Diverse entrepreneurs faced systemic capital access disparities, with 86% of Black-owned firms having unmet funding. Existing DeFi solutions were too complex and lacked trust for institutional capital allocators.
+      </p>
+    </div>
+  </div>
+
+  <!-- Solution Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Developed a decentralized capital bridge using Distributed Ledger Technology (DLT), mapped to intuitive visual models (like "Global Pass") to abstract on-chain complexity.
+      </p>
+    </div>
+  </div>
+
+  <!-- Impact Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Simplified the borrower journey, fostered trust among institutional allocators, and established a scalable decentralized finance equity framework.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- Overview Section -->
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">The Challenge</h2>
@@ -531,9 +574,6 @@
 <div class="mt-24 pt-16 border-t border-outline-variant max-w-container-max mx-auto px-margin-standard mb-16">
   <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest block mb-6">Next Case Study</span>
   <a href="transforming-a-design-system" class="case-card block" data-nav>
-    <div class="thumb h-64 md:h-80">
-      <img src="images/02_case_study_sectional_contrast.png" alt="Transforming a Design System" class="w-full h-full object-cover"/>
-    </div>
     <div class="p-8 bg-surface">
       <div class="flex flex-wrap gap-2 mb-4">
         <span class="tag">Design Systems</span>
@@ -560,6 +600,7 @@
 <div class="text-left">
 <div class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-1">A. Morgan</div>
 <p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest opacity-60">© 2024 Systems Designer Retrospective</p>
+    <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
 </div>
 <div class="flex gap-8">
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Index</a>

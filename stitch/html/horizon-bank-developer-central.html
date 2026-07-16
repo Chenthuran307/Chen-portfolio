@@ -68,9 +68,9 @@
 <nav class="hidden md:flex gap-8">
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blog" data-nav>Blogs</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="contact">Contact</a>
 </nav>
 <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
@@ -78,9 +78,9 @@
 <div id="mobile-menu">
   <a href="01_home" data-nav>Home</a>
   <a class="active" href="work" data-nav>Work</a>
+  <a href="beyond-bau" data-nav>Beyond BAU</a>
   <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a href="blog" data-nav>Blogs</a>
-  <a href="contact">Contact</a>
 </div>
 </div>
 </header>
@@ -107,6 +107,49 @@
 </div>
 </div>
 </header>
+
+<!-- Problem, Solution, Impact Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
+  <!-- Problem Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-error">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Internal engineering tools, documentation, and compliance processes were scattered across fragmented SharePoint sites. This institutional bloat caused steep learning curves and heavy support overhead for lead engineers.
+      </p>
+    </div>
+  </div>
+
+  <!-- Solution Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Consolidated all developer workflows into a unified portal mapped to key tasks (Discover, Build, Learn, Manage) equipped with interactive C4 diagrams, sandbox editors, and code generators.
+      </p>
+    </div>
+  </div>
+
+  <!-- Impact Card -->
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+    <div>
+      <div class="flex items-center gap-2 mb-4 text-primary">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Reduced onboarding times from weeks to days, significantly decreased lead engineer support tickets, and accelerated Micro-Front-End component adoption by 80%.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- 2. Overview & Objectives -->
 <section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Horizon Bank Developer Central platform was reimagined to support a high-performance ecosystem, moving away from fragmented tools toward a unified, self-service developer experience. The legacy system suffered from institutional bloat, causing significant friction in the onboarding process and daily operational tasks for thousands of internal engineers.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li class=""><strong>Unify the Toolchain:</strong> Consolidate disparate internal sites into a single source of truth for APIs, documentation, and infrastructure management.</li><li class=""><strong>Enable Self-Service:</strong> Reduce the dependency on central support teams by providing intuitive, automated utility tools for scaffolding and deploying code.</li><li class=""><strong>Architectural Shift:</strong> Facilitate the transition from monolithic legacy systems to a modern, modular Micro-Front-End (MFE) architecture through clear governance and discoverable components.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I employed a user-centered design process adapted for enterprise technical constraints. My methodology was structured around five core phases: Empathise, Define, Ideate, Design, and Test. This ensured that every architectural decision was grounded in actual developer workflows and validated through empirical usability metrics rather than organizational assumptions.</p></section>
 <!-- 3. Process Timeline -->
@@ -530,9 +573,6 @@
 <div class="mt-24 pt-16 border-t border-outline-variant max-w-container-max mx-auto px-margin-standard mb-16">
   <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest block mb-6">Next Case Study</span>
   <a href="dosb-financing-ecosystem" class="case-card block" data-nav>
-    <div class="thumb h-64 md:h-80">
-      <img src="images/05_case_study_dosb_financing.png" alt="DOSB Financing Ecosystem" class="w-full h-full object-cover"/>
-    </div>
     <div class="p-8 bg-surface">
       <div class="flex flex-wrap gap-2 mb-4">
         <span class="tag">Fintech</span>
@@ -556,6 +596,7 @@
 <footer class="w-full mt-section-gap bg-surface-container-low dark:bg-tertiary-container flat no shadows">
 <div class="max-w-[1200px] mx-auto py-margin-standard px-margin-standard flex flex-col md:flex-row justify-between items-start gap-8">
 <div class="font-label-caps text-label-caps text-primary">© 2024 Senior Portfolio. Built for intellectual depth.</div>
+    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
 <ul class="flex flex-wrap gap-6">
 <li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer"><a href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/" target="_blank">LinkedIn</a></li>
 <li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Read.cv</li>
