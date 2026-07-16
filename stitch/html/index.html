@@ -148,7 +148,7 @@
       
       <!-- Profile Image (Right) -->
       <div class="md:col-span-5 flex justify-center md:justify-end lg:justify-center w-full mt-8 md:mt-0">
-        <video autoplay loop muted playsinline webkit-playsinline poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500 no-lightbox rounded-sm shadow-sm">
+        <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500 no-lightbox rounded-sm shadow-sm">
           <source src="images/Profile%20video.mp4" type="video/mp4">
         </video>
       </div>
@@ -885,59 +885,161 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-  // Loop reverse profile video & mobile autoplay fix
-  document.addEventListener('DOMContentLoaded', () => {
-    const video = document.querySelector('video');
-    if (video) {
-      video.loop = false;
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
+  // ========================================================
+  // AGGRESSIVE MOBILE VIDEO AUTOPLAY FIX
+  // Handles: iOS Safari, Android Chrome, Low Power Mode,
+  // WebView, and all browsers that block autoplay.
+  // ========================================================
+  (function() {
+    var video = null;
+    var isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+    var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    var played = false;
 
-      // Force play muted for iOS Safari & Android Chrome autoplay rules
-      const forcePlay = () => {
-        video.play().catch(e => {
-          console.log('Autoplay blocked. Adding user interaction listener to play video.');
-          const playOnGesture = () => {
-            video.play().catch(err => console.log('Play blocked on gesture:', err));
-            document.removeEventListener('touchstart', playOnGesture);
-            document.removeEventListener('click', playOnGesture);
-          };
-          document.addEventListener('touchstart', playOnGesture);
-          document.addEventListener('click', playOnGesture);
+    function getVideo() {
+      if (!video) video = document.getElementById('profile-video');
+      return video;
+    }
+
+    function setupVideo(v) {
+      // Force all required attributes both in HTML and JS
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+      v.setAttribute('preload', 'auto');
+
+      if (isMobile) {
+        // On mobile: simple loop — no reverse animation (RAF manipulation
+        // causes iOS to pause the video stream and lose autoplay privileges)
+        v.loop = true;
+        v.setAttribute('loop', '');
+      } else {
+        // Desktop: reverse-bounce playback
+        v.loop = false;
+        v.removeAttribute('loop');
+        setupReverseLoop(v);
+      }
+    }
+
+    function tryPlay(v) {
+      if (!v || played) return;
+      var p = v.play();
+      if (p !== undefined) {
+        p.then(function() {
+          played = true;
+        }).catch(function(e) {
+          // Play was blocked — will retry on user gesture
+          console.log('[VideoFix] Autoplay blocked, waiting for gesture:', e.name);
         });
-      };
-      
-      forcePlay();
+      }
+    }
 
-      let reversing = false;
-      let lastTime = 0;
-      let rafId = null;
+    function attachGestureFallback(v) {
+      // Multiple event types to maximize coverage across all mobile browsers
+      var events = ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'];
+      function onGesture() {
+        if (played) {
+          events.forEach(function(e) { document.removeEventListener(e, onGesture, {passive: true}); });
+          return;
+        }
+        var currentVideo = getVideo();
+        if (currentVideo) {
+          currentVideo.muted = true;
+          currentVideo.play().then(function() {
+            played = true;
+            events.forEach(function(e) { document.removeEventListener(e, onGesture, {passive: true}); });
+          }).catch(function(err) {
+            console.log('[VideoFix] Gesture play failed:', err.name);
+          });
+        }
+      }
+      events.forEach(function(e) { document.addEventListener(e, onGesture, {passive: true}); });
+    }
+
+    function setupIntersectionObserver(v) {
+      if (!('IntersectionObserver' in window)) return;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !played) {
+            tryPlay(v);
+          } else if (!entry.isIntersecting && isMobile) {
+            // Pause when off-screen on mobile to save battery
+            v.pause();
+            played = false; // allow replay when scrolled back into view
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(v);
+    }
+
+    function setupReverseLoop(v) {
+      // Desktop only: ping-pong reverse playback animation
+      var reversing = false;
+      var lastTime = 0;
+      var rafId = null;
 
       function step(now) {
         if (!reversing) return;
-        const dt = (now - lastTime) / 1000;
+        var dt = (now - lastTime) / 1000;
         lastTime = now;
-
-        let newTime = video.currentTime - dt;
+        var newTime = v.currentTime - dt;
         if (newTime <= 0) {
           newTime = 0;
           reversing = false;
-          video.currentTime = 0;
-          video.play().catch(e => console.log('Forward play start error:', e));
+          v.currentTime = 0;
+          v.play().catch(function(e) { console.log('Forward play error:', e); });
         } else {
-          video.currentTime = newTime;
+          v.currentTime = newTime;
           rafId = requestAnimationFrame(step);
         }
       }
 
-      video.addEventListener('ended', () => {
+      v.addEventListener('ended', function() {
         reversing = true;
         lastTime = performance.now();
         rafId = requestAnimationFrame(step);
       });
     }
-  });
+
+    function init() {
+      var v = getVideo();
+      if (!v) return;
+
+      setupVideo(v);
+
+      // Attempt 1: Direct play immediately
+      tryPlay(v);
+
+      // Attempt 2: IntersectionObserver — fires when video enters viewport
+      setupIntersectionObserver(v);
+
+      // Attempt 3: Gesture-based fallback for strict autoplay policies
+      attachGestureFallback(v);
+
+      // Attempt 4: On canplay event — sometimes fires after network loads the video
+      v.addEventListener('canplay', function() {
+        tryPlay(v);
+      });
+
+      // Attempt 5: On loadeddata event
+      v.addEventListener('loadeddata', function() {
+        tryPlay(v);
+      });
+
+      // Attempt 6: Short delay retry (iOS sometimes needs a frame to unlock)
+      setTimeout(function() { tryPlay(v); }, 300);
+      setTimeout(function() { tryPlay(v); }, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
 </script>
 
 </body>
