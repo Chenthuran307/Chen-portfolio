@@ -150,7 +150,7 @@
         <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Product velocity stagnated despite a complete Figma library. Highly flexible components forced designers to make endless micro-decisions, leading to severe Figma-to-code parity drift and handoff bottlenecks.
+        Product velocity stagnated despite a complete Figma library. Highly flexible components forced designers to make endless micro-decisions, leading to handoff bottlenecks.
       </p>
     </div>
   </div>
@@ -176,7 +176,7 @@
         <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Average component assembly time dropped from 45 minutes to under 5 minutes. Streamlined engineering handoff with 1:1 React code parity, and eliminated onboarding/checkout user drop-off across products.
+        Average component assembly time dropped from 20 minutes to under 5 minutes. Streamlined engineering handoff, and eliminated onboarding/checkout user drop-off across products.
       </p>
     </div>
   </div>
@@ -215,16 +215,17 @@
 <!-- Research & Discovery -->
 <section class="mb-section-gap tonal-block p-8 md:p-12 rounded-xl">
 <h2 class="font-headline-md text-headline-md text-white mb-6">Research &amp; Discovery</h2>
-<p class="font-body-md text-body-md text-white/70 mb-8">To quantify the inefficiency, I initiated a series of observational studies with the core product design team.</p>
+<p class="font-body-md text-body-md text-white/70 mb-8">To quantify the inefficiency, I conducted user research and interviewed 12 product designers across India and the US with a different set of tasks on using complex components (such as Tables) and analyzed the time taken for building a customized component for their requirements.</p>
 <h3 class="font-label-caps text-label-caps text-white/90 mb-4 uppercase tracking-widest">Activities Conducted</h3>
 <ul class="editorial-list font-body-md text-body-md text-white/90 mb-8">
-<li class="">Contextual inquiry sessions with 8 senior product designers.</li>
+<li class="">User research and interviews with 12 product designers across India and the US.</li>
 <li class="">Component detachment analysis via Figma API scripts.</li>
 <li class="">Engineering handoff friction audits (reviewing Jira ticket ping-pong).</li>
 </ul>
 <div class="border-l-2 border-white/30 pl-6 mt-8">
 <h4 class="font-label-caps text-label-caps text-white/90 mb-2 uppercase tracking-widest">The "Sample Task" Test</h4>
-<p class="font-body-md text-body-md text-white/90">I asked three designers to build a standard, 5-column data table with sorting, filtering, and bulk actions using the existing component library. The average time to completion was a staggering 45 minutes, with significant variance in the final layout spacing and interaction patterns.</p>
+<p class="font-body-md text-body-md text-white/90">I asked designers to build a standard, 5-column data table with sorting, filtering, and bulk actions using the existing component library. The average time to completion was a staggering 20 minutes, with significant variance in the final layout spacing and interaction patterns.</p>
+<img src="images/table_research.png" alt="Table Variant Research: Before (Text Only) vs After (ASCII + Icons)" class="w-full h-auto rounded-lg border border-white/20 mt-8 mb-4 shadow-sm" />
 </div>
 </section>
 <!-- Key Insights -->
@@ -244,7 +245,7 @@
 <div>
 <span class="font-label-caps text-label-caps text-white/40 block mb-2">03</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Handoff Degradation</h3>
-<p class="font-body-md text-body-md text-white/70">When designers detached components to achieve specific layouts, the engineering parity was lost, leading to custom CSS implementation.</p>
+<p class="font-body-md text-body-md text-white/70">When designers detached components to achieve specific layouts, it led to custom CSS implementation.</p>
 </div>
 <div>
 <span class="font-label-caps text-label-caps text-white/40 block mb-2">04</span>
@@ -290,13 +291,6 @@
 <td class="py-4 px-4">Medium</td>
 <td class="py-4 pl-4 text-white font-normal">P1</td>
 </tr>
-<tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
-<td class="py-4 pr-4">Empty States</td>
-<td class="py-4 px-4">Low</td>
-<td class="py-4 px-4">Monthly</td>
-<td class="py-4 px-4">Low</td>
-<td class="py-4 pl-4 text-white/50">P3</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -330,8 +324,9 @@
 <p class=""><strong>The Challenge:</strong> Data tables were the most commonly used pattern in our enterprise tool, yet building them was highly manual. Designers had to assemble rows, cells, and headers individually, leading to alignment errors and detached instances.</p>
 <p class=""><strong>The Approach:</strong> I architected a massive, fully-responsive Figma component leveraging the newest auto-layout features and component properties. It included built-in toggles for pagination, bulk actions, and density views. It was complex to build, but incredibly simple to consume.</p>
 <img src="images/data_table_evolution.png" alt="Evolution of an Enterprise Data Table Component" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<img src="images/table_research.png" alt="Table Variant Research: Before (Text Only) vs After (ASCII + Icons)" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
 <div class="tonal-block p-6 mt-6 border-l-4 border-primary">
-<p class="font-body-lg text-body-lg italic"><strong>Impact:</strong> The "Sample Task" (building a standard table) dropped from 45 minutes to under 5 minutes. More importantly, engineering handoff became seamless because the Figma structure perfectly mirrored the React prop structure.</p>
+<p class="font-body-lg text-body-lg italic"><strong>Impact:</strong> The "Sample Task" (building a standard table) dropped from 20 minutes to under 5 minutes. More importantly, engineering handoff became seamless.</p>
 </div>
 </div>
 </section>
@@ -351,7 +346,7 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-6">Driving Adoption</h2>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
 <p class="">A system is only valuable if it's used. The technical execution of the components was only half the battle; shifting the perception of the design team was the other.</p>
-<p class="">I partnered closely with engineering to ensure our React library matched the Figma library 1:1. When designers realized that using the system components meant their work would be built exactly as they designed it—without the usual QA back-and-forth—adoption skyrocketed. The system moved from feeling like a "constraint" to feeling like a "superpower."</p>
+<p class="">I partnered closely with engineering to streamline the handoff process. When designers realized that using the system components meant their work would be built exactly as they designed it—without the usual QA back-and-forth—adoption skyrocketed. The system moved from feeling like a "constraint" to feeling like a "superpower."</p>
 </div>
 </section>
 <!-- Outcomes & Learnings -->
