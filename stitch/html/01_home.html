@@ -858,11 +858,31 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-  // Loop reverse profile video
+  // Loop reverse profile video & mobile autoplay fix
   document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('video');
     if (video) {
       video.loop = false;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+
+      // Force play muted for iOS Safari & Android Chrome autoplay rules
+      const forcePlay = () => {
+        video.play().catch(e => {
+          console.log('Autoplay blocked. Adding user interaction listener to play video.');
+          const playOnGesture = () => {
+            video.play().catch(err => console.log('Play blocked on gesture:', err));
+            document.removeEventListener('touchstart', playOnGesture);
+            document.removeEventListener('click', playOnGesture);
+          };
+          document.addEventListener('touchstart', playOnGesture);
+          document.addEventListener('click', playOnGesture);
+        });
+      };
+      
+      forcePlay();
+
       let reversing = false;
       let lastTime = 0;
       let rafId = null;
