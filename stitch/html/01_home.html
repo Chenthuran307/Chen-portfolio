@@ -27,22 +27,14 @@
     position: relative;
     display: inline-block;
     text-decoration: none;
+    padding: 4px 8px;
+    margin: -4px 0;
+    border-radius: 4px;
+    transition: all 0.25s ease;
   }
-  .nav-link-btn::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #191c1a;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  .nav-link-btn:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  .nav-link-btn:hover {
+    background-color: #ffdad5;
+    color: #191c1a !important;
   }
 
   .btn-editorial {
@@ -134,10 +126,10 @@
         <!-- Bio / Subtitle -->
         <div class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl space-y-4">
           <p id="hero-subtitle" class="text-xl md:text-2xl font-light text-primary italic">
-          A Problem finder, Observer and a system thinker.
+          Guided by Considered Empathy, Craftsmanship, and Navigating Ambiguity.
         </p>
           <p id="hero-about">
-          For over 10 years, I've helped teams build better digital products by observing people, questioning assumptions, and uncovering opportunities others often miss. I enjoy understanding how products work as systems, why users behave the way they do, and how thoughtful design can solve both user and business challenges.
+          For over 10 years, I've designed complex digital products by combining deep systems thinking with an uncompromising high bar for quality. I seamlessly zoom out to map the big-picture digital ecosystem and zoom in to refine the minute details of craft, bridging user needs with business goals.
         </p>
         </div>
 
@@ -148,7 +140,7 @@
       
       <!-- Profile Image (Right) -->
       <div class="md:col-span-5 flex justify-center md:justify-end lg:justify-center w-full mt-8 md:mt-0">
-        <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500 no-lightbox rounded-sm shadow-sm">
+        <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover transition-all duration-500 no-lightbox rounded-sm shadow-sm">
           <source src="images/Profile%20video.mp4" type="video/mp4">
         </video>
       </div>
@@ -162,42 +154,48 @@
       <h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-12">Selected Work</h2>
       <div class="space-y-6">
         <!-- Case Study 1 -->
-        <a href="transforming-a-design-system" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
-          <div class="flex justify-between items-start gap-4">
-            <div>
+        <a href="transforming-a-design-system" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-8">
               <span id="project1-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Design Systems</span>
-              <h3 id="project1-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Transforming a Design System</h3>
+              <h3 id="project1-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Platform over Library</h3>
               <p id="project1-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-          From component library to productivity platform.
-        </p>
+                How a prescriptive design system reduced component assembly time to 5 minutes.
+              </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-28 bg-surface-container-low flex items-center justify-center">
+              <img src="images/stepper_consolidation.png" alt="Design system component spec" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            </div>
           </div>
         </a>
         <!-- Case Study 2 -->
-        <a href="horizon-bank-developer-central" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
-          <div class="flex justify-between items-start gap-4">
-            <div>
+        <a href="horizon-bank-developer-central" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-8">
               <span id="project2-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Enterprise UX</span>
-              <h3 id="project2-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Horizon Bank Developer Central</h3>
+              <h3 id="project2-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Developer-First Banking</h3>
               <p id="project2-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-          Accelerating the developer lifecycle through modular architecture.
-        </p>
+                How modular sandbox workspaces reduced API onboarding friction.
+              </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-28 bg-surface-container-low flex items-center justify-center">
+              <img src="images/dev_central_docs.png" alt="Horizon Bank Developer Central" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            </div>
           </div>
         </a>
         <!-- Case Study 3 -->
-        <a href="dosb-financing-ecosystem" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
-          <div class="flex justify-between items-start gap-4">
-            <div>
+        <a href="dosb-financing-ecosystem" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-8">
               <span id="project3-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Fintech / DeFi</span>
-              <h3 id="project3-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">DOSB Financing Ecosystem</h3>
+              <h3 id="project3-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Architecture as Equity</h3>
               <p id="project3-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-          Bridging the financing gap for diverse-owned small businesses.
-        </p>
+                How systems design unlocked capital for diverse-owned small businesses.
+              </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-28 bg-surface-container-low flex items-center justify-center">
+              <img src="images/dosb_dashboard_home.png" alt="DOSB Financing Ecosystem" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            </div>
           </div>
         </a>
       </div>
@@ -246,8 +244,8 @@
         <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">05</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Product Strategy & Innovation</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I transform ambiguous feature requests into clear strategic directions, prototyping key hypotheses early and validating opportunities before committing resources to full-scale development.</p>
+            <h4 class="font-headline-md text-headline-md text-primary mb-3">Experimental Prototyping & Craft</h4>
+            <p class="font-body-md text-body-md text-on-surface-variant">I believe in building to learn. Whether hacking wearable hardware sensors, scripting local simulators, or sketching narrative engines, I bring abstract ideas to life quickly through high-fidelity functional code.</p>
           </div>
         </div>
         <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
@@ -270,25 +268,87 @@
       <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Career <span class="italic font-normal">Highlights</span></h2>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border-t-4 border-t-[#ffb4ab]">
           <span class="text-4xl md:text-6xl font-bold text-primary">30+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Projects Completed</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border-t-4 border-t-[#ffb4ab]">
           <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Industries Worked With</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border-t-4 border-t-[#ffb4ab]">
           <span class="text-4xl md:text-6xl font-bold text-primary">5</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Recognitions (2 Manager Spotlight Awards)</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border-t-4 border-t-[#ffb4ab]">
           <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Years Experience</span>
         </div>
       </div>
       
 
+    </div>
+  </section>
+
+  <!-- Prototyping Playground Section -->
+  <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
+    <div>
+      <div class="flex items-center gap-4 mb-8">
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Experimental Sandbox</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Tinkering & Prototyping</h2>
+          <p class="font-body-md text-on-surface-variant max-w-2xl">
+            A sandbox of side projects, physical hardware hacks, and functional software simulators exploring flow state gaming, modular hearable jewelry, and narrative AI.
+          </p>
+        </div>
+        <a href="03_idea_godown_research_ledger" data-nav class="btn-editorial font-label-caps text-label-caps text-primary whitespace-nowrap">Enter the Sandbox →</a>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Sandbox 1 -->
+        <div class="border border-outline-variant p-6 bg-surface flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-widest block mb-2">Hardware / Middleware</span>
+            <h3 class="font-headline-md text-xl font-bold text-primary mb-2">Pulse Adaptive Gaming</h3>
+            <p class="font-body-sm text-sm text-on-surface-variant">
+              A Unity/Unreal plugin mapping real-time biometric wristband heart rate data directly into game difficulty loops to preserve user flow.
+            </p>
+          </div>
+          <div class="mt-4 rounded overflow-hidden border border-outline-variant/20 h-28">
+            <img src="images/Gaming_controller_with_heart_sensor_202607062026.jpeg" alt="Adaptive Gaming Render" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        
+        <!-- Sandbox 2 -->
+        <div class="border border-outline-variant p-6 bg-surface flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-widest block mb-2">Industrial Design</span>
+            <h3 class="font-headline-md text-xl font-bold text-primary mb-2">AirPods Earrings</h3>
+            <p class="font-body-sm text-sm text-on-surface-variant">
+              Hearable luxury jewelry cores designed to snap magnetically into customized drop studs, geometric hoops, and cuffs.
+            </p>
+          </div>
+          <div class="mt-4 rounded overflow-hidden border border-outline-variant/20 h-28 bg-surface-container flex items-center justify-center text-on-surface-variant italic text-xs">
+            Concept Renders & Tech Core Specs
+          </div>
+        </div>
+
+        <!-- Sandbox 3 -->
+        <div class="border border-outline-variant p-6 bg-surface flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-widest block mb-2">AI Systems</span>
+            <h3 class="font-headline-md text-xl font-bold text-primary mb-2">AI Creative Director</h3>
+            <p class="font-body-sm text-sm text-on-surface-variant">
+              An LLM assistant that analyzes raw video streams to generate niche-specific storytelling template recommendations for fitness creators.
+            </p>
+          </div>
+          <div class="mt-4 rounded overflow-hidden border border-outline-variant/20 h-28 bg-surface-container flex items-center justify-center text-on-surface-variant italic text-xs">
+            Fine-tuned LLM Prompt Workspaces
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

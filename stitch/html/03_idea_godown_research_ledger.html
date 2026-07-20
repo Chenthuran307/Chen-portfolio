@@ -223,6 +223,33 @@
     </div>
   </div>
 </section>
+<section class="md:col-span-2 mt-8 border-t border-outline-variant/30 pt-6">
+  <h3 class="font-label-caps text-label-caps text-outline uppercase mb-4">Interactive Biometric Simulator</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-surface-container p-6 md:p-8 rounded">
+    <div class="space-y-4">
+      <label class="block text-xs font-bold text-on-surface uppercase tracking-wider">Player Heart Rate (BPM)</label>
+      <input type="range" min="60" max="150" value="75" id="bpm-slider" oninput="adjustBPM(this.value)" class="w-full accent-primary bg-outline-variant/40 rounded-lg appearance-none h-1.5">
+      <div class="flex justify-between text-xs text-on-surface-variant font-mono">
+        <span>60 BPM (Calm)</span>
+        <span class="font-bold text-primary" id="bpm-display">75 BPM</span>
+        <span>150 BPM (High Stress)</span>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="bg-surface border border-outline-variant/60 p-4 rounded text-center">
+        <span class="block font-label-caps text-[10px] text-on-surface-variant mb-1">Game Intensity Mode</span>
+        <span class="text-lg font-bold text-primary" id="intensity-mode">Moderate Difficulty</span>
+        <p class="text-xs text-on-surface-variant mt-2" id="intensity-desc">Balanced gameplay. Standard spawn rates active.</p>
+      </div>
+
+      <div class="bg-surface border border-outline-variant/60 p-4 rounded flex items-center justify-between">
+        <span class="font-label-caps text-[10px] text-on-surface-variant">Visual Atmosphere</span>
+        <div class="h-6 rounded w-32 transition-colors duration-500" id="visual-mood" style="background-color: #efeded;"></div>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 </div>
 </div>
@@ -884,6 +911,27 @@ document.addEventListener('DOMContentLoaded', () => {
   function removeTyping(id) {
     const el = document.getElementById(id);
     if (el) el.remove();
+  }
+
+  function adjustBPM(val) {
+    document.getElementById('bpm-display').textContent = val + ' BPM';
+    const intensity = document.getElementById('intensity-mode');
+    const desc = document.getElementById('intensity-desc');
+    const mood = document.getElementById('visual-mood');
+
+    if (val < 70) {
+      intensity.textContent = "Aggressive Ramping";
+      desc.textContent = "Boredom detected. Escalating spawn rates, initiating boss challenge.";
+      mood.style.backgroundColor = "#ffcccc"; // light warning pink/red
+    } else if (val >= 70 && val < 110) {
+      intensity.textContent = "Flow Steady State";
+      desc.textContent = "Autonomic flow achieved. Balanced encounter rates.";
+      mood.style.backgroundColor = "#efeded"; // neutral
+    } else {
+      intensity.textContent = "System Cool-Down";
+      desc.textContent = "Excessive stress detected. Minimizing visual noise, easing obstacle density.";
+      mood.style.backgroundColor = "#d0f0c0"; // soft green calming
+    }
   }
 </script>
 
