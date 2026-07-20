@@ -23,10 +23,7 @@
             transition: all 0.2s ease;
         }
         
-        p a:hover {
-            background-color: theme('colors.secondary-fixed');
-            text-decoration-color: theme('colors.secondary');
-        }
+        
 
         .editorial-list li {
             position: relative;
@@ -53,8 +50,8 @@
   body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
   @keyframes fadeIn { to { opacity: 1; } }
   .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
-  .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
-  .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+  
+  
   #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
   #mobile-menu.open { display: flex; }
   .tag { display: inline-block; padding: 3px 10px; border: 1px solid #c4c7c7; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #444748; }
@@ -66,11 +63,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #c4c7c7;
   }
-  .case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.10);
-    border-color: #000;
-  }
+  
   .case-card .thumb {
     overflow: hidden;
     background: #efeded;
@@ -79,12 +72,9 @@
     transition: transform 0.5s ease, filter 0.5s ease;
     filter: grayscale(20%);
   }
-  .case-card:hover .thumb img {
-    transform: scale(1.03);
-    filter: grayscale(0%);
-  }
+  
   #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
-  #mobile-menu a:hover { background: #f5f3f3; }
+  
   #mobile-menu a.active { border-right: 3px solid #000; }
     </style>
 </head>
@@ -92,13 +82,13 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface border-b border-surface-variant/40">
 <div class="flex justify-between items-center px-margin-standard py-8 max-w-container-max mx-auto w-full relative">
-  <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+  <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
   <nav class="hidden md:flex gap-8">
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
     <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
   </nav>
   <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
     <span class="material-symbols-outlined">menu</span>
@@ -115,7 +105,7 @@
 <!-- Main Content Canvas -->
 <main class="pt-32 pb-16 px-margin-standard max-w-container-max mx-auto w-full">
 <div class="mb-8 flex items-center gap-2">
-  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">
+  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
     <span class="material-symbols-outlined text-base">arrow_back</span> All Work
   </a>
 </div>
@@ -143,7 +133,7 @@
 <!-- Problem, Solution, Impact Summary Cards -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
   <!-- Problem Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
@@ -156,7 +146,7 @@
   </div>
 
   <!-- Solution Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
@@ -169,7 +159,7 @@
   </div>
 
   <!-- Impact Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
@@ -186,8 +176,8 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Overview</h2>
 <div class="font-body-lg text-body-lg text-on-surface space-y-6">
-<p class="">The transition from maintaining a simple UI kit to orchestrating a robust, platform-level design system represents a fundamental shift in product strategy. It's not merely about ensuring visual consistency across buttons and inputs; it's about systematically reducing friction across the entire product development lifecycle.</p>
-<p class="">This case study details the systemic overhaul of our internal design infrastructure. We evolved beyond a static repository of components into a dynamic, opinionated platform that actively guides designers toward optimal solutions, reducing cognitive load and dramatically accelerating time-to-market for complex enterprise features.</p>
+<p >The transition from maintaining a simple UI kit to orchestrating a robust, platform-level design system represents a fundamental shift in product strategy. It's not merely about ensuring visual consistency across buttons and inputs; it's about systematically reducing friction across the entire product development lifecycle.</p>
+<p >This case study details the systemic overhaul of our internal design infrastructure. We evolved beyond a static repository of components into a dynamic, opinionated platform that actively guides designers toward optimal solutions, reducing cognitive load and dramatically accelerating time-to-market for complex enterprise features.</p>
 </div>
 </section>
 <!-- My Role -->
@@ -196,16 +186,16 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">My Role</h2>
 </div>
 <div class="md:col-span-3 font-body-md text-body-md text-on-surface space-y-4">
-<p class="">I led the strategic vision and execution for the design system evolution. I conducted comprehensive internal audits, facilitated cross-functional alignment workshops with engineering leadership, and personally architected the core complex component patterns (specifically data tables and advanced navigation structures).</p>
-<p class="">My mandate was to move the system from "descriptive" to "prescriptive," establishing strong defaults that freed the design team to focus on complex user flows rather than pixel-pushing micro-interactions.</p>
+<p >I led the strategic vision and execution for the design system evolution. I conducted comprehensive internal audits, facilitated cross-functional alignment workshops with engineering leadership, and personally architected the core complex component patterns (specifically data tables and advanced navigation structures).</p>
+<p >My mandate was to move the system from "descriptive" to "prescriptive," establishing strong defaults that freed the design team to focus on complex user flows rather than pixel-pushing micro-interactions.</p>
 </div>
 </section>
 <!-- The Problem -->
 <section class="mb-16">
 <h2 class="font-headline-md text-headline-md text-primary mb-8">The Problem: Operational Inefficiency</h2>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p class="">Despite having a "complete" Figma library, product velocity was stagnating. Designers were spending an inordinate amount of time assembling basic page structures. A deeper analysis revealed that while we had all the necessary atomic elements (buttons, inputs, dropdowns), we lacked "molecules" and "organisms" that represented actual user intent.</p>
-<p class="">The cost of flexibility had become too high. Because our components could be configured in dozens of ways, designers were forced to make micro-decisions constantly. "Should this modal have a grey background or white?" "Which padding token do I use for this specific card layout?" This lack of prescriptive guidance led to subtle inconsistencies across the product suite and created significant friction during design-to-engineering handoff.</p>
+<p >Despite having a "complete" Figma library, product velocity was stagnating. Designers were spending an inordinate amount of time assembling basic page structures. A deeper analysis revealed that while we had all the necessary atomic elements (buttons, inputs, dropdowns), we lacked "molecules" and "organisms" that represented actual user intent.</p>
+<p >The cost of flexibility had become too high. Because our components could be configured in dozens of ways, designers were forced to make micro-decisions constantly. "Should this modal have a grey background or white?" "Which padding token do I use for this specific card layout?" This lack of prescriptive guidance led to subtle inconsistencies across the product suite and created significant friction during design-to-engineering handoff.</p>
 </div>
 </section>
 </main>
@@ -218,9 +208,9 @@
 <p class="font-body-md text-body-md text-white/70 mb-8">To quantify the inefficiency, I conducted user research and interviewed 12 product designers across India and the US with a different set of tasks on using complex components (such as Tables) and analyzed the time taken for building a customized component for their requirements.</p>
 <h3 class="font-label-caps text-label-caps text-white/90 mb-4 uppercase tracking-widest">Activities Conducted</h3>
 <ul class="editorial-list font-body-md text-body-md text-white/90 mb-8">
-<li class="">User research and interviews with 12 product designers across India and the US.</li>
-<li class="">Component detachment analysis via Figma API scripts.</li>
-<li class="">Engineering handoff friction audits (reviewing Jira ticket ping-pong).</li>
+<li >User research and interviews with 12 product designers across India and the US.</li>
+<li >Component detachment analysis via Figma API scripts.</li>
+<li >Engineering handoff friction audits (reviewing Jira ticket ping-pong).</li>
 </ul>
 <div class="border-l-2 border-white/30 pl-6 mt-8">
 <h4 class="font-label-caps text-label-caps text-white/90 mb-2 uppercase tracking-widest">The "Sample Task" Test</h4>
@@ -269,21 +259,21 @@
 </tr>
 </thead>
 <tbody class="font-body-md text-body-md text-white/80 font-light">
-<tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+<tr class="border-b border-white/10">
 <td class="py-4 pr-4">Data Tables (Composite)</td>
 <td class="py-4 px-4">High</td>
 <td class="py-4 px-4">Daily</td>
 <td class="py-4 px-4">High</td>
 <td class="py-4 pl-4 text-white font-normal">P0</td>
 </tr>
-<tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+<tr class="border-b border-white/10">
 <td class="py-4 pr-4">Progress Steppers</td>
 <td class="py-4 px-4">Medium</td>
 <td class="py-4 px-4">Weekly</td>
 <td class="py-4 px-4">Low</td>
 <td class="py-4 pl-4 text-white font-normal">P1</td>
 </tr>
-<tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+<tr class="border-b border-white/10">
 <td class="py-4 pr-4">Modal Dialogues</td>
 <td class="py-4 px-4">High</td>
 <td class="py-4 px-4">Daily</td>
@@ -320,8 +310,8 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Deep Dive 01</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-6">Reimagining Data Tables</h3>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p class=""><strong>The Challenge:</strong> Data tables were the most commonly used pattern in our enterprise tool, yet building them was highly manual. Designers had to assemble rows, cells, and headers individually, leading to alignment errors and detached instances.</p>
-<p class=""><strong>The Approach:</strong> I architected a massive, fully-responsive Figma component leveraging the newest auto-layout features and component properties. It included built-in toggles for pagination, bulk actions, and density views. It was complex to build, but incredibly simple to consume.</p>
+<p ><strong>The Challenge:</strong> Data tables were the most commonly used pattern in our enterprise tool, yet building them was highly manual. Designers had to assemble rows, cells, and headers individually, leading to alignment errors and detached instances.</p>
+<p ><strong>The Approach:</strong> I architected a massive, fully-responsive Figma component leveraging the newest auto-layout features and component properties. It included built-in toggles for pagination, bulk actions, and density views. It was complex to build, but incredibly simple to consume.</p>
 <div class="space-y-4 my-6">
   <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Enterprise users were building dense data tables by manually adding cells one-by-one. This created immense design inconsistency (over 45 custom variations of tables) and prolonged development cycles since developers had to write custom CSS for almost every table.</p>
   <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> By replacing the manual assembly with a single, highly configurable auto-layout system component, design system alignment became instant. Detachments dropped to 0%, and the time to customize tables was reduced by 75%.</p>
@@ -337,21 +327,21 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Deep Dive 02</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-6">Simplifying Progress Steppers</h3>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p class=""><strong>The Challenge:</strong> Multi-step workflows were frequently designed with bespoke stepper components, leading to confusing navigation for users and redundant code for developers.</p>
-<p class=""><strong>The Approach:</strong> I consolidated 4 different stepper patterns into a single, robust component capable of handling linear and non-linear flows, error states, and responsive collapsing. I embedded the logic for state transitions directly into the variant properties.</p>
+<p ><strong>The Challenge:</strong> Multi-step workflows were frequently designed with bespoke stepper components, leading to confusing navigation for users and redundant code for developers.</p>
+<p ><strong>The Approach:</strong> I consolidated 4 different stepper patterns into a single, robust component capable of handling linear and non-linear flows, error states, and responsive collapsing. I embedded the logic for state transitions directly into the variant properties.</p>
 <div class="space-y-4 my-6">
   <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Multi-step user journeys used custom stepper designs that did not scale. Users faced inconsistent progress feedback across different sections, leading to drop-offs on long forms.</p>
   <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> Standardizing the steppers into one smart responsive component reduced custom coding requirements by 40% and improved user completion rates by 15%.</p>
 </div>
-<p class=""><strong>Impact:</strong> Standardized the onboarding and checkout flows across three disparate product lines, resulting in a measurable drop in user drop-off during complex configuration tasks.</p>
+<p ><strong>Impact:</strong> Standardized the onboarding and checkout flows across three disparate product lines, resulting in a measurable drop in user drop-off during complex configuration tasks.</p>
 </div>
 </section>
 <!-- Driving Adoption -->
 <section class="mb-section-gap">
 <h2 class="font-headline-md text-headline-md text-primary mb-6">Driving Adoption</h2>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p class="">A system is only valuable if it's used. The technical execution of the components was only half the battle; shifting the perception of the design team was the other.</p>
-<p class="">I partnered closely with engineering to streamline the handoff process. When designers realized that using the system components meant their work would be built exactly as they designed it—without the usual QA back-and-forth—adoption skyrocketed. The system moved from feeling like a "constraint" to feeling like a "superpower."</p>
+<p >A system is only valuable if it's used. The technical execution of the components was only half the battle; shifting the perception of the design team was the other.</p>
+<p >I partnered closely with engineering to streamline the handoff process. When designers realized that using the system components meant their work would be built exactly as they designed it—without the usual QA back-and-forth—adoption skyrocketed. The system moved from feeling like a "constraint" to feeling like a "superpower."</p>
 </div>
 </section>
 <!-- Outcomes & Learnings -->
@@ -359,8 +349,8 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-8">Outcomes &amp; What I Learned</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-4">
-<p class="">The transformation of our design system yielded immediate operational benefits. Time-to-prototype decreased significantly, and the visual consistency of our shipped product improved dramatically. But the most profound impact was cultural.</p>
-<p class="">By removing the friction of basic UI construction, the design team was elevated. Conversations shifted from "what hex code is this border?" to "does this user flow actually solve the core problem?"</p>
+<p >The transformation of our design system yielded immediate operational benefits. Time-to-prototype decreased significantly, and the visual consistency of our shipped product improved dramatically. But the most profound impact was cultural.</p>
+<p >By removing the friction of basic UI construction, the design team was elevated. Conversations shifted from "what hex code is this border?" to "does this user flow actually solve the core problem?"</p>
 </div>
 <div class="tonal-block p-8 flex flex-col justify-center">
 <h3 class="font-body-lg text-body-lg text-primary mb-4">Designers are users too.</h3>
@@ -400,8 +390,8 @@
 <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Senior UX Portfolio — Thoughtful Design Retrospective</p>
     <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
 <div class="flex gap-6">
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Email</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="#">Email</a>
 </div>
 </div>
 

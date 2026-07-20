@@ -26,10 +26,7 @@
     border-radius: 4px;
     transition: all 0.25s ease;
   }
-  .nav-link-btn:hover {
-    background-color: #efeded;
-    color: #191c1a !important;
-  }
+  
 
   #mobile-menu {
     display: none;
@@ -55,7 +52,7 @@
     border-bottom: 1px solid #e4e2e2;
     text-decoration: none;
   }
-  #mobile-menu a:hover { background: #f5f3f3; }
+  
   #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
 
   /* Card styles */
@@ -65,11 +62,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #c4c7c7;
   }
-  .case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.10);
-    border-color: #000;
-  }
+  
   .case-card .thumb {
     overflow: hidden;
     background: #efeded;
@@ -78,10 +71,7 @@
     transition: transform 0.5s ease, filter 0.5s ease;
     filter: grayscale(20%);
   }
-  .case-card:hover .thumb img {
-    transform: scale(1.03);
-    filter: grayscale(0%);
-  }
+  
   .tag {
     display: inline-block;
     padding: 3px 10px;
@@ -101,13 +91,13 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
@@ -159,7 +149,7 @@
             </div>
           </div>
           <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-36 bg-surface-container-low flex items-center justify-center">
-            <img src="images/stepper_consolidation.png" alt="Design System spec" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            <img src="images/stepper_consolidation.png" alt="Design System spec" class="w-full h-full object-cover filter grayscale duration-300 no-lightbox" />
           </div>
         </div>
       </div>
@@ -188,7 +178,7 @@
             </div>
           </div>
           <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-36 bg-surface-container-low flex items-center justify-center">
-            <img src="images/dev_central_docs.png" alt="Developer Central Sandbox" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            <img src="images/dev_central_docs.png" alt="Developer Central Sandbox" class="w-full h-full object-cover filter grayscale duration-300 no-lightbox" />
           </div>
         </div>
       </div>
@@ -217,7 +207,7 @@
             </div>
           </div>
           <div class="md:col-span-4 rounded overflow-hidden border border-outline-variant/30 h-36 bg-surface-container-low flex items-center justify-center">
-            <img src="images/dosb_dashboard_home.png" alt="DOSB UI Spec" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 no-lightbox" />
+            <img src="images/dosb_dashboard_home.png" alt="DOSB UI Spec" class="w-full h-full object-cover filter grayscale duration-300 no-lightbox" />
           </div>
         </div>
       </div>
@@ -233,7 +223,7 @@
           <h3 class="font-headline-md text-headline-md text-primary">Idea Godown</h3>
           <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-sm">A brutalist repository of product observations, hypotheses, and research notes in progress.</p>
         </div>
-        <a href="03_idea_godown_research_ledger" data-nav class="inline-flex items-center gap-2 border-b-2 border-primary pb-1 font-label-caps text-label-caps text-primary hover:text-secondary hover:border-secondary transition-colors whitespace-nowrap">
+        <a href="03_idea_godown_research_ledger" data-nav class="inline-flex items-center gap-2 border-b-2 border-primary pb-1 font-label-caps text-label-caps text-primary whitespace-nowrap">
           Explore the Archive <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </a>
       </div>
@@ -249,8 +239,8 @@
     <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior UX Portfolio</p>
     <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
     <div class="flex gap-6">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
     </div>
   </div>
 </footer>

@@ -32,10 +32,7 @@
     border-radius: 4px;
     transition: all 0.25s ease;
   }
-  .nav-link-btn:hover {
-    background-color: #efeded;
-    color: #191c1a !important;
-  }
+  
 
   .btn-editorial {
     display: inline-flex;
@@ -47,10 +44,7 @@
     cursor: pointer;
     background-color: transparent;
   }
-  .btn-editorial:hover {
-    background-color: #efeded;
-    border-bottom-color: transparent;
-  }
+  
 
   /* Mobile menu */
   #mobile-menu {
@@ -78,12 +72,12 @@
     border-bottom: 1px solid #e4e2e2;
     text-decoration: none;
   }
-  #mobile-menu a:hover { background: #f5f3f3; }
+  
   #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
 
   /* Work card hover */
   .work-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  
 </style>
 </head>
 <body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
@@ -91,13 +85,13 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40" style="position:sticky;">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="01_home" data-nav>Home</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
@@ -140,7 +134,7 @@
       
       <!-- Profile Image (Right) -->
       <div class="md:col-span-5 flex justify-center md:justify-end lg:justify-center w-full mt-8 md:mt-0">
-        <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover transition-all duration-500 no-lightbox rounded-sm shadow-sm">
+        <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover duration-500 no-lightbox rounded-sm shadow-sm">
           <source src="images/Profile%20video.mp4" type="video/mp4">
         </video>
       </div>
@@ -154,42 +148,42 @@
       <h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-12">Selected Work</h2>
       <div class="space-y-6">
         <!-- Case Study 1 -->
-        <a href="transforming-a-design-system" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
+        <a href="transforming-a-design-system" data-nav class="work-card block border border-outline-variant p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
               <span id="project1-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Design Systems</span>
-              <h3 id="project1-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Platform over Library</h3>
+              <h3 id="project1-title" class="font-headline-md text-headline-md text-primary">Platform over Library</h3>
               <p id="project1-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
                 How a prescriptive design system reduced component assembly time to 5 minutes.
               </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
         <!-- Case Study 2 -->
-        <a href="horizon-bank-developer-central" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
+        <a href="horizon-bank-developer-central" data-nav class="work-card block border border-outline-variant p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
               <span id="project2-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Enterprise UX</span>
-              <h3 id="project2-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Developer-First Banking</h3>
+              <h3 id="project2-title" class="font-headline-md text-headline-md text-primary">Developer-First Banking</h3>
               <p id="project2-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
                 How modular sandbox workspaces reduced API onboarding friction.
               </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
         <!-- Case Study 3 -->
-        <a href="dosb-financing-ecosystem" data-nav class="work-card block border border-outline-variant p-8 hover:border-primary transition-colors group">
+        <a href="dosb-financing-ecosystem" data-nav class="work-card block border border-outline-variant p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
               <span id="project3-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Fintech / DeFi</span>
-              <h3 id="project3-title" class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Architecture as Equity</h3>
+              <h3 id="project3-title" class="font-headline-md text-headline-md text-primary">Architecture as Equity</h3>
               <p id="project3-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
                 How systems design unlocked capital for diverse-owned small businesses.
               </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
       </div>
@@ -207,42 +201,42 @@
       </div>
       <h2 class="font-headline-lg text-headline-lg text-primary mb-12">What I do <span class="italic font-normal">best</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">01</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">Enterprise & Developer UX</h4>
             <p class="font-body-md text-body-md text-on-surface-variant">I simplify internal developer tools and SaaS interfaces. I convert high-touch setup steps into self-service workspaces that engineers confidently manage.</p>
           </div>
         </div>
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">02</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">Design Systems & Process Strategy</h4>
             <p class="font-body-md text-body-md text-on-surface-variant">I build tokenized components and establish process strategy to bridge design and engineering. By improving the design-to-development pipeline, I reduce handoff bottlenecks and drive efficiency.</p>
           </div>
         </div>
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">03</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">Fintech & DLT Architectures</h4>
             <p class="font-body-md text-body-md text-on-surface-variant">I design multi-party payment and asset flows using Distributed Ledger Technology, translating raw DeFi protocols into trust-centered visual metaphors.</p>
           </div>
         </div>
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">04</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">Systems Thinking & Architecture</h4>
             <p class="font-body-md text-body-md text-on-surface-variant">I map complex enterprise ecosystems, translating fragmented human workarounds and offline processes into cohesive digital architectures that balance business rules with intuitive UX.</p>
           </div>
         </div>
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">05</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">Experimental Prototyping & Craft</h4>
             <p class="font-body-md text-body-md text-on-surface-variant">I believe in building to learn. Whether hacking wearable hardware sensors, scripting local simulators, or sketching narrative engines, I bring abstract ideas to life quickly through high-fidelity functional code.</p>
           </div>
         </div>
-        <div class="p-6 border border-outline-variant hover:border-primary transition-colors bg-surface-container-low flex flex-col justify-between">
+        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">06</span>
             <h4 class="font-headline-md text-headline-md text-primary mb-3">AI & Agentic Design</h4>
@@ -255,26 +249,26 @@
 
   <!-- Career Highlights -->
   <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
-    <div class="">
+    <div >
       <div class="flex items-center gap-4 mb-8">
         <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Achievements</span>
       </div>
       <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Career <span class="italic font-normal">Highlights</span></h2>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
           <span class="text-4xl md:text-6xl font-bold text-primary">30+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Projects Completed</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
           <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Industries Worked With</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
           <span class="text-4xl md:text-6xl font-bold text-primary">5</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Recognitions (2 Manager Spotlight Awards)</span>
         </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
           <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
           <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Years Experience</span>
         </div>
@@ -355,30 +349,30 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Initiative 1 -->
-        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
               <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Productivity • Figma Plugin</span>
-              <h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors mt-2">Comment Analyzer Plugin</h3>
+              <h3 class="font-headline-md text-headline-md text-primary mt-2">Comment Analyzer Plugin</h3>
               <p class="font-body-md text-on-surface-variant mt-2">
                 An LLM-powered Figma plugin that automatically categorizes design review comments, reducing triage times by 40%.
               </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
         
         <!-- Initiative 2 -->
-        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 hover:border-primary transition-colors group">
+        <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
               <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Facilitation • Leadership</span>
-              <h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors mt-2">Team Personality Workshop</h3>
+              <h3 class="font-headline-md text-headline-md text-primary mt-2">Team Personality Workshop</h3>
               <p class="font-body-md text-on-surface-variant mt-2">
                 Facilitating team-building workshops based on the book <strong>Surrounded by Idiots</strong> to align communication traits.
               </p>
             </div>
-            <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors mt-1">arrow_outward</span>
+            <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
       </div>
@@ -396,7 +390,7 @@
       <!-- Flanked Carousel Layout -->
       <div class="flex items-center gap-4 md:gap-12 relative">
         <!-- Left Control -->
-        <button id="testimonial-prev" class="hover:text-primary transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Previous testimonial">
+        <button id="testimonial-prev" class="flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Previous testimonial">
           <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_left</span>
         </button>
         
@@ -406,7 +400,7 @@
           <div class="relative w-full flex-grow flex items-center">
             
             <!-- Slide 1 -->
-            <div class="testimonial-slide w-full transition-all duration-500 flex flex-col justify-between" data-index="0">
+            <div class="testimonial-slide w-full duration-500 flex flex-col justify-between" data-index="0">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
                 <p id="testimonial1-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">The creative person to work with and have rational knowledge of what he is doing. Very few will be like that and I had a chance to work with him. He is ideally a great team player and will be a great asset added to any team.</p>
@@ -418,7 +412,7 @@
             </div>
             
             <!-- Slide 2 -->
-            <div class="testimonial-slide w-full transition-all duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="1">
+            <div class="testimonial-slide w-full duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="1">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
                 <p id="testimonial2-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen is one of the finest designers who gives attention to minute details. Be it graphic design, UI, UX he will mesmerize with his design thinking skills. An out of the box thinker. He helped and motivated me at early stages of my designing career. "Engineer by education, Designer by passion" is an apt sentence for him. Anyone can enjoy working with him.</p>
@@ -430,7 +424,7 @@
             </div>
             
             <!-- Slide 3 -->
-            <div class="testimonial-slide w-full transition-all duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="2">
+            <div class="testimonial-slide w-full duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="2">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
                 <p id="testimonial3-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen has been an integral part of the Terralogic design team. He worked with me for over a year as a visual designer. He is really good with understanding client requirements and makes sure to deliver the output on time. He also learns new things very quickly and always keeps himself updated with the latest trends. He is hard working and self motivated as well. He earns my highest recommendation and I wish him all the best.</p>
@@ -445,15 +439,15 @@
           
           <!-- Slide Indicators / Dots (Bottom) -->
           <div class="flex gap-2 mt-8 flex-shrink-0">
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-primary transition-all duration-300 flex-shrink-0" data-slide="0" aria-label="Go to slide 1"></button>
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant hover:bg-primary/50 transition-all duration-300 flex-shrink-0" data-slide="1" aria-label="Go to slide 2"></button>
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant hover:bg-primary/50 transition-all duration-300 flex-shrink-0" data-slide="2" aria-label="Go to slide 3"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-primary duration-300 flex-shrink-0" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant duration-300 flex-shrink-0" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant duration-300 flex-shrink-0" data-slide="2" aria-label="Go to slide 3"></button>
           </div>
           
         </div>
         
         <!-- Right Control -->
-        <button id="testimonial-next" class="hover:text-primary transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Next testimonial">
+        <button id="testimonial-next" class="flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Next testimonial">
           <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_right</span>
         </button>
       </div>
@@ -465,11 +459,11 @@
 
 <!-- Footer -->
 <footer class="w-full bg-surface-container-low pb-20 md:pb-0" id="contact">
-  <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80 hover:opacity-100 transition-opacity">
+  <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80">
     <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">UX Portfolio — Chen</div>
     <div class="flex gap-6">
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chencse@gmail.com">Email</a>
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
     </div>
     <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior UX Portfolio. All rights reserved.</div>
     <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>

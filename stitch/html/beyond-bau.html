@@ -15,15 +15,15 @@
   body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
   @keyframes fadeIn { to { opacity: 1; } }
   .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
-  .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
-  .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+  
+  
   #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
   #mobile-menu.open { display: flex; }
   #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
-  #mobile-menu a:hover { background: #f5f3f3; }
+  
   #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
   .initiative-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .initiative-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  
   .tag {
     display: inline-block;
     padding: 3px 10px;
@@ -43,13 +43,13 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
@@ -80,7 +80,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       <!-- Card 1: Comment Analyzer -->
-      <div onclick="openDrawer('comment-analyzer')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+      <div onclick="openDrawer('comment-analyzer')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="tag">Productivity</span>
@@ -104,13 +104,13 @@
             </div>
           </div>
         </div>
-        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary flex items-center gap-1">
           View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </div>
       </div>
 
       <!-- Card 2: Design Decision Log -->
-      <div onclick="openDrawer('decision-log')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+      <div onclick="openDrawer('decision-log')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="tag">Knowledge Management</span>
@@ -134,13 +134,13 @@
             </div>
           </div>
         </div>
-        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary flex items-center gap-1">
           View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </div>
       </div>
 
       <!-- Card 3: Design System Research -->
-      <div onclick="openDrawer('system-research')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+      <div onclick="openDrawer('system-research')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="tag">UX Research</span>
@@ -163,13 +163,13 @@
             </div>
           </div>
         </div>
-        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary flex items-center gap-1">
           View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </div>
       </div>
 
       <!-- Card 4: Team Workshop -->
-      <div onclick="openDrawer('team-workshop')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+      <div onclick="openDrawer('team-workshop')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="tag">Facilitation</span>
@@ -193,13 +193,13 @@
             </div>
           </div>
         </div>
-        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary flex items-center gap-1">
           View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </div>
       </div>
 
       <!-- Card 5: Design System Assistant Agent -->
-      <div onclick="openDrawer('system-assistant')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer hover:border-primary transition-colors group">
+      <div onclick="openDrawer('system-assistant')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="tag">AI Agent</span>
@@ -223,7 +223,7 @@
             </div>
           </div>
         </div>
-        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary group-hover:text-on-surface-variant transition-colors flex items-center gap-1">
+        <div class="font-label-caps text-label-caps uppercase tracking-wider text-primary flex items-center gap-1">
           View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </div>
       </div>
@@ -234,11 +234,11 @@
 
 <!-- Footer -->
 <footer class="w-full bg-surface-container-low pb-20 md:pb-0" id="contact">
-  <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80 hover:opacity-100 transition-opacity">
+  <div class="flex flex-col items-center gap-element-gap max-w-[1200px] mx-auto py-section-gap px-margin-standard opacity-80">
     <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">UX Portfolio — Chen</div>
     <div class="flex gap-6">
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="mailto:chencse@gmail.com">Email</a>
-      <a class="font-body-md text-body-md text-on-surface-variant hover:underline hover:text-secondary transition-all" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
     </div>
     <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior UX Portfolio. All rights reserved.</div>
     <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
@@ -246,7 +246,7 @@
 </footer>
 
 <!-- Drawer Backdrop -->
-<div id="drawer-backdrop" onclick="closeDrawer()" class="fixed inset-0 bg-black/40 z-[2000] hidden opacity-0 transition-opacity duration-300"></div>
+<div id="drawer-backdrop" onclick="closeDrawer()" class="fixed inset-0 bg-black/40 z-[2000] hidden opacity-0 duration-300"></div>
 
 <!-- Right Side Drawer -->
 <div id="detail-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-[600px] bg-surface z-[2001] translate-x-full transition-transform duration-300 ease-out border-l border-outline-variant flex flex-col shadow-2xl">
@@ -256,7 +256,7 @@
       <span id="drawer-tag" class="font-label-caps text-xs tracking-widest text-on-surface-variant uppercase"></span>
       <h2 id="drawer-title" class="font-headline-md text-xl font-bold text-primary mt-1"></h2>
     </div>
-    <button onclick="closeDrawer()" class="p-2 hover:bg-surface-container-high transition-colors rounded-full text-on-surface cursor-pointer flex items-center justify-center" aria-label="Close drawer">
+    <button onclick="closeDrawer()" class="p-2 rounded-full text-on-surface cursor-pointer flex items-center justify-center" aria-label="Close drawer">
       <span class="material-symbols-outlined">close</span>
     </button>
   </div>

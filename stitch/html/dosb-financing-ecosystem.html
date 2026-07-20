@@ -22,10 +22,7 @@
             transition: all 0.2s ease;
         }
         
-        p a:hover {
-            background-color: theme('colors.secondary-fixed');
-            text-decoration-color: theme('colors.secondary');
-        }
+        
 
         .editorial-list li {
             position: relative;
@@ -60,12 +57,12 @@
         body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
         .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
-        .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
-        .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        
+        
         #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
         #mobile-menu.open { display: flex; }
         #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
-        #mobile-menu a:hover { background: #f5f3f3; }
+        
         #mobile-menu a.active { border-right: 3px solid #000; }
         
         /* Card styles */
@@ -75,11 +72,7 @@
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           border: 1px solid #c4c7c7;
         }
-        .case-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 48px rgba(0,0,0,0.10);
-          border-color: #000;
-        }
+        
         .case-card .thumb {
           overflow: hidden;
           background: #efeded;
@@ -88,10 +81,7 @@
           transition: transform 0.5s ease, filter 0.5s ease;
           filter: grayscale(20%);
         }
-        .case-card:hover .thumb img {
-          transform: scale(1.03);
-          filter: grayscale(0%);
-        }
+        
         .tag {
           display: inline-block;
           padding: 3px 10px;
@@ -110,14 +100,14 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-surface-variant/40">
 <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center gap-element-gap">
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
 </div>
 <button id="menu-toggle" class="md:hidden text-primary" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
@@ -136,7 +126,7 @@
 <div class="pt-32 pb-16 px-margin-standard max-w-container-max mx-auto w-full">
 <!-- Back breadcrumb -->
 <div class="mb-8 flex items-center gap-2">
-  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">
+  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
     <span class="material-symbols-outlined text-base" style="font-size:16px;">arrow_back</span> All Work
   </a>
 </div>
@@ -148,7 +138,7 @@
 <!-- Problem, Solution, Impact Summary Cards -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
   <!-- Problem Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
@@ -161,7 +151,7 @@
   </div>
 
   <!-- Solution Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
@@ -174,7 +164,7 @@
   </div>
 
   <!-- Impact Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
@@ -191,7 +181,7 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">The Challenge</h2>
 <div class="font-body-lg text-body-lg text-on-surface space-y-6">
-<p class="">Systemic disparities in traditional finance continue to stifle growth for diverse entrepreneurs. I set out to architect a decentralized liquidity bridge that simplifies the complexities of DeFi while ensuring high-trust interactions for DOSB borrowers and institutional investors.</p>
+<p >Systemic disparities in traditional finance continue to stifle growth for diverse entrepreneurs. I set out to architect a decentralized liquidity bridge that simplifies the complexities of DeFi while ensuring high-trust interactions for DOSB borrowers and institutional investors.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-l-2 border-secondary pl-8 py-4 mt-8">
 <div>
 <div class="text-[48px] font-bold text-primary mb-1 tracking-tighter">86%</div>
@@ -210,8 +200,8 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">My Role</h2>
 </div>
 <div class="md:col-span-3 font-body-md text-body-md text-on-surface space-y-4">
-<p class="">As the Product Designer and UX System Architect, I led the strategic vision for the liquidity bridge. I conducted comprehensive ecosystem audits, facilitated cross-functional alignment workshops with fintech leaders, and personally architected the core complex component patterns for institutional liquidity management.</p>
-<p class="">My mandate was to translate complex DeFi protocols into human-centric interfaces, establishing strong defaults that remove manual gatekeeping and foster financial equity.</p>
+<p >As the Product Designer and UX System Architect, I led the strategic vision for the liquidity bridge. I conducted comprehensive ecosystem audits, facilitated cross-functional alignment workshops with fintech leaders, and personally architected the core complex component patterns for institutional liquidity management.</p>
+<p >My mandate was to translate complex DeFi protocols into human-centric interfaces, establishing strong defaults that remove manual gatekeeping and foster financial equity.</p>
 </div>
 </section>
 <!-- User Research & DLT Mapping -->
@@ -325,11 +315,11 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-6">
 <h4 class="font-label-caps text-label-caps uppercase text-secondary">Tiered Identity</h4>
-<p class="">I defined four distinct tiers of access: Personal, Business, Verified+, and Corporate. Each carries its own set of smart contract permissions, allowing for progressive disclosure of complex financial tools.</p>
+<p >I defined four distinct tiers of access: Personal, Business, Verified+, and Corporate. Each carries its own set of smart contract permissions, allowing for progressive disclosure of complex financial tools.</p>
 </div>
 <div class="space-y-6">
 <h4 class="font-label-caps text-label-caps uppercase text-secondary">Visual Strategy</h4>
-<p class="">By using sophisticated textures and high-end typographic treatments, we established a sense of stability and prestige—moving away from the "crypto-aesthetic" toward institutional maturity.</p>
+<p >By using sophisticated textures and high-end typographic treatments, we established a sense of stability and prestige—moving away from the "crypto-aesthetic" toward institutional maturity.</p>
 </div>
 </div>
 
@@ -501,17 +491,17 @@
 <div class="bg-secondary h-full w-[72%]"></div>
 </div>
 <div class="flex justify-between font-label-caps text-[10px] text-white/40 uppercase tracking-tighter">
-<span class="">Approve (72%)</span>
-<span class="">Reject (28%)</span>
+<span >Approve (72%)</span>
+<span >Reject (28%)</span>
 </div>
 </div>
 </div>
 <div class="space-y-6">
 <p class="font-body-md text-white/70">I placed voting modules directly alongside real-time Net Asset Value (NAV) and yield charts. This ensures that every decision is backed by current on-chain data, reducing friction for time-constrained fund managers.</p>
 <ul class="editorial-list font-body-md text-white/70">
-<li class="">Automated smart contract triggers upon vote resolution.</li>
-<li class="">Zero-knowledge proof identity verification for voters via Global Pass.</li>
-<li class="">Real-time sentiment tracking for upcoming liquidity events.</li>
+<li >Automated smart contract triggers upon vote resolution.</li>
+<li >Zero-knowledge proof identity verification for voters via Global Pass.</li>
+<li >Real-time sentiment tracking for upcoming liquidity events.</li>
 </ul>
 </div>
 </div>
@@ -557,8 +547,8 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-8">Retrospective &amp; Impact</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-4">
-<p class="">By grounding the backend complexity of Distributed Ledger Technology in familiar visual metaphors like the "Global Pass," we successfully established a bridge for capital that previously felt inaccessible. I focused on making the "systemic architecture" invisible, allowing users to focus on what matters: capital and growth.</p>
-<p class="">The result was a decrease in onboarding friction and an increase in institutional trust. This project proved that for senior UX practitioners, our job isn't just to make things usable—it's to make them equitable.</p>
+<p >By grounding the backend complexity of Distributed Ledger Technology in familiar visual metaphors like the "Global Pass," we successfully established a bridge for capital that previously felt inaccessible. I focused on making the "systemic architecture" invisible, allowing users to focus on what matters: capital and growth.</p>
+<p >The result was a decrease in onboarding friction and an increase in institutional trust. This project proved that for senior UX practitioners, our job isn't just to make things usable—it's to make them equitable.</p>
 </div>
 <div class="tonal-block p-8 flex flex-col justify-start rounded-xl">
 <h3 class="font-body-lg text-body-lg text-primary mb-4">Architecture as Equity.</h3>
@@ -599,9 +589,9 @@
     <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
 </div>
 <div class="flex gap-8">
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Index</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" href="#">Curriculum Vitae</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="#">Index</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="#">Curriculum Vitae</a>
 </div>
 </div>
 </footer>

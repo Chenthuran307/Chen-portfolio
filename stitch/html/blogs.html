@@ -22,22 +22,8 @@
     display: inline-block;
     text-decoration: none;
   }
-  .nav-link-btn::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #191c1a;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  .nav-link-btn:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  
+  
 
   #mobile-menu {
     display: none;
@@ -63,7 +49,7 @@
     border-bottom: 1px solid #e4e2e2;
     text-decoration: none;
   }
-  #mobile-menu a:hover { background: #f5f3f3; }
+  
   #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
 
   /* Card styles */
@@ -73,11 +59,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #c4c7c7;
   }
-  .case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.10);
-    border-color: #000;
-  }
+  
   .tag {
     display: inline-block;
     padding: 3px 10px;
@@ -97,12 +79,12 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="blogs" data-nav>Blogs</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
@@ -236,8 +218,8 @@
     <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior UX Portfolio</p>
     <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
     <div class="flex gap-6">
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
     </div>
   </div>
 </footer>

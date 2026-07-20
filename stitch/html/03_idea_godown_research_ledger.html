@@ -58,25 +58,25 @@
         body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
         .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
-        .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
-        .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        
+        
         #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
         #mobile-menu.open { display: flex; }
         #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
-        #mobile-menu a:hover { background: #f5f3f3; }
+        
         #mobile-menu a.active { border-right: 3px solid #000; }
     </style>
 </head>
 <body class="bg-surface text-on-surface flex flex-col min-h-screen">
 <!-- TopNavBar -->
 <nav class="bg-surface/90 backdrop-blur-md w-full top-0 sticky z-50 border-b border-surface-variant/30"><div class="flex justify-between items-center max-w-[1200px] mx-auto py-6 px-margin-standard relative">
-<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
 <div class="hidden md:flex gap-element-gap items-center">
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="work" data-nav>Work</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="03_idea_godown_research_ledger">Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
 </div>
 <button id="menu-toggle" class="md:hidden text-on-surface" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
@@ -103,8 +103,8 @@
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 pb-8">
 <div class="flex gap-8 overflow-x-auto" id="filter-buttons">
 <button class="filter-btn active font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 shrink-0" data-filter="all">All Ideas (7)</button>
-<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors shrink-0" data-filter="high-conviction">High Conviction (6)</button>
-<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors shrink-0" data-filter="archived">Archived (1)</button>
+<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant shrink-0" data-filter="high-conviction">High Conviction (6)</button>
+<button class="filter-btn font-label-caps text-label-caps text-on-surface-variant shrink-0" data-filter="archived">Archived (1)</button>
 </div>
 
 </div>
@@ -245,7 +245,7 @@
 
       <div class="bg-surface border border-outline-variant/60 p-4 rounded flex items-center justify-between">
         <span class="font-label-caps text-[10px] text-on-surface-variant">Visual Atmosphere</span>
-        <div class="h-6 rounded w-32 transition-colors duration-500" id="visual-mood" style="background-color: #efeded;"></div>
+        <div class="h-6 rounded w-32 duration-500" id="visual-mood" style="background-color: #efeded;"></div>
       </div>
     </div>
   </div>
@@ -510,9 +510,9 @@
 <p class="font-headline-md text-xl">The Godown Archive</p>
 </div>
 <div class="flex gap-8">
-<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="#">Email</a>
-<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-<a class="font-label-caps text-label-caps uppercase hover:text-secondary-fixed transition-colors" href="#">Substack</a>
+<a class="font-label-caps text-label-caps uppercase" href="#">Email</a>
+<a class="font-label-caps text-label-caps uppercase" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+<a class="font-label-caps text-label-caps uppercase" href="#">Substack</a>
 </div>
 </div>
 </footer>

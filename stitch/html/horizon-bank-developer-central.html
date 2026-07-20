@@ -14,12 +14,12 @@
     body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); opacity: 0; animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
     .nav-link-btn { position: relative; display: inline-block; text-decoration: none; }
-    .nav-link-btn::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #191c1a; transform-origin: bottom right; transition: transform 0.25s ease-out; }
-    .nav-link-btn:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    
+    
     #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
     #mobile-menu.open { display: flex; }
     #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
-    #mobile-menu a:hover { background: #f5f3f3; }
+    
     #mobile-menu a.active { border-right: 3px solid #000; }
     
     /* Card styles */
@@ -29,11 +29,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #c4c7c7;
     }
-    .case-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.10);
-      border-color: #000;
-    }
+    
     .case-card .thumb {
       overflow: hidden;
       background: #efeded;
@@ -42,10 +38,7 @@
       transition: transform 0.5s ease, filter 0.5s ease;
       filter: grayscale(20%);
     }
-    .case-card:hover .thumb img {
-      transform: scale(1.03);
-      filter: grayscale(0%);
-    }
+    
     .tag {
       display: inline-block;
       padding: 3px 10px;
@@ -64,13 +57,13 @@
 <!-- TopNavBar -->
 <header class="w-full fixed top-0 bg-surface/90 backdrop-blur-md z-50 border-b border-surface-variant/40">
 <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer transition-opacity duration-300 hover:opacity-70" href="01_home" data-nav>Chen</a>
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
 <nav class="hidden md:flex gap-8">
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors nav-link-btn" href="blogs" data-nav>Blogs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
 </nav>
 <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
@@ -88,7 +81,7 @@
 <main class="flex-1 max-w-[1200px] mx-auto w-full px-margin-standard mt-32 mb-section-gap">
 <!-- Back breadcrumb -->
 <div class="mb-8 flex items-center gap-2">
-  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">
+  <a href="work" data-nav class="inline-flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
     <span class="material-symbols-outlined text-base" style="font-size:16px;">arrow_back</span> All Work
   </a>
 </div>
@@ -111,7 +104,7 @@
 <!-- Problem, Solution, Impact Summary Cards -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-t border-b border-outline-variant/30 py-8">
   <!-- Problem Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
@@ -124,7 +117,7 @@
   </div>
 
   <!-- Solution Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
@@ -137,7 +130,7 @@
   </div>
 
   <!-- Impact Card -->
-  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between hover:border-primary transition-all duration-300">
+  <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
@@ -151,7 +144,7 @@
 </section>
 
 <!-- 2. Overview & Objectives -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Horizon Bank Developer Central platform was reimagined to support a high-performance ecosystem, moving away from fragmented tools toward a unified, self-service developer experience. The legacy system suffered from institutional bloat, causing significant friction in the onboarding process and daily operational tasks for thousands of internal engineers.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li class=""><strong>Unify the Toolchain:</strong> Consolidate disparate internal sites into a single source of truth for APIs, documentation, and infrastructure management.</li><li class=""><strong>Enable Self-Service:</strong> Reduce the dependency on central support teams by providing intuitive, automated utility tools for scaffolding and deploying code.</li><li class=""><strong>Architectural Shift:</strong> Facilitate the transition from monolithic legacy systems to a modern, modular Micro-Front-End (MFE) architecture through clear governance and discoverable components.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I employed a user-centered design process adapted for enterprise technical constraints. My methodology was structured around five core phases: Empathise, Define, Ideate, Design, and Test. This ensured that every architectural decision was grounded in actual developer workflows and validated through empirical usability metrics rather than organizational assumptions.</p></section>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Horizon Bank Developer Central platform was reimagined to support a high-performance ecosystem, moving away from fragmented tools toward a unified, self-service developer experience. The legacy system suffered from institutional bloat, causing significant friction in the onboarding process and daily operational tasks for thousands of internal engineers.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li ><strong>Unify the Toolchain:</strong> Consolidate disparate internal sites into a single source of truth for APIs, documentation, and infrastructure management.</li><li ><strong>Enable Self-Service:</strong> Reduce the dependency on central support teams by providing intuitive, automated utility tools for scaffolding and deploying code.</li><li ><strong>Architectural Shift:</strong> Facilitate the transition from monolithic legacy systems to a modern, modular Micro-Front-End (MFE) architecture through clear governance and discoverable components.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I employed a user-centered design process adapted for enterprise technical constraints. My methodology was structured around five core phases: Empathise, Define, Ideate, Design, and Test. This ensured that every architectural decision was grounded in actual developer workflows and validated through empirical usability metrics rather than organizational assumptions.</p></section>
 <!-- 3. Process Timeline -->
 <section class="mb-section-gap">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b border-surface-variant py-8 gap-4">
@@ -174,7 +167,7 @@
 </div>
 </section>
 <main class="flex-1 max-w-[1200px] mx-auto w-full px-margin-standard mb-section-gap">
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">1. Empathise: Understanding the Developer Context</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">To uncover the root causes of developer friction, I bypassed management assumptions and went straight to the source. I conducted deep-dive contextual inquiry sessions with 10 developers across varying seniority levels, observing their workflows in real-time as they attempted standard platform tasks.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Specific Interview Inquiries</h3><ul class="list-decimal pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8"><li class="">"Walk me through your exact process when discovering and integrating a new internal API."</li><li class="">"Where do you go when the official documentation fails to resolve your implementation blocker?"</li><li class="">"Describe the biggest bottleneck you face when attempting to spin up a new local environment using the current reference app."</li><li class="">"How do you currently track versioning changes for dependencies across the monolithic repository?"</li></ul><div class="bg-surface-container-low p-8 rounded-lg mb-12 mt-8"><h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Survey Data Highlights (N=150)</h3><table class="w-full text-left font-body-md border-collapse"><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Upgrade Readiness Awareness</td><td class="py-4 text-primary text-right font-medium">100%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Primary Communication for Support</td><td class="py-4 text-primary text-right font-medium">Outlook / Teams</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Technical Adoption Rate (Reference App)</td><td class="py-4 text-primary text-right font-medium">80%</td></tr><tr><td class="py-4 text-on-surface font-medium w-2/3">Interest in Internal Community Forums</td><td class="py-4 text-primary text-right font-medium">71%</td></tr></tbody></table></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Key Pain Points Identified</h3><ul class="space-y-6 font-body-lg text-body-lg text-on-surface-variant"><li class=""><strong class="text-on-surface block font-medium">Steep Learning Curve for MFE</strong>The transition to modular architecture lacked structured onboarding. Developers were forced to reverse-engineer documentation intended for senior architects, leading to high error rates in initial setup.</li><li class=""><strong class="text-on-surface block font-medium">Fragmented Connectivity</strong>Tools, security compliance forms, and API documentation were scattered across disparate, inconsistently branded internal SharePoint sites. Context switching was a primary source of cognitive load.</li><li class=""><strong class="text-on-surface block font-medium">Outdated Documentation</strong>Written guides often lagged behind actual platform capabilities. Developers reported a lack of trust in official resources, preferring informal knowledge sharing networks.</li><li class=""><strong class="text-on-surface block font-medium">Support Gaps &amp; Synchronous Dependency</strong>Over-reliance on synchronous help via Teams due to poor self-serve options created bottlenecks for lead engineers who spent significant time acting as ad-hoc support agents.</li></ul>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">1. Empathise: Understanding the Developer Context</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">To uncover the root causes of developer friction, I bypassed management assumptions and went straight to the source. I conducted deep-dive contextual inquiry sessions with 10 developers across varying seniority levels, observing their workflows in real-time as they attempted standard platform tasks.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Specific Interview Inquiries</h3><ul class="list-decimal pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8"><li >"Walk me through your exact process when discovering and integrating a new internal API."</li><li >"Where do you go when the official documentation fails to resolve your implementation blocker?"</li><li >"Describe the biggest bottleneck you face when attempting to spin up a new local environment using the current reference app."</li><li >"How do you currently track versioning changes for dependencies across the monolithic repository?"</li></ul><div class="bg-surface-container-low p-8 rounded-lg mb-12 mt-8"><h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Survey Data Highlights (N=150)</h3><table class="w-full text-left font-body-md border-collapse"><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Upgrade Readiness Awareness</td><td class="py-4 text-primary text-right font-medium">100%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Primary Communication for Support</td><td class="py-4 text-primary text-right font-medium">Outlook / Teams</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Technical Adoption Rate (Reference App)</td><td class="py-4 text-primary text-right font-medium">80%</td></tr><tr><td class="py-4 text-on-surface font-medium w-2/3">Interest in Internal Community Forums</td><td class="py-4 text-primary text-right font-medium">71%</td></tr></tbody></table></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Key Pain Points Identified</h3><ul class="space-y-6 font-body-lg text-body-lg text-on-surface-variant"><li ><strong class="text-on-surface block font-medium">Steep Learning Curve for MFE</strong>The transition to modular architecture lacked structured onboarding. Developers were forced to reverse-engineer documentation intended for senior architects, leading to high error rates in initial setup.</li><li ><strong class="text-on-surface block font-medium">Fragmented Connectivity</strong>Tools, security compliance forms, and API documentation were scattered across disparate, inconsistently branded internal SharePoint sites. Context switching was a primary source of cognitive load.</li><li ><strong class="text-on-surface block font-medium">Outdated Documentation</strong>Written guides often lagged behind actual platform capabilities. Developers reported a lack of trust in official resources, preferring informal knowledge sharing networks.</li><li ><strong class="text-on-surface block font-medium">Support Gaps &amp; Synchronous Dependency</strong>Over-reliance on synchronous help via Teams due to poor self-serve options created bottlenecks for lead engineers who spent significant time acting as ad-hoc support agents.</li></ul>
 
 <div class="my-16 border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
   <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-2 tracking-widest">Developer's Work-Life Ecosystem Details</h4>
@@ -588,9 +581,9 @@
 <div class="font-label-caps text-label-caps text-primary">© 2026 Senior Portfolio. Built for intellectual depth.</div>
     <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
 <ul class="flex flex-wrap gap-6">
-<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer"><a href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/" target="_blank">LinkedIn</a></li>
-<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Email</li>
-<li class="font-body-md text-body-md text-primary dark:text-primary-fixed underline hover:bg-secondary/10 transition-all duration-200 cursor-pointer">Archive</li>
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant duration-200 cursor-pointer"><a href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/" target="_blank">LinkedIn</a></li>
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant duration-200 cursor-pointer">Email</li>
+<li class="font-body-md text-body-md text-primary dark:text-primary-fixed underline duration-200 cursor-pointer">Archive</li>
 </ul>
 </div>
 </footer>
