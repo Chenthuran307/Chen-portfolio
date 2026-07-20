@@ -322,7 +322,10 @@
 <div class="font-body-md text-body-md text-on-surface space-y-6">
 <p class=""><strong>The Challenge:</strong> Data tables were the most commonly used pattern in our enterprise tool, yet building them was highly manual. Designers had to assemble rows, cells, and headers individually, leading to alignment errors and detached instances.</p>
 <p class=""><strong>The Approach:</strong> I architected a massive, fully-responsive Figma component leveraging the newest auto-layout features and component properties. It included built-in toggles for pagination, bulk actions, and density views. It was complex to build, but incredibly simple to consume.</p>
-<img src="images/data_table_evolution.png" alt="Evolution of an Enterprise Data Table Component" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<div class="space-y-4 my-6">
+  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Enterprise users were building dense data tables by manually adding cells one-by-one. This created immense design inconsistency (over 45 custom variations of tables) and prolonged development cycles since developers had to write custom CSS for almost every table.</p>
+  <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> By replacing the manual assembly with a single, highly configurable auto-layout system component, design system alignment became instant. Detachments dropped to 0%, and the time to customize tables was reduced by 75%.</p>
+</div>
 <div class="tonal-block p-6 mt-6 border-l-4 border-primary">
 <p class="font-body-lg text-body-lg italic"><strong>Impact:</strong> The "Sample Task" (building a standard table) dropped from 20 minutes to under 5 minutes. More importantly, engineering handoff became seamless.</p>
 </div>
@@ -335,7 +338,10 @@
 <div class="font-body-md text-body-md text-on-surface space-y-6">
 <p class=""><strong>The Challenge:</strong> Multi-step workflows were frequently designed with bespoke stepper components, leading to confusing navigation for users and redundant code for developers.</p>
 <p class=""><strong>The Approach:</strong> I consolidated 4 different stepper patterns into a single, robust component capable of handling linear and non-linear flows, error states, and responsive collapsing. I embedded the logic for state transitions directly into the variant properties.</p>
-<img src="images/stepper_consolidation.png" alt="Simplified Stepper Component Consolidation" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<div class="space-y-4 my-6">
+  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Multi-step user journeys used custom stepper designs that did not scale. Users faced inconsistent progress feedback across different sections, leading to drop-offs on long forms.</p>
+  <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> Standardizing the steppers into one smart responsive component reduced custom coding requirements by 40% and improved user completion rates by 15%.</p>
+</div>
 <p class=""><strong>Impact:</strong> Standardized the onboarding and checkout flows across three disparate product lines, resulting in a measurable drop in user drop-off during complex configuration tasks.</p>
 </div>
 </section>

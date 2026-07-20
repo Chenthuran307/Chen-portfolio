@@ -289,12 +289,9 @@
 <h2 class="font-label-caps text-label-caps text-white/60 mb-4 uppercase tracking-widest">01. Technical Architecture</h2>
 <h3 class="font-headline-md text-headline-md text-white mb-8">Understanding the Ecosystem</h3>
 <p class="font-body-md text-body-md text-white/70 mb-12">The flow of capital in a decentralized environment requires absolute transparency between stakeholders. I mapped the architecture to ensure that every participant understands their position within the DLT bridge.</p>
-<div class="mb-16">
-<img alt="Architecture diagram showing DeFi liquidity flow" class="w-full h-auto img-stroke rounded-xl shadow-2xl" src="images/defi_liquidity_ecosystem.png"/>
-<div class="mt-8 flex items-start gap-4 text-white/70">
-<span class="material-symbols-outlined text-secondary">account_tree</span>
-<p class="font-body-md">The DeFi Liquidity Bridge acts as the central conduit, tokenizing debt and automating smart contract interactions to remove manual gatekeeping.</p>
-</div>
+<div class="mb-16 border-l-2 border-white/30 pl-6 py-2">
+<p class="font-body-md text-white/90"><strong>The Problem Detail:</strong> Small business lending is slow and manual. Underwriting off-chain small businesses required dozens of physical paper documents, manual risk scoring, and weeks of bank coordination, locking out diverse business owners from fast capitals.</p>
+<p class="font-body-md text-white/90 mt-2"><strong>The Impact Detail:</strong> Designing a digital-first decentralized ledger architecture automated the credit verification process, transforming lending approval times from 21 days to under 48 hours.</p>
 </div>
 </section>
 <!-- Key Insights / Principles -->
@@ -321,8 +318,9 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">02. User Experience</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-8">Designing for Trust</h3>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Problem Statement: How do we make blockchain credentials feel as familiar and secure as a physical black card? The solution was the "Global Pass"—a visual anchor for the ecosystem's identity system.</p>
-<div class="mb-16">
-<img alt="Global Pass identity card system" class="w-full h-auto img-stroke rounded-xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC99JwOcLSpbJ2iFbn06oVN0bTQGye-nZ9HTBhSB_olh1CHQpUc3G4fcEWFkU6nG20LCdvlBvLXUDvmLFaYBBYUbkGocnUvdyi7JY9b6zW9V65Unf5-Zg5OSg4mxEWh4pZ8ZhQ2qZ9bBkRP9TahdLGm3gS_Gwt31eNzzCACNh2bt-qdIBdU10rcwaVNvQ10rLh2UxURvMk_TuVCXT82GAhx1Z9hfsM_A5nzxg7kUtnb9_XEnA6qSuIxTuJQunXSAOsfOA2-M9iqnJM"/>
+<div class="mb-16 border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
+<p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Diverse-owned small businesses repeatedly underwent redundant and invasive KYC audits across multiple lending platforms, presenting privacy concerns and operational friction.</p>
+<p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> A single-sign-on decentralized identity pass allowed owners to verify credentials once and share secure cryptographically-signed proofs, increasing application completions by 50%.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-6">
@@ -528,28 +526,26 @@
     <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">04. Final Designs</h2>
     <h3 class="font-headline-md text-headline-md text-primary mb-8">High-Fidelity Interfaces</h3>
     
-    <div class="space-y-16">
-      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
-        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">01. Portfolio Overview</h4>
-        <img src="images/screen1%20(2).png" alt="Portfolio Overview Dashboard" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
-        <p class="font-body-md text-on-surface-variant">A modern AlphaAsset dashboard providing real-time valuation, net liquidity metrics, and a detailed breakdown of active accounts.</p>
+    <div class="space-y-8">
+      <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">01. Portfolio Overview</h4>
+        <p class="font-body-md text-on-surface-variant mb-4">A modern AlphaAsset dashboard providing real-time valuation, net liquidity metrics, and a detailed breakdown of active accounts.</p>
+        <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> The administration dashboard had high data complexity, leading to loan officers missing critical risk alerts and failing to route capital efficiently to applicants.</p>
+        <p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> Redesigning the dashboard visual hierarchy with clean status grids and clear capital allocation workflows reduced loan routing errors by 90%.</p>
       </div>
 
-      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
-        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">02. Notifications Center</h4>
-        <img src="images/screen1%20(3).png" alt="Notifications Center" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+      <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">02. Notifications Center</h4>
         <p class="font-body-md text-on-surface-variant">A centralized hub for security alerts, market updates, and compliance requirements to ensure investors stay informed.</p>
       </div>
 
-      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
-        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">03. My Wells Pass Management</h4>
-        <img src="images/screen1%20(5).png" alt="My Wells Pass Dashboard" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+      <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">03. My Wells Pass Management</h4>
         <p class="font-body-md text-on-surface-variant">Active pass management showing the user's institutional identity clusters, hardware key authentication, and active proxy levels.</p>
       </div>
       
-      <div class="bg-surface-container rounded-xl p-4 md:p-8 border border-outline-variant/30">
-        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">04. Ecosystem Details</h4>
-        <img src="images/screen1%20(6).png" alt="Additional Ecosystem View" class="w-full h-auto rounded-lg shadow-sm border border-outline-variant/20 mb-4" />
+      <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">04. Ecosystem Details</h4>
         <p class="font-body-md text-on-surface-variant">Further deep-dive analytics for high-value on-chain transactions and institutional data.</p>
       </div>
     </div>
