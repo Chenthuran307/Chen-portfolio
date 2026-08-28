@@ -2,6 +2,6 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat.py" },
-    { "source": "/((?!stitch|api).*)", "destination": "/stitch/html/$1" }
+    { "source": "/((?!public|api).*)", "destination": "/public/$1" }
   ]
 }

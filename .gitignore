@@ -12,4 +12,4 @@ __pycache__/
 deploy.log
 desktop.ini
 scratch/
-stitch/html/images/_unused/
+public/images/_unused/

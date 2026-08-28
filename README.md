@@ -5,7 +5,7 @@ Source for [chenthuran.in](https://chenthuran.in). Static HTML, no build step, d
 ## Structure
 
 ```
-stitch/html/            Site pages (served at the domain root)
+public/                 Site pages (served at the domain root)
   index.html            Home
   work.html             Selected work
   transforming-a-design-system.html
@@ -62,5 +62,5 @@ for the Production environment, or the AI assistant will fail at runtime.
 - Never hard-code the API key. It is read from the environment in both
   `server.py` and `api/chat.py`; `.env` is gitignored.
 - Case study screens are redrawn mockups with client branding and data removed.
-- `stitch/html/images/_unused/` holds superseded images. It is gitignored and
+- `public/images/_unused/` holds superseded images. It is gitignored and
   can be deleted once you are sure nothing is coming back.

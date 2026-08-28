@@ -124,15 +124,15 @@ def run_deployment():
 class Handler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
         # Clean URL rewriting to match Vercel routing rules:
-        # Route clean URL page requests (not starting with /stitch or /api) to /stitch/html/
+        # Route clean URL page requests (not starting with /public or /api) to /public/
         parts = path.lstrip("/").split("/")
         first_part = parts[0] if parts else ""
         
-        if first_part not in ["stitch", "api", "dashboard", "dashboard.html"] and not path.startswith("/api/"):
+        if first_part not in ["public", "api", "dashboard", "dashboard.html"] and not path.startswith("/api/"):
             if path == "/":
-                path = "/stitch/html/index.html"
+                path = "/public/index.html"
             else:
-                path = "/stitch/html" + path
+                path = "/public" + path
                 
         local_path = super().translate_path(path)
         if not os.path.exists(local_path) and os.path.exists(local_path + ".html"):
@@ -149,7 +149,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # /dashboard mapping
         if self.path == "/dashboard" or self.path == "/dashboard.html":
-            self.path = "/stitch/html/dashboard.html"
+            self.path = "/public/dashboard.html"
             super().do_GET()
             return
 
@@ -236,9 +236,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _handle_load(self):
         # 1. Read Hero Content, Projects, and Testimonials from index.html (or fallback to 01_home.html)
-        html_path = os.path.join("stitch", "html", "index.html")
+        html_path = os.path.join("public", "index.html")
         if not os.path.exists(html_path):
-            html_path = os.path.join("stitch", "html", "01_home.html")
+            html_path = os.path.join("public", "01_home.html")
             
         hero_title = ""
         hero_subtitle = ""
@@ -270,7 +270,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 print(f"Error reading HTML: {e}")
 
         # 2. Read Idea Godown items from idea-godown.html
-        ledger_path = os.path.join("stitch", "html", "idea-godown.html")
+        ledger_path = os.path.join("public", "idea-godown.html")
         ideas = {}
         if os.path.exists(ledger_path):
             try:
@@ -323,7 +323,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             
             pages = ["index.html"]  # 01_home.html is now a static redirect stub to "/", not editable content
             for page in pages:
-                path = os.path.join("stitch", "html", page)
+                path = os.path.join("public", page)
                 if os.path.exists(path):
                     with open(path, "r", encoding="utf-8") as f:
                         content = f.read()
@@ -356,7 +356,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         f.write(content)
             
             # 2. Save Projects to work.html
-            work_path = os.path.join("stitch", "html", "work.html")
+            work_path = os.path.join("public", "work.html")
             if os.path.exists(work_path):
                 with open(work_path, "r", encoding="utf-8") as f:
                     content = f.read()
@@ -376,7 +376,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     
             # 3. Save Idea Godown items to idea-godown.html
             ideas = data.get("ideas", {})
-            ledger_path = os.path.join("stitch", "html", "idea-godown.html")
+            ledger_path = os.path.join("public", "idea-godown.html")
             if os.path.exists(ledger_path):
                 with open(ledger_path, "r", encoding="utf-8") as f:
                     content = f.read()
