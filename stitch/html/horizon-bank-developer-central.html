@@ -3,7 +3,22 @@
 <html class="light" lang="en" style=""><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Designing Horizon Bank Developer Central</title>
+<title>Case Study: Horizon Bank Developer Central — Chen</title>
+<!-- seo:start -->
+<meta name="description" content="Unifying a bank's scattered internal developer tools into one self-service portal: onboarding lead time down 65%, integration bugs down 35%."/>
+<link rel="canonical" href="https://chenthuran.in/horizon-bank-developer-central"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/horizon-bank-developer-central"/>
+<meta property="og:title" content="Case Study: Horizon Bank Developer Central — Chen"/>
+<meta property="og:description" content="Unifying a bank's scattered internal developer tools into one self-service portal: onboarding lead time down 65%, integration bugs down 35%."/>
+<meta property="og:image" content="https://chenthuran.in/images/devcentral_before_after.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Case Study: Horizon Bank Developer Central — Chen"/>
+<meta name="twitter:description" content="Unifying a bank's scattered internal developer tools into one self-service portal: onboarding lead time down 65%, integration bugs down 35%."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/devcentral_before_after.png"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -18,7 +33,7 @@
     
     #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
     #mobile-menu.open { display: flex; }
-    #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
+    #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #ddd7cd; text-decoration: none; }
     
     #mobile-menu a.active { border-right: 3px solid #000; }
     
@@ -29,7 +44,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #c4c7c7;
     }
-    
+
     .case-card .thumb {
       overflow: hidden;
       background: #efeded;
@@ -57,23 +72,25 @@
 <!-- TopNavBar -->
 <header class="w-full fixed top-0 bg-surface/90 backdrop-blur-md z-50 border-b border-surface-variant/40">
 <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
 <nav class="hidden md:flex gap-8">
-<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
 </nav>
 <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
 </button>
 <div id="mobile-menu">
-  <a href="01_home" data-nav>Home</a>
+  <a href="/" data-nav>Home</a>
   <a class="active" href="work" data-nav>Work</a>
   <a href="beyond-bau" data-nav>Beyond BAU</a>
-  <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+  <a href="idea-godown" data-nav>Idea Godown</a>
       <a href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
 </div>
 </div>
 </header>
@@ -88,7 +105,8 @@
 <!-- 1. Hero -->
 <header class="mb-section-gap">
 <h1 class="font-display-lg text-display-lg mobile:font-display-lg-mobile mobile:text-display-lg-mobile text-primary mb-8">Designing Horizon Bank Developer Central</h1>
-<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-12">Accelerating the developer lifecycle through modular architecture and self-service utility.</p>
+<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-4">Accelerating the developer lifecycle through modular architecture and self-service tooling.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-12">Client anonymised under NDA.</p>
 <div class="flex flex-col md:flex-row gap-8 border-t border-surface-variant pt-8">
 <div>
 <span class="block font-label-caps text-label-caps text-on-surface-variant mb-2">ROLE</span>
@@ -97,6 +115,10 @@
 <div>
 <span class="block font-label-caps text-label-caps text-on-surface-variant mb-2">TIMELINE</span>
 <span class="font-body-md text-body-md text-primary">4 Months</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-2">TEAM</span>
+<span class="font-body-md text-body-md text-primary">Team of 2</span>
 </div>
 </div>
 </header>
@@ -107,11 +129,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">error</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Internal engineering tools, documentation, and compliance processes were scattered across fragmented SharePoint sites. This institutional bloat caused steep learning curves and heavy support overhead for lead engineers.
+        Engineering tools, documentation, and compliance processes were scattered across fragmented internal sites, creating a steep learning curve and constant support load on lead engineers.
       </p>
     </div>
   </div>
@@ -120,11 +142,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">lightbulb</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Consolidated all developer workflows into a unified portal mapped to key tasks (Discover, Build, Learn, Manage) equipped with interactive C4 diagrams, sandbox editors, and code generators.
+        A single developer portal organised around four tasks — Discover, Build, Learn, Manage — with interactive architecture diagrams, sandbox editors, and code generation built in.
       </p>
     </div>
   </div>
@@ -133,18 +155,18 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">trending_up</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Reduced onboarding times from weeks to days, significantly decreased lead engineer support tickets, and accelerated Micro-Front-End component adoption by 80%.
+        Onboarding lead time dropped 65%, from weeks to days, and integration bugs fell 35%.
       </p>
     </div>
   </div>
 </section>
 
 <!-- 2. Overview & Objectives -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The Horizon Bank Developer Central platform was reimagined to support a high-performance ecosystem, moving away from fragmented tools toward a unified, self-service developer experience. The legacy system suffered from institutional bloat, causing significant friction in the onboarding process and daily operational tasks for thousands of internal engineers.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li ><strong>Unify the Toolchain:</strong> Consolidate disparate internal sites into a single source of truth for APIs, documentation, and infrastructure management.</li><li ><strong>Enable Self-Service:</strong> Reduce the dependency on central support teams by providing intuitive, automated utility tools for scaffolding and deploying code.</li><li ><strong>Architectural Shift:</strong> Facilitate the transition from monolithic legacy systems to a modern, modular Micro-Front-End (MFE) architecture through clear governance and discoverable components.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I employed a user-centered design process adapted for enterprise technical constraints. My methodology was structured around five core phases: Empathise, Define, Ideate, Design, and Test. This ensured that every architectural decision was grounded in actual developer workflows and validated through empirical usability metrics rather than organizational assumptions.</p></section>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">Project Overview</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Horizon Bank's internal tools, docs, and compliance processes were scattered across disconnected sites — a constant source of friction for thousands of internal engineers. Developer Central consolidates all of it into one self-service platform.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Objectives</h3><ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12"><li ><strong>Unify the Developer Tools:</strong> One source of truth for APIs, docs, and infrastructure management, replacing disparate internal sites.</li><li ><strong>Enable Self-Service:</strong> Automated setup and deployment tools that reduce dependency on central support.</li><li ><strong>Architectural Shift:</strong> Move from one large, tangled legacy system to a modular micro-frontend (MFE) architecture — independent pieces of the interface that snap together — with clear governance.</li></ul><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Methodology</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I ran a five-phase, evidence-first process (below), validating every architectural decision against real developer workflows rather than assumptions.</p></section>
 <!-- 3. Process Timeline -->
 <section class="mb-section-gap">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b border-surface-variant py-8 gap-4">
@@ -163,20 +185,19 @@
 <!-- 4. Phase 1: Empathise -->
 <section class="w-full bg-black py-24 mb-section-gap text-white">
 <div class="max-w-[1200px] mx-auto px-margin-standard">
-<div class="max-w-none"><h2 class="font-headline-md text-headline-md text-white mb-2">The Strategic Pivot: Learning &amp; Unlearning</h2><p class="font-body-lg text-body-lg text-gray-300 mb-12 font-medium">Senior-level execution requires the humility to discard legacy assumptions in favor of architectural truth.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-12"><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Learning (The Growth)</h3><p class="font-body-md text-body-md text-gray-400">Mastered the orchestration of Micro Frontends (MFE) within a regulated banking environment. Deepened understanding of C4 model analytics for component health tracking. Learned to design for a technical audience that prioritizes utility over decoration.</p></div><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Unlearning (The Evolution)</h3><p class="font-body-md text-body-md text-gray-400">Unlearned the 'monolithic mindset'—shifted from building pages to building interoperable nodes. Let go of pixel-perfect aesthetic bias in favor of system-level logic. Discarded the assumption that internal tools require less UX rigor than customer-facing ones.</p></div></div></div>
+<div class="max-w-none"><h2 class="font-headline-md text-headline-md text-white mb-2">The Strategic Pivot: Learning &amp; Unlearning</h2><p class="font-body-lg text-body-lg text-gray-300 mb-12 font-medium">Senior-level execution requires the humility to discard legacy assumptions in favor of architectural truth.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-12"><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Learning (The Growth)</h3><p class="font-body-md text-body-md text-gray-400">Mastered coordinating MFEs in a regulated banking environment — and learned to design for a technical audience that values utility over decoration.</p></div><div class="space-y-4"><h3 class="font-label-caps text-label-caps tracking-widest text-white border-b border-gray-800 pb-2">Unlearning (The Evolution)</h3><p class="font-body-md text-body-md text-gray-400">Unlearned the 'monolithic mindset': shifted from building whole pages to building small, connectable pieces of a shared system, letting go of pixel-perfect bias in favor of system-level thinking.</p></div></div></div>
 </div>
 </section>
 <main class="flex-1 max-w-[1200px] mx-auto w-full px-margin-standard mb-section-gap">
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">1. Empathise: Understanding the Developer Context</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">To uncover the root causes of developer friction, I bypassed management assumptions and went straight to the source. I conducted deep-dive contextual inquiry sessions with 10 developers across varying seniority levels, observing their workflows in real-time as they attempted standard platform tasks.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Specific Interview Inquiries</h3><ul class="list-decimal pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-8"><li >"Walk me through your exact process when discovering and integrating a new internal API."</li><li >"Where do you go when the official documentation fails to resolve your implementation blocker?"</li><li >"Describe the biggest bottleneck you face when attempting to spin up a new local environment using the current reference app."</li><li >"How do you currently track versioning changes for dependencies across the monolithic repository?"</li></ul><div class="bg-surface-container-low p-8 rounded-lg mb-12 mt-8"><h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Survey Data Highlights (N=150)</h3><table class="w-full text-left font-body-md border-collapse"><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Upgrade Readiness Awareness</td><td class="py-4 text-primary text-right font-medium">100%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Primary Communication for Support</td><td class="py-4 text-primary text-right font-medium">Outlook / Teams</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Technical Adoption Rate (Reference App)</td><td class="py-4 text-primary text-right font-medium">80%</td></tr><tr><td class="py-4 text-on-surface font-medium w-2/3">Interest in Internal Community Forums</td><td class="py-4 text-primary text-right font-medium">71%</td></tr></tbody></table></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Key Pain Points Identified</h3><ul class="space-y-6 font-body-lg text-body-lg text-on-surface-variant"><li ><strong class="text-on-surface block font-medium">Steep Learning Curve for MFE</strong>The transition to modular architecture lacked structured onboarding. Developers were forced to reverse-engineer documentation intended for senior architects, leading to high error rates in initial setup.</li><li ><strong class="text-on-surface block font-medium">Fragmented Connectivity</strong>Tools, security compliance forms, and API documentation were scattered across disparate, inconsistently branded internal SharePoint sites. Context switching was a primary source of cognitive load.</li><li ><strong class="text-on-surface block font-medium">Outdated Documentation</strong>Written guides often lagged behind actual platform capabilities. Developers reported a lack of trust in official resources, preferring informal knowledge sharing networks.</li><li ><strong class="text-on-surface block font-medium">Support Gaps &amp; Synchronous Dependency</strong>Over-reliance on synchronous help via Teams due to poor self-serve options created bottlenecks for lead engineers who spent significant time acting as ad-hoc support agents.</li></ul>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">1. Empathise: Understanding the Developer Context</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Management had a theory about what was wrong. I wanted to see it, so I sat with 10 developers across seniority levels and watched them do ordinary things: find an API, set up an environment, work out what depended on what. Watching beats asking here — people forget the workarounds they've stopped noticing.</p><div class="bg-surface-container-low p-8 rounded-lg mb-12 mt-8"><h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Survey Data Highlights (N=150)</h3><table class="w-full text-left font-body-md border-collapse"><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Upgrade Readiness Awareness</td><td class="py-4 text-primary text-right font-medium">100%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Primary Communication for Support</td><td class="py-4 text-primary text-right font-medium">Outlook / Teams</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium w-2/3">Technical Adoption Rate (Reference App)</td><td class="py-4 text-primary text-right font-medium">80%</td></tr><tr><td class="py-4 text-on-surface font-medium w-2/3">Interest in Internal Community Forums</td><td class="py-4 text-primary text-right font-medium">71%</td></tr></tbody></table></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Key Pain Points Identified</h3><ul class="space-y-6 font-body-lg text-body-lg text-on-surface-variant"><li ><strong class="text-on-surface block font-medium">Steep Learning Curve for MFE</strong>Modular architecture had no structured onboarding, so developers reverse-engineered documentation written for senior architects — driving high error rates in initial setup.</li><li ><strong class="text-on-surface block font-medium">Fragmented Connectivity</strong>Tools, compliance forms, and API docs were scattered across inconsistently branded SharePoint sites, forcing constant context-switching.</li><li ><strong class="text-on-surface block font-medium">Outdated Documentation</strong>Written guides lagged behind actual platform capabilities, so developers trusted informal knowledge-sharing over official resources.</li><li ><strong class="text-on-surface block font-medium">Support Gaps &amp; Synchronous Dependency</strong>Poor self-serve options pushed developers onto synchronous Teams support, turning lead engineers into ad-hoc help desks.</li></ul>
 
 <div class="my-16 border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
   <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-2 tracking-widest">Developer's Work-Life Ecosystem Details</h4>
-  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Developers spent up to 3 weeks waiting for environment configurations and documentation access before they could write their first API call. Mismatched sandboxes meant 20% of code failed in staging due to local environment variance.</p>
-  <p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> Consolidating developer workflows into a self-service workspace reduced onboarding lead times by 65%, enabling developers to run authenticated API tests within hours instead of weeks.</p>
+  <p class="font-body-md text-on-surface">Two numbers made the case: developers waited up to three weeks for environment configuration and documentation access before writing a first API call, and 20% of code failed in staging purely from local environment variance.</p>
 </div>
 </section>
 <!-- 5. Phase 2: Define -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">2. Define: Establishing Target Profiles and Journeys</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Synthesizing my research, I defined clear user archetypes to anchor my architectural decisions. I needed to design a system that catered to both those learning the platform and those pushing its boundaries.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramya</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Intermediate Developer</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramya needs clear, step-by-step guidance to set up her local environment and fundamentally understand the new MFE architecture paradigms. She values high discoverability, robust "Getting Started" documentation, and clear error messaging. Her primary goal is decreasing her "Time to First Hello World."</p></div><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramesh</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Senior Architect</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramesh focuses on system scalability, enterprise governance, and advanced tooling. He requires fast, unencumbered access to raw API specs, seamless version control switching, and deep performance analytics. His primary goal is maintaining system integrity while increasing team velocity.</p></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">The Developer Journey</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I mapped the current vs. future state user journey, focusing on the critical path from "Project Assignment" to "First Successful Deployment." The legacy journey involved an average of 14 distinct touchpoints across 5 different systems, fraught with manual approval gates. The redefined journey collapsed this into a unified portal experience, automating provisioning where possible and surfacing necessary documentation contextually alongside the tools themselves.</p>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">2. Define: Establishing Target Profiles and Journeys</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Two people kept showing up in the research, and they wanted opposite things. I wrote them down so every later decision had something concrete to argue with.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramya</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Intermediate Developer</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramya needs step-by-step guidance to set up her environment and understand how MFEs work — clear "Getting Started" docs and error messaging matter most. Her goal: a faster "Time to First Hello World."</p></div><div class="bg-surface-container p-8 rounded-lg"><h3 class="font-headline-md text-[24px] font-medium text-primary mb-2">Ramesh</h3><p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Senior Architect</p><p class="font-body-md text-body-md text-on-surface-variant mb-4">Ramesh needs fast, unencumbered access to raw API specs, version control switching, and performance analytics. His goal: maintain system integrity while increasing team velocity.</p></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">The Developer Journey</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I mapped the journey from "Project Assignment" to "First Successful Deployment." The legacy path spanned 14 touchpoints across 5 systems with manual approval gates; the redefined journey collapsed this into one portal with automated provisioning and contextual documentation.</p>
 
 <!-- Journey Flowchart -->
 <div class="mt-12 bg-surface-container rounded-xl p-8 border border-outline-variant/50">
@@ -263,7 +284,7 @@
           <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">Step 6</span>
           <h5 class="font-headline-md text-[16px] text-primary mb-3 leading-tight">Production</h5>
           <div class="mb-3">
-            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Pass code through FED Scorecard 3.x for production standards.</p>
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">Pass code through the team's automated quality checks (internally called the "FED Scorecard") before it's considered production-ready.</p>
           </div>
         </div>
       </div>
@@ -300,30 +321,31 @@
 
 </section>
 <!-- 6. Phase 3: Ideate -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">3. Ideate: Structuring the Solution Architecture</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">With clear definitions in place, I moved into ideation, brainstorming solutions that directly addressed the pain points of cognitive overload and fragmented workflows. I prioritized features based on technical feasibility and impact on developer velocity.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">The 'Big Ideas' Matrix</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12"><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Automated Code Scaffolding</strong><span class="font-body-md text-on-surface-variant block">Implementing a CLI-backed UI tool allowing developers to generate boilerplate React components instantly, pre-configured with enterprise security standards and design tokens.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Integrated Sandbox Editors</strong><span class="font-body-md text-on-surface-variant block">Embedding an in-browser IDE for quick API testing and component playground manipulation directly within the documentation, eliminating the need to spin up local environments for initial evaluation.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">C4 Architectural Analytics</strong><span class="font-body-md text-on-surface-variant block">Visualizing system architecture contextually using dynamic C4 model diagrams, helping developers understand upstream and downstream dependencies before making commits.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Seamless Version Switching</strong><span class="font-body-md text-on-surface-variant block">A persistent, global toggle mechanism allowing architects to fluidly switch context between API versions and documentation states without losing their place in the portal.</span></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Information Architecture &amp; Flows</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I drastically simplified the IA. I shifted from an organizational-chart-based taxonomy to a task-based taxonomy. The primary navigation was reduced to core verbs: Discover (APIs &amp; Components), Build (Tools &amp; Scaffolding), Learn (Documentation &amp; Patterns), and Manage (Infrastructure &amp; Access). This intuitive mental model was validated through early tree-testing exercises with senior engineering leads.</p></section>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">3. Ideate: Structuring the Solution Architecture</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Then the question became which of these to actually build. I ranked ideas on two things only: could engineering realistically ship it, and would it remove a step from someone's day.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">The 'Big Ideas' Matrix</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12"><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Automated Starter Code</strong><span class="font-body-md text-on-surface-variant block">Building a simple visual tool that lets developers generate ready-to-use starter components instantly, pre-configured with the company's security standards and visual style rules.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Integrated Sandbox Editors</strong><span class="font-body-md text-on-surface-variant block">Embedding a live code editor directly in the documentation, so developers can test API calls and try out components without first setting up a project on their own machine.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">System Architecture Diagrams</strong><span class="font-body-md text-on-surface-variant block">Visualizing how systems connect with clear, interactive diagrams, helping developers see what depends on what before making changes.</span></div><div class="border-l-2 border-secondary pl-6 py-2"><strong class="block font-body-lg font-medium text-on-surface mb-2">Switching Between Versions</strong><span class="font-body-md text-on-surface-variant block">An always-visible switch that lets senior engineers move between API versions and documentation states without losing their place in the portal.</span></div></div><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Information Architecture &amp; Flows</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">I drastically simplified the site structure. Instead of organizing by internal team or org chart, I organized around what developers were actually trying to do. The primary navigation was reduced to four verbs: Discover (APIs &amp; Components), Build (Tools &amp; Starter Code), Learn (Documentation &amp; Patterns), and Manage (Infrastructure &amp; Access). This intuitive structure was validated by testing it with senior engineering leads before building it out.</p></section>
 <!-- 7. Phase 4: Design -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">4. Design: From Wireframes to High-Fidelity Execution</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The design phase required balancing high data density with cognitive clarity. I needed an interface that felt sophisticated and powerful, not overly simplified.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Wireframing Core Utilities</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Initial low-fidelity wireframes focused strictly on layout structure and module hierarchy. I established a strict, modular grid system to handle complex data tables, extensive code snippet blocks, and multi-pane navigation elements. The primary goal during wireframing was defining the 'Time to First Hello World' flow—ensuring that a new user could navigate from the landing page to a successful boilerplate download in under three clicks. Iterative reviews with engineering stakeholders ensured that the proposed UI structures could be realistically supported by the underlying backend services.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Visual Design &amp; System Integration</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The final visual execution adhered to a strict, modern editorial aesthetic. I utilized a highly refined, predominantly monochromatic scheme with subtle brand accents applied only for interactive states or critical status indicators. Typography was paramount; I employed a robust scale using 'Inter' for highly legible, data-dense UI components and 'Inter' to provide a precise, geometric authority for long-form documentation content.</p><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">A comprehensive set of design system components was documented, detailing specific interactive behaviors for modal windows, complex nested dropdowns, and terminal-style code blocks. Spacing guidelines and structural annotations were rigorously defined to ensure pixel-perfect implementation by the development team, maintaining a clinical, precise, and professional environment suitable for enterprise software engineering.</p>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">4. Design: From Wireframes to High-Fidelity Execution</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">This audience notices when you patronise them. The interface had to carry a lot of information without feeling dumbed down — engineers read dense screens all day and don't thank you for hiding things.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Wireframing Core Utilities</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Low-fidelity wireframes established a modular grid for dense data tables, code snippet blocks, and multi-pane navigation. The core goal: get a new user from landing page to starter-code download in under three clicks, validated in iterative reviews with engineering.</p><h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Visual Design &amp; System Integration</h3><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The visual system stayed monochromatic, with brand color reserved for interactive states and status indicators, and a single type scale — Inter — across both UI and long-form documentation for a consistent reading experience. I documented interaction behavior for modals, nested dropdowns, and code blocks, with spacing and structural annotations precise enough for pixel-perfect handoff.</p>
+
+<img src="images/devcentral_before_after.png" alt="Before and after of the Developer Central homepage. The first version listed what existed; the revision leads with search, an explicit guided tour for newcomers, a what's-new strip, direct routes to raise a defect or request, and counters for available components, use cases and MFEs" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-12">The first build answered "what exists here". Testing showed new developers were asking something else first — "what do I do now" — so the revision leads with search and a guided path instead of a product catalogue. Screens redrawn with client branding removed.</p>
+
+<img src="images/devcentral_component_docs.png" alt="Three linked screens: a numbered four-step getting-started path, the component index grouped by buttons, communicators, data tools and form components, and a single component page carrying live expandable code and its accessibility rules" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<p class="font-body-md text-body-md text-on-surface-variant italic">Setup was rebuilt as a numbered, finite path, and every component page carries copyable live code plus its accessibility rules — so the documentation answers the question at the point the developer has it.</p>
 
 <div class="my-12 border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
   <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-2 tracking-widest">Documentation & Playground Solution Details</h4>
-  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Documentation was scattered across PDF specs and Confluence pages, with no live playground to test code blocks. Developers had to deploy code to staging environments to verify simple payload responses.</p>
-  <p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> Building an integrated playground and live code sandbox reduced test failures, allowing engineers to validate API contracts in real-time, which cut integration bugs by 35%.</p>
+  <p class="font-body-md text-on-surface">Documentation had the same problem as the rest of the platform: scattered across PDF specs and Confluence with no live playground, so developers deployed to staging just to inspect a payload response. An integrated live sandbox let them validate API contracts in real time instead.</p>
 </div>
 
 </section>
 <!-- 8. Phase 5: Test & Results -->
-<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">5. Test &amp; Results: Project Impact</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Post-launch validation was conducted through a mix of quantitative analytics tracking and qualitative feedback loops integrated directly into the new portal. The newly designed Developer Central significantly shifted critical internal performance indicators.</p><div class="overflow-x-auto mb-12 mt-8"><table class="w-full text-left font-body-md border-collapse"><thead><tr class="border-b-2 border-primary"><th class="py-4 font-medium text-primary w-1/3">Metric Area</th><th class="py-4 font-medium text-on-surface-variant w-1/3">Legacy System (Before)</th><th class="py-4 font-medium text-secondary w-1/3">Design (After)</th></tr></thead><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Search &amp; Discovery</td><td class="py-4 text-on-surface-variant">Fragmented across 3 platforms</td><td class="py-4 text-secondary font-medium">Unified Central Hub</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Onboarding Time</td><td class="py-4 text-on-surface-variant">Manual, mentor-dependent (Weeks)</td><td class="py-4 text-secondary font-medium">Self-service guided paths (Days)</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Technical Utility</td><td class="py-4 text-on-surface-variant">Static, disconnected documentation</td><td class="py-4 text-secondary font-medium">Interactive code gen &amp; integrated editors</td></tr></tbody></table></div><div class="bg-surface-container-low p-8 rounded-lg border-l-4 border-secondary mt-12"><p class="font-body-lg text-body-lg text-on-surface-variant m-0">The design of Developer Central significantly improved the FED Scorecard metrics, establishing a robust, scalable foundation for the organization's modular MFE future. By treating internal developers as primary, highly-valued users and applying rigorous UX methodologies, I transformed a disjointed utility into a critical, beloved enablement platform.</p></div></section>
+<section class="mb-section-gap prose prose-lg prose-neutral max-w-none"><h2 class="font-headline-md text-headline-md text-primary mb-6">5. Test &amp; Results: Project Impact</h2><p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Post-launch validation combined quantitative analytics with qualitative feedback loops built into the new portal.</p><div class="overflow-x-auto mb-12 mt-8"><table class="w-full text-left font-body-md border-collapse"><thead><tr class="border-b-2 border-primary"><th class="py-4 font-medium text-primary w-1/3">Metric Area</th><th class="py-4 font-medium text-on-surface-variant w-1/3">Legacy System (Before)</th><th class="py-4 font-medium text-secondary w-1/3">Design (After)</th></tr></thead><tbody><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Search &amp; Discovery</td><td class="py-4 text-on-surface-variant">Fragmented across 3 platforms</td><td class="py-4 text-secondary font-medium">Unified Central Hub</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Onboarding Time</td><td class="py-4 text-on-surface-variant">Manual, mentor-dependent (Weeks)</td><td class="py-4 text-secondary font-medium">Self-service guided paths (Days)</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Technical Utility</td><td class="py-4 text-on-surface-variant">Static, disconnected documentation</td><td class="py-4 text-secondary font-medium">Interactive code gen &amp; integrated editors</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Onboarding lead time</td><td class="py-4 text-on-surface-variant">—</td><td class="py-4 text-secondary font-medium">↓ 65%</td></tr><tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Integration bugs</td><td class="py-4 text-on-surface-variant">—</td><td class="py-4 text-secondary font-medium">↓ 35%</td></tr></tbody></table></div><div class="bg-surface-container-low p-8 rounded-lg border-l-4 border-secondary mt-12"><p class="font-body-lg text-body-lg text-on-surface-variant m-0">FED Scorecard metrics improved alongside these. The larger shift was architectural and cultural: from a page-building mindset to a node-based, interoperable one — and treating internal developers with the same rigour as external users, which turned a utility people avoided into a platform teams chose.</p></div><p class="font-body-lg text-body-lg text-on-surface-variant mt-8">The hardest constraint was serving both ends of the Ramya-to-Ramesh spectrum in one interface — simplifying enough for a first-time user without stripping away the raw control power users like Ramesh needed, which meant almost every screen went through a round of "is this too much, or not enough."</p></section>
 <!-- Phase 2: AI Evolution -->
 <section class="mb-section-gap prose prose-lg prose-neutral max-w-none">
-  <h2 class="font-headline-md text-headline-md text-primary mb-6">Phase 2 — Evolving Developer Central with AI</h2>
-  <p class="font-body-lg text-body-lg text-secondary mb-12 font-medium">Moving beyond documentation into intelligent developer workflows</p>
-  
+  <h2 class="font-headline-md text-headline-md text-primary mb-4">Phase 2 — Extending Developer Central with AI</h2>
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-12"><strong>Status: Piloted.</strong> The figures in this section are projected, based on pilot data — not yet measured at full production scale.</p>
+
   <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-    The design of Developer Central successfully centralized documentation, tools, and onboarding resources into a single platform. However, our research uncovered a deeper problem: developers weren't struggling because information didn't exist—they were struggling because finding the right information, and turning it into working code, required significant effort.
-  </p>
-  
-  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-    Our next opportunity was clear: instead of simply helping developers navigate documentation, Developer Central should actively help them build software. This led us to explore how AI could become part of the developer workflow rather than another standalone tool.
+    Phase 1 solved centralisation. But research surfaced a deeper problem: developers weren't blocked because information didn't exist — they were blocked because finding it, and converting it into working code, took real effort. The next step wasn't better documentation navigation. It was AI embedded in workflows developers already used, rather than another standalone tool.
   </p>
 
   <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Research Insights</h3>
@@ -333,7 +355,7 @@
     <div class="bg-surface-container p-8 rounded-lg border-t-2 border-secondary">
       <span class="font-label-caps text-label-caps text-secondary block mb-2">Insight 01</span>
       <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">"I need ready-made code to start faster."</h4>
-      <p class="font-body-md text-body-md text-on-surface-variant">New developers spent considerable time configuring environments, understanding COSMOS dependencies, and manually creating boilerplate code before writing actual business logic.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant">New developers spent considerable time configuring their environment, understanding COSMOS dependencies, and manually writing repetitive starter code before getting to the actual business logic.</p>
     </div>
     <div class="bg-surface-container p-8 rounded-lg border-t-2 border-secondary">
       <span class="font-label-caps text-label-caps text-secondary block mb-2">Insight 02</span>
@@ -343,74 +365,40 @@
   </div>
 
   <h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Design Opportunity</h3>
-  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-    We identified an opportunity to evolve Developer Central from a documentation portal into an intelligent development assistant. Rather than introducing separate AI products, we embedded AI directly into workflows developers were already using.
-  </p>
   <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
-    The two highest-impact opportunities were:
+    The two highest-impact opportunities to evolve Developer Central from a documentation portal into an intelligent development assistant were:
   </p>
   <ul class="list-disc pl-6 space-y-3 font-body-lg text-body-lg text-on-surface-variant mb-12">
     <li><strong>AI-Assisted MFE Code Generation:</strong> Eliminating the "Getting Started" bottleneck.</li>
-    <li><strong>Semantic Search & Intelligent Discoverability:</strong> Finding answers instead of documents.</li>
+    <li><strong>Smarter Search & Discoverability:</strong> Finding answers instead of documents.</li>
   </ul>
 
   <!-- Solution 01 -->
   <div class="border-t border-surface-variant/40 pt-12 mt-12">
     <span class="font-label-caps text-label-caps text-secondary block mb-2">Solution 01</span>
     <h3 class="font-headline-md text-[28px] font-bold text-primary mb-4">AI-Assisted MFE Code Generation</h3>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">One of the most painful moments occurred during project setup. New developers had to configure dependencies, understand COSMOS architecture, interpret complex component documentation, and manually scaffold Micro Frontends. Many relied on support sessions before writing their first line of code.</p>
-    
-    <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Our Design Approach</h4>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Instead of creating another AI application, we enhanced the existing MFE Generator already available inside Developer Central. This allowed AI capabilities to fit naturally into existing workflows.</p>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Project setup was the single most painful moment for new developers — exactly where Insight 01 hit hardest.</p>
 
-    <!-- Visual Canvas / Workflow -->
-    <div class="bg-surface-container p-8 rounded-lg mb-12">
-      <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-6 text-center">New MFE Generation Workflow</h4>
-      <div class="flex flex-col items-center space-y-4 text-on-surface">
-        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
-          <strong class="block font-body-md font-bold text-primary mb-1">Step 1</strong>
-          <span class="text-sm text-on-surface-variant">Developers open the MFE Generator directly from the Developer Tools section.</span>
-        </div>
-        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
-        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
-          <strong class="block font-body-md font-bold text-primary mb-1">Step 2</strong>
-          <span class="text-sm text-on-surface-variant">A visual canvas allows developers to drag UI components directly from the COSMOS design system.</span>
-        </div>
-        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
-        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
-          <strong class="block font-body-md font-bold text-primary mb-1">Step 3</strong>
-          <span class="text-sm text-on-surface-variant">AI understands the selected layout and automatically generates production-ready COSMOS 4.x React/TypeScript code.</span>
-        </div>
-        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
-        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
-          <strong class="block font-body-md font-bold text-primary mb-1">Step 4</strong>
-          <span class="text-sm text-on-surface-variant">Complex inherited properties, child configurations, imports, and dependencies are automatically configured.</span>
-        </div>
-        <span class="material-symbols-outlined text-secondary">arrow_downward</span>
-        <div class="bg-white dark:bg-tertiary-container border border-outline-variant p-4 rounded text-center w-full max-w-md">
-          <strong class="block font-body-md font-bold text-primary mb-1">Step 5</strong>
-          <span class="text-sm text-on-surface-variant">The generated Micro Frontend can immediately be validated using the existing FED Scorecard.</span>
-        </div>
-      </div>
-    </div>
+    <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Our Design Approach</h4>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Instead of creating another AI application, we enhanced the existing MFE Generator already available inside Developer Central. Developers drag UI components from the COSMOS design system onto a visual canvas, and the AI generates ready-to-use code for them — properties, imports, and dependencies already wired up — ready to check against the team's existing quality standards (the FED Scorecard).</p>
 
     <div class="bg-surface-container-low p-8 rounded-lg border-l-4 border-secondary mb-12">
       <strong class="block font-body-lg font-medium text-on-surface mb-2">Design Principle</strong>
-      <p class="font-body-lg text-body-lg text-on-surface-variant m-0">Rather than replacing developers, AI removes repetitive setup work while keeping developers in control of implementation. Developers spend time solving business problems—not writing boilerplate.</p>
+      <p class="font-body-lg text-body-lg text-on-surface-variant m-0">Rather than replacing developers, AI removes repetitive setup work while keeping developers in control of implementation. Developers spend time solving business problems—not writing repetitive starter code.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
       <div class="bg-surface-container p-6 rounded-lg text-center">
         <span class="block text-4xl font-bold text-secondary mb-2">80%</span>
-        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in project setup time</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Projected reduction in project setup time</span>
       </div>
       <div class="bg-surface-container p-6 rounded-lg text-center">
         <span class="block text-4xl font-bold text-secondary mb-2">65%</span>
-        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in Level-1 support requests</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Projected reduction in Level-1 support requests</span>
       </div>
-      <div class="bg-surface-container p-6 rounded-lg text-center flex flex-col justify-center">
-        <span class="block text-lg font-bold text-primary mb-1">Faster MFE Adoption</span>
-        <span class="text-xs text-on-surface-variant">Lowering the curve encourages migration from monoliths.</span>
+      <div class="bg-surface-container p-6 rounded-lg text-center">
+        <span class="block text-4xl font-bold text-secondary mb-2">40%</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Projected MFE adoption increase within one quarter</span>
       </div>
     </div>
   </div>
@@ -418,18 +406,18 @@
   <!-- Solution 02 -->
   <div class="border-t border-surface-variant/40 pt-12 mt-12">
     <span class="font-label-caps text-label-caps text-secondary block mb-2">Solution 02</span>
-    <h3 class="font-headline-md text-[28px] font-bold text-primary mb-4">Semantic Search & Intelligent Discoverability</h3>
+    <h3 class="font-headline-md text-[28px] font-bold text-primary mb-4">Smarter Search & Discoverability</h3>
     <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Research consistently showed that developers already knew the documentation existed. The real challenge was knowing where to look. Traditional keyword search required developers to understand document names, repositories, and platform structure before they could search.</p>
     
     <h4 class="font-headline-md text-[20px] font-semibold text-primary mb-4">Our Design Approach</h4>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Rather than designing search, we replaced the underlying search experience with semantic understanding. The existing global search bar became an AI-powered knowledge assistant.</p>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Rather than designing new search UI, we replaced the underlying search engine with one that understands the meaning behind a question, not just its keywords. The existing global search bar became an AI-powered knowledge assistant.</p>
 
     <div class="bg-surface-container p-8 rounded-lg mb-12 border border-outline-variant">
       <div class="flex items-center gap-3 border-b border-outline-variant pb-4 mb-4">
         <span class="material-symbols-outlined text-secondary">search</span>
         <span class="font-body-md text-on-surface-variant italic">"How do I change a button to Standard Skin in React?"</span>
       </div>
-      <p class="font-body-md text-on-surface-variant mb-4">Instead of returning dozens of matching files, Developer Central now provides a synthesized answer with the relevant React code snippet, links to the exact COSMOS component, and related migration guides.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Instead of returning dozens of matching files, Developer Central now provides a direct answer with the relevant code snippet, links to the exact COSMOS component, and related migration guides.</p>
       <div class="border-t border-outline-variant/60 pt-4">
         <span class="block font-label-caps text-xs text-on-surface-variant mb-2">Retrieves knowledge from:</span>
         <div class="flex flex-wrap gap-2">
@@ -444,7 +432,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
       <div class="bg-surface-container p-6 rounded-lg text-center">
         <span class="block text-4xl font-bold text-secondary mb-2">65%</span>
-        <span class="text-xs font-label-caps text-on-surface-variant">Reduction in search time</span>
+        <span class="text-xs font-label-caps text-on-surface-variant">Projected reduction in search time</span>
       </div>
       <div class="bg-surface-container p-6 rounded-lg text-center flex flex-col justify-center">
         <span class="block text-base font-bold text-primary mb-1">Self-Service</span>
@@ -472,7 +460,7 @@
           <div class="text-xs text-on-surface-variant">↓</div>
           <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Ask Support</div>
           <div class="text-xs text-on-surface-variant">↓</div>
-          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Write Boilerplate</div>
+          <div class="border border-outline-variant p-2 bg-white dark:bg-tertiary-container rounded text-sm">Write Starter Code</div>
           <div class="text-xs text-on-surface-variant">↓</div>
           <div class="border border-secondary p-2 bg-secondary/5 font-semibold rounded text-sm">Start Development</div>
           <p class="text-xs text-secondary mt-3 font-semibold">≈ Several hours to days</p>
@@ -496,40 +484,8 @@
     </div>
   </div>
 
-  <!-- Measuring Success & Feedback -->
+  <!-- Feedback -->
   <div class="border-t border-surface-variant/40 pt-12 mt-12">
-    <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">Measuring Success</h3>
-    <table class="w-full text-left font-body-md border-collapse mb-12">
-      <thead>
-        <tr class="border-b-2 border-primary">
-          <th class="py-4 font-medium text-primary">Metric</th>
-          <th class="py-4 font-medium text-secondary text-right">Expected Outcome</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-b border-surface-variant">
-          <td class="py-4 text-on-surface font-medium">Initial MFE setup time</td>
-          <td class="py-4 text-secondary text-right font-medium">↓ 80%</td>
-        </tr>
-        <tr class="border-b border-surface-variant">
-          <td class="py-4 text-on-surface font-medium">Level-1 support tickets</td>
-          <td class="py-4 text-secondary text-right font-medium">↓ 65%</td>
-        </tr>
-        <tr class="border-b border-surface-variant">
-          <td class="py-4 text-on-surface font-medium">Documentation search time</td>
-          <td class="py-4 text-secondary text-right font-medium">↓ 65%</td>
-        </tr>
-        <tr class="border-b border-surface-variant">
-          <td class="py-4 text-on-surface font-medium">MFE adoption</td>
-          <td class="py-4 text-secondary text-right font-medium">↑ 40% within one quarter</td>
-        </tr>
-        <tr>
-          <td class="py-4 text-on-surface font-medium">Developer self-service</td>
-          <td class="py-4 text-secondary text-right font-medium">Significant increase</td>
-        </tr>
-      </tbody>
-    </table>
-
     <h3 class="font-headline-md text-[24px] font-medium text-primary mb-6">User Feedback</h3>
     <div class="space-y-6 mb-12">
       <div class="bg-surface-container p-6 rounded-lg">
@@ -547,8 +503,8 @@
     </div>
 
     <h3 class="font-headline-md text-[24px] font-medium text-primary mb-4">Reflection</h3>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">This phase fundamentally changed the role of Developer Central. The platform evolved from being a knowledge repository into an AI-powered development companion.</p>
-    <p class="font-body-lg text-body-lg text-on-surface-variant">By embedding AI into existing workflows—instead of introducing separate tools—we reduced onboarding friction, improved discoverability, and enabled developers to spend more time building products and less time searching for information.</p>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">This phase turned Developer Central from a knowledge repository into a development companion — reducing onboarding friction and letting developers spend more time building, less time searching.</p>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">The clearest guardrail was scope: the generator stayed limited to the repetitive starter code every project needs, with architecture and business-logic decisions always left to the developer — widening that scope carelessly would have been the fastest way to erode trust in the tool.</p>
   </div>
 </section>
 
@@ -566,7 +522,7 @@
       <p class="font-body-md text-body-md text-on-surface-variant mb-6">Fair and equitable capital access through Distributed Ledger Technology. Dismantling systemic barriers for diverse-owned small businesses.</p>
       <div class="flex items-center justify-between">
         <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant">
-          <span>Product Designer & UX Architect</span>
+          <span>Senior Product Designer</span>
         </div>
         <span class="material-symbols-outlined text-primary">arrow_forward</span>
       </div>
@@ -578,12 +534,10 @@
 <!-- Footer -->
 <footer class="w-full mt-section-gap bg-surface-container-low dark:bg-tertiary-container flat no shadows">
 <div class="max-w-[1200px] mx-auto py-margin-standard px-margin-standard flex flex-col md:flex-row justify-between items-start gap-8">
-<div class="font-label-caps text-label-caps text-primary">© 2026 Senior Portfolio. Built for intellectual depth.</div>
-    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
-<ul class="flex flex-wrap gap-6">
+<div class="font-label-caps text-label-caps text-primary">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</div><ul class="flex flex-wrap gap-6">
 <li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant duration-200 cursor-pointer"><a href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/" target="_blank">LinkedIn</a></li>
-<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant duration-200 cursor-pointer">Email</li>
-<li class="font-body-md text-body-md text-primary dark:text-primary-fixed underline duration-200 cursor-pointer">Archive</li>
+<li class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-fixed-variant duration-200 cursor-pointer"><a href="mailto:chencse@gmail.com">Email</a></li>
+<li class="font-body-md text-body-md text-primary dark:text-primary-fixed underline duration-200 cursor-pointer"><a href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a></li>
 </ul>
 </div>
 </footer>
@@ -871,8 +825,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
   function formatAIResponse(text) {
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = '';
 
     lines.forEach(line => {

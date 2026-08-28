@@ -1,19 +1,31 @@
 {
   "name": "Chenthuran aka Chen",
-  "title": "Designer, Observer & System Thinker",
-  "about": "Senior UX/Product Designer with 10+ years of experience.",
+  "title": "Senior Product Designer — design systems and complex enterprise products",
+  "about": "Senior Product Designer with 10+ years of experience, working on design systems, developer platforms and complex enterprise products. Hands-on individual contributor: he untangles how these systems actually work, then helps the people who use them find a simpler way through.",
   "expertise": [
-    "1. Enterprise & Developer UX \u2014 Simplifies internal developer tools and SaaS interfaces. Converts high-touch setup steps into self-service workspaces engineers confidently manage.",
-    "2. Design Systems & Process Strategy \u2014 Builds tokenized components and process strategy to bridge design and engineering. Reduced handoff friction by 90% through process improvements.",
-    "3. Fintech & DLT Architectures \u2014 Designs multi-party payment flows using Distributed Ledger Technology. Translates DeFi protocols into trust-centered visual metaphors.",
-    "4. Systems Thinking & Architecture \u2014 Maps complex enterprise ecosystems into cohesive digital architectures balancing business rules with intuitive UX.",
-    "5. Product Strategy & Innovation \u2014 Transforms ambiguous requests into clear strategic directions, prototyping hypotheses before committing resources.",
-    "6. AI & Agentic Design \u2014 Designs explainable, trust-centered agentic workspaces focused on transparency and inspectable AI outputs."
+    "1. Design Systems & Platform Work — Builds systems that settle the common decisions once, so teams don't re-make them every sprint. Also does the harder half: getting people to actually adopt them. Cut component assembly time from 20 minutes to under 5.",
+    "2. Enterprise & Developer Tools — Simplifies internal tools that usually get no research budget and no polish, turning high-touch setup into self-service workflows engineers can run themselves.",
+    "3. Complex Systems & Fintech — Maps multi-party systems (lending flows on distributed ledgers, processes held together by spreadsheets and workarounds) and finds the version a non-expert can follow.",
+    "4. AI & Agentic Design — Designs AI tools that show their working, so the person using them can tell when to trust the output and when to go and check it."
   ],
   "highlights": [
-    "- 30+ Projects Completed",
-    "- 10+ Industries: Fintech, DeFi/DLT, Enterprise SaaS, Developer Tools, Banking, Healthcare, Government, Gaming",
-    "- 90% Handoff Friction Reduced through design systems and process strategy",
-    "- 10+ Years of Experience"
+    "- 5 awards: 2x Manager Spotlight Award, 2x Star Award (Employee of the Year), 1x iDesign Award (brand and print)",
+    "- Component assembly time cut from 20 minutes to under 5 through a design system rebuild, owned solo with no dedicated engineering support",
+    "- Onboarding lead time cut 65% and integration bugs 35% on an enterprise developer platform",
+    "- Domains worked in: Fintech, DeFi/DLT, Enterprise SaaS, Developer Tools, Banking, Healthcare, Government, Gaming",
+    "- 10+ years of experience"
+  ],
+  "key_projects": [
+    "1. Transforming a Design System — Rebuilt an internal product design system into a prescriptive platform, cutting component assembly time from 20 minutes to under 5 minutes. Ran it solo: the research, the component architecture, and the ongoing upkeep, with no dedicated engineering headcount on the design side.",
+    "2. Horizon Bank Developer Central — Unified a bank's fragmented internal developer tools into one self-service portal, cutting onboarding lead time 65% and integration bugs 35%. A later AI phase (code generation and smarter search) is piloted, with projected figures rather than production-measured ones. Client anonymised under NDA.",
+    "3. DOSB Financing Ecosystem — Designed a distributed-ledger capital bridge for diverse-owned small business lending, including the Global Pass identity credential and a proxy voting system built into the dashboard. Currently in pilot; results are projected from prototype usability testing, not yet measured in production. Client anonymised under NDA.",
+    "4. Idea Godown — A repository of self-directed side projects and hardware/software experiments, including ideas he decided not to pursue and one archived because someone else solved it first."
+  ],
+  "beyond_bau": [
+    "1. Comment Analyzer Plugin: Figma plugin that reads design-review comments and sorts them into bugs, copy fixes and questions, cutting triage time 40%.",
+    "2. Design Decision Log: Figma plugin that captures decision rationales on canvas and syncs them to Notion and GitHub via webhooks.",
+    "3. Design System Research: A self-initiated research sprint with 12 designers across India and the US, timing them on complex component tasks such as tables. It became the evidence base for the Transforming a Design System case study.",
+    "4. Team Personality Workshop: Facilitated a workshop for 20 people based on the book Surrounded by Idiots, mapping how each person prefers to be communicated with to reduce friction in critiques.",
+    "5. Design System Assistant Agent: AI copilot for design tokens, content rules, and accessibility specs; tested with 10 designers, saving 30% of their time on findability tasks."
   ]
 }

@@ -4,7 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Beyond BAU — Chen</title>
-<meta name="description" content="Productivity, research, and leadership initiatives that drive impact beyond daily design deliverables."/>
+<!-- seo:start -->
+<meta name="description" content="Figma plugins, a self-initiated research sprint, and an AI assistant for a design system. Things built because they were getting in the way."/>
+<link rel="canonical" href="https://chenthuran.in/beyond-bau"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/beyond-bau"/>
+<meta property="og:title" content="Beyond BAU — Chen"/>
+<meta property="og:description" content="Figma plugins, a self-initiated research sprint, and an AI assistant for a design system. Things built because they were getting in the way."/>
+<meta property="og:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Beyond BAU — Chen"/>
+<meta name="twitter:description" content="Figma plugins, a self-initiated research sprint, and an AI assistant for a design system. Things built because they were getting in the way."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -43,23 +57,25 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/" data-nav>Home</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
     </button>
     <div id="mobile-menu">
-      <a href="01_home" data-nav>Home</a>
+      <a href="/" data-nav>Home</a>
       <a href="work" data-nav>Work</a>
       <a class="active" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="idea-godown" data-nav>Idea Godown</a>
       <a href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
     </div>
   </div>
 </header>
@@ -70,7 +86,7 @@
     <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-4">Initiatives</span>
     <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Beyond BAU</h1>
     <p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant max-w-3xl">
-      Productivity tools, knowledge management systems, research sprints, and team-building frameworks developed to automate workflows and optimize collaboration.
+      Things I built because they were getting in my way, or the team's. Figma plugins, a research sprint, an AI assistant for our design system. Mostly small, mostly nobody asked.
     </p>
     <div class="mt-12 border-t border-primary"></div>
   </div>
@@ -78,7 +94,7 @@
   <!-- Initiatives Grid -->
   <div class="max-w-[1200px] mx-auto px-margin-standard pb-section-gap">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      
+
       <!-- Card 1: Comment Analyzer -->
       <div onclick="openDrawer('comment-analyzer')" class="initiative-card border border-outline-variant p-6 md:p-8 bg-surface flex flex-col justify-between cursor-pointer group">
         <div>
@@ -151,15 +167,15 @@
           <div class="space-y-4 mb-8">
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
-              <p class="font-body-md text-on-surface-variant">Low adoption rates of system components across platform teams resulted in visual drift and redundant custom components.</p>
+              <p class="font-body-md text-on-surface-variant">Progress had stalled despite a complete component library, but nobody had evidence for why.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was done</h4>
-              <p class="font-body-md text-on-surface-variant">Researched with 12 designers across India and US with a different set of tasks on using complex components such as Tables and analyzed the time taken for building a customized component for their requirement.</p>
+              <p class="font-body-md text-on-surface-variant">Nobody asked for this — I ran it as a self-initiated research sprint before proposing any redesign, because "velocity feels stalled" isn't evidence.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
-              <p class="font-body-md text-primary font-medium">Increased design system adoption by 40% more from teams.</p>
+              <p class="font-body-md text-primary font-medium">Became the evidence base for the <a href="transforming-a-design-system" data-nav class="underline">Transforming a Design System</a> case study — full findings and the redesign are there.</p>
             </div>
           </div>
         </div>
@@ -239,9 +255,9 @@
     <div class="flex gap-6">
       <a class="font-body-md text-body-md text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
       <a class="font-body-md text-body-md text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a>
     </div>
-    <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior UX Portfolio. All rights reserved.</div>
-    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
+    <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</div>
   </div>
 </footer>
 
@@ -322,9 +338,9 @@
     'system-research': {
       title: 'Design System Research',
       tag: 'UX Research • Design Systems',
-      problem: 'Product velocity stagnated despite a complete Figma component library. Overly flexible atomic components forced designers to make endless micro-decisions, leading to handoff bottlenecks.',
-      built: 'Conducted user research with 12 designers across India and the US. Assigned different tasks focused on assembling complex components (such as Tables) and analyzed the time taken to build customized components for their requirements.',
-      outcome: 'Redesigned components with prescriptive defaults, reducing average assembly time from 20 minutes to under 5 minutes, and boosting design system adoption by 40% across product teams.'
+      problem: 'Progress had stalled despite a complete Figma component library, but nobody had evidence for why — just a shared feeling that the library wasn\'t working.',
+      built: 'Rather than guess, I ran this as a self-initiated research sprint before proposing any redesign: structured tasks, timed, with designers across India and the US.',
+      outcome: 'Became the evidence base for the <a href="transforming-a-design-system" data-nav style="text-decoration:underline;">Transforming a Design System</a> case study — full findings and the redesign are there, not repeated here.'
     },
     'team-workshop': {
       title: 'Team Personality Workshop',
@@ -353,7 +369,7 @@
     document.getElementById('drawer-title').textContent = data.title;
     document.getElementById('drawer-problem').textContent = data.problem;
     document.getElementById('drawer-built').textContent = data.built;
-    document.getElementById('drawer-outcome').textContent = data.outcome;
+    document.getElementById('drawer-outcome').innerHTML = data.outcome;
 
     // Show backdrop & slide in drawer
     backdrop.classList.remove('hidden');
@@ -372,6 +388,322 @@
     if (e.key === 'Escape') closeDrawer();
   });
 </script>
+
+<!-- ============================================================
+     AI ASSISTANT WIDGET — Chen's Portfolio
+     ============================================================ -->
+
+<!-- AI Assistant FAB -->
+<div id="chat-fab-wrapper" style="position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <!-- Circular AI icon FAB -->
+  <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
+    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
+    <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+<!-- Backdrop (full-screen mode only) -->
+<div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
+
+<!-- Chat Window -->
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+
+  <!-- Header -->
+  <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Ask About Chen</div>
+      <div style="font-size:10px;opacity:0.45;margin-top:1px;letter-spacing:0.04em;">AI Assistant</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <!-- Expand button -->
+      <button id="expand-btn" onclick="toggleExpand()" title="Expand to full screen"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg id="expand-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <!-- Close button -->
+      <button onclick="toggleChat()" title="Close"
+        style="background:none;border:none;color:#fff;opacity:0.6;cursor:pointer;padding:4px;display:flex;align-items:center;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:#fafafa;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:10px 13px;border-radius:0 8px 8px 8px;font-size:13px;line-height:1.65;color:#333;max-width:90%;">
+        Hi! I'm Chen's AI assistant. Ask me anything about his work, experience, or projects. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions (3 only) -->
+  <div id="chat-suggestions" style="padding:10px 16px;border-top:1px solid #f0f0f0;background:#fff;flex-shrink:0;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:7px;">Try asking</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">What are Chen's core design skills?</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">Tell me about his most complex project</button>
+      <button onclick="askSuggestion(this)" style="text-align:left;font-size:12px;padding:6px 10px;border:1px solid #e8e8e8;background:#f8f8f8;color:#555;cursor:pointer;border-radius:3px;transition:all 0.15s;font-family:inherit;" onmouseover="this.style.background='#1a1a1a';this.style.color='#fff';this.style.borderColor='#1a1a1a';" onmouseout="this.style.background='#f8f8f8';this.style.color='#555';this.style.borderColor='#e8e8e8';">How can I contact Chen?</button>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;display:flex;gap:8px;align-items:center;flex-shrink:0;">
+    <input id="chat-input" type="text" placeholder="Ask anything about Chen..."
+      style="flex:1;padding:8px 11px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px;outline:none;font-family:inherit;color:#1a1a1a;background:#fafafa;transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#1a1a1a';this.style.background='#fff';"
+      onblur="this.style.borderColor='#e0e0e0';this.style.background='#fafafa';"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"/>
+    <button onclick="sendChat()" id="chat-send-btn"
+      style="width:34px;height:34px;background:#1a1a1a;color:#fff;border:none;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes chatBounce {
+    0%,60%,100%{transform:translateY(0)}
+    30%{transform:translateY(-5px)}
+  }
+  #chat-window.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(800px, 92vw) !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    border-radius: 8px !important;
+    z-index: 1002 !important;
+  }
+  #chat-window.expanded #chat-messages {
+    max-height: calc(85vh - 240px) !important;
+  }
+  #chat-window.expanded #chat-input {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+</style>
+
+<script>
+  let chatOpen = false;
+  let isExpanded = false;
+  let labelDismissed = false;
+
+  const AI_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`;
+  const CLOSE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+  function dismissLabel() {}
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chat-window');
+    const fab = document.getElementById('chat-fab');
+    const fabIcon = document.getElementById('fab-icon');
+
+    if (chatOpen) {
+      fab.style.background = '#555';
+      fabIcon.innerHTML = CLOSE_ICON;
+      win.style.display = 'flex';
+      win.style.flexDirection = 'column';
+      setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+      if (isExpanded) collapseExpanded();
+      win.style.display = 'none';
+      fab.style.background = '#1a1a1a';
+      fabIcon.innerHTML = AI_ICON;
+    }
+  }
+
+  function toggleExpand() {
+    if (!isExpanded) {
+      expandChat();
+    } else {
+      collapseExpanded();
+    }
+  }
+
+  function expandChat() {
+    isExpanded = true;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.add('expanded');
+    backdrop.style.display = 'block';
+    expandIcon.innerHTML = `<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/>`;
+    document.getElementById('chat-input').focus();
+  }
+
+  function collapseExpanded() {
+    isExpanded = false;
+    const win = document.getElementById('chat-window');
+    const backdrop = document.getElementById('chat-backdrop');
+    const expandIcon = document.getElementById('expand-icon');
+    win.classList.remove('expanded');
+    backdrop.style.display = 'none';
+    expandIcon.innerHTML = `<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>`;
+  }
+
+  function askSuggestion(btn) {
+    document.getElementById('chat-input').value = btn.textContent.trim();
+    sendChat();
+  }
+
+  async function sendChat() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    input.disabled = true;
+    document.getElementById('chat-send-btn').disabled = true;
+
+    // Hide suggestions on first send
+    const sugg = document.getElementById('chat-suggestions');
+    if (sugg) sugg.style.display = 'none';
+
+    appendMessage(msg, 'user');
+    const typingId = appendTyping();
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg}),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      removeTyping(typingId);
+      appendMessage(data.reply, 'ai');
+    } catch(e) {
+      removeTyping(typingId);
+      if (e.name === 'AbortError') {
+        appendMessage("The request took too long. Please try again with a shorter question.", 'ai');
+      } else {
+        appendMessage("Something went wrong. Please try again.", 'ai');
+      }
+    } finally {
+      input.disabled = false;
+      document.getElementById('chat-send-btn').disabled = false;
+      input.focus();
+    }
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
+  function formatAIResponse(text) {
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let html = '';
+
+    lines.forEach(line => {
+      // Bullet lines: starts with •, -, *, or →
+      if (/^[•\-\*→]/.test(line)) {
+        const isArrow = line.startsWith('→');
+        const content = line.replace(/^[•\-\*→]\s*/, '');
+        const linked = linkify(content);
+        html += `<div style="display:flex;gap:8px;align-items:baseline;margin-top:6px;">
+          <span style="flex-shrink:0;font-size:${isArrow ? '13' : '11'}px;color:${isArrow ? '#555' : '#aaa'};line-height:1.6;">${isArrow ? '→' : '•'}</span>
+          <span style="line-height:1.6;">${linked}</span>
+        </div>`;
+      } else {
+        // Regular intro sentence or text line
+        html += `<div style="margin-bottom:4px;line-height:1.65;">${linkify(line)}</div>`;
+      }
+    });
+
+    return html;
+  }
+
+  function linkify(text) {
+    return text.replace(/(https?:\/\/[^\s<]+)/g,
+      '<a href="$1" style="color:#1a1a1a;font-weight:500;text-decoration:underline;text-underline-offset:2px;" target="_self">$1</a>');
+  }
+
+  function appendMessage(text, role) {
+    const container = document.getElementById('chat-messages');
+    const isAi = role === 'ai';
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;gap:10px;align-items:flex-start;${isAi ? '' : 'flex-direction:row-reverse;'}`;
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = `width:26px;height:26px;border-radius:50%;background:${isAi ? '#1a1a1a' : '#e8e8e8'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;`;
+    avatar.innerHTML = isAi
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `padding:10px 13px;font-size:13px;line-height:1.65;max-width:90%;border-radius:${isAi ? '0 8px 8px 8px' : '8px 0 8px 8px'};${isAi ? 'background:#fff;border:1px solid #ebebeb;color:#333;' : 'background:#1a1a1a;color:#fff;'}`;
+
+    if (isAi) {
+      bubble.innerHTML = formatAIResponse(text);
+    } else {
+      bubble.textContent = text;
+    }
+
+    div.appendChild(avatar);
+    div.appendChild(bubble);
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chat-messages');
+    const id = 'typing-' + Date.now();
+    const div = document.createElement('div');
+    div.id = id;
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+    div.innerHTML = `
+      <div style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      </div>
+      <div style="background:#fff;border:1px solid #ebebeb;padding:12px 15px;border-radius:0 8px 8px 8px;display:flex;gap:5px;align-items:center;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.2s;display:inline-block;"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#ccc;animation:chatBounce 1.2s infinite 0.4s;display:inline-block;"></span>
+      </div>`;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return id;
+  }
+
+  function removeTyping(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+</script>
+
+
 
 </body>
 </html>

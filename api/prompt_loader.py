@@ -29,40 +29,40 @@ When relevant, mention specific page links like:
 - Portfolio home: https://chenthuran.in
 - Selected Work: https://chenthuran.in/work
 - Beyond BAU: https://chenthuran.in/beyond-bau
-- Idea Godown: https://chenthuran.in/03_idea_godown_research_ledger
+- Idea Godown: https://chenthuran.in/idea-godown
 - Transforming a Design System case study: https://chenthuran.in/transforming-a-design-system
 - Horizon Bank Developer Central: https://chenthuran.in/horizon-bank-developer-central
 - DOSB Financing Ecosystem: https://chenthuran.in/dosb-financing-ecosystem
 
 === ABOUT CHEN ===
-Name: Chenthuran, goes by Chen. Senior UX/Product Designer with 10+ years of experience.
-Title: Designer, Observer & System Thinker.
+Name: Chenthuran, goes by Chen. Senior Product Designer with 10+ years of experience, working on design systems, developer platforms and complex enterprise products. Hands-on individual contributor.
+Title: Senior Product Designer — design systems and complex enterprise products.
 
 === EXPERTISE ===
-1. Enterprise & Developer UX — Simplifies internal developer tools and SaaS interfaces. Converts high-touch setup steps into self-service workspaces engineers confidently manage.
-2. Design Systems & Process Strategy — Builds tokenized components and process strategy to bridge design and engineering. Reduced handoff friction by 90% through process improvements.
-3. Fintech & DLT Architectures — Designs multi-party payment flows using Distributed Ledger Technology. Translates DeFi protocols into trust-centered visual metaphors.
-4. Systems Thinking & Architecture — Maps complex enterprise ecosystems into cohesive digital architectures balancing business rules with intuitive UX.
-5. Product Strategy & Innovation — Transforms ambiguous requests into clear strategic directions, prototyping hypotheses before committing resources.
-6. AI & Agentic Design — Designs explainable, trust-centered agentic workspaces focused on transparency and inspectable AI outputs.
+1. Design Systems & Platform Work — Builds systems that settle the common decisions once, so teams don't re-make them every sprint. Also does the harder half: getting people to actually adopt them. Cut component assembly time from 20 minutes to under 5.
+2. Enterprise & Developer Tools — Simplifies internal tools that usually get no research budget and no polish, turning high-touch setup into self-service workflows engineers can run themselves.
+3. Complex Systems & Fintech — Maps multi-party systems (lending flows on distributed ledgers, processes held together by spreadsheets and workarounds) and finds the version a non-expert can follow.
+4. AI & Agentic Design — Designs AI tools that show their working, so the person using them can tell when to trust the output and when to go and check it.
 
 === CAREER HIGHLIGHTS ===
-- 30+ Projects Completed
-- 10+ Industries: Fintech, DeFi/DLT, Enterprise SaaS, Developer Tools, Banking, Healthcare, Government, Gaming
-- 90% Handoff Friction Reduced through design systems and process strategy
-- 10+ Years of Experience
+- 5 awards: 2x Manager Spotlight Award, 2x Star Award (Employee of the Year), 1x iDesign Award (brand and print)
+- Component assembly time cut from 20 minutes to under 5 through a design system rebuild, owned solo with no dedicated engineering support
+- Onboarding lead time cut 65% and integration bugs 35% on an enterprise developer platform
+- Domains worked in: Fintech, DeFi/DLT, Enterprise SaaS, Developer Tools, Banking, Healthcare, Government, Gaming
+- 10+ years of experience
 
 === KEY PROJECTS ===
-1. Transforming a Design System — Redesigned legacy banking design system, implemented tokenization and accessibility standards.
-2. Horizon Bank Developer Central — Developer-facing documentation and API playground portal. Focus: developer experience, self-service tooling.
-3. DOSB Financing Ecosystem — UX for a DeFi financing platform bridging funding gaps for diverse-owned small businesses.
-4. Idea Godown — A brutalist research repository where Chen stores raw product hypotheses and pressure-tests concepts before production.
+1. Transforming a Design System — Rebuilt an internal product design system into a prescriptive platform, cutting component assembly time from 20 minutes to under 5 minutes.
+2. Horizon Bank Developer Central — Unified a bank's fragmented internal developer tools into one self-service portal, cutting onboarding lead time 65% and integration bugs 35%. Client anonymised under NDA.
+3. DOSB Financing Ecosystem — Designed a distributed-ledger capital bridge for diverse-owned small business lending. Currently in pilot; results are projected from prototype usability testing, not yet measured in production. Client anonymised under NDA.
+4. Idea Godown — A research repository of self-directed side projects and hardware/software experiments.
 
 === BEYOND BAU / INITIATIVES ===
-1. Comment Analyzer Plugin: LLM-powered Figma plugin that categorizes design review comments, reducing triage times by 40%.
-2. Design Decision Log: Figma plugin that saves canvas rationales and syncs them to Notion and GitHub via webhooks.
-3. Design System Research: Researched with 12 designers across India and US using Tables/charts, reducing component customization time and boosting adoption by 40%.
-4. Team Workshop: Facilitated team personality workshop based on the book **Surrounded by Idiots** and mapped traits to optimize collaboration.
+1. Comment Analyzer Plugin: LLM-powered Figma plugin that automatically categorizes design review comments, reducing triage times by 40%.
+2. Design Decision Log: Figma plugin that captures decision rationales on canvas and syncs them to Notion and GitHub via webhooks.
+3. Design System Research: Researched with 12 designers across India and the US on complex component tasks (e.g. tables); redesigned with prescriptive defaults, cutting average assembly time from 20 minutes to under 5 minutes.
+4. Team Personality Workshop: Facilitated a workshop based on the book **Surrounded by Idiots**, mapping team communication traits to reduce cross-functional friction.
+5. Design System Assistant Agent: AI copilot for design tokens, content rules, and accessibility specs; tested with 10 designers, saving 30% of their time on findability tasks.
 
 === PHILOSOPHY ===
 Collects observations, challenges assumptions, explores ideas worth solving. Believes design is about systems, not just polished interfaces.
@@ -97,7 +97,7 @@ When relevant, mention specific page links like:
 - Portfolio home: https://chenthuran.in
 - Selected Work: https://chenthuran.in/work
 - Beyond BAU: https://chenthuran.in/beyond-bau
-- Idea Godown: https://chenthuran.in/03_idea_godown_research_ledger
+- Idea Godown: https://chenthuran.in/idea-godown
 - Transforming a Design System case study: https://chenthuran.in/transforming-a-design-system
 - Horizon Bank Developer Central: https://chenthuran.in/horizon-bank-developer-central
 - DOSB Financing Ecosystem: https://chenthuran.in/dosb-financing-ecosystem
@@ -113,16 +113,10 @@ Title: {data.get('title', '')}
 {chr_10.join(data.get('highlights', []))}
 
 === KEY PROJECTS ===
-1. Transforming a Design System — Redesigned legacy banking design system, implemented tokenization and accessibility standards.
-2. Horizon Bank Developer Central — Developer-facing documentation and API playground portal. Focus: developer experience, self-service tooling.
-3. DOSB Financing Ecosystem — UX for a DeFi financing platform bridging funding gaps for diverse-owned small businesses.
-4. Idea Godown — A brutalist research repository where Chen stores raw product hypotheses and pressure-tests concepts before production.
+{chr_10.join(data.get('key_projects', []))}
 
 === BEYOND BAU / INITIATIVES ===
-1. Comment Analyzer Plugin: LLM-powered Figma plugin that categorizes design review comments, reducing triage times by 40%.
-2. Design Decision Log: Figma plugin that saves canvas rationales and syncs them to Notion and GitHub via webhooks.
-3. Design System Research: Researched with 12 designers across India and US using Tables/charts, reducing component customization time and boosting adoption by 40%.
-4. Team Workshop: Facilitated team personality workshop based on the book **Surrounded by Idiots** and mapped traits to optimize collaboration.
+{chr_10.join(data.get('beyond_bau', []))}
 
 === PHILOSOPHY ===
 Collects observations, challenges assumptions, explores ideas worth solving. Believes design is about systems, not just polished interfaces.

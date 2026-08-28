@@ -9,9 +9,34 @@ import subprocess
 import re
 
 PORT = 3000
-NVIDIA_API_KEY = "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"
+
+
+def load_dotenv(path=".env"):
+    if not os.path.exists(path):
+        return
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            os.environ.setdefault(key, value)
+
+
+load_dotenv()
+
+NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
+if not NVIDIA_API_KEY:
+    raise RuntimeError(
+        "NVIDIA_API_KEY environment variable is not set. "
+        "Set it in your shell or in a local .env file (NVIDIA_API_KEY=nvapi-...)."
+    )
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
-MODEL = "meta/llama-3.1-8b-instruct"  # Faster smaller model
+# NOTE: meta/llama-3.1-8b-instruct reached end-of-life 2026-08-26 and now returns HTTP 410.
+# Replaced with gpt-oss-20b (verified working, ~3-7s, respects the bullet format and guardrails).
+MODEL = os.environ.get("NVIDIA_MODEL", "openai/gpt-oss-20b")
 
 from api.prompt_loader import get_system_prompt
 
@@ -244,8 +269,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 print(f"Error reading HTML: {e}")
 
-        # 2. Read Idea Godown items from 03_idea_godown_research_ledger.html
-        ledger_path = os.path.join("stitch", "html", "03_idea_godown_research_ledger.html")
+        # 2. Read Idea Godown items from idea-godown.html
+        ledger_path = os.path.join("stitch", "html", "idea-godown.html")
         ideas = {}
         if os.path.exists(ledger_path):
             try:
@@ -296,7 +321,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             projects = data.get("projects", {})
             testimonials = data.get("testimonials", {})
             
-            pages = ["index.html", "01_home.html"]
+            pages = ["index.html"]  # 01_home.html is now a static redirect stub to "/", not editable content
             for page in pages:
                 path = os.path.join("stitch", "html", page)
                 if os.path.exists(path):
@@ -349,9 +374,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 with open(work_path, "w", encoding="utf-8") as f:
                     f.write(content)
                     
-            # 3. Save Idea Godown items to 03_idea_godown_research_ledger.html
+            # 3. Save Idea Godown items to idea-godown.html
             ideas = data.get("ideas", {})
-            ledger_path = os.path.join("stitch", "html", "03_idea_godown_research_ledger.html")
+            ledger_path = os.path.join("stitch", "html", "idea-godown.html")
             if os.path.exists(ledger_path):
                 with open(ledger_path, "r", encoding="utf-8") as f:
                     content = f.read()
@@ -366,17 +391,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 with open(ledger_path, "w", encoding="utf-8") as f:
                     f.write(content)
                         
-            # 4. Save Dynamic Prompt Settings
+            # 4. Save Dynamic Prompt Settings.
+            # Merge into the existing file: the dashboard only edits these five keys,
+            # so rebuilding the dict from scratch would silently drop key_projects
+            # and beyond_bau, which the AI assistant depends on.
             json_path = os.path.join("api", "prompt.json")
-            json_data = {
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    json_data = json.load(f)
+            except Exception:
+                json_data = {}
+
+            json_data.update({
                 "name": data.get("name", "Chenthuran").strip(),
                 "title": data.get("title", "").strip(),
                 "about": data.get("about", "").strip(),
                 "expertise": [item.strip() for item in data.get("expertise", []) if item.strip()],
                 "highlights": [item.strip() for item in data.get("highlights", []) if item.strip()]
-            }
+            })
             with open(json_path, "w", encoding="utf-8") as f:
-                json.dump(json_data, f, indent=2)
+                json.dump(json_data, f, indent=2, ensure_ascii=False)
                 
             self._send_json(200, {"status": "success"})
         except Exception as e:

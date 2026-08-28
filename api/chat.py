@@ -4,9 +4,12 @@ import urllib.request
 import urllib.error
 import os
 
-NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "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")
+# Never hard-code the key. Set NVIDIA_API_KEY in the environment
+# (Vercel project settings, or a local .env file which is gitignored).
+NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
-MODEL = "meta/llama-3.1-8b-instruct"
+# meta/llama-3.1-8b-instruct reached end-of-life 2026-08-26 and now returns HTTP 410.
+MODEL = os.environ.get("NVIDIA_MODEL", "openai/gpt-oss-20b")
 
 from api.prompt_loader import get_system_prompt
 

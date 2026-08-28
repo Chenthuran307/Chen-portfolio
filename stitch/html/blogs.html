@@ -4,7 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Blogs — Chen</title>
-<meta name="description" content="Selected writings and thoughts on design, tech, and life."/>
+<!-- seo:start -->
+<meta name="description" content="Writing on design, careers, and what solo trekking taught me about making decisions with bad information."/>
+<link rel="canonical" href="https://chenthuran.in/blogs"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/blogs"/>
+<meta property="og:title" content="Blogs — Chen"/>
+<meta property="og:description" content="Writing on design, careers, and what solo trekking taught me about making decisions with bad information."/>
+<meta property="og:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blogs — Chen"/>
+<meta name="twitter:description" content="Writing on design, careers, and what solo trekking taught me about making decisions with bad information."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -59,7 +73,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #c4c7c7;
   }
-  
+
   .tag {
     display: inline-block;
     padding: 3px 10px;
@@ -79,23 +93,25 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/" data-nav>Home</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
     </button>
     <div id="mobile-menu">
-      <a href="01_home" data-nav>Home</a>
+      <a href="/" data-nav>Home</a>
       <a href="work" data-nav>Work</a>
       <a href="beyond-bau" data-nav>Beyond BAU</a>
-      <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="idea-godown" data-nav>Idea Godown</a>
       <a class="active" href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
     </div>
   </div>
 </header>
@@ -106,16 +122,25 @@
     <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant block mb-4">Writings & Thoughts</span>
     <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Blogs</h1>
     <p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant max-w-2xl">
-      Selected articles on design, career, and trekking. Read them on Medium.
+      Writing on design, careers, and what solo trekking taught me about making decisions with bad information. All on Medium.
     </p>
     <div class="mt-12 border-t border-primary"></div>
+  </div>
+
+  <!-- Filters -->
+  <div class="max-w-[1200px] mx-auto px-margin-standard mb-4">
+    <div class="flex gap-8 overflow-x-auto" id="blog-filter-buttons">
+      <button class="filter-btn active font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 shrink-0" data-filter="all">All (5)</button>
+      <button class="filter-btn font-label-caps text-label-caps text-on-surface-variant shrink-0" data-filter="professional">Design &amp; Career (3)</button>
+      <button class="filter-btn font-label-caps text-label-caps text-on-surface-variant shrink-0" data-filter="personal">Trekking &amp; Life (2)</button>
+    </div>
   </div>
 
   <!-- Blog Grid -->
   <div class="max-w-[1200px] mx-auto px-margin-standard pb-section-gap space-y-12">
 
     <!-- Card 1 -->
-    <a href="https://chenthuran-chen.medium.com/your-presentation-isnt-a-slide-deck-it-s-a-movie-bcd79e7c6c58" class="case-card block" target="_blank" rel="noopener noreferrer">
+    <a href="https://chenthuran-chen.medium.com/your-presentation-isnt-a-slide-deck-it-s-a-movie-bcd79e7c6c58" class="case-card block blog-card" data-category="professional" target="_blank" rel="noopener noreferrer">
       <div class="p-8 bg-surface">
         <div class="flex flex-wrap gap-2 mb-4">
           <span class="tag">Presentation</span>
@@ -134,7 +159,7 @@
     </a>
 
     <!-- Card 2 -->
-    <a href="https://medium.com/@chenthuran-chen/the-era-of-choosing-why-a-non-linear-design-career-is-suddenly-a-superpower-0bdebabd6236" class="case-card block" target="_blank" rel="noopener noreferrer">
+    <a href="https://medium.com/@chenthuran-chen/the-era-of-choosing-why-a-non-linear-design-career-is-suddenly-a-superpower-0bdebabd6236" class="case-card block blog-card" data-category="professional" target="_blank" rel="noopener noreferrer">
       <div class="p-8 bg-surface">
         <div class="flex flex-wrap gap-2 mb-4">
           <span class="tag">Career</span>
@@ -152,46 +177,8 @@
       </div>
     </a>
 
-    <!-- Card 2 -->
-    <a href="https://medium.com/@chenthuran-chen/individual-decision-making-aka-solo-dudhsagar-waterfalls-trekking-87bd4c5f186d" class="case-card block" target="_blank" rel="noopener noreferrer">
-      <div class="p-8 bg-surface">
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="tag">Trekking</span>
-          <span class="tag">Decision Making</span>
-        </div>
-        <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Individual Decision Making (aka Solo Dudhsagar Waterfalls Trekking)</h2>
-        <div class="flex items-center justify-between mt-6">
-          <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant items-center">
-            <span>May 10, 2026</span>
-            <span class="text-outline-variant">·</span>
-            <span>Read on Medium</span>
-          </div>
-          <span class="material-symbols-outlined text-primary">open_in_new</span>
-        </div>
-      </div>
-    </a>
-
     <!-- Card 3 -->
-    <a href="https://medium.com/@chenthuran-chen/experience-aka-ux-from-kumara-parvatha-trek-37795e7db7de" class="case-card block" target="_blank" rel="noopener noreferrer">
-      <div class="p-8 bg-surface">
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="tag">Trekking</span>
-          <span class="tag">UX</span>
-        </div>
-        <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Experience (aka UX) from Kumara Parvatha Trek</h2>
-        <div class="flex items-center justify-between mt-6">
-          <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant items-center">
-            <span>Apr 22, 2026</span>
-            <span class="text-outline-variant">·</span>
-            <span>Read on Medium</span>
-          </div>
-          <span class="material-symbols-outlined text-primary">open_in_new</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Card 4 -->
-    <a href="https://medium.com/@chenthuran-chen/future-of-data-driven-ux-you-cant-judge-the-user-f98c04b43ddb" class="case-card block" target="_blank" rel="noopener noreferrer">
+    <a href="https://medium.com/@chenthuran-chen/future-of-data-driven-ux-you-cant-judge-the-user-f98c04b43ddb" class="case-card block blog-card" data-category="professional" target="_blank" rel="noopener noreferrer">
       <div class="p-8 bg-surface">
         <div class="flex flex-wrap gap-2 mb-4">
           <span class="tag">Data</span>
@@ -209,17 +196,55 @@
       </div>
     </a>
 
+    <!-- Card 4 -->
+    <a href="https://medium.com/@chenthuran-chen/individual-decision-making-aka-solo-dudhsagar-waterfalls-trekking-87bd4c5f186d" class="case-card block blog-card" data-category="personal" target="_blank" rel="noopener noreferrer">
+      <div class="p-8 bg-surface">
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="tag">Trekking</span>
+          <span class="tag">Decision Making</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Individual Decision Making (aka Solo Dudhsagar Waterfalls Trekking)</h2>
+        <div class="flex items-center justify-between mt-6">
+          <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant items-center">
+            <span>May 10, 2026</span>
+            <span class="text-outline-variant">·</span>
+            <span>Read on Medium</span>
+          </div>
+          <span class="material-symbols-outlined text-primary">open_in_new</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="https://medium.com/@chenthuran-chen/experience-aka-ux-from-kumara-parvatha-trek-37795e7db7de" class="case-card block blog-card" data-category="personal" target="_blank" rel="noopener noreferrer">
+      <div class="p-8 bg-surface">
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="tag">Trekking</span>
+          <span class="tag">UX</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Experience (aka UX) from Kumara Parvatha Trek</h2>
+        <div class="flex items-center justify-between mt-6">
+          <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant items-center">
+            <span>Apr 22, 2026</span>
+            <span class="text-outline-variant">·</span>
+            <span>Read on Medium</span>
+          </div>
+          <span class="material-symbols-outlined text-primary">open_in_new</span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </main>
 
 <!-- Footer -->
 <footer class="w-full bg-surface border-t border-outline-variant py-margin-standard pb-20 md:pb-margin-standard">
   <div class="flex flex-col md:flex-row justify-between items-center gap-element-gap px-margin-standard max-w-[1200px] mx-auto">
-    <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior UX Portfolio</p>
-    <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
+    <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</p>
     <div class="flex gap-6">
       <a class="font-label-caps text-label-caps text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a>
     </div>
   </div>
 </footer>
@@ -240,6 +265,30 @@
       document.body.style.opacity = '0';
       document.body.style.transition = 'opacity 0.25s ease';
       setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+
+  // Filter functionality (Design & Career vs. Trekking & Life)
+  const blogFilterButtons = document.querySelectorAll('#blog-filter-buttons .filter-btn');
+  const blogCards = document.querySelectorAll('.blog-card');
+
+  blogFilterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      blogFilterButtons.forEach(b => {
+        b.classList.remove('active', 'text-primary', 'border-b-2', 'border-primary', 'pb-1');
+        b.classList.add('text-on-surface-variant');
+      });
+      this.classList.remove('text-on-surface-variant');
+      this.classList.add('active', 'text-primary', 'border-b-2', 'border-primary', 'pb-1');
+
+      const filterValue = this.getAttribute('data-filter');
+      blogCards.forEach(card => {
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
 </script>
@@ -508,8 +557,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
   function formatAIResponse(text) {
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = '';
 
     lines.forEach(line => {

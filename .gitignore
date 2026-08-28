@@ -4,3 +4,12 @@
 .agents/
 
 .vercel
+.env
+
+# added during repo cleanup
+__pycache__/
+*.pyc
+deploy.log
+desktop.ini
+scratch/
+stitch/html/images/_unused/

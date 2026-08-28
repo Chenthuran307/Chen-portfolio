@@ -3,7 +3,22 @@
 <html class="light" lang="en" style=""><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Case Study: Transforming a Design System</title>
+<title>Case Study: Transforming a Design System — Chen</title>
+<!-- seo:start -->
+<meta name="description" content="How rebuilding a component library into a prescriptive platform cut component assembly time from 20 minutes to under 5. Owned solo, no engineering support."/>
+<link rel="canonical" href="https://chenthuran.in/transforming-a-design-system"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/transforming-a-design-system"/>
+<meta property="og:title" content="Case Study: Transforming a Design System — Chen"/>
+<meta property="og:description" content="How rebuilding a component library into a prescriptive platform cut component assembly time from 20 minutes to under 5. Owned solo, no engineering support."/>
+<meta property="og:image" content="https://chenthuran.in/images/data_table_evolution_simplified.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Case Study: Transforming a Design System — Chen"/>
+<meta name="twitter:description" content="How rebuilding a component library into a prescriptive platform cut component assembly time from 20 minutes to under 5. Owned solo, no engineering support."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/data_table_evolution_simplified.png"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -55,7 +70,7 @@
   #mobile-menu { display: none; flex-direction: column; background: #fbf9f8; border-top: 1px solid #e4e2e2; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; padding: 8px 0; }
   #mobile-menu.open { display: flex; }
   .tag { display: inline-block; padding: 3px 10px; border: 1px solid #c4c7c7; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #444748; }
-  
+
   /* Card styles */
   .case-card {
     text-decoration: none;
@@ -63,7 +78,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #c4c7c7;
   }
-  
+
   .case-card .thumb {
     overflow: hidden;
     background: #efeded;
@@ -72,7 +87,7 @@
     transition: transform 0.5s ease, filter 0.5s ease;
     filter: grayscale(20%);
   }
-  
+
   #mobile-menu a { padding: 14px 24px; font-family: Inter, sans-serif; font-size: 12px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; border-bottom: 1px solid #e4e2e2; text-decoration: none; }
   
   #mobile-menu a.active { border-right: 3px solid #000; }
@@ -82,23 +97,25 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface border-b border-surface-variant/40">
 <div class="flex justify-between items-center px-margin-standard py-8 max-w-container-max mx-auto w-full relative">
-  <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+  <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
   <nav class="hidden md:flex gap-8">
-    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/" data-nav>Home</a>
     <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
     <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
   </nav>
   <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
     <span class="material-symbols-outlined">menu</span>
   </button>
   <div id="mobile-menu">
-    <a href="01_home" data-nav>Home</a>
+    <a href="/" data-nav>Home</a>
     <a class="active" href="work" data-nav>Work</a>
     <a href="beyond-bau" data-nav>Beyond BAU</a>
-    <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+    <a href="idea-godown" data-nav>Idea Godown</a>
       <a href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
   </div>
 </div>
 </nav>
@@ -112,7 +129,8 @@
 <!-- Hero Section -->
 <header class="mb-section-gap pt-16">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Transforming a Design System</h1>
-<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-12">From a Component Library into a Productivity Platform.</p>
+<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-6">From a component library into a productivity platform.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-12">Senior Product Designer · 4 Months · Solo — design and system ownership, no engineering support</p>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-outline-variant/30">
   <div>
@@ -136,11 +154,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">error</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Product velocity stagnated despite a complete Figma library. Highly flexible components forced designers to make endless micro-decisions, leading to handoff bottlenecks.
+        A complete Figma library existed, but progress had stalled. Components were flexible enough to build almost anything — which meant designers remade the same styling decisions every day, and handoff kept breaking on the details.
       </p>
     </div>
   </div>
@@ -149,11 +167,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">lightbulb</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Evolved the library into a prescriptive platform with strict defaults. Built production-ready composite molecules and organisms, and integrated context-aware design guidelines directly inside Figma workspace tools.
+        Rebuilt the library as a prescriptive platform: production-ready, fully assembled components with strong defaults, and design guidance embedded in the Figma workspace itself rather than a separate wiki.
       </p>
     </div>
   </div>
@@ -162,11 +180,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">trending_up</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Average component assembly time dropped from 20 minutes to under 5 minutes. Streamlined engineering handoff, and eliminated onboarding/checkout user drop-off across products.
+        Component assembly time fell from 20 minutes to under 5. Component detachment dropped to zero on rebuilt patterns, and completion rates on the flows powered by the new stepper improved 15% across three product lines.
       </p>
     </div>
   </div>
@@ -176,8 +194,9 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Overview</h2>
 <div class="font-body-lg text-body-lg text-on-surface space-y-6">
-<p >The transition from maintaining a simple UI kit to orchestrating a robust, platform-level design system represents a fundamental shift in product strategy. It's not merely about ensuring visual consistency across buttons and inputs; it's about systematically reducing friction across the entire product development lifecycle.</p>
-<p >This case study details the systemic overhaul of our internal design infrastructure. We evolved beyond a static repository of components into a dynamic, opinionated platform that actively guides designers toward optimal solutions, reducing cognitive load and dramatically accelerating time-to-market for complex enterprise features.</p>
+<p >The library had every basic piece — buttons, inputs, dropdowns — and none of the things designers actually built with day to day. No standard data table. No standard page header. So everyone rebuilt them, slightly differently, every time.</p>
+<p >The decisions it left open were small ones: grey or white background on this modal, which spacing value for that card. Small, but you make them forty times a week, and the inconsistencies land downstream as engineering rework.</p>
+<p >This is what I changed, and what happened after.</p>
 </div>
 </section>
 <!-- My Role -->
@@ -186,16 +205,16 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">My Role</h2>
 </div>
 <div class="md:col-span-3 font-body-md text-body-md text-on-surface space-y-4">
-<p >I led the strategic vision and execution for the design system evolution. I conducted comprehensive internal audits, facilitated cross-functional alignment workshops with engineering leadership, and personally architected the core complex component patterns (specifically data tables and advanced navigation structures).</p>
-<p >My mandate was to move the system from "descriptive" to "prescriptive," establishing strong defaults that freed the design team to focus on complex user flows rather than pixel-pushing micro-interactions.</p>
+<p >Solo. I ran the audit, made the case to engineering leadership, and designed the architecture for the two hardest patterns — data tables and advanced navigation. There was no dedicated engineering headcount on the design side, so the system's ongoing upkeep was mine as well.</p>
+<p >What I was after: move the system from "here are the pieces" to "here's the answer", so designers spent their judgment on the problems that actually needed it.</p>
 </div>
 </section>
 <!-- The Problem -->
 <section class="mb-16">
-<h2 class="font-headline-md text-headline-md text-primary mb-8">The Problem: Operational Inefficiency</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8">The Problem</h2>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p >Despite having a "complete" Figma library, product velocity was stagnating. Designers were spending an inordinate amount of time assembling basic page structures. A deeper analysis revealed that while we had all the necessary atomic elements (buttons, inputs, dropdowns), we lacked "molecules" and "organisms" that represented actual user intent.</p>
-<p >The cost of flexibility had become too high. Because our components could be configured in dozens of ways, designers were forced to make micro-decisions constantly. "Should this modal have a grey background or white?" "Which padding token do I use for this specific card layout?" This lack of prescriptive guidance led to subtle inconsistencies across the product suite and created significant friction during design-to-engineering handoff.</p>
+<p >The library was called complete, and by one measure it was. Building blocks at the bottom, full-page templates at the top. What it didn't have was the middle — the data table, the form, the page header people actually reached for. Those got assembled from scratch, every time, by everyone.</p>
+<p >Across a team that adds up to two things nobody wants: screens that don't quite match, and a handoff that keeps stalling on detail.</p>
 </div>
 </section>
 </main>
@@ -205,41 +224,37 @@
 <!-- Research & Discovery -->
 <section class="mb-section-gap tonal-block p-8 md:p-12 rounded-xl">
 <h2 class="font-headline-md text-headline-md text-white mb-6">Research &amp; Discovery</h2>
-<p class="font-body-md text-body-md text-white/70 mb-8">To quantify the inefficiency, I conducted user research and interviewed 12 product designers across India and the US with a different set of tasks on using complex components (such as Tables) and analyzed the time taken for building a customized component for their requirements.</p>
-<h3 class="font-label-caps text-label-caps text-white/90 mb-4 uppercase tracking-widest">Activities Conducted</h3>
+<p class="font-body-md text-body-md text-white/70 mb-8">I interviewed 12 product designers across India and the US, then set them a task: build a standard five-column data table with sorting, filtering and bulk actions, using only what was already in the library. Same brief, same library, twelve people — I wanted to watch the variance rather than ask about it.</p>
+<h3 class="font-label-caps text-label-caps text-white/90 mb-4 uppercase tracking-widest">What I found</h3>
 <ul class="editorial-list font-body-md text-body-md text-white/90 mb-8">
-<li >User research and interviews with 12 product designers across India and the US.</li>
-<li >Component detachment analysis via Figma API scripts.</li>
-<li >Engineering handoff friction audits (reviewing Jira ticket ping-pong).</li>
+<li >Average completion time was 20 minutes, with wide variance in spacing and interaction patterns between designers solving the same problem.</li>
+<li >Figma API scripts showed how frequently components were detached from the system to force a specific layout.</li>
+<li >An audit of handoff tickets quantified the back-and-forth between design and engineering on spacing and state definitions.</li>
 </ul>
-<div class="border-l-2 border-white/30 pl-6 mt-8">
-<h4 class="font-label-caps text-label-caps text-white/90 mb-2 uppercase tracking-widest">The "Sample Task" Test</h4>
-<p class="font-body-md text-body-md text-white/90">I asked designers to build a standard, 5-column data table with sorting, filtering, and bulk actions using the existing component library. The average time to completion was a staggering 20 minutes, with significant variance in the final layout spacing and interaction patterns.</p>
-</div>
 </section>
 <!-- Key Insights -->
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-white/60 mb-12 uppercase tracking-widest text-center">Key Insights</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">01</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">01</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Decision Fatigue</h3>
-<p class="font-body-md text-body-md text-white/70">Overly flexible components forced designers to make styling decisions that should have been handled by the system defaults.</p>
+<p class="font-body-md text-body-md text-white/70">Flexibility that should have been resolved by defaults was landing on designers instead, every single time.</p>
 </div>
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">02</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">02</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">The "Missing Middle"</h3>
-<p class="font-body-md text-body-md text-white/70">We had great atoms and solid templates, but lacked composite components (like complex forms or standard headers) that accelerated workflow.</p>
+<p class="font-body-md text-body-md text-white/70">Strong basic building blocks, strong templates, nothing assembled in between.</p>
 </div>
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">03</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">03</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Handoff Degradation</h3>
-<p class="font-body-md text-body-md text-white/70">When designers detached components to achieve specific layouts, it led to custom CSS implementation.</p>
+<p class="font-body-md text-body-md text-white/70">Detached components meant custom CSS, which meant slower builds and more QA cycles.</p>
 </div>
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">04</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">04</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Documentation Deficit</h3>
-<p class="font-body-md text-body-md text-white/70">Guidelines existed, but they lived outside the design context (in Confluence), meaning they were rarely referenced during the actual design process.</p>
+<p class="font-body-md text-body-md text-white/70">Guidelines existed, but lived in Confluence, outside the tool where the decisions were actually being made.</p>
 </div>
 </div>
 </section>
@@ -260,7 +275,7 @@
 </thead>
 <tbody class="font-body-md text-body-md text-white/80 font-light">
 <tr class="border-b border-white/10">
-<td class="py-4 pr-4">Data Tables (Composite)</td>
+<td class="py-4 pr-4">Data Tables</td>
 <td class="py-4 px-4">High</td>
 <td class="py-4 px-4">Daily</td>
 <td class="py-4 px-4">High</td>
@@ -274,7 +289,7 @@
 <td class="py-4 pl-4 text-white font-normal">P1</td>
 </tr>
 <tr class="border-b border-white/10">
-<td class="py-4 pr-4">Modal Dialogues</td>
+<td class="py-4 pr-4">Modals</td>
 <td class="py-4 px-4">High</td>
 <td class="py-4 px-4">Daily</td>
 <td class="py-4 px-4">Medium</td>
@@ -287,38 +302,16 @@
 </div>
 </div>
 <main class="pt-section-gap pb-section-gap px-margin-standard max-w-container-max mx-auto w-full">
-<!-- Solution Strategy -->
-<section class="mb-section-gap">
-<h2 class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md text-primary mb-12">Solution Strategy</h2>
-<div class="space-y-12 pl-0 md:pl-8 border-l-0 md:border-l border-outline-variant">
-<div>
-<h3 class="font-body-lg text-body-lg text-primary mb-2">1. Reduce Decisions</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">We restricted the API surface of components. Instead of 14 button variants, we offered 3 (Primary, Secondary, Tertiary) with built-in logic that prevented incorrect usage contexts.</p>
-</div>
-<div>
-<h3 class="font-body-lg text-body-lg text-primary mb-2">2. Increase Predictability</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">We established rigorous spatial relationships. A "Section Header" composite component automatically handled the margin-bottom, ensuring the gap to the content was mathematically consistent across the entire platform.</p>
-</div>
-<div>
-<h3 class="font-body-lg text-body-lg text-primary mb-2">3. Design for Scale</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">We shifted focus to layout templates. By providing robust, pre-configured page shells, designers started 60% of the way finished, focusing their energy on the unique user problem within the canvas.</p>
-</div>
-</div>
-</section>
 <!-- Deep Dive 01 -->
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Deep Dive 01</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-6">Reimagining Data Tables</h3>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p ><strong>The Challenge:</strong> Data tables were the most commonly used pattern in our enterprise tool, yet building them was highly manual. Designers had to assemble rows, cells, and headers individually, leading to alignment errors and detached instances.</p>
-<p ><strong>The Approach:</strong> I architected a massive, fully-responsive Figma component leveraging the newest auto-layout features and component properties. It included built-in toggles for pagination, bulk actions, and density views. It was complex to build, but incredibly simple to consume.</p>
-<img src="images/data_table_evolution.png" alt="Evolution of an Enterprise Data Table Component" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
-<div class="space-y-4 my-6">
-  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Enterprise users were building dense data tables by manually adding cells one-by-one. This created immense design inconsistency (over 45 custom variations of tables) and prolonged development cycles since developers had to write custom CSS for almost every table.</p>
-  <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> By replacing the manual assembly with a single, highly configurable auto-layout system component, design system alignment became instant. Detachments dropped to 0%, and the time to customize tables was reduced by 75%.</p>
-</div>
+<p ><strong>The Problem:</strong> Data tables were the most-used pattern in the product and the most manual to build. Designers assembled rows, cells, and headers by hand, which produced 45+ custom variations across the product and meant engineers wrote near-custom CSS for almost every table.</p>
+<p ><strong>The Approach:</strong> I built a single responsive component that automatically resizes and rearranges itself, with built-in toggles for pagination, bulk actions, and density. Complex to build once; trivial to reuse afterwards.</p>
+<img src="images/data_table_evolution_simplified.png" alt="Diagram contrasting the old manual, misaligned table structure with the new architected table component, showing its layout anatomy, a working table example, and its configurable properties" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
 <div class="tonal-block p-6 mt-6 border-l-4 border-primary">
-<p class="font-body-lg text-body-lg italic"><strong>Impact:</strong> The "Sample Task" (building a standard table) dropped from 20 minutes to under 5 minutes. More importantly, engineering handoff became seamless.</p>
+<p class="font-body-lg text-body-lg italic"><strong>Result:</strong> Detachments dropped to 0%, table customisation time fell 75%, and the sample-task time dropped from 20 minutes to under 5 — with substantially fewer clarification rounds in handoff.</p>
 </div>
 <img src="images/table_research.png" alt="Table Variant Research: Before (Text Only) vs After (ASCII + Icons)" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
 </div>
@@ -328,22 +321,21 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Deep Dive 02</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-6">Simplifying Progress Steppers</h3>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p ><strong>The Challenge:</strong> Multi-step workflows were frequently designed with bespoke stepper components, leading to confusing navigation for users and redundant code for developers.</p>
-<p ><strong>The Approach:</strong> I consolidated 4 different stepper patterns into a single, robust component capable of handling linear and non-linear flows, error states, and responsive collapsing. I embedded the logic for state transitions directly into the variant properties.</p>
-<img src="images/stepper_consolidation.png" alt="Simplified Stepper Component Consolidation" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
-<div class="space-y-4 my-6">
-  <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Multi-step user journeys used custom stepper designs that did not scale. Users faced inconsistent progress feedback across different sections, leading to drop-offs on long forms.</p>
-  <p class="font-body-md text-on-surface"><strong>The Impact Detail:</strong> Standardizing the steppers into one smart responsive component reduced custom coding requirements by 40% and improved user completion rates by 15%.</p>
+<p ><strong>The Problem:</strong> Multi-step flows ran on four separate bespoke stepper implementations, each maintained independently and each behaving slightly differently for users working through long forms.</p>
+<p ><strong>The Approach:</strong> I consolidated all four into one component handling linear and non-linear flows, error states, and responsive collapsing, with the logic for moving between states built into the component itself instead of rebuilt every time it was needed.</p>
+<img src="images/stepper_consolidation_simplified.png" alt="Diagram contrasting several inconsistent stepper implementations with the single unified stepper component and its configurable properties" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
+<div class="tonal-block p-6 mt-6 border-l-4 border-primary">
+<p class="font-body-lg text-body-lg italic"><strong>Result:</strong> Custom stepper code dropped 40%, and completion rates on the onboarding and checkout flows it powers — across three product lines — improved 15%.</p>
 </div>
-<p ><strong>Impact:</strong> Standardized the onboarding and checkout flows across three disparate product lines, resulting in a measurable drop in user drop-off during complex configuration tasks.</p>
 </div>
 </section>
 <!-- Driving Adoption -->
 <section class="mb-section-gap">
 <h2 class="font-headline-md text-headline-md text-primary mb-6">Driving Adoption</h2>
 <div class="font-body-md text-body-md text-on-surface space-y-6">
-<p >A system is only valuable if it's used. The technical execution of the components was only half the battle; shifting the perception of the design team was the other.</p>
-<p >I partnered closely with engineering to streamline the handoff process. When designers realized that using the system components meant their work would be built exactly as they designed it—without the usual QA back-and-forth—adoption skyrocketed. The system moved from feeling like a "constraint" to feeling like a "superpower."</p>
+<p >Building the components was half the work. Getting designers to reach for them was the other half.</p>
+<p >The turning point was tightening engineering handoff. Once using a system component meant it shipped exactly as designed, with no QA back-and-forth, designers started reaching for it by default. The system stopped feeling like a rule and started feeling like a shortcut.</p>
+<p >The team pushed back at first. The company is conservative about process change, and "we're rebuilding the library" sounds like disruption to everyone who has a deadline. So I stopped talking about the system and started talking about their week — what this would take off their plate, specifically. That's what shifted it.</p>
 </div>
 </section>
 <!-- Outcomes & Learnings -->
@@ -351,12 +343,11 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-8">Outcomes &amp; What I Learned</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-4">
-<p >The transformation of our design system yielded immediate operational benefits. Time-to-prototype decreased significantly, and the visual consistency of our shipped product improved dramatically. But the most profound impact was cultural.</p>
-<p >By removing the friction of basic UI construction, the design team was elevated. Conversations shifted from "what hex code is this border?" to "does this user flow actually solve the core problem?"</p>
+<p >Time-to-prototype dropped and the screens started matching. But the change I'd point to is what design reviews turned into: less "what's the border radius here", more "does this flow actually solve the problem". The system stopped absorbing the conversation.</p>
 </div>
 <div class="tonal-block p-8 flex flex-col justify-center">
 <h3 class="font-body-lg text-body-lg text-primary mb-4">Designers are users too.</h3>
-<p class="text-on-surface-variant">Treating internal tooling with the same rigorous UX process applied to external products is essential. Empathy for the designer's workflow is the foundation of a successful design system.</p>
+<p class="text-on-surface-variant">Internal tooling deserves the same research rigour as anything shipped externally. The workflow you're designing for is your own team's.</p>
 </div>
 </div>
 </section>
@@ -389,11 +380,10 @@
 <!-- Footer -->
 <footer class="w-full bg-surface border-t border-outline-variant py-margin-standard">
 <div class="flex flex-col md:flex-row justify-between items-center gap-element-gap px-margin-standard max-w-container-max mx-auto w-full">
-<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Senior UX Portfolio — Thoughtful Design Retrospective</p>
-    <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
-<div class="flex gap-6">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</p><div class="flex gap-6">
 <a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="#">Email</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="mailto:chencse@gmail.com">Email</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-80" href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a>
 </div>
 </div>
 
@@ -682,8 +672,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
   function formatAIResponse(text) {
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = '';
 
     lines.forEach(line => {

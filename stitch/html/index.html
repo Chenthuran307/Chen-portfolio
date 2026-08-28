@@ -3,8 +3,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Chen</title>
-<meta name="description" content="Chen is a Senior UX Designer specializing in systems thinking, product strategy, and interaction design."/>
+<title>Chen — Senior Product Designer</title>
+<!-- seo:start -->
+<meta name="description" content="Senior Product Designer working on design systems, developer platforms and complex enterprise products. I untangle how these systems work, and help the people who use them find a simpler way through."/>
+<link rel="canonical" href="https://chenthuran.in/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/"/>
+<meta property="og:title" content="Chen — Senior Product Designer"/>
+<meta property="og:description" content="Senior Product Designer working on design systems, developer platforms and complex enterprise products. I untangle how these systems work, and help the people who use them find a simpler way through."/>
+<meta property="og:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Chen — Senior Product Designer"/>
+<meta name="twitter:description" content="Senior Product Designer working on design systems, developer platforms and complex enterprise products. I untangle how these systems work, and help the people who use them find a simpler way through."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/profile_cover.jpg"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -32,7 +46,7 @@
     border-radius: 4px;
     transition: all 0.25s ease;
   }
-  
+
 
   .btn-editorial {
     display: inline-flex;
@@ -44,7 +58,7 @@
     cursor: pointer;
     background-color: transparent;
   }
-  
+
 
   /* Mobile menu */
   #mobile-menu {
@@ -72,12 +86,12 @@
     border-bottom: 1px solid #e4e2e2;
     text-decoration: none;
   }
-  
+
   #mobile-menu a.active { color: #000; border-right: 2px solid #000; }
 
   /* Work card hover */
   .work-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  
+
 </style>
 </head>
 <body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
@@ -85,24 +99,26 @@
 <!-- TopNavBar -->
 <header class="w-full top-0 bg-surface sticky z-50 border-b border-surface-variant/40" style="position:sticky;">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+    <a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
     <nav class="hidden md:flex gap-8">
-      <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="01_home" data-nav>Home</a>
+      <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="/" data-nav>Home</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="work" data-nav>Work</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
     </nav>
     <button id="menu-toggle" class="md:hidden flex items-center justify-center text-primary p-2" aria-label="Toggle menu">
       <span class="material-symbols-outlined">menu</span>
     </button>
     <!-- Mobile menu -->
     <div id="mobile-menu">
-      <a class="active" href="01_home" data-nav>Home</a>
+      <a class="active" href="/" data-nav>Home</a>
       <a href="work" data-nav>Work</a>
       <a href="beyond-bau" data-nav>Beyond BAU</a>
-      <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+      <a href="idea-godown" data-nav>Idea Godown</a>
       <a href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
     </div>
   </div>
 </header>
@@ -111,27 +127,34 @@
   <!-- Hero & Intro Section -->
   <section class="w-full max-w-container-max mx-auto px-margin-standard pt-8 pb-12 min-h-[80vh] flex flex-col justify-center">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-      
+
       <!-- Text Content (Left) -->
       <div class="md:col-span-7 flex flex-col items-start text-left">
         <!-- Main Heading -->
-        <h1 id="hero-title" class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Hey, I'm (Chen)thuran</h1>
-        
+        <h1 id="hero-title" class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Hey, I'm (Chen)thuran</h1>
+
         <!-- Bio / Subtitle -->
         <div class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl space-y-4">
           <p id="hero-subtitle" class="text-xl md:text-2xl font-light text-primary italic">
-          Guided by Considered Empathy, Craftsmanship, and Navigating Ambiguity.
+          I untangle complex enterprise systems, and help the people who use them find a simpler way through.
         </p>
           <p id="hero-about">
-          For over 10 years, I've designed complex digital products by combining deep systems thinking with an uncompromising high bar for quality. I seamlessly zoom out to map the big-picture digital ecosystem and zoom in to refine the minute details of craft, bridging user needs with business goals.
+          For over 10 years I've worked inside enterprise products — design systems, developer platforms, financial infrastructure. The brief usually arrives as "redesign this screen". It's usually not the screen. So I go and watch how the work actually gets done, build something rough to check what I've understood, and get specific about which problems are worth solving — and which ones to leave alone.
         </p>
         </div>
 
         <div class="mt-8 flex gap-6 flex-wrap">
           <a class="btn-editorial font-label-caps text-label-caps text-primary" href="work" data-nav>View Selected Work</a>
         </div>
+
+        <div class="mt-10 flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-[20px] text-primary shrink-0" style="font-variation-settings:'FILL' 1;" aria-hidden="true">workspace_premium</span>
+          <p class="text-[13px] font-semibold tracking-wide text-primary">
+            2× Manager Spotlight <span class="font-normal text-outline-variant">·</span> 2× Employee of the Year <span class="font-normal text-outline-variant">·</span> 1× iDesign
+          </p>
+        </div>
       </div>
-      
+
       <!-- Profile Image (Right) -->
       <div class="md:col-span-5 flex justify-center md:justify-end lg:justify-center w-full mt-8 md:mt-0">
         <video id="profile-video" autoplay muted playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="auto" poster="images/profile_cover.jpg" class="w-72 md:w-full max-w-[340px] h-auto object-cover duration-500 no-lightbox rounded-sm shadow-sm">
@@ -154,7 +177,7 @@
               <span id="project1-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Design Systems</span>
               <h3 id="project1-title" class="font-headline-md text-headline-md text-primary">Platform over Library</h3>
               <p id="project1-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-                How a prescriptive design system reduced component assembly time to 5 minutes.
+                How a prescriptive design system cut component assembly time from 20 minutes to under 5.
               </p>
             </div>
             <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
@@ -167,7 +190,7 @@
               <span id="project2-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Enterprise UX</span>
               <h3 id="project2-title" class="font-headline-md text-headline-md text-primary">Developer-First Banking</h3>
               <p id="project2-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-                How modular sandbox workspaces reduced API onboarding friction.
+                How modular sandbox workspaces cut onboarding lead time 65%.
               </p>
             </div>
             <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
@@ -177,10 +200,10 @@
         <a href="dosb-financing-ecosystem" data-nav class="work-card block border border-outline-variant p-8 group">
           <div class="flex justify-between items-start gap-4">
             <div>
-              <span id="project3-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Fintech / DeFi</span>
+              <span id="project3-tag" class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Fintech / DeFi · Concept, pilot data</span>
               <h3 id="project3-title" class="font-headline-md text-headline-md text-primary">Architecture as Equity</h3>
               <p id="project3-desc" class="font-body-md text-body-md text-on-surface-variant mt-2">
-                How systems design unlocked capital for diverse-owned small businesses.
+                How systems design is projected to cut loan approval time from 21 days to under 48 hours — not yet shipped, based on prototype testing.
               </p>
             </div>
             <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
@@ -200,81 +223,36 @@
         <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Core Expertise</span>
       </div>
       <h2 class="font-headline-lg text-headline-lg text-primary mb-12">What I do <span class="italic font-normal">best</span></h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">01</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Enterprise & Developer UX</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I simplify internal developer tools and SaaS interfaces. I convert high-touch setup steps into self-service workspaces that engineers confidently manage.</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Design Systems & Platform Work</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">I build systems that settle the common decisions once, so nobody has to re-make them every sprint. Then the less glamorous half: getting people to actually reach for them, which is usually the harder problem.</p>
           </div>
         </div>
         <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">02</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Design Systems & Process Strategy</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I build tokenized components and establish process strategy to bridge design and engineering. By improving the design-to-development pipeline, I reduce handoff bottlenecks and drive efficiency.</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Enterprise & Developer Tools</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Internal tools get the leftovers — no research budget, no polish, a fifteen-step setup nobody wrote down. I like this work. Someone is using that tool all day, every day, and it's rarely anyone's job to make it better.</p>
           </div>
         </div>
         <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">03</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Fintech & DLT Architectures</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I design multi-party payment and asset flows using Distributed Ledger Technology, translating raw DeFi protocols into trust-centered visual metaphors.</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">Complex Systems & Fintech</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Lending flows built on distributed ledgers, processes held together by spreadsheets and workarounds. I map how the thing actually works — not how the documentation says it works — then find the version a normal person can follow.</p>
           </div>
         </div>
         <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
           <div>
             <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">04</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Systems Thinking & Architecture</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I map complex enterprise ecosystems, translating fragmented human workarounds and offline processes into cohesive digital architectures that balance business rules with intuitive UX.</p>
-          </div>
-        </div>
-        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
-          <div>
-            <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">05</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">Experimental Prototyping & Craft</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I believe in building to learn. Whether hacking wearable hardware sensors, scripting local simulators, or sketching narrative engines, I bring abstract ideas to life quickly through high-fidelity functional code.</p>
-          </div>
-        </div>
-        <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between">
-          <div>
-            <span class="font-display-lg text-display-lg text-secondary/20 block mb-6">06</span>
-            <h4 class="font-headline-md text-headline-md text-primary mb-3">AI & Agentic Design</h4>
-            <p class="font-body-md text-body-md text-on-surface-variant">I design explainable, trust-centered agentic workspaces. Instead of replacing the operator, my UX focuses on transparency, grounding AI-generated content in inspectable data citations.</p>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3">AI & Agentic Design</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">I design AI tools that show their working. Producing an answer is the easy part now. The real design problem is helping someone tell when to trust it and when to go and check — and building tools that make checking easy.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Career Highlights -->
-  <section class="w-full max-w-container-max mx-auto px-margin-standard pb-section-gap">
-    <div >
-      <div class="flex items-center gap-4 mb-8">
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Achievements</span>
-      </div>
-      <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Career <span class="italic font-normal">Highlights</span></h2>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
-          <span class="text-4xl md:text-6xl font-bold text-primary">30+</span>
-          <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Projects Completed</span>
-        </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
-          <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
-          <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Industries Worked With</span>
-        </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
-          <span class="text-4xl md:text-6xl font-bold text-primary">5</span>
-          <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Recognitions (2 Manager Spotlight Awards)</span>
-        </div>
-        <div class="p-4 md:p-8 border border-outline-variant bg-surface-container flex flex-col justify-between">
-          <span class="text-4xl md:text-6xl font-bold text-primary">10+</span>
-          <span class="font-label-caps text-label-caps text-on-surface-variant mt-4 block">Years Experience</span>
-        </div>
-      </div>
-      
-
     </div>
   </section>
 
@@ -288,12 +266,12 @@
         <div>
           <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Idea Godown</h2>
           <p class="font-body-md text-on-surface-variant max-w-2xl">
-            A sandbox of side projects, physical hardware hacks, and functional software simulators exploring flow state gaming, modular hearable jewelry, and narrative AI.
+            Side projects and hardware hacks — biometric gaming, hearables you'd actually wear as jewellery, narrative AI. Ideas I haven't built yet, and a couple I decided not to.
           </p>
         </div>
-        <a href="03_idea_godown_research_ledger" data-nav class="btn-editorial font-label-caps text-label-caps text-primary whitespace-nowrap">Enter the Sandbox →</a>
+        <a href="idea-godown" data-nav class="btn-editorial font-label-caps text-label-caps text-primary whitespace-nowrap">Enter the Sandbox →</a>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Sandbox 1 -->
         <div class="border border-outline-variant p-6 bg-surface flex flex-col justify-between">
@@ -305,7 +283,7 @@
             </p>
           </div>
         </div>
-        
+
         <!-- Sandbox 2 -->
         <div class="border border-outline-variant p-6 bg-surface flex flex-col justify-between">
           <div>
@@ -341,12 +319,12 @@
         <div>
           <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Beyond BAU</h2>
           <p class="font-body-md text-on-surface-variant max-w-2xl">
-            Proactive productivity tools, knowledge management systems, and team-building frameworks developed to automate workflows and optimize collaboration.
+            Things I built because they were getting in my way, or the team's. Figma plugins, a research sprint, an AI assistant for our design system. Mostly nobody asked.
           </p>
         </div>
         <a href="beyond-bau" data-nav class="btn-editorial font-label-caps text-label-caps text-primary whitespace-nowrap">View All Initiatives →</a>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Initiative 1 -->
         <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 group">
@@ -355,13 +333,13 @@
               <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Productivity • Figma Plugin</span>
               <h3 class="font-headline-md text-headline-md text-primary mt-2">Comment Analyzer Plugin</h3>
               <p class="font-body-md text-on-surface-variant mt-2">
-                An LLM-powered Figma plugin that automatically categorizes design review comments, reducing triage times by 40%.
+                A Figma plugin that reads design-review comments and sorts them into bugs, copy fixes and questions. Cut triage time 40%.
               </p>
             </div>
             <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
           </div>
         </a>
-        
+
         <!-- Initiative 2 -->
         <a href="beyond-bau" data-nav class="work-card block border border-outline-variant p-6 md:p-8 group">
           <div class="flex justify-between items-start gap-4">
@@ -369,7 +347,7 @@
               <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2">Facilitation • Leadership</span>
               <h3 class="font-headline-md text-headline-md text-primary mt-2">Team Personality Workshop</h3>
               <p class="font-body-md text-on-surface-variant mt-2">
-                Facilitating team-building workshops based on the book <strong>Surrounded by Idiots</strong> to align communication traits.
+                A workshop built on <strong>Surrounded by Idiots</strong>, run for 20 people, mapping how each of us prefers to be talked to. Critiques got easier afterwards.
               </p>
             </div>
             <span class="material-symbols-outlined text-on-surface-variant mt-1">arrow_outward</span>
@@ -386,66 +364,79 @@
         <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Testimonials</span>
       </div>
       <h2 class="font-headline-lg text-headline-lg text-primary mb-12">Collaborator <span class="italic font-normal">Perspectives</span></h2>
-      
+
       <!-- Flanked Carousel Layout -->
       <div class="flex items-center gap-4 md:gap-12 relative">
         <!-- Left Control -->
         <button id="testimonial-prev" class="flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Previous testimonial">
           <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_left</span>
         </button>
-        
+
         <!-- Slider Container (Transparent, no grey box) -->
         <div class="flex-grow relative overflow-hidden min-h-[360px] md:min-h-[260px] flex flex-col justify-between">
           <!-- Slides Container -->
           <div class="relative w-full flex-grow flex items-center">
-            
+
             <!-- Slide 1 -->
             <div class="testimonial-slide w-full duration-500 flex flex-col justify-between" data-index="0">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
-                <p id="testimonial1-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">The creative person to work with and have rational knowledge of what he is doing. Very few will be like that and I had a chance to work with him. He is ideally a great team player and will be a great asset added to any team.</p>
+                <p id="testimonial1-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen is a highly creative and innovative designer who consistently thinks outside the box. He has the natural ability to solve challenges thoughtfully, spot gaps, and turn curiosity into meaningful solutions. His fresh perspective and proactive approach makes him a real asset to any team.</p>
               </div>
               <div>
-                <div id="testimonial1-author" class="font-label-caps text-label-caps text-primary font-bold">Divagar R</div>
-                <div id="testimonial1-title" class="text-xs text-on-surface-variant mt-1">Ex-Senior Product Designer at Rapido, Ex-Porter</div>
+                <div id="testimonial1-author" class="font-label-caps text-label-caps text-primary font-bold">Prasanna Srinivasan</div>
+                <div id="testimonial1-title" class="text-xs text-on-surface-variant mt-1">Vice President / Lead Product Designer</div>
               </div>
             </div>
-            
+
             <!-- Slide 2 -->
             <div class="testimonial-slide w-full duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="1">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
-                <p id="testimonial2-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen is one of the finest designers who gives attention to minute details. Be it graphic design, UI, UX he will mesmerize with his design thinking skills. An out of the box thinker. He helped and motivated me at early stages of my designing career. "Engineer by education, Designer by passion" is an apt sentence for him. Anyone can enjoy working with him.</p>
+                <p id="testimonial2-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">The creative person to work with and have rational knowledge of what he is doing. Very few will be like that and I had a chance to work with him. He is ideally a great team player and will be a great asset added to any team.</p>
               </div>
               <div>
-                <div id="testimonial2-author" class="font-label-caps text-label-caps text-primary font-bold">Harsha Vardhan</div>
-                <div id="testimonial2-title" class="text-xs text-on-surface-variant mt-1">Lead Product Designer | Enterprise SaaS | TCS | Ex-Lollypop</div>
+                <div id="testimonial2-author" class="font-label-caps text-label-caps text-primary font-bold">Divagar R</div>
+                <div id="testimonial2-title" class="text-xs text-on-surface-variant mt-1">Ex-Senior Product Designer at Rapido, Ex-Porter</div>
               </div>
             </div>
-            
+
             <!-- Slide 3 -->
             <div class="testimonial-slide w-full duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="2">
               <div>
                 <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
-                <p id="testimonial3-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen has been an integral part of the Terralogic design team. He worked with me for over a year as a visual designer. He is really good with understanding client requirements and makes sure to deliver the output on time. He also learns new things very quickly and always keeps himself updated with the latest trends. He is hard working and self motivated as well. He earns my highest recommendation and I wish him all the best.</p>
+                <p id="testimonial3-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen is one of the finest designers who gives attention to minute details. Be it graphic design, UI, UX he will mesmerize with his design thinking skills. An out of the box thinker. He helped and motivated me at early stages of my designing career. "Engineer by education, Designer by passion" is an apt sentence for him. Anyone can enjoy working with him.</p>
               </div>
               <div>
-                <div id="testimonial3-author" class="font-label-caps text-label-caps text-primary font-bold">Richa Sharma</div>
-                <div id="testimonial3-title" class="text-xs text-on-surface-variant mt-1">Experience Design Leader</div>
+                <div id="testimonial3-author" class="font-label-caps text-label-caps text-primary font-bold">Harsha Vardhan</div>
+                <div id="testimonial3-title" class="text-xs text-on-surface-variant mt-1">Lead Product Designer | Enterprise SaaS | TCS | Ex-Lollypop</div>
               </div>
             </div>
-            
+
+            <!-- Slide 4 -->
+            <div class="testimonial-slide w-full duration-500 absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-between" data-index="3">
+              <div>
+                <span class="text-6xl text-secondary-fixed-dim font-serif block mb-2">“</span>
+                <p id="testimonial4-text" class="font-body-lg text-on-surface-variant italic mb-6 max-w-4xl">Chen has been an integral part of the Terralogic design team. He worked with me for over a year as a visual designer. He is really good with understanding client requirements and makes sure to deliver the output on time. He also learns new things very quickly and always keeps himself updated with the latest trends. He is hard working and self motivated as well. He earns my highest recommendation and I wish him all the best.</p>
+              </div>
+              <div>
+                <div id="testimonial4-author" class="font-label-caps text-label-caps text-primary font-bold">Richa Sharma</div>
+                <div id="testimonial4-title" class="text-xs text-on-surface-variant mt-1">Experience Design Leader</div>
+              </div>
+            </div>
+
           </div>
-          
+
           <!-- Slide Indicators / Dots (Bottom) -->
           <div class="flex gap-2 mt-8 flex-shrink-0">
             <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-primary duration-300 flex-shrink-0" data-slide="0" aria-label="Go to slide 1"></button>
             <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant duration-300 flex-shrink-0" data-slide="1" aria-label="Go to slide 2"></button>
             <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant duration-300 flex-shrink-0" data-slide="2" aria-label="Go to slide 3"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-outline-variant duration-300 flex-shrink-0" data-slide="3" aria-label="Go to slide 4"></button>
           </div>
-          
+
         </div>
-        
+
         <!-- Right Control -->
         <button id="testimonial-next" class="flex items-center justify-center text-on-surface-variant flex-shrink-0 cursor-pointer" aria-label="Next testimonial">
           <span class="material-symbols-outlined text-2xl md:text-4xl">chevron_right</span>
@@ -464,9 +455,9 @@
     <div class="flex gap-6">
       <a class="font-body-md text-body-md text-on-surface-variant" href="mailto:chencse@gmail.com">Email</a>
       <a class="font-body-md text-body-md text-on-surface-variant" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
+      <a class="font-body-md text-body-md text-on-surface-variant" href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a>
     </div>
-    <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior UX Portfolio. All rights reserved.</div>
-    <div class="font-body-md text-on-surface-variant/60 text-xs mt-2">This website is vibecoded</div>
+    <div class="font-body-md text-body-md text-on-surface-variant text-sm mt-8">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</div>
   </div>
 </footer>
 
@@ -558,10 +549,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.createElement('div');
     lightbox.id = 'global-lightbox';
     lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
-    
+
     const imgElement = document.createElement('img');
     imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
-    
+
     lightbox.appendChild(imgElement);
     document.body.appendChild(lightbox);
 
@@ -576,8 +567,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img:not(.no-lightbox)');
     images.forEach(img => {
         // Exclude small UI icons or avatars if they exist, but generally all content images are fine
-        if (img.width < 100 && img.height < 100) return; 
-        
+        if (img.width < 100 && img.height < 100) return;
+
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -841,8 +832,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
   function formatAIResponse(text) {
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = '';
 
     lines.forEach(line => {

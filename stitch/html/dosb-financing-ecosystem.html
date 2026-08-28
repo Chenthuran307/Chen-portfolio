@@ -3,7 +3,22 @@
 <html class="light" lang="en" style=""><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Case Study: Bridging the Financing Gap for DOSBs</title>
+<title>Case Study: Bridging the Financing Gap for DOSBs — Chen</title>
+<!-- seo:start -->
+<meta name="description" content="A distributed-ledger capital bridge for diverse-owned small business lending, with a verifiable identity credential and governance built into the dashboard. Pilot stage."/>
+<link rel="canonical" href="https://chenthuran.in/dosb-financing-ecosystem"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Chen — Product Design Portfolio"/>
+<meta property="og:url" content="https://chenthuran.in/dosb-financing-ecosystem"/>
+<meta property="og:title" content="Case Study: Bridging the Financing Gap for DOSBs — Chen"/>
+<meta property="og:description" content="A distributed-ledger capital bridge for diverse-owned small business lending, with a verifiable identity credential and governance built into the dashboard. Pilot stage."/>
+<meta property="og:image" content="https://chenthuran.in/images/dosb_portfolio_overview.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Case Study: Bridging the Financing Gap for DOSBs — Chen"/>
+<meta name="twitter:description" content="A distributed-ledger capital bridge for diverse-owned small business lending, with a verifiable identity credential and governance built into the dashboard. Pilot stage."/>
+<meta name="twitter:image" content="https://chenthuran.in/images/dosb_portfolio_overview.png"/>
+<!-- seo:end -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -72,7 +87,7 @@
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           border: 1px solid #c4c7c7;
         }
-        
+
         .case-card .thumb {
           overflow: hidden;
           background: #efeded;
@@ -100,24 +115,26 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-surface-variant/40">
 <div class="flex justify-between items-center max-w-[1200px] mx-auto py-margin-standard px-margin-standard relative">
-<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="01_home" data-nav>Chen</a>
+<a class="font-headline-md text-headline-md font-bold text-primary cursor-pointer duration-300" href="/" data-nav>Chen</a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center gap-element-gap">
-<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="01_home" data-nav>Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/" data-nav>Home</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="work" data-nav>Work</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="beyond-bau" data-nav>Beyond BAU</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="idea-godown" data-nav>Idea Godown</a>
       <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="blogs" data-nav>Blogs</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant nav-link-btn" href="/#contact" data-nav>Contact</a>
 </div>
 <button id="menu-toggle" class="md:hidden text-primary" aria-label="Toggle menu">
 <span class="material-symbols-outlined">menu</span>
 </button>
 <div id="mobile-menu">
-  <a href="01_home" data-nav>Home</a>
+  <a href="/" data-nav>Home</a>
   <a class="active" href="work" data-nav>Work</a>
   <a href="beyond-bau" data-nav>Beyond BAU</a>
-  <a href="03_idea_godown_research_ledger" data-nav>Idea Godown</a>
+  <a href="idea-godown" data-nav>Idea Godown</a>
       <a href="blogs" data-nav>Blogs</a>
+      <a href="/#contact" data-nav>Contact</a>
 </div>
 </div>
 </nav>
@@ -131,8 +148,10 @@
   </a>
 </div>
 <header class="mb-section-gap pt-16">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Bridging the Financing Gap for Diverse-Owned Small Businesses (DOSBs)</h1>
-<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant">Fair and equitable capital access leveraging Distributed Ledger Technology to dismantle systemic barriers.</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Bridging the Financing Gap for Diverse-Owned Small Businesses</h1>
+<p class="font-body-xl-quote text-body-xl-quote text-on-surface-variant mb-4">Fair and equitable capital access through distributed ledger technology.</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Senior Product Designer · 4 Months + 3 Months Pilot Discovery · Pilot · Solo, working from a dedicated research team's findings</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Client anonymised under NDA.</p>
 </header>
 
 <!-- Problem, Solution, Impact Summary Cards -->
@@ -141,11 +160,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-error">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">error</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">error</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Problem</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Diverse entrepreneurs faced systemic capital access disparities, with 86% of Black-owned firms having unmet funding. Existing DeFi solutions were too complex and lacked trust for institutional capital allocators.
+        Diverse entrepreneurs face measurable capital access disparities — 86% of Black-owned firms report unmet funding needs, and diverse owners pay roughly 7.8% higher interest rates, based on direct interviews conducted by the research team. Existing decentralised finance products were too complex for borrowers and too unproven for institutional investors.
       </p>
     </div>
   </div>
@@ -154,11 +173,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">lightbulb</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Solution</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Developed a decentralized capital bridge using Distributed Ledger Technology (DLT), mapped to intuitive visual models (like "Global Pass") to abstract on-chain complexity.
+        A decentralised capital bridge built on distributed ledger technology (DLT), with the technical complexity hidden behind a single verifiable identity credential — the Global Pass.
       </p>
     </div>
   </div>
@@ -167,11 +186,11 @@
   <div class="p-6 border border-outline-variant bg-surface-container-low flex flex-col justify-between duration-300">
     <div>
       <div class="flex items-center gap-2 mb-4 text-primary">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-        <h3 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h3>
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">trending_up</span>
+        <h2 class="font-label-caps text-label-caps uppercase tracking-widest font-bold text-sm">Impact</h2>
       </div>
       <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Simplified the borrower journey, fostered trust among institutional allocators, and established a scalable decentralized finance equity framework.
+        Projected: loan approval time under 48 hours (down from 21 days), a 50% rise in application completions, and a 90% drop in loan routing errors — based on usability testing with real users on working prototypes, not yet measured in production.
       </p>
     </div>
   </div>
@@ -181,7 +200,8 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">The Challenge</h2>
 <div class="font-body-lg text-body-lg text-on-surface space-y-6">
-<p >Systemic disparities in traditional finance continue to stifle growth for diverse entrepreneurs. I set out to architect a decentralized liquidity bridge that simplifies the complexities of DeFi while ensuring high-trust interactions for DOSB borrowers and institutional investors.</p>
+<p >Small-business lending is slow and manual: dozens of paper documents, risk scored by hand, weeks of coordination between banks. For diverse-owned businesses already facing worse terms, that process is one more barrier — and it falls hardest on the applicants who most need the money quickly.</p>
+<p >The brief: build something simple enough for a small-business owner and credible enough for an institutional investor. Those two want opposite things from an interface — one wants fewer decisions, the other wants to see everything. That tension is the whole project.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-l-2 border-secondary pl-8 py-4 mt-8">
 <div>
 <div class="text-[48px] font-bold text-primary mb-1 tracking-tighter">86%</div>
@@ -200,18 +220,17 @@
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">My Role</h2>
 </div>
 <div class="md:col-span-3 font-body-md text-body-md text-on-surface space-y-4">
-<p >As the Product Designer and UX System Architect, I led the strategic vision for the liquidity bridge. I conducted comprehensive ecosystem audits, facilitated cross-functional alignment workshops with fintech leaders, and personally architected the core complex component patterns for institutional liquidity management.</p>
-<p >My mandate was to translate complex DeFi protocols into human-centric interfaces, establishing strong defaults that remove manual gatekeeping and foster financial equity.</p>
+<p >I led the design of the liquidity bridge — architecting the Global Pass identity system, the tiered access model, and the governance dashboard — working from findings gathered by a dedicated research team rather than running the interviews myself.</p>
 </div>
 </section>
 <!-- User Research & DLT Mapping -->
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">Research & Empathy</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-8">Understanding the Core Users</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I conducted extensive user research to ground our highly technical definition of Distributed Ledger Technology (DLT) into human-centered needs. I interviewed key stakeholders across the ecosystem: <strong>Larissa</strong> (Healthcare DOSB Owner), <strong>Phil</strong> (Loan Originator Manager), <strong>Anna</strong> (Loan Service Specialist), <strong>Amy</strong> (Asset Manager), and <strong>William</strong> (Institutional Investor).</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Our research team interviewed stakeholders across the full lending chain: <strong>Larissa</strong> (healthcare DOSB owner), <strong>Phil</strong> (loan origination manager), <strong>Anna</strong> (loan servicing specialist), <strong>Amy</strong> (asset manager), and <strong>William</strong> (institutional investor). I worked from their synthesis to shape the architecture below.</p>
 
 <h4 class="font-headline-lg text-[24px] font-bold text-primary mb-4 mt-16">The Core Technology: Distributed Ledger Technology (DLT)</h4>
-<p class="font-body-md text-body-md text-on-surface mb-12">As defined in our strategic baseline, DLT is the foundational infrastructure from which blockchains are created. Its primary functions are allowing users to view any changes (and who made them), reducing the need to audit data, ensuring data reliability, and restricting access only to those who need it. Here is how I mapped these specific DLT capabilities into core user needs:</p>
+<p class="font-body-md text-body-md text-on-surface mb-12">As defined in our strategic baseline, DLT is the underlying technology that blockchains are built on. It lets users see any change to the data and who made it, cuts down on the need for a separate audit, keeps the data reliable, and restricts access to only those who need it. Here is how I mapped those specific DLT capabilities to what each type of user actually needed:</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
   <!-- DOSB Owner -->
@@ -223,7 +242,7 @@
       <p class="font-body-md text-body-md text-on-surface">Only provides access to those that need it.</p>
     </div>
     <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
-      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Their One-Line Need</span>
       <p class="font-body-md text-body-md text-primary font-medium">"I need a secure platform where I can safely share my sensitive business identity and financial credentials to get funding, knowing my data is strictly controlled."</p>
     </div>
   </div>
@@ -237,7 +256,7 @@
       <p class="font-body-md text-body-md text-on-surface">Reduces the need to audit data and ensures data is reliable.</p>
     </div>
     <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
-      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Their One-Line Need</span>
       <p class="font-body-md text-body-md text-primary font-medium">"I need a transparent, tamper-proof system where I can confidently invest capital without spending excessive time and money auditing the underlying business data."</p>
     </div>
   </div>
@@ -251,7 +270,7 @@
       <p class="font-body-md text-body-md text-on-surface">The infrastructure allows users to view any changes and exactly who made them.</p>
     </div>
     <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
-      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Their One-Line Need</span>
       <p class="font-body-md text-body-md text-primary font-medium">"I need an immutable, traceable ledger to efficiently track loan terms, repayments, and stakeholder approvals without ever disputing the history of the transaction."</p>
     </div>
   </div>
@@ -265,11 +284,12 @@
       <p class="font-body-md text-body-md text-on-surface">Reduces the need to audit data and provides highly restricted access.</p>
     </div>
     <div class="bg-surface p-4 rounded-lg border border-outline-variant/30">
-      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2 opacity-70">Their One-Line Need</span>
+      <span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Their One-Line Need</span>
       <p class="font-body-md text-body-md text-primary font-medium">"I need an automated infrastructure where security and trust are built natively into the system, drastically minimizing the friction of manual data verification."</p>
     </div>
   </div>
 </div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-12">The through-line: four groups, four different reasons to distrust the current process. Every one of them was solving for trust — just from a different side of the transaction.</p>
 </section>
 </div>
 <!-- Dark Mode Phase: Ecosystem Architecture -->
@@ -278,23 +298,19 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-white/60 mb-4 uppercase tracking-widest">01. Technical Architecture</h2>
 <h3 class="font-headline-md text-headline-md text-white mb-8">Understanding the Ecosystem</h3>
-<p class="font-body-md text-body-md text-white/70 mb-12">The flow of capital in a decentralized environment requires absolute transparency between stakeholders. I mapped the architecture to ensure that every participant understands their position within the DLT bridge.</p>
-<div class="mb-16 border-l-2 border-white/30 pl-6 py-2">
-<p class="font-body-md text-white/90"><strong>The Problem Detail:</strong> Small business lending is slow and manual. Underwriting off-chain small businesses required dozens of physical paper documents, manual risk scoring, and weeks of bank coordination, locking out diverse business owners from fast capitals.</p>
-<p class="font-body-md text-white/90 mt-2"><strong>The Impact Detail:</strong> Designing a digital-first decentralized ledger architecture automated the credit verification process, transforming lending approval times from 21 days to under 48 hours.</p>
-</div>
+<p class="font-body-md text-body-md text-white/70 mb-12">The flow of capital in a decentralised environment requires absolute transparency between participants, so I mapped the architecture to make each stakeholder's position in the bridge explicit. Designing the system around a digital ledger automated credit verification and is projected to bring approval times from 21 days to under 48 hours, based on usability testing with real users on prototypes.</p>
 </section>
 <!-- Key Insights / Principles -->
 <section class="mb-section-gap tonal-block p-8 md:p-12 rounded-xl">
 <h2 class="font-headline-md text-headline-md text-white mb-6">Strategic Principles</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mt-12">
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">01</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">01</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Radical Transparency</h3>
-<p class="font-body-md text-body-md text-white/70">Every on-chain event must be surfaced with clear provenance to build institutional confidence.</p>
+<p class="font-body-md text-body-md text-white/70">Every transaction recorded on the ledger must be traceable back to its source to build institutional confidence.</p>
 </div>
 <div>
-<span class="font-label-caps text-label-caps text-white/40 block mb-2">02</span>
+<span class="font-label-caps text-label-caps text-white/60 block mb-2">02</span>
 <h3 class="font-body-lg text-body-lg text-white mb-3">Minimized Latency</h3>
 <p class="font-body-md text-body-md text-white/70">Automated triggers replace manual loan servicing, reducing the funding gap from weeks to seconds.</p>
 </div>
@@ -307,51 +323,115 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">02. User Experience</h2>
 <h3 class="font-headline-md text-headline-md text-primary mb-8">Designing for Trust</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Problem Statement: How do we make blockchain credentials feel as familiar and secure as a physical black card? The solution was the "Global Pass"—a visual anchor for the ecosystem's identity system.</p>
+
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">The question I kept coming back to: how do you make a blockchain credential feel as ordinary as a card from a bank you've used for years? Anything that looked like a crypto app signalled the opposite of stability — and both audiences wanted stability far more than they wanted novelty.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">The answer was the <strong>Global Pass</strong> — a single verifiable identity credential, visually anchored in the language of premium banking rather than crypto wallets. Borrowers verify once, then share cryptographically signed proofs instead of resubmitting documents.</p>
+<img src="images/dosb_invest_flow.png" alt="Two-step investment flow: the fund detail screen gates investing behind creating a Global Pass, stating the three-minute cost up front; the confirmation screen then shows the order signed with that credential, noting counterparties see the proof rather than the underlying documents" class="w-full h-auto rounded-lg border border-outline-variant mb-12 shadow-sm" />
 <div class="mb-16 border-l-4 border-primary pl-6 py-2 bg-surface-container-low">
-<p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> Diverse-owned small businesses repeatedly underwent redundant and invasive KYC audits across multiple lending platforms, presenting privacy concerns and operational friction.</p>
-<p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> A single-sign-on decentralized identity pass allowed owners to verify credentials once and share secure cryptographically-signed proofs, increasing application completions by 50%.</p>
+<p class="font-body-md text-on-surface"><strong>Projected result:</strong> verifying once rather than per-platform is projected to raise application completions 50%, based on prototype usability testing.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-6">
 <h4 class="font-label-caps text-label-caps uppercase text-secondary">Tiered Identity</h4>
-<p >I defined four distinct tiers of access: Personal, Business, Verified+, and Corporate. Each carries its own set of smart contract permissions, allowing for progressive disclosure of complex financial tools.</p>
+<p >I defined four distinct tiers of access: Personal, Business, Verified+, and Corporate. Each tier automatically unlocks its own permissions — enforced by code on the ledger itself rather than manual approval — allowing for progressive disclosure of complex financial tools.</p>
 </div>
 <div class="space-y-6">
 <h4 class="font-label-caps text-label-caps uppercase text-secondary">Visual Strategy</h4>
-<p >By using sophisticated textures and high-end typographic treatments, we established a sense of stability and prestige—moving away from the "crypto-aesthetic" toward institutional maturity.</p>
+<p >Texture and typographic treatment carry the signal of institutional maturity, deliberately away from the crypto aesthetic.</p>
 </div>
 </div>
 
+<!-- Tiered Identity Visual: Global Pass, four material tiers -->
+<div class="mt-16">
+  <div
+    role="img"
+    aria-label="Four tiers of the Global Pass credential, shown as physical cards. Personal in gold, Business in brushed silver, Verified+ in dark charcoal, and Corporate in matte black. Each card carries a GP monogram top left, a verified shield icon top right, the word VERIFIED, the tier name, and 'Held by Meridian Bank' at the base."
+    class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+  >
+    <!-- Personal — Gold -->
+    <div class="relative aspect-[3/4.4] rounded-2xl p-4 sm:p-5 flex flex-col justify-between text-white overflow-hidden ring-1 ring-black/10 shadow-md" style="background: linear-gradient(135deg, rgba(255,255,255,0.45), transparent 42%), linear-gradient(150deg, #f7dd8c 0%, #d3a125 42%, #f5d67e 68%, #a97e14 100%);">
+      <div class="relative flex items-start justify-between">
+        <span class="font-bold text-base sm:text-lg tracking-tight" aria-hidden="true">GP</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="relative">
+        <div class="text-[18px] sm:text-[24px] font-bold tracking-[0.1em] leading-none mb-3 sm:mb-4" aria-hidden="true">VERIFIED</div>
+        <div class="text-[11px] sm:text-sm font-semibold tracking-wide uppercase leading-tight" aria-hidden="true">Personal<br>Account</div>
+      </div>
+      <div class="relative text-[8px] sm:text-[10px] font-medium tracking-[0.15em] uppercase opacity-90 leading-tight" aria-hidden="true">Held by<br>Meridian Bank</div>
+    </div>
+
+    <!-- Business — Brushed Silver -->
+    <div class="relative aspect-[3/4.4] rounded-2xl p-4 sm:p-5 flex flex-col justify-between text-white overflow-hidden ring-1 ring-black/10 shadow-md" style="background: linear-gradient(135deg, rgba(255,255,255,0.5), transparent 42%), repeating-linear-gradient(115deg, rgba(255,255,255,0.14) 0px, rgba(255,255,255,0.14) 1px, transparent 1px, transparent 3px), linear-gradient(150deg, #ececec 0%, #a9a9a9 42%, #dcdcdc 68%, #8c8c8c 100%);">
+      <div class="relative flex items-start justify-between">
+        <span class="font-bold text-base sm:text-lg tracking-tight" aria-hidden="true">GP</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="relative">
+        <div class="text-[18px] sm:text-[24px] font-bold tracking-[0.1em] leading-none mb-3 sm:mb-4" aria-hidden="true">VERIFIED</div>
+        <div class="text-[11px] sm:text-sm font-semibold tracking-wide uppercase leading-tight" aria-hidden="true">Business<br>Account</div>
+      </div>
+      <div class="relative text-[8px] sm:text-[10px] font-medium tracking-[0.15em] uppercase opacity-90 leading-tight" aria-hidden="true">Held by<br>Meridian Bank</div>
+    </div>
+
+    <!-- Verified+ — Dark Charcoal -->
+    <div class="relative aspect-[3/4.4] rounded-2xl p-4 sm:p-5 flex flex-col justify-between text-white overflow-hidden ring-1 ring-white/10 shadow-md" style="background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 45%), linear-gradient(150deg, #565656 0%, #2a2a2a 45%, #454545 70%, #1c1c1c 100%);">
+      <div class="relative flex items-start justify-between">
+        <span class="font-bold text-base sm:text-lg tracking-tight" aria-hidden="true">GP</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="relative">
+        <div class="text-[18px] sm:text-[24px] font-bold tracking-[0.1em] leading-none mb-3 sm:mb-4" aria-hidden="true">VERIFIED</div>
+        <div class="text-[11px] sm:text-sm font-semibold tracking-wide uppercase leading-tight" aria-hidden="true">Verified+<br>Account</div>
+      </div>
+      <div class="relative text-[8px] sm:text-[10px] font-medium tracking-[0.15em] uppercase opacity-90 leading-tight" aria-hidden="true">Held by<br>Meridian Bank</div>
+    </div>
+
+    <!-- Corporate — Matte Black -->
+    <div class="relative aspect-[3/4.4] rounded-2xl p-4 sm:p-5 flex flex-col justify-between text-white overflow-hidden ring-1 ring-white/10 shadow-md" style="background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 45%), linear-gradient(150deg, #262626 0%, #0a0a0a 50%, #1a1a1a 75%, #000000 100%);">
+      <div class="relative flex items-start justify-between">
+        <span class="font-bold text-base sm:text-lg tracking-tight" aria-hidden="true">GP</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="relative">
+        <div class="text-[18px] sm:text-[24px] font-bold tracking-[0.1em] leading-none mb-3 sm:mb-4" aria-hidden="true">VERIFIED</div>
+        <div class="text-[11px] sm:text-sm font-semibold tracking-wide uppercase leading-tight" aria-hidden="true">Corporate<br>Account</div>
+      </div>
+      <div class="relative text-[8px] sm:text-[10px] font-medium tracking-[0.15em] uppercase opacity-90 leading-tight" aria-hidden="true">Held by<br>Meridian Bank</div>
+    </div>
+  </div>
+  <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-4">Personal · Business · Verified+ · Corporate — each tier automatically unlocking more permissions.</p>
+</div>
 
 
-<!-- Wells Pass Creation & Usage -->
+
+<!-- Global Pass Creation & Usage -->
 <div class="mt-24 pt-16 border-t border-outline-variant space-y-16">
   
   <!-- Section 1 -->
   <div>
-    <h3 class="font-headline-md text-headline-md text-primary mb-2">How Wells Pass is Created</h3>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">How the Global Pass is Created</h3>
     <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-8">Small Business Owner</h4>
 
     <div class="space-y-8">
       <!-- Flow 1 -->
       <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Wells pass</div>
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Global Pass</div>
         <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
           <span class="font-medium bg-surface-container px-3 py-1 rounded">Login</span>
           <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
           <div class="flex flex-col items-center">
-            <span class="text-blue-600 font-medium text-[10px] mb-1">Get a Wells Pass</span>
+            <span class="text-blue-600 font-medium text-[10px] mb-1">Get a Global Pass</span>
             <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
               <div class="flex justify-between items-center text-[5px] font-bold">
-                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">GP</div>
                 <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
               </div>
               <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
               <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
                 <div>Effective<br>23 Mar 2020</div>
                 <div class="mt-1">Issued<br>23 Mar 2020</div>
-                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+                <div class="mt-1 font-bold">Held By<br>Meridian Bank</div>
               </div>
             </div>
           </div>
@@ -374,14 +454,14 @@
             <span class="text-blue-600 font-medium text-[10px] mb-1">Consent to use Pass</span>
             <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
               <div class="flex justify-between items-center text-[5px] font-bold">
-                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">GP</div>
                 <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
               </div>
               <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
               <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
                 <div>Effective<br>23 Mar 2020</div>
                 <div class="mt-1">Issued<br>23 Mar 2020</div>
-                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+                <div class="mt-1 font-bold">Held By<br>Meridian Bank</div>
               </div>
             </div>
           </div>
@@ -398,13 +478,13 @@
 
   <!-- Section 2 -->
   <div>
-    <h3 class="font-headline-md text-headline-md text-primary mb-2">Where Wells Pass is Used</h3>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">Where the Global Pass is Used</h3>
     <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-8">Investor</h4>
 
     <div class="space-y-8">
       <!-- Flow 3 -->
       <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Wells pass</div>
+        <div class="font-label-caps text-label-caps uppercase text-secondary w-32 shrink-0">Get a Global Pass</div>
         <div class="flex flex-wrap items-center gap-3 font-body-md text-sm text-on-surface">
           <span class="font-medium bg-surface-container px-3 py-1 rounded">Login</span>
           <span class="material-symbols-outlined text-outline-variant text-sm">arrow_forward_ios</span>
@@ -414,14 +494,14 @@
             <span class="text-blue-600 font-medium text-[10px] mb-1">Get Pass to Invest</span>
             <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
               <div class="flex justify-between items-center text-[5px] font-bold">
-                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">GP</div>
                 <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
               </div>
               <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
               <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
                 <div>Effective<br>23 Mar 2020</div>
                 <div class="mt-1">Issued<br>23 Mar 2020</div>
-                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+                <div class="mt-1 font-bold">Held By<br>Meridian Bank</div>
               </div>
             </div>
           </div>
@@ -444,14 +524,14 @@
             <span class="text-blue-600 font-medium text-[10px] mb-1">Confirm with Pass</span>
             <div class="bg-[#FACC15] rounded p-2 shadow-sm w-16 h-24 flex flex-col justify-between border-t border-l border-white/50 relative z-10">
               <div class="flex justify-between items-center text-[5px] font-bold">
-                <div class="bg-black text-white px-1 py-[1px] rounded-sm">WF</div>
+                <div class="bg-black text-white px-1 py-[1px] rounded-sm">GP</div>
                 <div class="flex items-center gap-[2px]"><span class="material-symbols-outlined text-[6px]">verified_user</span> verified</div>
               </div>
               <div class="text-[8px] font-bold text-black uppercase leading-tight mt-1">Personal<br>Pass</div>
               <div class="text-[4px] text-black/80 mt-auto uppercase font-medium leading-tight">
                 <div>Effective<br>23 Mar 2020</div>
                 <div class="mt-1">Issued<br>23 Mar 2020</div>
-                <div class="mt-1 font-bold">Held By<br>Wells Fargo</div>
+                <div class="mt-1 font-bold">Held By<br>Meridian Bank</div>
               </div>
             </div>
           </div>
@@ -477,11 +557,11 @@
 <section class="mb-section-gap">
 <h2 class="font-label-caps text-label-caps text-white/60 mb-4 uppercase tracking-widest">03. Governance Systems</h2>
 <h3 class="font-headline-md text-headline-md text-white mb-8">Asynchronous Collaboration</h3>
-<p class="font-body-md text-body-md text-white/70 mb-16">Institutional participation in DOSB funds requires constant consensus. I designed a "Dual-Level Proxy Voting System" that integrates governance directly into the financial dashboard.</p>
+<p class="font-body-md text-body-md text-white/70 mb-16">Institutional money doesn't move without agreement, and agreement takes time nobody has. So I put voting where the money already is — inside the dashboard, next to the holding it affects — instead of in a separate governance tool people would forget to open.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 <div class="tonal-block p-8 rounded-xl border border-white/10 space-y-4">
 <div class="flex items-center justify-between mb-4">
-<span class="font-label-caps text-label-caps text-white/40">Voting Module v1.2</span>
+<span class="font-label-caps text-label-caps text-white/60">Voting Module v1.2</span>
 <span class="material-symbols-outlined text-secondary">how_to_vote</span>
 </div>
 <h5 class="font-headline-md text-[24px] text-white">Yield Strategy: SBIC-04</h5>
@@ -490,21 +570,23 @@
 <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
 <div class="bg-secondary h-full w-[72%]"></div>
 </div>
-<div class="flex justify-between font-label-caps text-[10px] text-white/40 uppercase tracking-tighter">
+<div class="flex justify-between font-label-caps text-[10px] text-white/60 uppercase tracking-tighter">
 <span >Approve (72%)</span>
 <span >Reject (28%)</span>
 </div>
 </div>
 </div>
 <div class="space-y-6">
-<p class="font-body-md text-white/70">I placed voting modules directly alongside real-time Net Asset Value (NAV) and yield charts. This ensures that every decision is backed by current on-chain data, reducing friction for time-constrained fund managers.</p>
+<p class="font-body-md text-white/70">I placed voting modules directly alongside real-time Net Asset Value (NAV) and yield charts. This ensures that every decision is backed by current data straight from the ledger, reducing friction for time-constrained fund managers.</p>
 <ul class="editorial-list font-body-md text-white/70">
-<li >Automated smart contract triggers upon vote resolution.</li>
-<li >Zero-knowledge proof identity verification for voters via Global Pass.</li>
+<li >Once a vote is resolved, the outcome is carried out automatically — no manual step required.</li>
+<li >Voters verify their identity via Global Pass without exposing any of their private data.</li>
 <li >Real-time sentiment tracking for upcoming liquidity events.</li>
 </ul>
 </div>
 </div>
+<img src="images/dosb_proxy_voting.png" alt="Proxy voting opened from the profile panel over the fund dashboard. Live polls shows an empty state when nothing is open for voting, while past polls stay readable — a closed board-appointment vote is expanded to show each candidate's share of the vote, with two further resolved polls collapsed beneath it" class="w-full h-auto rounded-lg border border-white/10 mt-16 shadow-sm" />
+<p class="font-body-md text-body-md text-white/60 italic mt-4">Voting sits under the user's profile, next to their credentials, rather than in a separate governance tool — so the decision happens where the holding is already visible. Closed polls stay on the record with their result intact, so a decision can be checked later without leaving the platform. Screens redrawn with client branding and data removed.</p>
 </section>
 
 </div>
@@ -519,25 +601,54 @@
     <div class="space-y-8">
       <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
         <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">01. Portfolio Overview</h4>
-        <p class="font-body-md text-on-surface-variant mb-4">A modern AlphaAsset dashboard providing real-time valuation, net liquidity metrics, and a detailed breakdown of active accounts.</p>
-        <p class="font-body-md text-on-surface"><strong>The Problem Detail:</strong> The administration dashboard had high data complexity, leading to loan officers missing critical risk alerts and failing to route capital efficiently to applicants.</p>
-        <p class="font-body-md text-on-surface mt-2"><strong>The Impact Detail:</strong> Redesigning the dashboard visual hierarchy with clean status grids and clear capital allocation workflows reduced loan routing errors by 90%.</p>
+        <p class="font-body-md text-on-surface-variant mb-4">Real-time valuation, net liquidity, and active account breakdown.</p>
+        <p class="font-body-md text-on-surface">The original admin dashboard buried risk alerts in data density — loan officers missed them and routed capital inefficiently. Restructuring the hierarchy around clean status grids and explicit allocation workflows is projected to cut loan routing errors 90%, based on usability testing.</p>
+        <img src="images/dosb_portfolio_overview.png" alt="Portfolio overview screen: net balance with a one-year actual and forecast chart, money in and out by category, and an accounts rail listing the Social Impact Fund alongside internal and external cash accounts, with an attention-required panel surfacing accounts below minimum" class="w-full h-auto rounded-lg border border-outline-variant mt-8 shadow-sm" />
       </div>
 
       <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
         <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">02. Notifications Center</h4>
         <p class="font-body-md text-on-surface-variant">A centralized hub for security alerts, market updates, and compliance requirements to ensure investors stay informed.</p>
+        <img src="images/dosb_notifications.png" alt="Notifications panel open over the dashboard, showing dated alerts for a fund opportunity, a prompt to create Global Pass credentials, and a closing proxy vote — each with a single explicit next action" class="w-full h-auto rounded-lg border border-outline-variant mt-8 shadow-sm" />
       </div>
 
       <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
-        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">03. My Wells Pass Management</h4>
+        <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">03. Pass Management</h4>
         <p class="font-body-md text-on-surface-variant">Active pass management showing the user's institutional identity clusters, hardware key authentication, and active proxy levels.</p>
+        <img src="images/dosb_pass_management.png" alt="Global Pass credential screen showing the Personal, Business and Corporate tiers as physical-looking cards, with the security, convenience and auditability benefits stated alongside an explicit consent checkbox" class="w-full h-auto rounded-lg border border-outline-variant mt-8 shadow-sm" />
       </div>
       
       <div class="bg-surface-container rounded-xl p-6 md:p-8 border border-outline-variant/30">
         <h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">04. Ecosystem Details</h4>
-        <p class="font-body-md text-on-surface-variant">Further deep-dive analytics for high-value on-chain transactions and institutional data.</p>
+        <p class="font-body-md text-on-surface-variant">Further deep-dive analytics for high-value ledger transactions and institutional data.</p>
+        <img src="images/dosb_fund_detail.png" alt="Fund detail screen combining holding value and intraday chart, NAV with buy, sell and trade actions, a live proxy vote, the ledger transaction history, and a loan-book performance breakdown by outstanding, paid off and defaulted" class="w-full h-auto rounded-lg border border-outline-variant mt-8 shadow-sm" />
       </div>
+    </div>
+    <p class="font-body-md text-on-surface-variant italic mt-8">Screens are redrawn from the originals with the client's branding and data removed — the project is under NDA and remains at pilot stage, not shipped. Layout, hierarchy and interaction model are as designed.</p>
+  </section>
+</div>
+<!-- Results -->
+<div class="py-section-gap px-margin-standard max-w-container-max mx-auto w-full">
+  <section class="mb-section-gap">
+    <h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase tracking-widest">05. Results</h2>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">Outcomes</h3>
+    <p class="font-body-md text-on-surface-variant mb-8 italic">The three performance metrics below are projected, based on usability testing with real users on working prototypes — not yet measured in production.</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left font-body-md border-collapse">
+        <thead>
+          <tr class="border-b-2 border-primary">
+            <th class="py-4 font-medium text-primary w-1/3">Metric</th>
+            <th class="py-4 font-medium text-on-surface-variant w-1/3">Before</th>
+            <th class="py-4 font-medium text-secondary w-1/3">After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Loan approval time (Projected)</td><td class="py-4 text-on-surface-variant">21 days</td><td class="py-4 text-secondary font-medium">Under 48 hours</td></tr>
+          <tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Application completions (Projected)</td><td class="py-4 text-on-surface-variant">—</td><td class="py-4 text-secondary font-medium">↑ 50%</td></tr>
+          <tr class="border-b border-surface-variant"><td class="py-4 text-on-surface font-medium">Loan routing errors (Projected)</td><td class="py-4 text-on-surface-variant">—</td><td class="py-4 text-secondary font-medium">↓ 90%</td></tr>
+          <tr><td class="py-4 text-on-surface font-medium">Identity verification (KYC)</td><td class="py-4 text-on-surface-variant">Repeated per platform</td><td class="py-4 text-secondary font-medium">Once, reusable</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 </div>
@@ -547,8 +658,9 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-8">Retrospective &amp; Impact</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-body-md text-body-md text-on-surface">
 <div class="space-y-4">
-<p >By grounding the backend complexity of Distributed Ledger Technology in familiar visual metaphors like the "Global Pass," we successfully established a bridge for capital that previously felt inaccessible. I focused on making the "systemic architecture" invisible, allowing users to focus on what matters: capital and growth.</p>
-<p >The result was a decrease in onboarding friction and an increase in institutional trust. This project proved that for senior UX practitioners, our job isn't just to make things usable—it's to make them equitable.</p>
+<p >Grounding the backend complexity of DLT in a familiar credential made a capital bridge usable from both ends — by borrowers who had been shut out, and by investors who had stayed away. The systemic architecture works best when it is invisible; what users should be thinking about is capital and growth.</p>
+<p >The wider lesson holds beyond this project: at a senior level, restructuring the protocol changes the outcome, not just the interface.</p>
+<p >The trade-off worth naming: hiding the DLT layer behind the Global Pass made the experience approachable for borrowers, but some institutional users wanted more visibility into the underlying mechanics — transparency and trust in the technology itself, not just the credential wrapped around it. If I revisited this, I'd add an optional way to inspect the underlying ledger data for that audience rather than treating that simplification as one-size-fits-all.</p>
 </div>
 <div class="tonal-block p-8 flex flex-col justify-start rounded-xl">
 <h3 class="font-body-lg text-body-lg text-primary mb-4">Architecture as Equity.</h3>
@@ -567,12 +679,12 @@
         <span class="tag">Research</span>
       </div>
       <h2 class="font-headline-lg text-headline-lg text-primary mb-3">Transforming a Design System</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-6">From a component library into a productivity platform. How strategic opinionation reduced designer decision fatigue and cut handoff friction by 90%.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">From a component library into a productivity platform. How strategic opinionation reduced designer decision fatigue and cut table customisation time 75%.</p>
       <div class="flex items-center justify-between">
         <div class="flex gap-6 font-label-caps text-label-caps text-on-surface-variant">
-          <span>Senior UX Lead</span>
+          <span>Senior Product Designer</span>
           <span class="text-outline-variant">·</span>
-          <span>Enterprise Tooling</span>
+          <span>4 Months</span>
         </div>
         <span class="material-symbols-outlined text-primary">arrow_forward</span>
       </div>
@@ -584,14 +696,12 @@
 <footer class="w-full bg-surface border-t border-outline-variant py-16">
 <div class="flex flex-col md:flex-row justify-between items-center gap-element-gap px-margin-standard max-w-container-max mx-auto w-full">
 <div class="text-left">
-<div class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-1">A. Morgan</div>
-<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest opacity-60">© 2026 Systems Designer Retrospective</p>
-    <p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mt-2">This website is vibecoded</p>
-</div>
+<div class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-1">Chen</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">© 2026 Chen — Senior Product Design Portfolio. All rights reserved.</p></div>
 <div class="flex gap-8">
-<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="#">Index</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="https://www.linkedin.com/in/chenthuran-ilango-aa2026b7/">LinkedIn</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="#">Curriculum Vitae</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="mailto:chencse@gmail.com">Email</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" href="files/Chenthuran-Ilango-Resume.pdf" download>Résumé</a>
 </div>
 </div>
 </footer>
@@ -879,8 +989,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function mdBold(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+
   function formatAIResponse(text) {
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    // Model output is untrusted: escape it, then re-introduce only the
+    // formatting we intend (bold, bullets, links).
+    const lines = mdBold(escapeHtml(text)).split('\n').map(l => l.trim()).filter(l => l.length > 0);
     let html = '';
 
     lines.forEach(line => {
