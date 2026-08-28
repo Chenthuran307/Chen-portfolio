@@ -53,39 +53,24 @@ class handler(BaseHTTPRequestHandler):
                 method="POST"
             )
 
-            # Diagnostics are only attached when the caller explicitly asks for
-            # them (?debug=1). Visitors never see them, and the key is never
-            # echoed back — only whether one is present and how long it is.
-            want_debug = "debug=1" in (self.path or "")
-            debug = {
-                "model": MODEL,
-                "key_present": bool(NVIDIA_API_KEY),
-                "key_len": len(NVIDIA_API_KEY or ""),
-                "key_prefix": (NVIDIA_API_KEY or "")[:6],
-            }
-
-            # Direct sync request for serverless function
+            # Direct sync request for serverless function.
+            # Failures are logged to the Vercel function logs, never surfaced
+            # to the visitor beyond a friendly message.
             try:
                 with urllib.request.urlopen(req, timeout=25) as resp:
                     result = json.loads(resp.read().decode("utf-8"))
                 reply = result["choices"][0]["message"]["content"].strip()
-                debug["upstream"] = 200
             except urllib.error.HTTPError as e:
                 error_body = e.read().decode("utf-8")
+                # 401 here almost always means NVIDIA_API_KEY is missing from
+                # the Production environment in Vercel.
                 print(f"API Error {e.code}: {error_body}")
-                debug["upstream"] = e.code
-                debug["upstream_body"] = error_body[:300]
                 reply = "I'm having trouble reaching the AI right now. Please try again in a moment, or visit the Contact page directly."
             except Exception as e:
                 print(f"Connection Error: {e}")
-                debug["upstream"] = "connection_error"
-                debug["upstream_body"] = str(e)[:300]
                 reply = "Sorry, I timed out. Please try again shortly."
 
-            out = {"reply": reply}
-            if want_debug:
-                out["debug"] = debug
-            self._send_json(200, out)
+            self._send_json(200, {"reply": reply})
 
         except Exception as e:
             print(f"Server error: {e}")
