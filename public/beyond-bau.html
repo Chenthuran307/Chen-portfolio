@@ -108,15 +108,15 @@
           <div class="space-y-4 mb-8">
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
-              <p class="font-body-md text-on-surface-variant">Figma comment threads lack organization and sentiment categorization, creating a manual triage bottleneck during team reviews.</p>
+              <p class="font-body-md text-on-surface-variant">After a heavy review, a Figma file is a few hundred loose comments. Someone has to read all of them and work out which are bugs, which are copy, and which are questions.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
-              <p class="font-body-md text-on-surface-variant">An LLM-powered Figma plugin that automatically aggregates and tags comments by category (e.g. UX bug, copy suggestion) and priority.</p>
+              <p class="font-body-md text-on-surface-variant">A Figma plugin that reads the comments and files them by type and priority — UI bug, copy fix, open question.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
-              <p class="font-body-md text-primary font-medium">Reduced critique triage and action-item review times by 40%.</p>
+              <p class="font-body-md text-primary font-medium">Took about 40% off the time spent sorting a critique.</p>
             </div>
           </div>
         </div>
@@ -138,15 +138,15 @@
           <div class="space-y-4 mb-8">
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
-              <p class="font-body-md text-on-surface-variant">The reasoning behind design pivots is frequently lost in Slack chats or old Figma versions, causing alignment issues months down the line.</p>
+              <p class="font-body-md text-on-surface-variant">Why a design changed lives in a Slack thread or an old Figma version. Six months later nobody can find it, so the same argument gets had again.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
-              <p class="font-body-md text-on-surface-variant">A Figma canvas annotation plugin synced directly with centralized documentation workspaces (Notion/GitHub) via webhooks.</p>
+              <p class="font-body-md text-on-surface-variant">A plugin that lets you write the reason down on the canvas, and pushes it to Notion and GitHub at the same time.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
-              <p class="font-body-md text-primary font-medium">Improved documentation standards and reduced onboarding overhead for new designers and developers.</p>
+              <p class="font-body-md text-primary font-medium">New designers and developers stopped having to ask why things ended up the way they did.</p>
             </div>
           </div>
         </div>
@@ -197,15 +197,15 @@
           <div class="space-y-4 mb-8">
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
-              <p class="font-body-md text-on-surface-variant">Growing team sizes and mismatched communication preferences created friction and alignment gaps during co-design sessions.</p>
+              <p class="font-body-md text-on-surface-variant">The team got bigger and critiques got worse. The same feedback, delivered the same way, was landing completely differently depending on who was hearing it.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was done</h4>
-              <p class="font-body-md text-on-surface-variant">Facilitated an interactive workshop based on the book <strong>Surrounded by Idiots</strong>. Administered surveys to map communication trait colors and strengths.</p>
+              <p class="font-body-md text-on-surface-variant">Ran a workshop off the back of <strong>Surrounded by Idiots</strong>, with a survey beforehand to map how each person prefers to be talked to.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
-              <p class="font-body-md text-primary font-medium">Delivered trait reports to leadership; insights were shared with senior management to form tailored collaboration structures.</p>
+              <p class="font-body-md text-primary font-medium">Leadership got the profiles and used them to rethink how the teams were put together. Critiques got easier almost immediately.</p>
             </div>
           </div>
         </div>
@@ -227,15 +227,15 @@
           <div class="space-y-4 mb-8">
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">The Problem</h4>
-              <p class="font-body-md text-on-surface-variant">Designers and developers waste time cross-referencing design tokens, content rules, and accessibility docs, leading to handoff issues.</p>
+              <p class="font-body-md text-on-surface-variant">Design values, content rules and accessibility requirements live in three different places. Checking all three every time is slow, so people stop checking.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">What was built</h4>
-              <p class="font-body-md text-on-surface-variant">An AI copilot equipped with component, content, and accessibility specs. Supports screen uploads to detect design issues, handles general design doubts, and answers developer queries on pattern specs.</p>
+              <p class="font-body-md text-on-surface-variant">An assistant loaded with the component, content and accessibility specs. Upload a screen and it tells you what's off; ask it a question and it answers from the actual docs.</p>
             </div>
             <div>
               <h4 class="font-label-caps text-xs text-on-surface-variant tracking-wider uppercase mb-1">Outcome</h4>
-              <p class="font-body-md text-primary font-medium">Tested it with 10 designers, saving 30% of their time and allowing them to focus on user problems instead of findability issues.</p>
+              <p class="font-body-md text-primary font-medium">Tested with 10 designers. It gave back roughly 30% of the time they had been losing to looking things up.</p>
             </div>
           </div>
         </div>
@@ -324,16 +324,16 @@
     'comment-analyzer': {
       title: 'Comment Analyzer Plugin',
       tag: 'Productivity • AI • Figma Plugin',
-      problem: 'During intensive critiques, Figma design files often end up cluttered with hundreds of raw, unstructured feedback threads. Design leads and product managers spend hours sorting through, prioritizing, and assigning these comments to actionable review columns.',
-      built: 'Developed a custom Figma plugin leveraging the Figma Plugin API and OpenAI\'s completion endpoint. The plugin parses all comments inside specified frames or pages, analyzes their semantic intent and sentiment, and auto-categorizes them into groups: UI bugs, UX friction points, copy edits, and questions.',
-      outcome: 'Successfully deployed across the organization, reducing review triage overhead by 40% and ensuring developer blockers are resolved much faster.'
+      problem: 'A heavy critique leaves a Figma file with hundreds of loose comment threads. Someone then spends an afternoon reading all of them, deciding what each one actually is, and working out whose problem it is. That someone was usually me.',
+      built: 'A Figma plugin built on the plugin API with an OpenAI call behind it. It reads every comment on the frames you point it at, works out what each one is asking for, and files it as a UI bug, a UX friction point, a copy edit or a question.',
+      outcome: 'It went out across the org and took about 40% off triage time. The part that mattered more: the comments actually blocking a developer stopped sitting unread at the bottom of a thread.'
     },
     'decision-log': {
       title: 'Design Decision Log',
       tag: 'Knowledge Management • Productivity • Figma Plugin',
-      problem: 'Design choices (the "why" behind screen changes) are constantly made in ad-hoc Slack syncs or verbal calls. New developers and onboarding designers face friction understanding the historical context behind components, leading to design system drift.',
-      built: 'Built an annotation utility plugin inside Figma that allows designers to capture key decision rationales directly on the canvas. When saved, the plugin generates a visual decision tag on the canvas and simultaneously pushes the entry to a database in Notion and logs a markdown file to a GitHub repository.',
-      outcome: 'Drastically improved knowledge retention across teams, resulting in self-documenting features and a 50% reduction in alignment check-in meetings.'
+      problem: 'The reasoning behind a screen change gets settled in a Slack thread or on a call, and then it is gone. Anyone joining later sees the decision without the reason, works around it, and the system drifts.',
+      built: 'A Figma plugin for writing the reason down where the decision happened. Saving it drops a tag on the canvas, adds a row in Notion, and commits a markdown file to GitHub, so the reasoning survives the file being reorganised.',
+      outcome: 'Features started documenting themselves as they were built, and the meetings we were holding purely to re-establish context roughly halved.'
     },
     'system-research': {
       title: 'Design System Research',
@@ -345,16 +345,16 @@
     'team-workshop': {
       title: 'Team Personality Workshop',
       tag: 'Facilitation • Personality Analysis • Alignment',
-      problem: 'Rapid scaling of the design organization led to communication friction, misunderstood design critiques, and alignment gaps during cross-functional design sprints.',
-      built: 'Designed, coordinated, and facilitated an interactive personality traits workshop for 20 team members based on the framework in the book <strong>Surrounded by Idiots</strong>. Conducted pre-workshop assessments to map individuals into Red (Dominance), Yellow (Influence), Green (Steadiness), and Blue (Compliance) communication styles, and generated a team-wide behavioral profile.',
-      outcome: 'Shared the workshop insights and reports with leadership and senior management. Guided teams to implement color-coded communication guidelines, resulting in faster alignment and reduced friction during critiques.'
+      problem: 'The design org grew fast and critiques started going sideways. The same piece of feedback would land as useful for one person and as an attack for another, and sprints stalled on it.',
+      built: 'Designed and ran a personality-traits workshop for 20 people, based on the framework in <strong>Surrounded by Idiots</strong>. Everyone did an assessment first, which sorted them into Red (dominance), Yellow (influence), Green (steadiness) and Blue (compliance), and that gave us a picture of the team as a whole rather than person by person.',
+      outcome: 'Leadership got the reports. Teams started using the colours as shorthand, and critiques stopped stalling on how something had been said.'
     },
     'system-assistant': {
       title: 'Design System Assistant Agent',
       tag: 'AI Agent • Design Systems • Accessibility',
-      problem: 'Designers and developers spend valuable hours manually cross-referencing design tokens, content guidelines, and accessibility documentation, leading to compliance errors.',
-      built: 'Built an intelligent design system copilot pre-loaded with component specs, content guidelines, and accessibility rules. Empowered users to upload screenshots to diagnose design system compliance, resolve design system/content/accessibility questions, and answer developer questions on component and pattern implementation.',
-      outcome: 'Tested the assistant with 10 designers, saving 30% of their time and allowing them to focus on user problems instead of findability issues.'
+      problem: 'Design values, content guidelines and accessibility documentation each live somewhere different. Checking a screen against all three by hand takes long enough that people skip it, and things ship out of spec.',
+      built: 'An assistant pre-loaded with the component specs, content guidelines and accessibility rules. Upload a screenshot and it points out where the screen breaks the system; ask it a plain question about content or accessibility and it answers from the docs; ask how a pattern is meant to be implemented and it answers that too.',
+      outcome: 'Tested with 10 designers. It gave back roughly 30% of the time they had been losing to looking things up, which went back into the actual problem.'
     }
   };
 
@@ -368,7 +368,7 @@
     document.getElementById('drawer-tag').textContent = data.tag;
     document.getElementById('drawer-title').textContent = data.title;
     document.getElementById('drawer-problem').textContent = data.problem;
-    document.getElementById('drawer-built').textContent = data.built;
+    document.getElementById('drawer-built').innerHTML = data.built;
     document.getElementById('drawer-outcome').innerHTML = data.outcome;
 
     // Show backdrop & slide in drawer
