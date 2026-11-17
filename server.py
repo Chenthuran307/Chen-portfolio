@@ -151,6 +151,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
             return
 
+        if self.path == "/api/chat":
+            self._send_json(200, {
+                "status": "online",
+                "service": "Portfolio AI Assistant API",
+                "instruction": "Send a POST request with JSON body: {\"message\": \"your question\"} to chat with Chen's AI assistant."
+            })
+            return
+
         if self.path == "/api/dashboard/load":
             self._handle_load()
         elif self.path == "/api/dashboard/deploy-log":

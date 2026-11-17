@@ -22,6 +22,13 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
+    def do_GET(self):
+        self._send_json(200, {
+            "status": "online",
+            "service": "Portfolio AI Assistant API",
+            "instruction": "Send a POST request with JSON body: {\"message\": \"your question\"} to chat with Chen's AI assistant."
+        })
+
     def do_POST(self):
         content_length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_length)
