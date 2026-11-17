@@ -12,6 +12,7 @@ NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 MODEL = os.environ.get("NVIDIA_MODEL", "openai/gpt-oss-20b")
 
 from api.prompt_loader import get_system_prompt
+from api.local_responder import generate_local_response
 
 class handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
@@ -31,50 +32,56 @@ class handler(BaseHTTPRequestHandler):
             if not user_message:
                 raise ValueError("Empty message")
 
-            payload = json.dumps({
-                "model": MODEL,
-                "messages": [
-                    {"role": "system", "content": get_system_prompt()},
-                    {"role": "user", "content": user_message}
-                ],
-                "temperature": 0.5,
-                "max_tokens": 300,
-                "stream": False
-            }).encode("utf-8")
+            reply = None
 
-            req = urllib.request.Request(
-                NVIDIA_API_URL,
-                data=payload,
-                headers={
-                    "Authorization": f"Bearer {NVIDIA_API_KEY}",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                method="POST"
-            )
+            if NVIDIA_API_KEY:
+                payload = json.dumps({
+                    "model": MODEL,
+                    "messages": [
+                        {"role": "system", "content": get_system_prompt()},
+                        {"role": "user", "content": user_message}
+                    ],
+                    "temperature": 0.5,
+                    "max_tokens": 300,
+                    "stream": False
+                }).encode("utf-8")
 
-            # Direct sync request for serverless function.
-            # Failures are logged to the Vercel function logs, never surfaced
-            # to the visitor beyond a friendly message.
-            try:
-                with urllib.request.urlopen(req, timeout=25) as resp:
-                    result = json.loads(resp.read().decode("utf-8"))
-                reply = result["choices"][0]["message"]["content"].strip()
-            except urllib.error.HTTPError as e:
-                error_body = e.read().decode("utf-8")
-                # 401 here almost always means NVIDIA_API_KEY is missing from
-                # the Production environment in Vercel.
-                print(f"API Error {e.code}: {error_body}")
-                reply = "I'm having trouble reaching the AI right now. Please try again in a moment, or visit the Contact page directly."
-            except Exception as e:
-                print(f"Connection Error: {e}")
-                reply = "Sorry, I timed out. Please try again shortly."
+                req = urllib.request.Request(
+                    NVIDIA_API_URL,
+                    data=payload,
+                    headers={
+                        "Authorization": f"Bearer {NVIDIA_API_KEY}",
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    method="POST"
+                )
+
+                try:
+                    # Timeout at 6s to stay well below Vercel's 10s maximum execution limit
+                    with urllib.request.urlopen(req, timeout=6) as resp:
+                        result = json.loads(resp.read().decode("utf-8"))
+                    if result and "choices" in result and len(result["choices"]) > 0:
+                        reply = result["choices"][0]["message"]["content"].strip()
+                except urllib.error.HTTPError as e:
+                    error_body = e.read().decode("utf-8")
+                    print(f"API Error {e.code}: {error_body}. Activating local fallback.")
+                except Exception as e:
+                    print(f"Connection / Timeout Error: {e}. Activating local fallback.")
+
+            # Fallback to intelligent local responder if upstream is unavailable, unauthorized, or timed out
+            if not reply:
+                reply = generate_local_response(user_message)
 
             self._send_json(200, {"reply": reply})
 
         except Exception as e:
             print(f"Server error: {e}")
-            self._send_json(500, {"reply": "Something went wrong. Please try again."})
+            try:
+                local_reply = generate_local_response(user_message if 'user_message' in locals() and user_message else "")
+                self._send_json(200, {"reply": local_reply})
+            except Exception:
+                self._send_json(500, {"reply": "Something went wrong. Please try again."})
 
     def _send_json(self, code, data):
         body = json.dumps(data).encode("utf-8")

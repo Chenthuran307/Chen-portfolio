@@ -29,16 +29,14 @@ load_dotenv()
 
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 if not NVIDIA_API_KEY:
-    raise RuntimeError(
-        "NVIDIA_API_KEY environment variable is not set. "
-        "Set it in your shell or in a local .env file (NVIDIA_API_KEY=nvapi-...)."
-    )
+    print("Notice: NVIDIA_API_KEY is not set. Chat assistant will run via local intelligent responder.")
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 # NOTE: meta/llama-3.1-8b-instruct reached end-of-life 2026-08-26 and now returns HTTP 410.
 # Replaced with gpt-oss-20b (verified working, ~3-7s, respects the bullet format and guardrails).
 MODEL = os.environ.get("NVIDIA_MODEL", "openai/gpt-oss-20b")
 
 from api.prompt_loader import get_system_prompt
+from api.local_responder import generate_local_response
 
 # Deployment global state
 deploy_running = False
@@ -181,58 +179,69 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not user_message:
                 raise ValueError("Empty message")
 
-            payload = json.dumps({
-                "model": MODEL,
-                "messages": [
-                    {"role": "system", "content": get_system_prompt()},
-                    {"role": "user", "content": user_message}
-                ],
-                "temperature": 0.5,
-                "max_tokens": 300,
-                "stream": False
-            }).encode("utf-8")
+            reply = None
 
-            req = urllib.request.Request(
-                NVIDIA_API_URL,
-                data=payload,
-                headers={
-                    "Authorization": f"Bearer {NVIDIA_API_KEY}",
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                method="POST"
-            )
+            # Attempt cloud model if key is present
+            if NVIDIA_API_KEY:
+                payload = json.dumps({
+                    "model": MODEL,
+                    "messages": [
+                        {"role": "system", "content": get_system_prompt()},
+                        {"role": "user", "content": user_message}
+                    ],
+                    "temperature": 0.5,
+                    "max_tokens": 300,
+                    "stream": False
+                }).encode("utf-8")
 
-            result = None
-            error_msg = None
+                req = urllib.request.Request(
+                    NVIDIA_API_URL,
+                    data=payload,
+                    headers={
+                        "Authorization": f"Bearer {NVIDIA_API_KEY}",
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    method="POST"
+                )
 
-            def call_api():
-                nonlocal result, error_msg
-                try:
-                    with urllib.request.urlopen(req, timeout=25) as resp:
-                        result = json.loads(resp.read().decode("utf-8"))
-                except urllib.error.HTTPError as e:
-                    error_msg = f"HTTP {e.code}: {e.read().decode('utf-8')[:200]}"
-                except Exception as e:
-                    error_msg = str(e)
+                result = None
+                error_msg = None
 
-            t = threading.Thread(target=call_api)
-            t.start()
-            t.join(timeout=27)
+                def call_api():
+                    nonlocal result, error_msg
+                    try:
+                        with urllib.request.urlopen(req, timeout=5) as resp:
+                            result = json.loads(resp.read().decode("utf-8"))
+                    except urllib.error.HTTPError as e:
+                        error_msg = f"HTTP {e.code}: {e.read().decode('utf-8')[:200]}"
+                    except Exception as e:
+                        error_msg = str(e)
 
-            if result:
-                reply = result["choices"][0]["message"]["content"].strip()
-            elif error_msg:
-                print(f"API Error: {error_msg}")
-                reply = "I'm having trouble reaching the AI right now. Please try again in a moment, or reach out to Chen directly at chencse@gmail.com."
-            else:
-                reply = "The request timed out. Please try a shorter question or check back shortly."
+                t = threading.Thread(target=call_api)
+                t.start()
+                t.join(timeout=6)
+
+                if result and "choices" in result and len(result["choices"]) > 0:
+                    reply = result["choices"][0]["message"]["content"].strip()
+                elif error_msg:
+                    print(f"Upstream API Notice ({error_msg}). Falling back to intelligent local responder.")
+                else:
+                    print("Upstream API timed out. Falling back to intelligent local responder.")
+
+            # If upstream cloud call failed, timed out, or key is not set, use intelligent local responder
+            if not reply:
+                reply = generate_local_response(user_message)
 
             self._send_json(200, {"reply": reply})
 
         except Exception as e:
             print(f"Server error: {e}")
-            self._send_json(500, {"reply": "Something went wrong. Please try again."})
+            try:
+                local_reply = generate_local_response(user_message if 'user_message' in locals() and user_message else "")
+                self._send_json(200, {"reply": local_reply})
+            except Exception:
+                self._send_json(500, {"reply": "Something went wrong. Please try again."})
 
     def _handle_load(self):
         # 1. Read Hero Content, Projects, and Testimonials from index.html (or fallback to 01_home.html)
@@ -453,7 +462,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         print(f"[{self.address_string()}] {fmt % args}")
 
 
-socketserver.TCPServer.allow_reuse_address = True
-with socketserver.ThreadingTCPServer(("", PORT), Handler) as httpd:
-    print(f"Server running at http://localhost:{PORT}")
-    httpd.serve_forever()
+if __name__ == "__main__":
+    socketserver.TCPServer.allow_reuse_address = True
+    with socketserver.ThreadingTCPServer(("", PORT), Handler) as httpd:
+        print(f"Server running at http://localhost:{PORT}")
+        httpd.serve_forever()
