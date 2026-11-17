@@ -23,10 +23,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"primary-fixed": "#e5e2e1", "secondary-fixed": "#f5f3f3", "surface-variant": "#e4e2e2", "surface-container": "#efeded", secondary: "#000000", "surface-bright": "#fbf9f8", "on-background": "#1b1c1c", "primary-fixed-dim": "#c8c6c5", background: "#fbf9f8", "on-secondary-fixed": "#1b1c1c", "on-surface-variant": "#444748", "on-primary-fixed": "#1c1b1b", "on-tertiary": "#ffffff", "surface-container-highest": "#e4e2e2", tertiary: "#000000", surface: "#fbf9f8", "surface-container-high": "#eae8e7", "secondary-container": "#1b1c1c", "surface-dim": "#dbd9d9", "on-primary": "#ffffff", primary: "#000000", "tertiary-fixed": "#dce1ff", "tertiary-fixed-dim": "#b6c4ff", "surface-container-low": "#f5f3f3", "outline-variant": "#c4c7c7", error: "#ba1a1a", "on-surface": "#1b1c1c", "on-primary-container": "#858383", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#1c1b1b", outline: "#747878", "inverse-on-surface": "#f2f0f0", "on-secondary-container": "#1b1c1c"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"element-gap": "32px", "container-max": "1200px", "section-gap": "96px", "margin-standard": "24px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"body-xl-quote": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], "display-lg-mobile": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"primary-fixed": "#e5e2e1", "secondary-fixed": "#f5f3f3", "surface-variant": "#e4e2e2", "surface-container": "#efeded", secondary: "#000000", "surface-bright": "#fbf9f8", "on-background": "#1b1c1c", "primary-fixed-dim": "#c8c6c5", background: "#fbf9f8", "on-secondary-fixed": "#1b1c1c", "on-surface-variant": "#444748", "on-primary-fixed": "#1c1b1b", "on-tertiary": "#ffffff", "surface-container-highest": "#e4e2e2", tertiary: "#000000", surface: "#fbf9f8", "surface-container-high": "#eae8e7", "secondary-container": "#1b1c1c", "surface-dim": "#dbd9d9", "on-primary": "#ffffff", primary: "#000000", "tertiary-fixed": "#ffffff", "tertiary-fixed-dim": "#ffffff", "surface-container-low": "#f5f3f3", "outline-variant": "#c4c7c7", error: "#ba1a1a", "on-surface": "#1b1c1c", "on-primary-container": "#858383", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "primary-container": "#1c1b1b", outline: "#747878", "inverse-on-surface": "#f2f0f0", "on-secondary-container": "#1b1c1c"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"element-gap": "32px", "container-max": "1200px", "section-gap": "96px", "margin-standard": "24px", margin: "24px", md: "16px", xs: "4px", gutter: "16px", sm: "8px", base: "8px", lg: "24px", xl: "32px"}, fontFamily: {"body-xl-quote": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], "display-lg-mobile": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"]}, fontSize: {"body-xl-quote": ["28px", {lineHeight: "1.4", fontWeight: "400"}], "display-lg": ["72px", {lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "1.3", fontWeight: "600"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "display-lg-mobile": ["40px", {lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "600"}], "body-lg": ["20px", {lineHeight: "1.7", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "1.2", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500"}]}}}};
 </script>
 <style>
-  ::selection { background-color: #dce1ff; color: #000; }
+  ::selection { background-color: #ffffff; color: #000; }
 
   body { opacity: 0; animation: fadeIn 0.4s ease forwards; }
   @keyframes fadeIn { to { opacity: 1; } }
@@ -73,7 +73,7 @@
   .case-card {
     text-decoration: none;
     display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     border: 1px solid #c4c7c7;
   }
 
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; display:none; justify-content:center; align-items:center; opacity:0; transition:opacity 0.25s ease; padding:40px; cursor:zoom-out; box-sizing:border-box;';
     
     const imgElement = document.createElement('img');
-    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform:scale(0.98); transition:transform 0.25s ease;';
+    imgElement.style.cssText = 'max-width:100%; max-height:100%; object-fit:contain; border-radius:8px;  transform:scale(0.98); transition:transform 0.25s ease;';
     
     lightbox.appendChild(imgElement);
     document.body.appendChild(lightbox);
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <!-- Circular AI icon FAB -->
   <button id="chat-fab" onclick="toggleChat()" aria-label="Chat with Chen's AI"
-    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;flex-shrink:0;"
+    style="width:52px;height:52px;border-radius:50%;background:#1a1a1a;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s;flex-shrink:0;"
     onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.32)'"
     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.22)'">
     <span id="fab-icon" style="display:flex;align-items:center;justify-content:center;">
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div id="chat-backdrop" onclick="collapseExpanded()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1001;"></div>
 
 <!-- Chat Window -->
-<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;box-shadow:0 12px 40px rgba(0,0,0,0.14);flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
+<div id="chat-window" style="display:none;position:fixed;bottom:24px;right:96px;z-index:1002;width:360px;max-width:calc(100vw - 120px);background:#fff;border:1px solid #e0e0e0;flex-direction:column;font-family:'Inter',sans-serif;transition:all 0.3s ease;border-radius:6px;overflow:hidden;max-height:540px;">
 
   <!-- Header -->
   <div style="background:#1a1a1a;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
