@@ -250,7 +250,7 @@
   <h2 class="font-headline-md text-headline-md text-primary mb-6">Designing for Trust</h2>
   <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">The central question was how to make blockchain credentials feel as familiar and secure as a physical card from a bank you already use. Crypto-native interfaces signal the opposite of institutional stability, and both of my user groups needed stability more than novelty.</p>
   
-  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The answer was <span class="italic">[Global Pass — confirm the name; the live mockups say "Wells Pass," the copy says "Global Pass"]</span>: a single verifiable identity credential, visually anchored in the language of premium banking cards rather than crypto wallets. Borrowers verify once, then share cryptographically-signed proofs instead of re-submitting documents.</p>
+  <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The answer was <strong>Wells Pass</strong>: a single verifiable identity credential, visually anchored in the language of premium banking cards rather than crypto wallets. Borrowers verify once, then share cryptographically-signed proofs instead of re-submitting documents.</p>
 
   <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">Tiered access</h3>
   <p class="font-body-md text-on-surface-variant mb-4">Four tiers — Personal, Business, Verified+, and Corporate — each carrying its own smart contract permissions, so complex financial tools unlock progressively rather than confronting a first-time user all at once.</p>
@@ -259,6 +259,8 @@
   <div class="border-l-4 border-secondary pl-6 py-4 bg-surface-container-low mt-8">
     <p class="font-body-lg text-on-surface font-medium">Result: verifying once instead of per-platform raised application completions 50%.</p>
   </div>
+
+  <img src="images/dosb_invest_flow.png" alt="Two-step investment flow: the fund detail screen gates investing behind creating a Wells Pass, stating the three-minute cost up front; the confirmation screen then shows the order signed with that credential, noting counterparties see the proof rather than the underlying documents" class="w-full h-auto rounded-lg border border-outline-variant mt-8 mb-4 shadow-sm" />
 
   <!-- Wells Pass Creation & Usage -->
   <div class="mt-24 pt-16 border-t border-outline-variant space-y-16">
@@ -434,6 +436,9 @@
     <li>Zero-knowledge proof identity verification for voters through the pass.</li>
     <li>Real-time sentiment tracking ahead of liquidity events.</li>
   </ul>
+
+  <img src="images/dosb_proxy_voting.png" alt="Proxy voting opened from the profile panel over the fund dashboard. Live polls shows an empty state when nothing is open for voting, while past polls stay readable — a closed board-appointment vote is expanded to show each candidate's share of the vote, with two further resolved polls collapsed beneath it" class="w-full h-auto rounded-lg border border-outline-variant mt-8 shadow-sm" />
+  <p class="font-body-md text-body-md text-on-surface-variant italic mt-4">Voting sits under the user's profile, next to their credentials, rather than in a separate governance tool — so the decision happens where the holding is already visible. Closed polls stay on the record with their result intact, so a decision can be checked later without leaving the platform. Screens redrawn with client branding and data removed.</p>
 </section>
 
 <!-- Interfaces -->
@@ -443,26 +448,31 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
     <div class="bg-surface-container p-8">
       <h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Portfolio overview</h3>
-      <p class="font-body-md text-on-surface-variant">Real-time valuation, net liquidity, and active account breakdown. The original admin dashboard buried risk alerts in data density — loan officers were missing them and routing capital inefficiently. Restructuring the visual hierarchy around clean status grids and explicit allocation workflows cut loan routing errors 90%.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Real-time valuation, net liquidity, and active account breakdown. The original admin dashboard buried risk alerts in data density — loan officers were missing them and routing capital inefficiently. Restructuring the visual hierarchy around clean status grids and explicit allocation workflows cut loan routing errors 90%.</p>
+      <img src="images/dosb_portfolio_overview.png" alt="Portfolio overview screen: net balance with a one-year actual and forecast chart, money in and out by category, and an accounts rail listing the Social Impact Fund alongside internal and external cash accounts, with an attention-required panel surfacing accounts below minimum" class="w-full h-auto rounded-lg border border-outline-variant mt-4 shadow-sm" />
     </div>
 
     <div class="bg-surface-container p-8">
       <h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Notifications center</h3>
-      <p class="font-body-md text-on-surface-variant">One hub for security alerts, market updates, and compliance requirements.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">One hub for security alerts, market updates, and compliance requirements.</p>
+      <img src="images/dosb_notifications.png" alt="Notifications panel open over the dashboard, showing dated alerts for a fund opportunity, a prompt to create Wells Pass credentials, and a closing proxy vote — each with a single explicit next action" class="w-full h-auto rounded-lg border border-outline-variant mt-4 shadow-sm" />
     </div>
 
     <div class="bg-surface-container p-8">
       <h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Pass management</h3>
-      <p class="font-body-md text-on-surface-variant">Institutional identity clusters, hardware key authentication, active proxy levels.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Institutional identity clusters, hardware key authentication, active proxy levels.</p>
+      <img src="images/dosb_pass_management.png" alt="Wells Pass credential screen showing the Personal, Business and Corporate tiers as physical-looking cards, with the security, convenience and auditability benefits stated alongside an explicit consent checkbox" class="w-full h-auto rounded-lg border border-outline-variant mt-4 shadow-sm" />
     </div>
 
     <div class="bg-surface-container p-8">
       <h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Ecosystem detail</h3>
-      <p class="font-body-md text-on-surface-variant">Deep-dive analytics on high-value on-chain transactions.</p>
+      <p class="font-body-md text-on-surface-variant mb-4">Deep-dive analytics on high-value on-chain transactions.</p>
+      <img src="images/dosb_fund_detail.png" alt="Fund detail screen combining holding value and intraday chart, NAV with buy, sell and trade actions, a live proxy vote, the ledger transaction history, and a loan-book performance breakdown by outstanding, paid off and defaulted" class="w-full h-auto rounded-lg border border-outline-variant mt-4 shadow-sm" />
     </div>
   </div>
 
-  </section>
+  <p class="font-body-md text-on-surface-variant italic mt-8">Screens are redrawn from the originals with the client's branding and data removed — the project is under NDA and remains at pilot stage, not shipped. Layout, hierarchy and interaction model are as designed.</p>
+</section>
 
 <!-- Results -->
 <section class="mb-section-gap">
